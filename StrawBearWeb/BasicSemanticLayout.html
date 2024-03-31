@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本语义布局</title>
+    <link rel="stylesheet" href="1_CSS/Style.CSS">  <!--引入外部层叠样式表-->
+    <!-- <style>  // 这种叫做内部样式表,只在这个HTML有用
+        footer
+        {
+            font-size: 20pt;
+        }
+    </style> -->
+</head>
+<body>
+    <header>
+        <img src="0_Resoureces/icon/封面.png" alt="抬头图片" >
+        <h1>这是整个页面的描述抬头:这是一个学习用的网页,学习语义的基本布局</h1>
+    </header>
+    <nav>左侧导航栏,通常是导航链接,目录之类的</nav>
+    <aside>右侧侧边栏,通常是相关的内容</aside>
+    <article> <!--文章1-->
+        <div><!--div是divide划分的意思,就是分开的意思--></div>        
+        <section> <!--章节1-->
+            <header>章节1抬头</header>
+            <h2>具体的章节1内容写在这里</h2>
+            <h1>事件测试</h1>
+            <button type="button" onclick="alert('你点击了按钮')">按钮</button> <!--定义了button事件-->
+            <p style="color:green;">  <!--style表示这里是内联样式表段落1-->
+                这里的字会变成绿色
+                <h3>章节1的第一段</h3>
+            </p>
+            <p>  <!--段落1-->
+                <h3>章节1的第二段</h3>
+            </p>
+            <footer>章节1结果</footer>
+        </section>
+    </article>
+    <address>结构体:里面写地址,通常是最近的文章或者体的快速返回链接</address>    
+    <footer>底部页脚</footer>
+    <script>  // 这里面就是JavaScript语言了
+        // document.write(document.lastModified);  // 打印上一次的修改时间
+        now = new Date();  // 创建一个内置的Date类型的对象
+        localtime = now.toString();  // 本地时间
+        utctime = now.toGMTString();  // 国际标准时间UTC,本初子午线时间
+        document.write("<p><strong>Local time:</strong> " + localtime + "</p>");  // 使用document.write输出:转换成HTML文档输出
+        document.write("<p><strong>UTC time:</strong> " + utctime + "</p>");
+        hours = now.getHours();
+        mins = now.getMinutes();
+        secs = now.getSeconds();
+        document.write("<h2>" + hours + ":" + mins + ":" + secs + "</h2>");
+    </script>
+    <script src="2_JS/JavaScript.js"></script> <!--这样就引入了JavaScritpt脚本-->
+</body>
+</html>
