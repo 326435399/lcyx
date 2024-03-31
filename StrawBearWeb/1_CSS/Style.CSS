@@ -2,7 +2,7 @@ body
 {
     font-size: 12pt;
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-    color: green;
+    color: black;
     line-height: 14pt;
     padding-left: 5pt;
     padding-right: 5pt;
@@ -12,11 +12,9 @@ body
 
 h1,h2,h3,h4,h5,h6
 {
-    font: 14pt Verdana, Geneva, Arial, Helvetica, sans-serif;
+    font: Verdana, Geneva, Arial, Helvetica, sans-serif;
     font-weight: bold;
-    line-height: 20pt;
     text-align:center;
-    color: aquamarine;
 }
 
 p.subheader  
@@ -44,6 +42,37 @@ a:link, a.visited
 a:hover, a:active
 {
     color: #FF9933;
+}
+
+article 
+{
+    text-align: center;
+}
+
+section 
+{
+    text-align: center;
+}
+
+/*---------------------header相关的部分------------------------*/
+header 
+{
+    text-align: center;
+}
+
+header.big
+{
+    font-size:40px;
+}
+
+header.medium
+{
+    font-size:30px;
+}
+
+header.small
+{
+    font-size:15px;
 }
 
 footer
