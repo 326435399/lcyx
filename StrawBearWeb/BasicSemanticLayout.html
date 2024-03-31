@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>基本语义布局</title>
-    <link rel="stylesheet" href="1_CSS/Style.CSS">  <!--引入外部层叠样式表-->
-    <!-- <style>  // 这种叫做内部样式表,只在这个HTML有用
-        footer
-        {
-            font-size: 20pt;
-        }
-    </style> -->
+    <link rel="stylesheet" href="1_CSS/Style.css">
 </head>
 <body>
     <header>
@@ -27,7 +21,7 @@
             <h2>具体的章节1内容写在这里</h2>
             <h2>事件测试</h2>
             <button type="button" onclick="alert('你点击了按钮')">按钮</button> <!--定义了button事件-->
-            <p style="color:green;"><!--可以打注释嘛?--><strong>这里</strong>这里的字会变成绿色></p>
+            <p><!--可以打注释嘛?--><strong>这里</strong>这里的字会变成绿色></p>
             <p>章节1的第二段</p>
             <p>这样就正确了嘛?</p>
             <footer>章节1结果</footer>
@@ -47,6 +41,6 @@
         secs = now.getSeconds();
         document.write("<h2>" + hours + ":" + mins + ":" + secs + "</h2>");
     </script>
-    <script src="2_JS/JavaScript.js"></script> <!--这样就引入了JavaScritpt脚本-->
+    <!--<script src="2_JS/JavaScript.js"></script>--> <!--这样就引入了JavaScritpt脚本-->
 </body>
 </html>
