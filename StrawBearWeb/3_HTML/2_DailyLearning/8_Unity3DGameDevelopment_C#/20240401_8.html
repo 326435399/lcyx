@@ -84,10 +84,54 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
+            <section>7.3.7 动画混合</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小标题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <strong class="smallTopic">PlayableGraph</strong><br /> <!--通过class实现的二级主题-->        
+                <div>
+                    <ol>
+                        <li>
+                            <!-- <a href="https://docs.unity3d.com/Manual/Playables-Examples.html">官方示例</a> -->
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_01_PlayableGraph官方手册.png">
+                        </li>
+                        <li>
+                            <!-- <a href="https://github.com/Unity-Technologies/graph-visualizer/releases/tag/v2.2">Git Hub</a> -->
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_02_GitHub包.png">
+                        </li>
+                        <li>
+                            使用方法:<br>
+                            导入Assert文件夹,通过主菜单栏Windows_PlayableGraph Visualizer打开,当运行的时候会自动读取场景中的PlayableGraph实例.<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_03_PlayableGraphVisualizer的样式.png">
+                        </li>
+                    </ol>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">动画混合的原理</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    动画播放的原理是通过骨骼(通过权重)影响蒙皮的顶点.<br>
+                    如果有多个动画同时播放,只需要提供一个权重值来按比例影响骨骼的节点,就能使得动画有混合播放的效果.<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">代码实现</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    代码逻辑:通过将两个动画关联到混合Playable中,然后统一交给Playable播放,只需要在Update()中通过调用SetInputWeight就可以设置每个动画混合的权重实现混合动画了.<br>
+                    声明部分<br>
+                    核心是播放结构体PlayableGraph<br>
+                    混合动画对象AnimationMixerPlayable<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_04_声明变量_主要是播放对象_混合对象_片段对象.png">
+                    <br>
+                    动画输出对象AnimationPlayableOutput<br>
+                    动画片段对象AnimationClipPlayable<br>
+                    所有对象都是通过Create创建的<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_05_各种动画对象的准备.png">
+                    <br>
+                    最后通过SetInputWeight来设置权重<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_06_设置权重和调用.png">
+                    <br>
+                    最后效果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_07_效果.gif">
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
