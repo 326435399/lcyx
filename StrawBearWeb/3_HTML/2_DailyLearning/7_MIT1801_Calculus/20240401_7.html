@@ -1,0 +1,180 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240401-数学学习_MIT1801微积分</title>  <!--标题-->
+        <style>
+            @font-face 
+            {
+                font-family: "思源黑体";
+                src: url("0_Resoureces/font/思源黑体/思源黑体 CN-REGULAR.otf"); /*设置本地字体读取的位置*/
+            }
+            body /*如果什么都没有设置的用这个设置*/ 
+            {
+                font-size: 12pt;
+                font-weight:lighter;
+                color: black;
+                font-family: 思源黑体,Arial,Verdana,sans-serif;
+                line-height: 15pt;
+                padding-left: 200pt;
+                padding-right: 200pt;
+                padding-top: 5pt;
+                text-align: left;
+            }
+            h1 /*大标题*/
+            {
+                font-size: 20pt;
+                font-weight: bold;
+                line-height: 20pt;
+                text-align:center;
+            }
+            article /*章节*/ 
+            {
+                font-size: 16pt;
+                font-weight: bold;
+                line-height: 18pt;
+            }
+            section /*段落*/ 
+            {
+                font-size: 14pt;
+                font-weight: bold;
+                line-height: 16pt;
+            }
+            p /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
+            {
+                font-size: 12pt;
+                font-weight:lighter;
+                line-height:15pt;
+            }
+            img /*图片*/
+            {
+                display: block;
+                width:480pt;
+                height:270pt;
+                object-fit:contain;
+                border-width:2pt;
+                border-color:forestgreen;
+                border-style:inset;
+            }
+            div 
+            {
+                font-size: 12pt;
+                font-weight: lighter;
+                line-height: 15pt;
+            }
+            strong.smallTopic {
+                font-size: 13pt;
+                line-height: 15pt;
+            }
+            video
+            {
+                display: block;
+                width:480pt;
+                height:270pt;
+                object-fit:contain;
+                border-width:2pt;
+                border-color:forestgreen;
+                border-style:inset;
+            }
+        </style>
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240401-数学学习_MIT1801微积分</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>
+                1.5 Second derivatives and higher<br>
+                二阶导和更高阶导<br>
+            </section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3. Second derivative二阶导数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    简单导数题目计算,考察导数减法法则和幂法则和常量法则<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_01求导数_一阶导.png" alt="求导数_一阶导">
+                    进一步求导数的导数,也就是二阶导<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_02求导数的导数_二阶导.png" alt="求二阶导">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4. Introducing higher derivatives 介绍更高阶的导数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    引入符号<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_03牛顿二阶导的写法.png" alt="牛顿二阶导的写法">
+                    对比莱布尼茨符号的写法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_04莱布尼茨二阶导的写法.png" alt="莱布尼茨二阶导的写法">
+                    三阶导的写法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_05三阶导的写法.png" alt="三阶导的写法">
+                    <br>
+                    <video controls>
+                        <source src="../../../0_Resoureces/video/20240401/7_MIT1801_Calculus/4. Introducing higher derivatives.mp4" type="video/mp4">
+                    </video>
+                    更高阶写法的推断<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_06更高阶导数的写法.png" alt="更高阶导的写法">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">5. A third derivative 一个三阶导</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    一个三阶导数的计算:<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_07一个三阶导练习.png" alt="三阶导练习">
+                    手写计算稿<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_08计算过程.png" alt="计算稿">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">6-9. Second derivative continued 连续二阶导</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    根据函数图像来了解和导数值的关系<br>
+                    <ol>
+                        <li>
+                            <strong>第一部分</strong><br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_09根据函数图像判断导数的正负.png">
+                            根据函数图像来判断二阶导数<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_10 根据函数图像判断二阶导数.png">  
+                            因为导数值越来越小,所以导数的图像是递减的,斜率为负,那么导数的导数自然就是负的了.<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_11 导数越来越小.png">  
+                            <br>
+                            <video width="480" height="270" controls>
+                                <source src="../../../0_Resoureces/video/20240401/7_MIT1801_Calculus/7.Second derivative, part 1.mp4" type="video/mp4">
+                            </video> 
+                            根据函数图像估计导数图像<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_12 中间一段导数值图像的估计.png">
+                            估计二阶导数的值<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_13 估计二阶导数的值.png">
+                            分析了为什么二阶导数的值为负<br>
+                            <br>
+                            <video width="480" height="270" controls>
+                                <source src="../../../0_Resoureces/video/20240401/7_MIT1801_Calculus/8.Second derivative, part 2.mp4" type="video/mp4">
+                            </video> 
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_14 解析如何估计的二阶导数的值.png">
+                            导数顺时针移动的部分称为Concave Down下凹,对应二阶导小于0<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_15 导数顺时针移动.png">        
+                        </li>
+                        <li>
+                            <strong>第二部分</strong><br>
+                            考虑函数的一阶导和二阶导,一阶导切线斜率为负,所以是负值,但是斜率在逐渐升高,所以二阶导值为正<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_16 考虑函数的另外一段一阶导和二阶导的区别.png">
+                            考虑最后一段,切线的斜率都是正的,所以一阶导和二阶导都是正的.<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_17 考虑最后一段的一阶导和二阶导.png">
+                            一阶导数向下凹,函数逆时针移动,意味着二阶导数大于0<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_18 二阶导数向下凹.png">
+                            通过零阶导(函数)我们获得点的信息,通过一阶导我们获得斜率的信息,通过二阶导我们获得曲线的凹向,知道在切线的哪一边.<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/7_MIT1801_Calculus/20240401_07_19 二阶导数对于绘图的帮助.png">
+                            <br>
+                            <video width="480" height="270" controls>
+                                <source src="../../../0_Resoureces/video/20240401/7_MIT1801_Calculus/9.The Second Derivative and Concavity.mp4" type="video/mp4">
+                            </video>
+                        </li>
+                    </ol>
+                </div>
+            </p>
+
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
