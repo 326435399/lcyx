@@ -74,10 +74,48 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小主题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+            <section>9.抽象工厂模式</section>
+            <p> <!--每个p里面是小主题-->                
+                <div>
+                    <!-- <strong class="smallTopic">首先对第九章的结构进行整体梳理</strong><br /> 通过class实现的二级主题 -->
+                    首先对第九章的结构进行整体梳理<br />
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_书籍结构梳理.png" alt="书籍结构梳理">
+                </div>                
+                <br>
+                <div>
+                    目标变化:为了实现人种性别的不同,将每个人种又进行拆分<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_UML图.png">
+                    UML图:把原本的黑人实现类改成抽象类,实现类分成黑人男和黑人女.<br>
+                    代码编写:<br>
+                    <ol>
+                        <li>修改了Human接口<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_Human接口修改.png" alt="Human接口">
+                        </li>
+                        <li>新增AbstractWhiteHuman抽象类,在这里面实现了共同的方法部分<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_新增AbstractWhiteHuman抽象类.png" alt="AbstractWhiteHuman">
+                            新增两个实现类<br>
+                            <ol>
+                                <li>
+                                    新增MaleWhiteHuman实现类,实现了白色男性<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_新增MaleWhiteHuman实现类.png" alt="MaleWhiteHuman">
+                                </li>
+                                <li>
+                                    新增FemaleWhiteHuman实现类,实现了白色男性<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_新增FemaleWhiteHuman实现类.png" alt="FemaleWhiteHuman"> 
+                                </li>
+                            </ol>                           
+                        </li>
+                        <li>新增HumanFactory工厂接口<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_新增HumanFactory接口.png" alt="HumanFactory">
+                            <ol>工厂实现类<br>
+                                <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_新增FemalFactory实现类.png" alt="FemaleFactory">
+                            </ol>
+                        </li>
+                        <li>测试类
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/3_TheZenOfDesignMode_Java/20240401_03_修改NvWa客户端类.png" alt="NvWa">
+                        </li>
+                    </ol>
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->

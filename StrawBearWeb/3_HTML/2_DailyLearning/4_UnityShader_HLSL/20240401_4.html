@@ -1,0 +1,130 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>20240401-UnityShader入门到实践</title>  <!--标题-->
+        <style>
+            @font-face 
+            {
+                font-family: "思源黑体";
+                src: url("0_Resoureces/font/思源黑体/思源黑体 CN-REGULAR.otf"); /*设置本地字体读取的位置*/
+            }
+            body /*如果什么都没有设置的用这个设置*/ 
+            {
+                font-size: 12pt;
+                font-weight:lighter;
+                color: black;
+                font-family: 思源黑体,Arial,Verdana,sans-serif;
+                line-height: 15pt;
+                padding-left: 200pt;
+                padding-right: 200pt;
+                padding-top: 5pt;
+                text-align: left;
+            }
+            h1 /*大标题*/
+            {
+                font-size: 20pt;
+                font-weight: bold;
+                line-height: 20pt;
+                text-align:center;
+            }
+            article /*章节*/ 
+            {
+                font-size: 16pt;
+                font-weight: bold;
+                line-height: 18pt;
+            }
+            section /*段落*/ 
+            {
+                font-size: 14pt;
+                font-weight: bold;
+                line-height: 16pt;
+            }
+            p /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
+            {
+                font-size: 12pt;
+                font-weight:lighter;
+                line-height:15pt;
+            }
+            img /*图片*/
+            {
+                display: block;
+                width:480pt;
+                height:270pt;
+                object-fit:contain;
+                border-width:2pt;
+                border-color:forestgreen;
+                border-style:inset;
+            }
+            div 
+            {
+                font-size: 12pt;
+                font-weight: lighter;
+                line-height: 15pt;
+            }
+            strong.smallTopic {
+                font-size: 13pt;
+                line-height: 15pt;
+            }
+        </style>
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240401-UnityShader入门到实践</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.基础Shader入手</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.2.2 观察空间与裁剪空间</strong>
+                <br /> <!--通过class实现的二级主题-->
+                <div>
+                    <ol>
+                        <li>
+                            <strong>顶点从模型空间变换到裁切空间的经历</strong><br>
+                            模型空间M->世界空间W->观察空间V->裁切空间P<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_09 MVP过程.png" alt="MVP过程">
+                            <br>
+                        </li>
+                        <li>
+                            <strong>Unity提供的变换矩阵</strong><br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_01Unity提供的变换矩阵.png" alt="Unity提供的变换矩阵">
+                            <br>
+                        </li>
+                        <li>
+                            <strong>空间变换</strong><br>
+                            <ol>
+                                <li>
+                                    模型空间:物体局部坐标原点的空间<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_02模型空间.png" alt="模型空间">         
+                                </li>
+                                <li>
+                                    世界空间:世界坐标系下的位置描述<br>
+                                    变换目标:将物体从模型空间转换到世界空间<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_03模型空间到世界空间.png" alt="M矩阵">
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_06模型空间到世界空间.png" alt="M矩阵">    
+                                </li>
+                                <li>
+                                    观察/摄像机空间:从摄像机的视角来看的物体位置描述<br>
+                                    变换目标:将物体从世界空间转换到摄像机空间<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_04世界空间到摄像机空间.png" alt="V矩阵">
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_07世界空间到摄像机空间.png" alt="V矩阵">
+                                </li>
+                                <li>
+                                    投影/裁切空间:在进行了投影到标准立方体之后的位置描述<br>
+                                    变换目标:将物体从摄像机空间转换到裁切空间<br>
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_05观察空间到裁切空间.png" alt="P矩阵">
+                                    <img src="../../../0_Resoureces/img/learningPicture/20240401/4_UnityShader_HLSL/20240401_04_08摄像机空间到裁切空间.png" alt="P矩阵">
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
