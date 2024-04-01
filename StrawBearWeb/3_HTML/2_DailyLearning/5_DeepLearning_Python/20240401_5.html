@@ -77,17 +77,46 @@
             <section>27 泰勒展开的导数</section>
             <p> <!--每个p里面是小主题-->
                 <strong class="smallTopic">27.1 sin函数的实现</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <div>
+                    根据我们的微积分知道,若y=sin(x)我们知道导数是cos(x)<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_01_Sin函数的实现.png" alt="sin函数的实现">
+                </div>
             </p>
+            <br>
             <p> <!--每个p里面是小主题-->
                 <strong class="smallTopic">27.2 泰勒展开的理论知识</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
-            </p><p> <!--每个p里面是小主题-->
+                <div>
+                    <ol>
+                        <li>
+                            泰勒多项式的概念,通过获得该点的各阶导数的值,从而从a来近似寻找x的精确值.<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_02_泰勒多项式的概念.png" alt="泰勒多项式的概念">
+                        </li>
+                        <li>
+                            特殊的泰勒级数,麦克劳林级数,当a=0的情况下的泰勒级数,也就是用0这么远的距离来近似x位置的结果<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_03_特殊的泰勒多项式_麦克劳林级数.png" alt="特殊的泰勒级数">
+                        </li>
+                        <li>
+                            常见的麦克劳林级数<br>
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_04_常见的麦克劳林级数.png" alt="常见的麦克劳林级数">
+                        </li>
+                    </ol>
+                </div>
+            </p>                
+            <p> <!--每个p里面是小主题-->
                 <strong class="smallTopic">27.3 泰勒展开的实现</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
-            </p><p> <!--每个p里面是小主题-->
+                <div>
+                    通过math模块的fractorial来计算阶乘,使用麦克劳林级数来近似<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_05_使用麦克劳林级数来近似sinx的值.png" alt="代码实现">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
                 <strong class="smallTopic">27.4 计算图的可视化</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <div>
+                    调用我们前面封装好的函数来绘制计算图<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_06_使用DOT语言绘制计算图.png" alt="代码">
+                    调用DOT得到的计算图结果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240401/5_DeepLearning_Python/20240401_05_07_绘制出来的计算图.png" alt="计算图">
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
