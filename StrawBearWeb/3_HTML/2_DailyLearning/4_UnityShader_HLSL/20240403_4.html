@@ -1,0 +1,71 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240403-UnityShader入门到实践</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240403-UnityShader入门到实践</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.2.2 不同空间的应用</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">通过比较裁切空间的原点来实现效果</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    思路:<br>
+                    1.将模型空间的原点转换到裁切空间<br>
+                    2.用这个裁切空间的坐标值来和某个值进行对比更改颜色<br>
+                    代码:<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_01 裁切空间操作代码.png">
+                    结果:<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_02 结果.png">
+                </div>
+            </p>
+            <section>4.3.1 渲染队列</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">默认渲染队列值</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_03 Unity默认渲染队列值.png"><br>
+                    Background和Overlay一个最先绘制,一个最后绘制.<br>
+                    Geometry和Alpha Test都是按照从近到远绘制,这叫做<strong>反向画家算法</strong>,先绘制近的物体,再绘制远处不被遮挡的对象.<br>
+                    Transparent按照从远到近的顺序绘制,这叫做<strong>画家算法</strong>,从最远的物体往最近的绘制,前面的物体会覆盖融合(混合)后面的物体.<br>
+                    但是模型之间的相互交错要怎么办,这两种算法都无法解决<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_04 相互交错的物体.png">
+                </div>
+            </p>
+            <section>4.3.2 深度测试,深度写入,深度裁切与Early-z</section>
+            <p> <!--每个p里面是小主题-->
+                <div>
+                    根据遮挡关系,距离近的物体应该被覆盖在距离远的物体上,如果是规则的,不互相穿插的物体,只需要根据物体的中心点排序即可.<br>
+                    但是通常模型都是复杂的,所以以一个整体进行排序就不合适了,因此将度量的单位从模型升级成了片元,根据片元距离摄像机的距离来判断渲染顺序,这个概念就是深度depth(片元距离摄像机的距离)<br>
+                    在我们将模型转换到裁切空间之后,为了提高计算速度,减少对于不同设备的考虑,GPU会进行归一化操作,将裁切空间变化到一个标准立方体当中,这个空间称为归一化设备坐标系Normalized Device Coordinate,NDC<br>
+                    他们的坐标遵循的关系<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_05 NDC和裁切空间的关系.png"><br>
+                    转换的方法被叫做透视除法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_06 NDC和裁切空间的转换方法.png"><br>
+                    在NDC空间,求深度值和屏幕位置的方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_07 NDC中求深度值.png"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_08 求屏幕空间位置.png"><br>
+                    深度测试过程<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_09 深度测试过程.png"><br>
+                    深度缓冲区:这个时候我们只需要对比当前片元与上一个片元的深度值,就可以知道是否可见,所以需要一个存储深度信息的池,这个池就是深度缓冲区z-buffer.<br>
+                    深度测试:若当前片元的深度值小于池中的深度值,说明离摄像机更近,所以应该渲染当前这个片元.否则就丢弃当前片元.这个过程就叫做深度测试Z-Test<br>
+                    深度写入:这个将新的深度值写入深度缓冲区的过程称之为深度写入Z-Write<br>
+                    深度裁切:通过深度测试对片元进行选取或丢弃的过程称之为深度裁切.Z-Clip<br>
+                    提前深度测试<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/4_UnityShader_HLSL/20240402_4_10 提前深度测试.png"><br>
+                    由于在进行深度测试时,GPU已经把片元着色器全部走完了,此时丢弃片元意味着前面的渲染全部白费了,所以为了提高渲染效率,Early-Z提前深度测试被提出来,硬件在光栅化过程后就提前进行深度测试,大幅度的减少不必要的计算,提高渲染效率.<br>
+
+
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
