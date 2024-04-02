@@ -1,14 +1,19 @@
-@font-face 
+            @font-face 
             {
                 font-family: "思源黑体";
                 src: url("../0_Resoureces/font/思源黑体/思源黑体\ CN-NORMAL.otf"); /*设置本地字体读取的位置*/
+            }
+            @font-face
+            {
+                font-family: "思源臻宋";
+                src:url("../0_Resoureces/font/思源屏显臻宋.ttf"); /*添加思源屏显臻宋字体*/
             }
             body /*如果什么都没有设置的用这个设置*/ 
             {
                 font-size: 12pt;
                 font-weight:lighter;
                 color: black;
-                font-family: 思源黑体,Arial,Verdana,sans-serif;
+                font-family: 思源臻宋,Arial,Verdana,sans-serif;
                 line-height: 15pt;
                 padding-left: 200pt;
                 padding-right: 200pt;
@@ -17,6 +22,7 @@
             }
             h1 /*大标题*/
             {
+                font-family: 思源黑体;
                 font-size: 20pt;
                 font-weight: bold;
                 line-height: 20pt;
