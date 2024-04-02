@@ -11,10 +11,39 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
+            <section>29.函数优化</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小标题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <strong class="smallTopic">概念</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    函数优化:指的是对于给定的函数,找到使其取最小值(或最大值)的函数的参数(输入)<br>
+                    神经网络也是一个优化问题,它的目标是找到使损失函数的输出值最小化的参数.(即最小浪费)<br>
+                </div>
+            </p>
+            
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">28.1 Rosenbrock函数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    函数,我们需要找到输出值最小的y和x,答案是1,1<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_01 香蕉函数Rosenbrock.png">
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_02 香蕉函数Rosenbrock动图.gif">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">28.2 求导</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    将这两个值以向量形式汇总起来得到(-2,400)称为梯度或梯度向量.梯度展示了各点上函数的输出值增加最快的方向,也就是(-2,400),最慢的自然是反方向(2,-400)<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_03 一个取值的计算结果.png">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">28.3 梯度下降法的实现</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    形状复杂的函数,其最大值可能不在梯度指示的方向上,不过从局部来看,梯度表示函数的输出值最大的方向.重复向梯度方向移动一定距离,然后再次求梯度的过程,可以帮助我们逐渐接近目标位置(最大值或最小值),这就是梯度算法<br>
+                    给一个好的初始值,再使用梯度算法能帮我们高效的找到目标值.<br>
+                    我们的目标是找到香蕉函数的最小值,通过梯度下降算法我们就找到了最小值<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_04 通过梯度下降算法计算函数的最小或最大值.png">
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_05 变化的过程 .jpg">
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->

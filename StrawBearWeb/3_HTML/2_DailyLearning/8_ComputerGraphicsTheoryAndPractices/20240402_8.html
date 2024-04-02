@@ -11,10 +11,48 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
+            <section>2.2 基于WPF的图形学简介</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小标题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <strong class="smallTopic">2.5 用WPF实现的2D图形动态显示</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    采用保留模式可支持简单的动态实现,应用程序聚焦于场景图的维护,而平台则保证显示图像与场景图同步<br>
+                    两种可行的动态显示<br>
+                    1.自动,非交互的动态显示,此时2D形状由XAML定义的动画对象操纵.<br>
+                    2.传统的用户界面动态显示,用户通过操纵GUI控件来激活动态过程的代码.<br>
+                    <br>
+                    2.5.1 基于描述性动画的动态显示<br>
+                    WPF提供了定义简单动画的能力,由XAML动画元素实现,需要指定关键帧.应用程序指定启动动画的触发事件.<br>
+                    实际上每一种XAML元素的属性都可以成为动画的对象.例如:形状的局部原点,形状的填充色,边界色,粗细,旋转变换等.<br>
+                    目标:让时针旋转起来<br>
+                    设置一个变量名和想要控制的属性<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_01 新增一个变量来控制角度.png">
+                    设置触发事件<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_02 设置对应的触发事件.png">
+                    结果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_03 时钟转动结果.gif">
+                    修改目标<br>
+                    1.让其他几个指针也旋转<br>
+                    添加对应的变量名<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_04 添加对应的变量名.png">
+                    设置不同的动画属性<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_05 设置不同的调用.png">
+                    结果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_06分针和秒针也设置了.gif">
+                    <br>
+                    2.和现实时间联系起来<br>
+                    需要首先获取到时间信息,然后换算成不同指针的角度,然后把角度对应的设置进去,然后一直更新.<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">2.6  支持各种形状系数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    大量显示设备的出现让适配成为了挑战,一个设计良好的应用程序会运用逻辑来检测当前的形状并对其显示进行适应性调整.<br>
+                    1.当显示尺寸不足,隐藏+重新布局的解决方案<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_07 UI自适应隐藏.png">
+                    2.缩小绘制图像让窗口容纳更多场景<br>
+                    3.通过裁切边界+滚动/拖动的方式<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/8_ComputerGraphicsTheoryAndPractice_XAML/20240402_08_08 裁切加滚动.png">
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->

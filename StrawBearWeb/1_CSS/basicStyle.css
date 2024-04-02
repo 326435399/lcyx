@@ -40,7 +40,7 @@
                 font-weight: bold;
                 line-height: 16pt;
             }
-            p /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
+            p,li /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
             {
                 font-size: 12pt;
                 font-weight:lighter;
@@ -50,7 +50,7 @@
             {
                 display: block;
                 width:480pt;
-                height:270pt;
+                height:auto;
                 object-fit:contain;
                 border-width:2pt;
                 border-color:forestgreen;
@@ -78,7 +78,7 @@
             }
             table,tr,th,td /*表格样式设置*/
             {
-                border: 1px solid back;
+                border: 1px solid black;
                 border-collapse: collapse;
                 padding: 3px;
             }

@@ -11,10 +11,32 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
+            <section>7.3 动画系统</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小标题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <strong class="smallTopic">7.3.8 老版动画,通过Animation驱动</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    可以通过点击右上角...更改为Debug模式,勾选Legency实现新版动画切换到旧版动画<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_01 更换为老版本动画.png">
+                    当我们导入FBX模型选择Legacy就表示老版动画.可以直接使用Animaiton组件播放.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_02 更换模型文件和动画文件都是Legacy.png">
+                    脚本控制代码<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_03 脚本控制Animaiton动画.png">
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_04 脚本控制Animaiton-结果.gif">
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.3.9 新版动画,通过SimpleAnimation驱动</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    官网地址: https://github.com/Unity-Technologies/SimpleAnimation<br>
+                    将获得的SimpleAnimaiton组件放到Assert目录即可<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_05 SimpleAnimaiton组件获得.png">
+                    通过SimpleAnimaiton组件设置新版本的动画片段<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_06 SimpleAnimaiton设置新版本动画.png">
+                    控制代码<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_07 SimpleAnimaiton控制脚本.png">
+                    结果:依然是存在一些问题,例如rewind无效,在播放队列的时候添加混合队列报错等等.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_08 SimpleAnimaiton结果.gif">
+                </div>
             </p>
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
