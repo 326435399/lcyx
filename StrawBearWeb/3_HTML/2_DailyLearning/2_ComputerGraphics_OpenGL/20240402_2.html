@@ -1,0 +1,50 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240402-计算机图形学OpenGL</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240402-计算机图形学OpenGL</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>使用顶点索引数组来处理复杂场景</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">1.发现问题</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    1.重复顶点问题,资源浪费<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240402/2_ComputerGrapphics_OpenGL/20240402_2_01重复顶点问题.png">
+                    <br>
+                    2.复杂场景大量函数调用的问题<br>
+                    一个Cube一个函数,那Sphere,Cpsule等等都需要,这就需要大量的函数调用,显然会严重影响运行速度.<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">2.使用顶点索引来解决问题</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    OpenGL提供了一种机制来减少处理坐标信息的函数调用数量.通过使用顶点数组vertex array<br>
+                    <ol>
+                        <li>
+                            引用函数glEnableClientState(GL_VERTEX_ARRAY)激活OpenGL的顶点数组特性
+                        </li>
+                        <li>
+                            使用函数glVertexPointer指定顶点坐标的位置和数据格式
+                        </li>
+                        <li>
+                            使用子程序如glDrawElements显示场景,该子程序可处理多个图元而仅需少量的函数调用
+                        </li>
+                    </ol>
+                    具体实现:<br>
+                    <img style="width: 960px;height: auto;" src="../../../0_Resoureces/img/learningPicture/20240402/2_ComputerGrapphics_OpenGL/20240402_2_02使用顶点数组来绘制.png">
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
