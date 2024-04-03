@@ -11,78 +11,40 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>1.5 Second derivatives and higher 二阶导和更高阶导数</section>
+            <section>1.6 Trigonometric functions:三角函数</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">10. Determining concavity</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-                    concave up上凹.意味着二阶导大于0,concave down下凹,意味着二阶导小于0<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_01 上凹和下凹通过二阶导判断.png"><br>
-                    二阶导为零意味着线性,函数即不上弯也不下弯<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_02 二阶导为0意味着线性.png"><br>
+                    1. Differentiating sine and cosine区分正弦和余弦<br>
+                    世界到处都包含振荡<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/6_MIT1801_Calculus/20240403_06_01 世界都在振荡.png" alt="picture"><br>
+                    <br>
+                    2.Objectives 目标<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/6_MIT1801_Calculus/20240403_06_02 目标.png" alt="picture"><br>
+                    多项式,x的幂<br>
+                    学习目标:<br>
+                    1.区分sin和cos<br>
+                    2.使用sin和cos给振荡建模<br>
+                    <br>
+                    11. Summary 总结<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/6_MIT1801_Calculus/20240403_06_03 总结1 有效数字.png" alt="picture"><br>
+                    有效数字<br>
+                    定义:有效数字是那些具有精确意义的数字的个数<br>
+                    <br>
+                    有效的示例:<br>
+                    所有的非零数字都是有效的,例如1235有4位有效数字<br>
+                    在非零数字间的0是有效的,例如101有3位有效数字<br>
+                    小数部分的0是有效的,例如32.000有5位有效数字<br>
+                    <br>
+                    无效的示例<br>
+                    非小数的尾缀的0是无效的,例如5400有2位有效数字<br>
+                    小数数字前面的零是无效的,例如0.00003只有1位有效数字<br>
+                    如果计算结果的精度超出当前值的精度,那么超出的部分是不重要的,例如0.25*0.50,那么结果的0.125,这个5是不重要的.<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/6_MIT1801_Calculus/20240403_06_04 总结2 正弦和余弦的导数.png" alt="picture"><br>
+                    正弦和余弦的导数<br>
                 </div>
             </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">11. Second derivative and concavity summary 二阶导和凹性的总结</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    函数上凹和下凹中间的过渡点叫做转折点<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_03 转折点.png"><br>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">12. Picture problems 图片问题</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    针对函数的一阶导和二阶导<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_04 不同点函数的导数值.png"><br>
-                    判断一阶导通过切线斜率,判断二阶导通过Concavity<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_05 不同点函数的导数值_结果.png"><br>
-                    题目-寻找转折点<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_06 寻找转折点.png"><br>
-                    结果:Concavity改变的地方<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_07 寻找转折点-结果.png"><br>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">13. Real world meaning (二阶导在)真实世界的含义</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    判断哪些部分能表示二阶导数为负,少考虑了一个限制条件,增长速度,所以导数必须为正<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_08 判断哪些能表示二阶导数为负.png"><br>
-                    根据文字来确定条件Growth,意味着导数为正Rate of Job Growth Slows,意味着导数增长变慢,导数还是正的,只是变慢,那就是二阶导为负<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_09 标题问题-解答.png"><br>
-                    视频解答:<br>
-                    <video controls>
-                        <source src="../../../0_Resoureces/video/20240402/6_MIT1801_Calculus/Headline news.mp4" type="video/mp4">
-                    </video>
-                    人口流失率下降练习<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_10 人口流失率下降.png"><br>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">14. Acceleration 加速度</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    南瓜示例,在上升阶段,速度逐渐下降,所以加速度是负的,在下降阶段,速度逐渐下降,加速度还是负的<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_11 位置_速度_加速度.png"><br>
-                    <video controls>
-                        <source src="../../../0_Resoureces/video/20240402/6_MIT1801_Calculus/Acceleration.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">15. Acceleration of pumpkin at the top 南瓜加速到顶点</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    最高点南瓜的速度为0<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_12 最高点速度为0.png"><br>
-                    速度不一定等于加速度,南瓜位于最高点时加速度不为0<br>  
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_13 速度为0不表示加速度为0.png"><br>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">16. Acceleration problems 加速度问题</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    在t=[0,15]会不断加速,15-30稳定,30-45减速,45-60稳定<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_14 加速度的单位.png"><br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/6_MIT1801_Calculus/20240402_06_15 跳伞速度图像.png"><br>
-                </div>
-            </p>
+
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
         <script>

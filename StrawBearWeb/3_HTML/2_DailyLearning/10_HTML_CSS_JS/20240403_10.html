@@ -10,55 +10,17 @@
         <header><h1>20240403-HTML_CSS_JS学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
-        <article>            
-            <section>6.9 控制表格大小</section>
-            <p> <!--每个p里面是小主题-->
-                <div>
-                    <table>
-                        <tr>
-                            <th>函数名</th>
-                            <th>作用</th>
-                        </tr>
-                        <tr>
-                            <td>smoothstep(min,max,x)</td>
-                            <td>x在min,max范围内就映射到0-1范围</td>
-                        </tr>
-                    </table>
-                    <br>
-                    <table style="width: 300px; height: 300px;">
-                        <tr>
-                            <th style="width:30%">函数名</th>
-                            <th style="width:70%">作用</th>
-                        </tr>
-                        <tr>
-                            <td>smoothstep(min,max,x)</td>
-                            <td>x在min,max范围内就映射到0-1范围</td>
-                        </tr>
-                    </table>
-                </div>
-            </p>
-            <br>
-            <section>6.10 表格内的对齐和跨距</section>
-            <p> <!--每个p里面是小主题-->
-                <div>
-                    <table>
-                        <tr>
-                            <th colspan="2">描述</th>
-                            <th>颜色</th>
-                            <th>尺寸</th>
-                        </tr>
-                        <tr style="text-align: center; vertical-align: center;">
-                            <td>特别1</td>
-                            <td>特别2</td>
-                            <td>绿色</td>
-                            <td>23px</td>
-                        </tr>
-                        <tr style="height: 100px; border-spacing: 20px 20px;">
-                            <td style="background-image: url(../../../0_Resoureces/icon/bear.ico);"></td>
-                        </tr>
-                    </table>
-                </div>
-            </p>
+        <article style="column-count: 5; column-gap: 20px;column-rule-width: 2px; column-rule-style: solid;column-rule-color: black;">            
+            <section >6.12 使用columns</section>
+            <h2 style="column-span: all;">使用了style="column-span: all;"</h2>     
+            <p>
+                style="column-count: 5;设置分成5列.<br>
+                column-gap: 20px 设置列之间的间距是20.<br>
+                column-span设置横跨多少列<br>
+                column-rule-widht设置分割线的宽度<br>
+                column-rule-style设置分割线的样式<br>
+                column-rule-color设置分割线的颜色<br>
+            </p>       
         </article>
         <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
         <script>

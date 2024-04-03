@@ -13,29 +13,20 @@
         <article>
             <section>7.3 动画系统</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">7.3.8 老版动画,通过Animation驱动</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">7.3.10 控制动画进度</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-                    可以通过点击右上角...更改为Debug模式,勾选Legency实现新版动画切换到旧版动画<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_01 更换为老版本动画.png">
-                    当我们导入FBX模型选择Legacy就表示老版动画.可以直接使用Animaiton组件播放.<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_02 更换模型文件和动画文件都是Legacy.png">
-                    脚本控制代码<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_03 脚本控制Animaiton动画.png">
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_04 脚本控制Animaiton-结果.gif">
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/7_Unity3DGameDevelopment_Csharp/20240403_7_01 控制动画播放进度代码.png" alt="picture"><br>
+                    .length获取片段时长
+                    .time设置播放时间
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/7_Unity3DGameDevelopment_Csharp/20240403_7_02 结果.gif" alt="picture"><br>
                 </div>
             </p>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">7.3.9 新版动画,通过SimpleAnimation驱动</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">7.3.11 特殊动画行为</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-                    官网地址: https://github.com/Unity-Technologies/SimpleAnimation<br>
-                    将获得的SimpleAnimaiton组件放到Assert目录即可<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_05 SimpleAnimaiton组件获得.png">
-                    通过SimpleAnimaiton组件设置新版本的动画片段<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_06 SimpleAnimaiton设置新版本动画.png">
-                    控制代码<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_07 SimpleAnimaiton控制脚本.png">
-                    结果:依然是存在一些问题,例如rewind无效,在播放队列的时候添加混合队列报错等等.<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/7_Unity3DGameDevelopment_Csharp/20240402_07_08 SimpleAnimaiton结果.gif">
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/7_Unity3DGameDevelopment_Csharp/20240403_7_03控制动画过渡代码.png" alt="picture"><br>
+                    通过CrossFade过渡动画,Blend混合动画,GetState设置权重,Rewind重新播放,speed属性设置播放速度
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/7_Unity3DGameDevelopment_Csharp/20240403_7_04结果.gif" alt="picture"><br>
                 </div>
             </p>
         </article>

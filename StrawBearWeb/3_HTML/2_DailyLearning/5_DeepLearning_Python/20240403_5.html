@@ -11,38 +11,33 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>29.函数优化</section>
+            <section>29.使用牛顿法进行优化(手动计算)</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">概念</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-                    函数优化:指的是对于给定的函数,找到使其取最小值(或最大值)的函数的参数(输入)<br>
-                    神经网络也是一个优化问题,它的目标是找到使损失函数的输出值最小化的参数.(即最小浪费)<br>
-                </div>
-            </p>
-            
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">28.1 Rosenbrock函数</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    函数,我们需要找到输出值最小的y和x,答案是1,1<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_01 香蕉函数Rosenbrock.png">
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_02 香蕉函数Rosenbrock动图.gif">
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">28.2 求导</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    将这两个值以向量形式汇总起来得到(-2,400)称为梯度或梯度向量.梯度展示了各点上函数的输出值增加最快的方向,也就是(-2,400),最慢的自然是反方向(2,-400)<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_03 一个取值的计算结果.png">
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">28.3 梯度下降法的实现</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    形状复杂的函数,其最大值可能不在梯度指示的方向上,不过从局部来看,梯度表示函数的输出值最大的方向.重复向梯度方向移动一定距离,然后再次求梯度的过程,可以帮助我们逐渐接近目标位置(最大值或最小值),这就是梯度算法<br>
-                    给一个好的初始值,再使用梯度算法能帮我们高效的找到目标值.<br>
-                    我们的目标是找到香蕉函数的最小值,通过梯度下降算法我们就找到了最小值<br>
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_04 通过梯度下降算法计算函数的最小或最大值.png">
-                    <img src="../../../0_Resoureces/img/learningPicture/20240402/5_DeepLearning_Python/20240402_5_05 变化的过程 .jpg">
+                    问题引入:在上一章我们需要5万次迭代Rosenbrock函数才最终收敛,这个速度太慢了,所以我们就寻找收敛比较快的方法来替代他,这个方法就是牛顿法,一般来说如果初始值与解足够接近,牛顿法能够较快的收敛.<br>
+                    <br>
+                    29.1 使用牛顿法进行优化的理论知识<br>
+                    简化聚焦:为了聚焦于核心,我们使用最简单的单一变量函数y=f(x),通过泰勒展开我们将f表示为以某一点a(图里面的x0)为起点的x的多项式.在多项式中,一阶导,二阶导,三阶导...不断的增加对于这个点的描述信息,一阶导给出了切线斜率信息,二阶导给出了上凹还是下凹,后面就不太清楚了.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_01 泰勒多项式.png" alt="picture"><br>
+                    近似:因为对于曲线的影响随着阶数的增加越来越小,所以我们取前面两阶就已经能够有足够好的近似了,(其实还有一个误差计算公式来计算需要几阶的泰勒多项式能达到目标精度),这种取泰勒多项式前两阶的近似叫做二次近似.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_02 二次近似.png" alt="picture"><br>              
+                    求最小值:比较幸运的是二次函数我们知道是一个回形针一样的上凹曲线,它的最小值是有解析解的,就在最下面,导数为0的地方,所以我们计算求出来这个最小值的解析解.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_03 求二次函数解析解.png" alt="picture"><br>
+                    计算过程<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_04 计算过程.png" alt="picture"><br>
+                    更新a的值,然后再次计算,这就是使用牛顿法进行优化的方法.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_05 更新位置.png" alt="picture"><br>
+                    上面的公式是使用梯度下降的方法,往梯度方向移动,系数α是我们指定的学习率,下面的公式是牛顿迭代法,通过二阶导数自动调整移动的距离.我们可以把牛顿迭代法看成是α=1/f''(x)的梯度下降法.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_06 对比梯度下降和牛顿迭代法.png" alt="picture"><br>
+                    效率:梯度下降只利用到了一阶导数信息来优化,而牛顿法利用了一阶和二阶导数信息来优化.<br>
+                    <br>
+                    29.2 使用牛顿法实现优化<br>
+                    目的:Dezero现在我们还没有写计算二阶导数的方法,所以我们先手动计算来测试一下.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_07 手动计算示例的二阶导.png" alt="picture"><br>
+                    测试代码:我们发现只要7次,牛顿法就收敛了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_08 测试代码.png" alt="picture"><br>
+                    牛顿迭代法和梯度下降法的对比:7比124<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240403/5_DeepLearning_Python/20240403_5_09 对比结果.png" alt="picture"><br>
                 </div>
             </p>
         </article>
