@@ -1,0 +1,57 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240405-数学学习_MIT1801微积分</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240405-数学学习_MIT1801微积分</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>sin(x)的导数</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">sin(x)导数的求法</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_01 通过图形直觉来获取sin(x)的导数图像.png" alt="picture"><br>
+
+                    通过多个点的切线来近似判断sin(x)的图像.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_02 分析图像像什么.png" alt="picture"><br>
+                    分析图像是cos(x)乘以某个正值.因为图像是cos(x)的图像并且没有翻转.<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_03 cos(x)导数的图像.png" alt="picture"><br>
+                    cos(x)的导数图像则是-sinx.<br>
+                    <br>
+                    证明sin(x)的到导数.<br>             
+                    <video controls>
+                        <source src="../../../0_Resoureces/video/20240405/6_MIT1801_Calculus/5. Derivative of sine.mp4" type="video/mp4">
+                    </video>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_04 三角函数和展开公式.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_05 化简得到结果.png" alt="picture"><br>
+
+                    证明:利用三角函数和展开公式<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_06 0除0的极限.png" alt="picture"><br>
+                    通过找x=0的情况下得到的近似值,现在是0/0情形,所以不能马上得到结果<br>
+                    <br>
+                    几何证明的方式:<br>
+                    <video controls>
+                        <source src="../../../0_Resoureces/video/20240405/6_MIT1801_Calculus/6. Derivative of sine at zero.mp4" type="video/mp4">
+                    </video>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_07 几何证明.png" alt="picture"><br>                   
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_08 几何证明.png" alt="picture"><br>
+                    当θ越来越小,弧长就越来越对于对边的长了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/6_MIT1801_Calculus/20240405_6_09 限制.png" alt="picture"><br>
+                    注意我们用的是弧长,如果是角度那就完全不一样了.这个结论只对弧长有效.<br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240405-计算机图形学原理与实践XAML</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240405-计算机图形学原理与实践XAML</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>完整的丟勒木刻画投影系统</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3.3.0 理论准备</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    1.坐标系设定<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_01 木刻画的坐标系设定.png" alt="picture"><br>
+                    <br>
+                    设定画框的左下角是(Xmin,Ymin)右上角点是(Xmax.Ymax),我们现在要计算纸上面的一个点<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_02 考虑绘制上面的一点.png" alt="picture"><br>
+                    <br>
+                    现在我们可以通过物体表面的P点求画面上的P'点了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_03 如果通过P求p.png" alt="picture"><br>
+                    <br>
+                    算法伪代码:这里实现了点从世界空间到屏幕空间的转换,从x/z转换成-x/z是为了让画布的x方向交换方向变成从左往右.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_04 绘制算法.png" alt="picture"><br>
+                    <br>
+                    场景准备:<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_06 立方体盒子顶点坐标.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3.3.1 绘图</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    一些错误的投影点:直线的透视投影还是直线,但对于包含投影中心点的直线束,其透视投影无定义.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_05 投影会被压缩的线段.png" alt="picture"><br>
+                    <br>
+                    这个时候我们面临采用何种方式绘制<br>
+                    1.对每一条边我们计算端点投影位置,然后连线(每个顶点需要重复投影3次)<br>
+                    2.先对每一个顶点都算完投影,然后再回头重新连线(需要对数据结构重复访问3次)<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_07 索引.png" alt="picture"><br>
+                    <br>
+                    伪代码算法,将所有顶点转换到屏幕空间上<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_08 投影到画布上.png" alt="picture"><br>
+                    <br>
+                    屏幕空间转换到标准设备空间DNC上.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/8_ComputerGraphicsTheoryAndPractice_XAML/20240405_8_09 转换到NDC空间.png" alt="picture"><br>
+                    适应性:如果显示器不是正方形,通常1.0表示比较小的尺度.<br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

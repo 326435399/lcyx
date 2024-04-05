@@ -1,0 +1,39 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240405-计算机图形学OpenGL</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240405-计算机图形学OpenGL</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.11 OpenGL像素阵列函数</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.11.1 OpenGL位图函数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    OpenGL提供了两个函数可用于定义矩形阵列的形状或图案.一个函数定义位图,一个定义像素图,OpenGL也提供若干的函数用于存储,负值及管理像素值阵列.<br>
+                    <br>
+                    定义位图:<br>
+                    矩阵中的每一行以8位无符号字符为单位进行组织存放.<br>
+                    例子:假设有一个10行,9列的矩阵,那么9超过了8,就需要两个8为,所以每一行使用了16个二进制来描述.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/2_ComputerGrapphics_OpenGL/20240405_2_01 存储方式.png" alt="picture"><br>
+                    <br>
+                    概念:当前光栅位置,就是帧缓存当中应用图案的位置,这个值在世界坐标中给定,通常都是世界原点,然后经过变换到屏幕坐标系.<br>
+                    相关函数<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/2_ComputerGrapphics_OpenGL/20240405_2_02 相关函数.png" alt="picture"><br>
+                    <br>
+                    结果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/2_ComputerGrapphics_OpenGL/20240405_2_03 设置位图.png" alt="picture"><br>                         
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

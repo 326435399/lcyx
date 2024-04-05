@@ -1,0 +1,57 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240405-深度学习入门_自制框架</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240405-深度学习入门_自制框架</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>30.高阶导数(准备篇)</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">30.1 确认Variable实例变量</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    回顾Variable变量的初始化部分__init__,重点关注data和grad这两个核心变量<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_01 回顾Variable变量.png" alt="picture"><br>
+                    采用了新的图示表示方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_02 没有数据.png" alt="picture"><br>
+                    采用这种虚线框表示变量还没有存入数据<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_03 数据引用.png" alt="picture"><br>
+                    左图表示data已经引用了数据,x=Variable(np.array(2.0))之后就是这个状态<br>
+                    右侧则表示两个数据都引用的,x.grad属性是在调用了x.backward()反向传播了之后得到的.<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">30.2 确认Function类</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_04 正向和反向传播.png" alt="picture"><br>
+                    Function类通过set_cretor方法让变量记住自己的创建函数,又通过输入和输出变量存储,实现了Variable和Function之间的连接.<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_05 sin函数的正向传播.png" alt="picture"><br>
+                    当函数被调用的时候,函数调用__call__方法,建立Variable和Function之间的联系.(通过cretor,inputs,outpus)<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">30.3 确认Variavle类的反向传播</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_06 Variable中的反向传播代码.png" alt="picture"><br>
+                    通过不断的判断Variable是否还有创建函数从而反向传播<br>
+                    <br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240405/5_DeepLearning_Python/20240405_5_07 sin函数的正向反向传播.png" alt="picture"><br>
+                    执行Y=sin(x)的时候,SIn类的forwaard方法执行,计算图被创建,Varibale的实例变量data被赋值.<br>
+                    执行反向传播的时候,Sin类的backawrd方法被调用,Variable的示例变量grad被赋值.<br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="https://326435399.github.io/lcyx/index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
