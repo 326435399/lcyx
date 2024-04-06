@@ -1,0 +1,44 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240406-计算机图形学OpenGL</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240406-计算机图形学OpenGL</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.11 OpenGL像素阵列函数</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.11.2 OpenGL像素图函数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过函数glDrawPixels绘制像素图<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/2_ComputerGrapphics_OpenGL/20240406_2_01 像素图的绘制.png" alt="picture"><br>
+                    <br>
+                    OpenGL有4个颜色缓存用于屏幕刷新<br>
+                    左右两个场景使用两个颜色缓存,然后左右两个场景又分别有前后双缓存用于动画显示.<br>
+                    如果不支持立体显示和双缓存,则默认单一的刷新缓存是前-左颜色缓存front-left color buffer<br>
+                    <br>
+                    通过函数glDrawBuffer指定缓存<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/2_ComputerGrapphics_OpenGL/20240406_2_02 绘制缓存区.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.11.3 OpenGL光栅操作</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    我们可以从缓存中取出一块值或者复制到另一个缓冲区域.<br>
+                    术语:光栅操作raster operation用于描述以某种方式处理一个像素阵列的任何功能.<br>
+                    术语:块移动black transfer或位移动bit-block transfer用于描述一个像素阵列的值从一个位置移动到另一个为止.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/2_ComputerGrapphics_OpenGL/20240406_2_03 复制缓存区操作.png" alt="picture"><br>            
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

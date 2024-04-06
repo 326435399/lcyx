@@ -1,0 +1,47 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240406-深度学习入门_自制框架</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240406-深度学习入门_自制框架</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>31.高阶导数(理论篇)</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">31.1 在方向传播时进行的计算</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    在上一节我们知道连接实在进行正向传播的计算时创建的,在反向传播时不会被创建,所以如果能对反向传播所进行的计算创建连接,高阶导数会被自动计算出来.<br>
+                    以y=sin(x)为例<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/5_DeepLearning_Python/20240406_5_01 Sinx的反向传播.png" alt="picture"><br>
+                    反向传播的结果就是前一个输出值的导数gy乘以sin(x)的导数cos(x)得到y=sin(x)的导数gx.<br>
+                    调用gx.backward()可以对x再次求导,也就是x的二阶导数.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/5_DeepLearning_Python/20240406_5_02 反向传播.jpg" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">31.2 创建反向传播的计算图的方法</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    连接是在Variable变量进行正向传播的过程中创建的.这意味着如果我们在函数的backward方法中使用Variable实例替代ndarry实例就业会创建计算连接,为此我们需要将导数(梯度)保存为Variable实例.<br>
+                    图中展示了Variable的变化<br>
+                    左图是以前的,Variable类的grad引用ndarry实例对象.<br>
+                    有图让grad变成导数Variable类gx的引用.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/5_DeepLearning_Python/20240406_5_03  修改Variable.jpg" alt="picture"><br>
+                    <br>
+                    最后完成的计算图<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/5_DeepLearning_Python/20240406_5_04  现在反向传播计算图.jpg" alt="picture"><br>
+                    简化反向传播的计算内容的计算图<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240406/5_DeepLearning_Python/20240406_5_05  简化的计算图.jpg" alt="picture"><br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
