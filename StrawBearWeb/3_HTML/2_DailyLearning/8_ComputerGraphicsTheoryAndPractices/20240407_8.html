@@ -1,0 +1,56 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-计算机图形学原理与实践XAML</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-计算机图形学原理与实践XAML</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>平台测试</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">编译项目PDF阅读</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    提供的测试项目,两个重要的库文件<br> 
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/8_ComputerGraphicsTheoryAndPractice_XAML/02 提供的文件的结构.png" alt="picture"><br>
+
+                    PDF当中提出了一个任意三个点绘制一个球的算法<br> 
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/8_ComputerGraphicsTheoryAndPractice_XAML/01 任意三个点求圆心算法.png" alt="picture"><br>
+
+                    最后成功的编译了测试床对象<br>   
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/8_ComputerGraphicsTheoryAndPractice_XAML/03 成功的编译了项目.png" alt="picture"><br>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3.4 程序</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    成功打开了项目<br> 
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/8_ComputerGraphicsTheoryAndPractice_XAML/04 丢勒算法实现.png" alt="picture"><br>
+                    <br> 
+                    程序里面的奇怪错误,提示错误,但是注释就无法正确执行了<br> 
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/8_ComputerGraphicsTheoryAndPractice_XAML/05 奇怪的错误.png" alt="picture"><br>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3.5 局限性</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    1.无法提出背面无法被看到的面<br> 
+                    2.没有引入光照模型所以没有明暗变化<br> 
+                    3.模型文件需要写成文件来重用读取<br>                 
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3.6 讨论和延伸阅读</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    现实空间中平行的两条线在绘制生成的图像中最终汇聚到一点时,观察者的实现会被吸引到这一点(灭点).基本的绘制引擎正式利用灭点和射影几何的思想来创建合适的透视图像.<br> 
+                    对空间投影和与之相关的空间变换方面的研究逐渐形成了投影几何.<br> 
+                    3ds Max的max格式/3DS属于专利.Maya也有自己的mb格式,现在最主流的是FBX格式和OBJ<br>               
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
