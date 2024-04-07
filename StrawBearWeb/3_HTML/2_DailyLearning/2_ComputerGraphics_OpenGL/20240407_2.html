@@ -1,0 +1,71 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-计算机图形学OpenGL</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-计算机图形学OpenGL</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.输出图元</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.12 字符图元</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    多数图形软件包中都有生成字符图元的子程序.<br>
+                    <br>
+                    概念:字样(typeface)-一组字符的完整设计风格<br>
+                    <br>
+                    概念:字体(font)-早先指的是一组按照特定尺寸和格式的模板字符样式(就像活字印刷的字块)<br>
+                    1.按照是否有衬线分类<br>
+                    1.1有衬线(serif)<br>
+                    有衬线字体在字符主笔划末端带有细线或是笔画加重,也就是有轻重变化.可读性较好,在正文的较长段落中容易阅读.<br>
+                    <br>
+                    1.2无衬线(sans serif)<br>
+                    无衬线则所有笔画都是一样宽的,单个字符易被识别,被认为是字迹清楚的,适合用于标识和短标题.<br>
+                    <br>
+                    2.按照是否单一宽度分类<br>
+                    2.1单一宽度(monospace)-所有字符有同样的宽度(方便对齐)<br>
+                    <br>
+                    2.2比例宽度(proportional)-有多种字符宽度<br>
+                    <br>
+                    3.存储方式<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/2_ComputerGrapphics_OpenGL/01 字体存储方式.png" alt="picture"><br>
+                    <br>
+                    3.1位图字体(bitmap font)/光栅字体(raster font) -使用矩形网格图案(位图)<br>
+                    3.2轮廓字体(outline font)/笔划字体(stroke font)-使用直线段和曲线段定义轮廓形状(矢量图)<br>
+                    <br>
+                    4.标记符号(markersymbol)/多点标记(polymarker)-一些特殊的标准字符,点,圆.十字等等<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/2_ComputerGrapphics_OpenGL/02 标记图.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.13 OpenGL字符函数</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    OpenGL基本库仅为显示单个字符和字符串提供了基本的支持,使用工具包GLUT中有一些预定义的字库,<br>
+                    <br>
+                    1.位图字体<br>
+                    使用glBitmap函数绘制<br>
+                    <br>
+                    使用glutBitmapCharacter(font, character)可以显示GLUT位图字符,以当前光栅位置作为在左下角原点<br>
+                    <br>
+                    font GLUT符号常量,表示字体集(包含字体大小和宽度设定)<br>
+                    character 字符<br>
+                    <br>
+                    2.轮廓字体<br>
+                    glutStrokeCharacter(font,character)可以显示轮廓字体,轮廓字体的大小和位置通过程序前的变换操作来控制.<br>
+                    <br>
+                    font 字体集(包含宽度设定)<br>
+                    characcter 字符 <br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
