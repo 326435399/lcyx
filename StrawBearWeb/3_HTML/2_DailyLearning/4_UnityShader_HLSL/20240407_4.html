@@ -1,0 +1,53 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-UnityShader入门到实践</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-UnityShader入门到实践</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>4.3.4 模板测试</section>
+            <p> <!--每个p里面是小主题-->
+                需求:让小球只有在通过某个平面才能看到<br>
+                逻辑:让小球只有在通过平面时才能满足模板测试,才会显示片元<br>
+                <br>
+                设置平面的模板值,让没有被其他物体遮住的部分模板值置为1<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/01 模板值平面.png" alt="picture"><br>
+                <br>
+                设定球体的模板值,让模板值为1的部分通过并显示(把平面当做了一个巨大的遮罩用)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/02 只能通过平面看到的球体.png" alt="picture"><br>
+                <br>
+                结果,只有通过平面的部分才会通过模板值测试,才会正确裁切<br>
+                另外一个问题是,因为裁切平面关闭了深度写入,所以他会被别人遮挡,但是挡不住别人,平面后面的对象本来应该是看不到的,这样就只能手动的指定渲染队列来让平面后面的对象都要比平面先渲染,这样就会被平面盖住了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/03 结果.gif" alt="picture"><br>
+
+                完善材质面板,将比较函数和模板值操作都开放到Inspector面板上
+
+                开放模板值代码
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/04 开放模板值设置.png" alt="picture"><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/05 开放模板值设置结果.png" alt="picture"><br>
+            </p>
+            <section>4.4 完善材质面板:Properties</section>
+            <p> <!--每个p里面是小主题-->
+                数据类型
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/06 材质面板输入数据类型.png" alt="picture"><br>
+
+                标签
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/07 小标签及功能.png" alt="picture"><br>
+
+                材质面板优化
+                <img src="../../../0_Resoureces/img/learningPicture/20240407/4_UnityShader_HLSL/08 UI优化功能.png" alt="picture"><br>
+            
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

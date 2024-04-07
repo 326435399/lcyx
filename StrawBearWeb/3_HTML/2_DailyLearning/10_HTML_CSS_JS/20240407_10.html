@@ -1,0 +1,35 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-HTML_CSS_JS学习</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-HTML_CSS_JS学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>7.使用外部和内部链接</section>
+            <br>
+            <br>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.9 使用CSS设置超链接样式</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    伪类(pseudo-calss)是用于特定环境原始样式的类.例如用户与钙元素交互的各种状态<br>
+                    a标签的伪类<br>
+                    a:link--描述以前没有访问过的超链接的样式<br>
+                    a:visited--描述以前见过得超链接的样式,并且存储在浏览器的内存中<br>
+                    a:hover--描述用户鼠标悬停在超链接上的样式<br>         
+                    a:active--描述用户按下鼠标左键,还没释放时的样式<br>
+                    a:focus--描述用户激活超链接的样式<br>                    
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

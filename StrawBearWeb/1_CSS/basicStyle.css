@@ -82,3 +82,28 @@
                 border-collapse: collapse;
                 padding: 3px;
             }
+
+            /*测试用的样式*/
+            a
+            {
+                font-family: 思源黑体;
+                font-weight: bold;
+                text-decoration: none;
+            } 
+            a:link
+            {
+                color: #6479A0;
+            }
+            a:visited
+            {
+                color: #CCCCCC;
+            }
+            a:hover
+            {
+                color:#ff0000
+            }
+            a:focus,a:active
+            {
+                color:#e03a3e;
+            }
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-深度学习入门_自制框架</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-深度学习入门_自制框架</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>32.高阶导数(实现篇)</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">32.1 新的DeZero</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    修改不再引用nparray,改成引用Variable<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/5_DeepLearning_Python/01 从原来对nparray的引用改成Variable.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">32.2 函数类的反向传播</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    原本对于ndarry的引用变成对Variable的引用<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/5_DeepLearning_Python/02 修改新的引用方式.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">32.3 实现更有效的反向传播(增加模式控制代码)</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    增加新的控制,是否计算反向传播图<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/5_DeepLearning_Python/03 修改Variable增加控制.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">32.4 修改__init__.py</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    修改Init文件,现在可以调用计算高阶导了,只要反向传播的时候设置开启创建反向传播计算图就行了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/5_DeepLearning_Python/04 更新init.png" alt="picture"><br>
+                </div>
+            </p>
+            <section>33.使用牛顿法进行优化(自动计算)</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">33.1 求二阶导</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    出现了pow无效问题,需要验证原因
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/5_DeepLearning_Python/05 pow问题.png" alt="picture"><br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240407-书籍_设计模式之禅学习</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240407-书籍_设计模式之禅学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>11.建造者模式</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">11.2 建造者模式的定义</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    建造者模式BuIlder Pattern也叫作生成器模式
+                    定义:Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+                    翻译:将一个复杂对象的构建与它的表示分离,使得同样的构建过程可以创建不同的表示.
+
+                    通用UML类图                    
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/01 通用UML类图.png" alt="picture"><br>                
+
+                    Product产品类:通常包含模板方法和基本方法.
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/02 Product产品类.png" alt="picture"><br>                
+
+                    Builder抽象建造者:规范产品的组件,一般由子类实现
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/03 Builder抽象类.png" alt="picture"><br>                
+
+                    ConcreteBuilder具体建造者:实现抽象方法,组装并返回一个对象.
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/04 Builder实现类.png" alt="picture"><br>                
+
+                    Director导演类:负责制备一些预设,方便调用.
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/05 Director类.png" alt="picture"><br>                
+
+                </div>
+                <strong class="smallTopic">11.3 建造者模式的应用</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    优点:分析,容易扩展,便于控制细节
+                    使用场景:相同的方法不同执行顺序产生不同结果
+                    对比:和工厂模式相比,建造者模式关注制造顺序,工厂模式关注产品种类. 
+                </div>
+            </p>
+            <section>12.代理模式</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">12.1 我是游戏至尊(例子引入)</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    1.故事:网络游戏无止境的打怪升级<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/06 打怪升级UML图.png" alt="picture"><br>                
+                    
+                    定义IGamePlayer接口类,确定游戏玩家需要执行的逻辑
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/07 IGamePlayer接口.png" alt="picture"><br>                
+
+                    实现接口的玩家对象
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/08 GamePlayer实现类.png" alt="picture"><br>                
+
+                    客户端类Client测试结果
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/09 Client类.png" alt="picture"><br>                
+
+                    2.需求:不想自己练级了,想让别人来帮忙练级
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/10 请了代练的UML图.png" alt="picture"><br>                
+
+                    代理类GamePlayerProxy对象
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/11 代理类GamePlayerProxy.png" alt="picture"><br>                
+
+                    修改客户端,虽然我们请了代练,但是看起来和没有代练一样,这就是代练(代理)的作用
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/12 修改后的Client类.png" alt="picture"><br>                
+            </p>
+            <p>
+                <strong class="smallTopic">12.2 代理模式的定义</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    代理模式(Proxy Pattern)
+                    定义:Provide a surrogate or placeholder for another object to control access to it.
+                    翻译:为其他对象提供一种代理以控制对这个对象的访问.
+
+                    通用UML类图
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/13 代理模式通用类图.png" alt="picture"><br>                
+
+                    ISubject主题接口,明确要实现哪些业务逻辑
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/14 ISubject主题接口.png" alt="picture"><br>                
+
+                    实现对象RealSubject,实现了接口定义的额方法
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/15 RealSubject实现类.png" alt="picture"><br>                
+
+                    Proxy代理对象,代理对象代替指定的对象执行逻辑
+                    <img src="../../../0_Resoureces/img/learningPicture/20240407/3_TheZenOfDesignMode_Java/16 Proxy代理对象.png" alt="picture"><br>                
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
