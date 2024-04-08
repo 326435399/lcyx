@@ -1,0 +1,61 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240408-HTML_CSS_JS学习</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240408-HTML_CSS_JS学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>8.使用颜色,图像和多媒体</section>
+            <br>
+            <br>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.1 一些颜色选择建议</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    使用在生活中最常见的令人舒服的色彩,避免使用会导致眼睛疲劳的过亮颜色<br>
+                    使用具有两包对比度的颜色,易于阅读.避免使用对比度太低的组合<br>
+                    不需要太多个颜色,通常3-5种颜色,主色调占70%,补色25%,跳色5%.<br>  
+                    <a href="https://paletton.com/#uid=1000u0kllllaFw0g0qFqFg0w0aF">Paletton配色网站</a>            
+                </div>
+            </p>
+            <p style="background-color: aqua;"> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.2 了解网络颜色</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过style="background-color: 颜色值;"即可设置对应的标签部分的背景颜色,如果在body标签设置则会应用于整个网页背景.<br>            
+                </div>
+            </p>
+            <p style="background-color: #999999;"> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.3 使用十六进制表示颜色</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过style="background-color: #999999;"通过十六进制表示的#rrggbb来表示颜色<br>            
+                </div>
+            </p>
+            <p style="background-color: rgb(128,128,128);"> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.4 使用RGB或RGBa值来表示颜色</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过style="background-color: rgb(128,128,128);"通过rgb来表示颜色<br>            
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.5 在CSS中指定背景,文本和边框颜色</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    例如可以通过<br> 
+                    a<br> 
+                    {<br> 
+                        border: 1px solid #000;  指定边界的宽度,样式和颜色<br> 
+                        background-color: #999999; 来指定所有超链接的背景都是灰色的<br> 
+                    }<br>            
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
