@@ -1,0 +1,42 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240408-深度学习入门_自制框架</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240408-深度学习入门_自制框架</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>33.使用牛顿法进行优化(自动计算)</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">总算是解决了报错问题</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    问题<br>
+                    1.只要将变量设置成Variable就会导致正向传播都出现问题.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/5_DeepLearning_Python/01 问题.png" alt="picture"><br>
+                    <br>
+                    2.函数中调用**会调用重载函数__pow__<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/5_DeepLearning_Python/02 调用__pow__.png" alt="picture"><br>
+                    <br>
+                    3.经过验证,如果是numpy类型那可以计算pow,如果是Variable类型了,和int不能计算pow,(因为pow并不会读取Variable类型的data数据,),现在我们的需求变成需要用data类型来计算,但是结果最后需要返回的是Variable类型<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/5_DeepLearning_Python/03 问题.png" alt="picture"><br>
+                    <br>
+                    解决方法<br>
+                    问题解决:原因是__init__出现了问题,导致开始无法进行函数反向传播的部分.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/5_DeepLearning_Python/04 解决1.png" alt="picture"><br>
+                    <br>
+                    问题解决2:计算结果出现错误,Neg的正向传播返回的应该是-x,而不是x<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/5_DeepLearning_Python/05 解决2.png" alt="picture"><br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240408-书籍_设计模式之禅学习</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240408-书籍_设计模式之禅学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>12.代理模式</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">12.3 代理模式的应用</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    优点:<br>
+                    1.职责清晰:真实主题负责处理业务逻辑,代理负责处理其他的相关需求.<br>
+                    2.高扩展性:因为真实主题需要实现主题接口,所以对于代理而言,无论你真实主题如何变更,只要实现了接口就可以照样使用.<br>
+                    应用场景:当想要简化一个事情,把核心部分抽离出来,其余则交给代理来处理.<br>
+                    <br>
+                </div>
+                <strong class="smallTopic">12.4 代理模式的扩展</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    普通代理和强制代理<br>
+                    网络上代理服务器设置分为透明代理和普通代理.<br>
+                    透明代理:用户不用设置代理服务器地址,可以直接访问,代理服务器对用户来说是透明的,不用知道它的存在.<br>
+                    普通代理:用户必须要自己设置代理服务器的IP地址,用户必须知道代理的存在.<br>
+                    类比:普通代理和强制代理这两种设计模式,也是差不多的意思;<br>
+                    普通代理就是必须要知道代理对象,通过调用代理对象来调用正式对象.<br>
+                    强制代理则是调用者直接调用真实对象,真实对象会自动产生一个代理,必须通过代理才能访问真是对象.<br>
+                    <br>
+                    1.普通代理<br>
+                    要求:客户只能访问代理角色,而不能访问真实角色.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/01 普通代理UML.png" alt="picture"><br>
+                    <br>
+                    GamePlayer实例对象,判断传入的对象不为空,才创建,也可以进行其他的判断限制创建条件<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/02 GamePlayer实例对象.png" alt="picture"><br>
+                    <br>
+                    GamePlayerProxy实例对象,它负责了创建GamePlayer对象,所以客户需要关心的东西更少了.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/03 代理对象.png" alt="picture"><br>
+                    <br>
+                    客户对象需要知道的进一步减少,现在只需要知道给代理对象一个名字就可以创建游戏对象,然后代理可以执行登录,打怪,升级,在暗中这一切都被委托给了GamePlayer执行<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/04 客户.png" alt="picture"><br>
+                    <br>
+                    2.强制代理<br>
+                    要求:客户访问真实对象返回的是代理.必须通过代理进行访问.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/05 强制代理UML.png" alt="picture"><br>
+                    <br>
+                    接口类要求增加一个可以获取代理的方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/06 接口类.png" alt="picture"><br>
+                    <br>
+                    游戏对象存储代理对象,实现接口的getProxy方法可以返回当前对象的代理对象.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/07 游戏对象.png" alt="picture"><br>
+                    <br>
+                    接口方法的实现,要求必须是通过代理<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/08 游戏对象.png" alt="picture"><br>
+                    <br>
+                    代理对象就是把所有的执行都委托给代理了的游戏对象.唯一不同的就是代理本身没有代理所以返回自身.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/09 代理对象.png" alt="picture"><br>
+                    <br>
+                    客户端对象,现在我们必须通过游戏对象指定的代理才能访问游戏对象.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/3_TheZenOfDesignMode_Java/10 客户.png" alt="picture"><br>
+                </div>
+            </p>            
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>

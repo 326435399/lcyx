@@ -1,0 +1,60 @@
+<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
+<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
+    <head>  <!--结构_Head抬头-->
+        <meta charset="UTF-8">  <!--编码格式属性charset-->
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240408-Unity3D游戏开发</title>  <!--标题-->
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>  <!--结构_Body-->
+        <header><h1>20240408-Unity3D游戏开发</h1></header>  <!--header(页眉)是介绍性内容的容器-->
+        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
+        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+        <article>
+            <section>7.4 3D物理系统</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.4.2 碰撞体</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    碰撞体和2D碰撞体没有太多不同<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/7_Unity3DGameDevelopment_Csharp/01 BoxCollider.png" alt="picture"><br>                                     
+                    Provides Contacts:提供碰撞检测<br>
+                    勾选之后可以在代码中通过Physics.ContactEvent来监听碰撞<br>
+                    <br>
+                    Include Layers:包含层<br>
+                    会发生碰撞的层<br>
+                    <br>
+                    Exclude Layers:排除层<br>
+                    不和哪些层的对象发生碰撞<br>
+                    <br>
+                    在项目设置_物理里面也是有的,当前这里的会覆盖项目设置里面的全局设置<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/7_Unity3DGameDevelopment_Csharp/02 Unity设置.png" alt="picture"><br>                                     
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.4.3 Rigidbody组件</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    3D刚体组件<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/7_Unity3DGameDevelopment_Csharp/03 Rigidbody.png" alt="picture"><br>                                     
+                    <br>
+                    is Kinematic:是否是运动学对象<br>
+                    和Dynamic是物理学的两个分支,Dynamic是动力学,主要考虑的是力对物体的影响,而Kinematic是运动学,主要考虑的是物体的运动,所以运动学对象是不会受到力影响的.<br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.4.4 碰撞事件</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    和2D类似,碰撞过程中有大量事件可以监听<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/7_Unity3DGameDevelopment_Csharp/04 标准碰撞检测.png"alt="picture"><br>                                     
+                    <br>
+                    Character Controller的一些独特监听<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240408/7_Unity3DGameDevelopment_Csharp/05 独特的检测.png" alt="picture"><br>                                     
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);  // 打印上一次的修改时间
+        </script>
+    </body>
+</html>
