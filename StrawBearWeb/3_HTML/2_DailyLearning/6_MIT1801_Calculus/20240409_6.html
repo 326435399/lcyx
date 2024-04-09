@@ -13,9 +13,52 @@
         <article>
             <section>Linear approximation 线性近似</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">整体结构梳理</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">1. Motivation:目的</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-
+                    切线是函数在该点的近似<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/01 切线是函数在该点的近似.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">3. Boat in a canal小河中的船</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    令x表示的是距离,用函数x(t)表示函数和t的关系,所以x(20)自然就是函数表达式计算,而x'(20)就是距离对于时间t的导数,也就是速度<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/02 小河中的船.png" alt="picture"><br>
+                    <br>
+                    已知点(20,x(20))和该点的切线x'(20)<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/03 函数图像.png" alt="picture"><br>
+                    <br>
+                    对最终结果的估测,我们假设在t=20到t=30这个时间段内速度没有变化还是0.4m/s,那就是导数值速度没有变化,也就是二阶导加速度为零.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/04 结果推测.png" alt="picture"><br>
+                    <br>
+                    在前面的假设下,运动的距离就是(30s-20s)*0.4m/s=4m,所以150m+4m=154m<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/05 对结果的推测.png" alt="picture"><br>
+                    <br>
+                    推测的可信度自然是距离我们已知点越近越可靠,相对短的时间变化更容易稳定<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/06 可信度.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4. Tangent line approximating the function函数的切线近似</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    对于t=30的近似推测,假设速度不变<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/07 对于t30的近似推测.png" alt="picture"><br>
+                    <br>
+                    使用刚刚学到的方法来近似计算根号值<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/08 对于平方根的估计.png" alt="picture"><br>
+                    <br>
+                    核心在于计算导数和二阶导来辅助猜测<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/09 计算稿.png" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">5. Linear approximation video线性近似相关视频</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    上个例子的计算,和我们计算稿基本一致,接着引出一般情况<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/10 上个例子的计算情况.png" alt="picture"><br>
+                    <br>
+                    通过公式推导,我们得到了图像Graph约等于切线TangentLine,所以这叫做线性近似.根据我们的导数公式我们知道当△x极限的时候会得到准确的导数,所以不那么极限的时候得到的是近似值.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/6_MIT1801_Calculus/11 线性近似的核心.png" alt="picture"><br>
                 </div>
             </p>
         </article>

@@ -13,10 +13,36 @@
         <article>
             <section>4.2D图形测试平台</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">梳理</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">4.1 引言</strong><br /> <!--通过class实现的二级主题-->
                 <div>
+                    测试平台用于测试我们在图形学中一些想法的简单系统,且无需很大的开销.<br>
+                    目标是易于编写和调试简单程序的基本框架.<br>
+                    <br>
+                    一个例子,取一条封闭折线,进行割角操作,每条线段三等分,去掉第一和第三小段,余下的小段顺序收尾连接.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/8_ComputerGraphicsTheoryAndPractice_XAML/01 示例.png" alt="picture"><br>
+
+                    问题:<br>
+                    曲线是否会在不断割角之后越来越光滑?<br>
+                    是否存在某条初始折线,无论迭代多少次,曲线还是会带有尖角?<br>
+                    每次保留一半而不是三分之会怎么样?<br>
                 </div>
-            </p>       
+            </p>   
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">4.2 测试平台的细节</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    测试平台的使用方式是赋值这个样本程序,然后根据需要删除其中大部分内容,再对余下内容进行修改<br>
+                    <br>
+                    4.2.1 使用2D测试平台<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/8_ComputerGraphicsTheoryAndPractice_XAML/02 测试平台.png" alt="picture"><br>
+                    <br>
+                    4.2.2 割角Subdivide<br>
+                    cs当中定义了鼠标方法b1Click,xaml定义了哪个Button触发这个方法,当窗口中名为Subdivide的按钮被点击就会调用b1Click方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/8_ComputerGraphicsTheoryAndPractice_XAML/03 鼠标点击按钮.png" alt="picture"><br>
+                    <br>
+                    WPF平台初步结构分析<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/8_ComputerGraphicsTheoryAndPractice_XAML/04 WPF结构.png" alt="picture"><br>
+                </div>
+            </p>     
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

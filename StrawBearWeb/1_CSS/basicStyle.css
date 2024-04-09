@@ -19,6 +19,9 @@
                 padding-right: 200pt;
                 padding-top: 5pt;
                 text-align: left;
+
+                /*测试背景图*/
+                /* background: #ffffff url("../0_Resoureces/icon/bear.ico")  no-repeat top right; */
             }
             h1 /*大标题*/
             {

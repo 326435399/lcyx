@@ -6,7 +6,7 @@
         <title>20240409-HTML_CSS_JS学习</title>  <!--标题-->
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body>  <!--结构_Body-->
+    <body >  <!--结构_Body-->
         <header><h1>20240409-HTML_CSS_JS学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
@@ -15,9 +15,29 @@
             <br>
             <br>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">8.1 一些颜色选择建议</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">8.16 将图像转换为链接</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-        
+                        <a href="../../../0_Resoureces/img/learningPicture/20240401/10_Artist/20240401_10_02临摹练手.jpg">
+                            <img src="../../../0_Resoureces/img/learningPicture/20240401/10_Artist/20240401_10_02临摹练手.jpg" style="width:100px; height: auto;" alt="测试">
+                        </a>
+                        通过在a标签对设置链接到大图的链接,在内设置一个img显示一个小的缩略图,这样就可以点击小图弹出大图了.<br>              
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.17 使用背景图像</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                        background-color 指定元素的背景色<br>
+                        background-image 指定背景图片<br>
+                        background-repeat 指定背景图片的重复方式<br>
+                        background-position 指定初始位置<br>  
+                        <br>
+                        在CSS当中设置<br>
+                        body<br>
+                        {<br>
+                            background: #ffffff url("背景图地址") no-repeat top right;<br>
+                        }<br>
+                        <img src="../../../0_Resoureces/img/learningPicture/20240409/10_HTML_CSS_JS/01 背景图的结果.png" alt=""><br>
+
                 </div>
             </p>
         </article>

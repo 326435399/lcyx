@@ -13,9 +13,32 @@
         <article>
             <section>12.代理模式</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">12.3 代理模式的应用</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">12.4 代理模式的扩展</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-
+                    3.个性代理:要求:在实现游戏对象功能基础上新增了代理的收费功能<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/01 个性代理.png" alt="picture"><br>
+                    <br>
+                    新增了接口来约束代练的功能<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/02 IProxy.png" alt="picture"><br>
+                    <br>
+                    代练对象实现了这个新的计费功能,这个功能不是游戏对象有的,而是代练独有的.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/03 GamePlayerProxy.png" alt="picture"><br>
+                    <br>
+                    现在升级就会收费了,实现了代理的独特个性方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/04 Client.png" alt="picture"><br>
+                    <br>
+                    4.动态代理:要求:在实现阶段不关心谁代理,在运行阶段才指定代理哪一个对象.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/05 动态代理.png" alt="picture"><br>
+                    <br>
+                    代理对象现在实现InvocationHandler接口,这个接口自动把委托的事情做了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/06 GameProxyIH.png" alt="picture"><br>
+                    <br>
+                    动态代理对象直接绕过了创建代理这件事情,将主题这部分和代理给分开了,主题制作自己的逻辑,先完全不用考虑代理的事情,后期再由动态代理自动处理这个事情.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/07 Client.png" alt="picture"><br>
+                    <br>
+                    新增一个登录提示功能<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/08 新增检验方法.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/3_TheZenOfDesignMode_Java/09 结果.png" alt="picture"><br>
                 </div>
            
         </article>

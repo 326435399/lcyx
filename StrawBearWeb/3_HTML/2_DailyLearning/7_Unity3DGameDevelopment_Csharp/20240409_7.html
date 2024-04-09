@@ -13,9 +13,97 @@
         <article>
             <section>7.4 3D物理系统</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">7.4.2 碰撞体</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">7.4.5 布娃娃系统</strong><br /> <!--通过class实现的二级主题-->
                 <div>
+                    Ragdoll,首先需要把模型骨骼和布娃娃进行绑定<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/01 骨骼绑定.png" alt="picture"><br>
+                    <br>
+                    布娃娃系统会自动给这些关节加上碰撞体刚体<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/02 自动添加组件.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/03 结果.gif" alt="picture"><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.4.6 布料系统</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    仅适用于Skinned MeshRenderer,需要设定布料碰撞信息,但是现在设定无效.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/04 Cloth.png" alt="picture"><br>
 
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.4.7 其他</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    Joints关节和Articulations衔接,然而因为性能问题,基本上不会使用<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/05 其他组件.png" alt="picture"><br>
+                </div>
+            </p>
+
+            <section>7.5 输入系统</section>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.1 实体输入事件</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    去官网查看<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/06 实体输入事件.png" alt="picture"><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.2 虚拟输入事件</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    在InputManager中配置,通过GetAxis(虚拟按键名),GetButtonDown()来控制触发行为<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/07 虚拟输入事件.png" alt="picture"><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.3 鼠标位置</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    1.鼠标控制物体的移动<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/08 鼠标控制移动.png" alt="picture"><br>
+                    <br>
+                    需要注意的是,我们并没有考虑相机旋转,所以如果相机的角度变化结果会不一样的.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/09 鼠标移动.gif" alt="picture"><br>
+                    <br>
+                    2.鼠标控制UI的移动<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/10 鼠标控制UI移动.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/11 控制UI结果.gif" alt="picture"><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.4 点选模型</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    建立了一些委托<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/12 点选模型的委托.png" alt="picture"><br>
+                    <br>
+                    和回调事件绑定<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/13 和回调事件的绑定.png" alt="picture"><br>
+                    <br>
+                    准备好检测组件和指定参与的对象<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/14 需要指定用来检测的组件.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/15 选择事件.gif" alt="picture"><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.5 通过点击控制移动</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过射线碰撞检测来获取移动的位置<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/16 往鼠标位置移动.png" alt="picture"><br>
+                    <br>
+                    设置好组件引用,Unity提供了一个IgnoreRaycast的层,在这个层里面的对象是不考虑射线的.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/17 设置好组件引用.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/18 移动到指定位置.gif" alt="picture"><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.5.6 射线</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    获取射线当中的信息,设置绘制射线来检测<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/19 射线信息.png" alt="picture"><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240409/7_Unity3DGameDevelopment_Csharp/20 结果.gif" alt="picture"><br>
                 </div>
             </p>
 
