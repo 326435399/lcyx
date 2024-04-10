@@ -4,7 +4,7 @@
         <meta charset="UTF-8">  <!--编码格式属性charset-->
         <meta name="StrawBear" content="记录一个学习者的过程">
         <title>20240410-9.美术学习</title>  <!--标题-->
-        <link rel="stylesheet" href="../../1_CSS/basicStyle.css">
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
         <!-- <link rel="stylesheet" href="../../../1_CSS/basicStyle.css"> 每天学习用这个 -->
     </head>
     <body>  <!--结构_Body-->
@@ -12,10 +12,55 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>每个section是一个大主题</section>
+            <section>5.透视盒子与点定位</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">这里写小标题</strong><br /> <!--通过class实现的二级主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+                <strong class="smallTopic">3.点定位与透视中的基本几何体</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    典型的错误思考方式,三维空间中不能按照二维一样的等分,因为透视关系的存在,距离较远的E线段是要比C线段要短一些的.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/01 错误案例.png" alt=""><br>
+                    <br>
+                    1.如何确定一个矩形面的中心点?<br>
+                    用两条辅助线链接矩形面的对角,两条直线的交叉处就是矩形面的中心点.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/02 绘制中心点.png" alt=""><br>
+                    <br>
+                    2.如何二等分线段或二等分一个矩形面?<br>
+                    A.做交叉辅助线找到中点<br>
+                    B.通过画延伸线或直接估算矩形面的下消失点<br>
+                    C,过消失点和中心点做辅助线<br>
+                    D.辅助线二等分了上下两边也二等分了矩形面<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/03 二等分.png" alt=""><br>
+                    <br>
+                    3.如何多等分线段或多等分一个矩形面<br>
+                    A.在PS中画六条等距线<br>
+                    B.Ctrl+T打开变形工具<br>
+                    C.把四个角和矩形面四个角对齐<br>
+                    D.完成了等分<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/04 多等分.png" alt=""><br>
+                    <br>
+                    4.如何等距扩展线段或扩展矩形面<br>
+                    A.做交叉辅助线找到矩形面的中点,过中点和矩形面的消失点画一条上下等分矩形面的直线<br>
+                    B.过矩形面左下角的一点和句型竖边上的交点做一条辅助延长线,和延长线的交点N<br>
+                    C.估算下消失点<br>
+                    D.绘制N和下消失点的连线<br>
+                    E.得到了等大的句型<br>
+                    F.可以重复更改左下角点和竖边得到更多等大的矩形面<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/05 等距扩展.png" alt=""><br>
+                    <br>
+                    5.如何基于线绘制镜像的某个点<br>
+                    A.假设我们想根据左侧的点画出右侧的镜像点<br>
+                    B.绘制该点到消失点的延长线<br>
+                    C.交叉小矩形的中点,然后连接中点到消失点找到一个镜像参考点<br>
+                    D.过原点与镜像参考点,延伸得到底线的参考点<br>
+                    E.连接底边参考点和消失点做延长线得到和原本镜像等水平延长线的交点<br>
+                    F.去除其他的线,我们已经得到了镜像点<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/06 镜像点.png" alt=""><br>
+                </div>
+            </p>
+            <p>
+                每日练习
+                <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/07 辩色练习.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/08 临摹练习.jpg" alt=""><br>
+
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
