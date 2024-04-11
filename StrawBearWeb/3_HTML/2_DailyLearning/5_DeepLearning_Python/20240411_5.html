@@ -11,11 +11,26 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>33.使用牛顿法进行优化(自动计算)</section>
+            <section>34.sin函数的高阶导数</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">33.1 求二阶导</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">34.1 Sinx的实现</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-                  
+                    需要注意的是因为反向传播中都是Variable变量,所以我们需要在dezero当中写cos,np的cos函数是不会计算Variable的<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/5_DeepLearning_Python/01 Sin函数的实现.png" alt=""><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">34.2 Cosx的实现</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    Cos函数的实现,和Sin函数类似<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/5_DeepLearning_Python/02 Cos函数的实现.png" alt=""><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">34.3 Sinx的高阶导</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    通过迭代绘制三阶导,因为range往下取的,运行到2就结束了,所以只能求到三阶导.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/5_DeepLearning_Python/03 绘制sinx的四阶导.png" alt=""><br>
                 </div>
             </p>
 
