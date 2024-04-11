@@ -13,9 +13,60 @@
         <article>
             <section>Linear approximation 线性近似</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">1. Motivation:目的</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">6. Linear approximation线性近似</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-
+                    快速估计一个值的方法,线性近似<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/01 线性近似.png" alt=""><br>
+                    <br>
+                    计算逻辑是没错的,但是犯了一个贴铁憨憨的计算错误问题..<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/02 计算.png" alt=""><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7. Beyond Linear超越线性</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    引出了计算的一个非常重要的误解,计算x的n/m次幂,结果应该是x的n次幂,然后开m次根号.上一个例题中凑巧是.5次幂,我也凑巧认为是.5就是乘以自己的一半,实际上不是,应该是根号自己.所以只要4这一个数的一半刚好就是根号自己一样的结果.导致的这个巧妙的偶遇,所以后面要多加验证,要小心<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/03 计算.png" alt=""><br>
+                    <br>
+                    问题是根据我们前面计算得到的值估计实际函数曲线在切线上方还是下方?<br>
+                    结果:根据前面计算得到的二阶导结果是负数,所以是下凹,函数会在切线的下方<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/04 利用二阶导.png" alt=""><br>
+                    <br>
+                    根据前面我们估算的值,现在判断估算的值是过高还是过低?<br>
+                    结果:因为二阶导告诉我们值会变小,所以我们高估了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/05 利用二阶导.png" alt=""><br>
+                    <br>
+                    问题:哪种小船更可能符合我们的预测?游轮还是独木舟?<br>
+                    结果:自然是游轮,因为我们的假定是速度不变,游轮有自身的动力系统更容易维持速度不变.<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/06 小船推断.png" alt=""><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">8.Concavity and Linear Approximation凹性和线性近似</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    根据函数的二阶导,我们能知道实际值应该比线性预估值要小<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/07 利用二阶导来判断函数实际值.png" alt=""><br>
+                    <br>
+                    这个精度偏差会有多快?二阶导变化的快慢会告诉我们,这是不是相当于说的是三阶导..以小船这个例子为例,显然游轮的三阶导会比较小,因为他的质量很大,而独木舟则会三阶导很大,因为本身质量轻,不需要太大的力就可以位移它很远了<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/08 失效速度.png" alt=""><br>
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">9. Some problems 一些问题</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    当球的半径从10cm变成9.97cm,体积减少了多少立方厘米?<br>
+                    答案:同样的通过线性近似计算得到是12π<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/09 练习-体积减少率.png" alt=""><br>
+                    <br>
+                    题目:讲得是体积变化了20π,那么半径变化了多少?<br>
+                    答案:体积变化除以导数得到半径变化值的估计值<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/10 练习-反过来思考.png" alt=""><br>
+                    <br>
+                    问题:估计时钟从7.01移动到7.02水平位移距离<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/11 练习-时钟移动估计.png" alt=""><br>
+                    <br>
+                    结果:水平位移建立的函数是f(θ)=14cosθ,然后一圈60分钟,所以一分钟就是π/30,7.00是在π/2,所以7.01是在π/2-π/30,7.02则是在π/2-2π/30,7.01到7.02之间的θ变化就是-π/30.最近比较好估计的点就是π/2,求导数得到-14sinθ=-14sin(π/2)=-14,然后代入结果就是导数值乘以△x,就等于-14*-π/30<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/6_MIT1801_Calculus/12 练习-结果.png" alt=""><br>
                 </div>
             </p>
         </article>

@@ -11,11 +11,44 @@
         <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
         <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
         <article>
-            <section>7.4 3D物理系统</section>
+            <section>7.6 Transform组件</section>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">7.4.5 布娃娃系统</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">7.6.1 控制角色移动</strong><br /> <!--通过class实现的二级主题-->
                 <div>
+                    需求:通过Transform来控制物体的移动
+                    核心思想:通过往人物正下方发射射线来检测获取点的高度
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/01 人物移动.png" alt=""><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/02 结果.gif" alt=""><br>
 
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.6.2 摄像机跟随</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    存储摄像机往角色的朝向信息,然后获取不同的输入信息,用左右来控制旋转,上下来控制移动.
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/03 摄像机跟随1.png" alt=""><br>
+
+                    射线检测,来更改角色移动的正确高度,更新摄像机的位置,更新摄像机的朝向更新后的物体
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/04 摄像机跟随2.png" alt=""><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/05 结果.gif" alt=""><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.6.3 插值移动</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    为了让过程更加顺序,往往都需要在中间进行插值
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/06 平滑插值.png" alt=""><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/07 结果.gif" alt=""><br>
+
+                </div>
+            </p>
+            <p> <!--每个p里面是小主题-->
+                <strong class="smallTopic">7.6.4 约束条件</strong><br /> <!--通过class实现的二级主题-->
+                <div>
+                    一些不用作为子对象也能产生的子对象约束效果
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/08 约束组件.png" alt=""><br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240411/7_Unity3DGameDevelopment_Csharp/09 结果.gif" alt=""><br>
                 </div>
             </p>
         </article>
