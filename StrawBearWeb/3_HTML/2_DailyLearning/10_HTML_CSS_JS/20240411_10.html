@@ -14,9 +14,25 @@
             <section>8.使用颜色,图像和多媒体</section>
             <br>
             <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">8.16 将图像转换为链接</strong><br /> <!--通过class实现的二级主题-->
+                <strong class="smallTopic">8.18 使用图像隐射</strong><br /> <!--通过class实现的二级主题-->
                 <div>
-         
+                    将图像划分为链接到不同文档的区域,具体取决于用户在该图像中单击的位置.<br>
+                    <strong>8.18.1 什么情况下需要图像映射</strong><br>
+                    当目标图像由许多部分,排列奇怪或者设计太复杂无法分割成单独的图像.<br>
+                    <br>
+                    <strong>8.18.2 映射图像中的区域</strong><br>
+                    需要对应图像的坐标,推荐的独立软件是Mapedit等.<br>
+                    <br>
+                    <strong>8.18.3 为图像映射创建HTML代码</strong><br>
+                    <br>
+                    当前图片指定了左上角一个70长的正方形作为映射区域,点击会跳转回到首页<br>
+                    <map name="mapname">
+                        <area shape="rect" coords="1,70,70,0" href="../../../../index.html" alt="首页" title="回到首页">                                    
+                    </map>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240410/9_Artist/07 辩色练习.png" alt="图片" title="映射图片" usemap="#mapname">  
+                    <br>
+                    使用的逻辑为使用map标签对,然后定义属性name="映射图ID名",然后内部使用area标签对,定义映射图的形状,shape="rect"指定为矩形,coords="左上角x,左上角y,右下角x,右下角y" href指定跳转链接,alt作为特殊文本,title作为移动提示,最后在任意的img标签对中通过usemap="#映射贴图ID名"来实现使用指定的区域映射效果.<br>
+                    shape属性还有circle圆形,poly多边形这两种指定区域的方式.<br>
                 </div>
             </p>
         </article>
