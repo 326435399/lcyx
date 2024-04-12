@@ -31,18 +31,19 @@
                 line-height: 20pt;
                 text-align:center;
             }
-            article /*章节*/ 
+            h2
             {
                 font-size: 16pt;
-                font-weight: bold;
+                /* font-weight: bold; */
                 line-height: 18pt;
             }
-            section /*段落*/ 
+            h3
             {
                 font-size: 14pt;
-                font-weight: bold;
+                /* font-weight: bold; */
                 line-height: 16pt;
             }
+
             p,li /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
             {
                 font-size: 12pt;
