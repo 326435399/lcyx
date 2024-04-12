@@ -1,24 +1,42 @@
-<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
-<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
-    <head>  <!--结构_Head抬头-->
-        <meta charset="UTF-8">  <!--编码格式属性charset-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
         <meta name="StrawBear" content="记录一个学习者的过程">
-        <title>20240412-Unity3D游戏开发</title>  <!--标题-->
+        <title>20240412-Unity3D游戏开发</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body>  <!--结构_Body-->
-        <header><h1>20240412-Unity3D游戏开发</h1></header>  <!--header(页眉)是介绍性内容的容器-->
-        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
-        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
-        <article><h2>大标题</h2>
-            <section><h3>小标题</h3></section>
-            <p> <!--每个p里面是小主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+    <body>
+        <header><h1>20240412-Unity3D游戏开发</h1></header>
+        <nav></nav>
+        <aside></aside>
+        <article><h2>9.持久化数据</h2>
+            <section><h3>9.1 Excel</h3></section>
+            <p>
+                <div>
+                    持久化数据一般可以分为两种:<br>
+                    静态数据:例如由策划人员编辑的数据,特点是在程序运行期间只需要读取,不需要修改.<br>
+                    游戏存档数据:记录玩家在游戏过程中的精度,特点既需要读取也需要修改,在游戏版本升级的时候需要考虑删除或者重置旧数据.<br>
+                    <br>
+                    Excel表格厂员工数据配置方式,通过唯一的Key键来给前后端进行通信,这里就是英文字段是唯一的Key<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/7_Unity3DGameDevelopment_Csharp/01 Excel表.png" alt=""><br>
+                    <br>
+                    9.1.1 EPPlus<br>
+                    EPPlus是Windows的Excel解析库,把DLL拖入Unity即可使用<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/7_Unity3DGameDevelopment_Csharp/02 EPPlus读取库.png" alt=""><br>
+                    <br>
+                    9.1.2 读取Excel文件<br>
+                    脚本读取Excel的内容<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/7_Unity3DGameDevelopment_Csharp/03 读取Excel.png" alt=""><br>
+                    <br>
+                    结果<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/7_Unity3DGameDevelopment_Csharp/04 结果.png" alt=""><br>
+                </div>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
-            document.write(document.lastModified);  // 打印上一次的修改时间
+            document.write(document.lastModified);
         </script>
     </body>
 </html>

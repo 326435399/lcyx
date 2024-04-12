@@ -6,19 +6,73 @@
         <title>20240412-3.设计模式之禅</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body>  <!--结构_Body-->
+    <body>
         <header><h1>20240412-3.设计模式之禅</h1></header>
-        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
-        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
-        <article><h2>大标题</h2>
-            <section><h3>小标题</h3></section>
-            <p> <!--每个p里面是小主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+        <nav></nav>
+        <aside></aside>
+        <article><h2>第13章  原型模式</h2>
+            <section><h3>13.1 个性化电子账单</h3></section>
+            <p>
+                <div>
+                    需求:修改让模板对象创建新的克隆对象实现不会互相影响,从而可以多线程<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/3_TheZenOfDesignMode_Java/01 UML图.png" alt=""><br>
+                    <br>
+                    Mail类实现了克隆接口,然后实现了对应的方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/3_TheZenOfDesignMode_Java/02 Mail.png" alt=""><br>
+                    <br>
+                    Client客户端类每次调用克隆方法创建新的对象,这样就可以不怕多线程了<br>
+                    这种不通过new关键字来产生一个新的对象,而是通过对象复制来实现的模式就叫做原型模式<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/3_TheZenOfDesignMode_Java/03 Client.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>13.2 原型模式的定义</h3></section>
+            <p>
+                <div>
+                    Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.<br>
+                    翻译:用原型实例指定创建对象的种类,并且通过拷贝这些原型创建新的对象<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/3_TheZenOfDesignMode_Java/04 UML图.png" alt=""><br>
+                    <br>
+                    Java当中的Cloneable只是一个标识接口,里面没有任何方法,单纯是一个标记,JVM只会对具有这个标记的对象进行拷贝,实际上我们覆盖的事所有类的祖宗Object类的clone方法<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/3_TheZenOfDesignMode_Java/05 PrototypeClass.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>13.3 原型模式的应用</h3></section>
+            <p>
+                <div>
+                    优点:<br>
+                    1.性能好:是内存二进制流的拷贝,性能很好<br>
+                    2.忽略构造函数:一方面来说可以跳过构造函数,另外一方面说如果构造函数里面有一些特殊的作用会带来问题<br>
+                    <br>
+                    使用场景:<br>
+                    1.资源优化场景,场景中大量资源<br>
+                    2.性能和安全要求场景:可以通过这种方式跳过繁琐的验证<br>
+                    3.一个对象多个修改者的场景:通过原型模式让他们不会互相影响<br>
+                </div>
+            </p>
+            <section><h3>13.4 原型模式的注意事项</h3></section>
+            <p>
+                <div>
+                    1.构造函数不会被执行<br>
+                    原理是因为clone方法是直接从堆内存复制一份二进制重新分配一个内存块,所以自然就不会执行构造函数了<br>
+                    <br>
+                    2.浅拷贝和深拷贝<br>
+                    clone对于内部的数组,引用对象等都不拷贝,只是拷贝地址,这种拷贝就叫做浅拷贝.(成员变量且是可变的引用对象)<br>
+                    深拷贝则是对于所有变量的完全拷贝,需要在clone方法里面独立实现,例如thing.arrayList=(ArrayList泛型String)this.arrayList.clone();这样就会进入到数组,再克隆,而不是克隆浅层的引用.<br>
+                    <br>
+                    3.final和clone<br>
+                    定义了final就不允许动内存中的对象了,这自然是无法克隆的.<br>
+                </div>
+            </p>
+            <section><h3>13.5 最佳实践</h3></section>
+            <p>
+                <div>
+                    创建一个包含大量共同信息的类,然后拷贝副本修改,而不是从头开始创建,这就是原型模式,先创建原型,然后在原型的基础上创建其他对象.<br>
+                </div>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
-            document.write(document.lastModified);  // 打印上一次的修改时间
+            document.write(document.lastModified);
         </script>
     </body>
 </html>

@@ -1,24 +1,115 @@
-<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
-<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
-    <head>  <!--结构_Head抬头-->
-        <meta charset="UTF-8">  <!--编码格式属性charset-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
         <meta name="StrawBear" content="记录一个学习者的过程">
-        <title>20240412-数学学习_MIT1801微积分</title>  <!--标题-->
+        <title>20240412-数学学习_MIT1801微积分</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body>  <!--结构_Body-->
-        <header><h1>20240412-数学学习_MIT1801微积分</h1></header>  <!--header(页眉)是介绍性内容的容器-->
-        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
-        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
-        <article><h2>大标题</h2>
-            <section><h3>小标题</h3></section>
-            <p> <!--每个p里面是小主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+    <body>
+        <header><h1>20240412-数学学习_MIT1801微积分</h1></header>
+        <nav></nav>
+        <aside></aside>
+        <article><h2>Product rule 乘积法则</h2>
+            <section><h3>1.motivation引入</h3></section>
+            <p>
+                <div>
+                    F=ma,如果m是常量,那么速度的导数就是加速度<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/01_F=ma.png" alt=""><br>
+                    <br>
+                    如果m不是常量,质量是在变化的,那么意味着我们需要求两个变化的导数值的乘积的导数<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/02_F=ma.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>2.Object目标</h3></section>
+            <p>
+                <div>
+                    什么样的导数我们能很快微分?<br>
+                    x的幂,多项式,sin和cos函数<br>
+                    目标:学会函数乘积的微分(求导)<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/03_目标.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>3. What the derivative of a product is not为什么乘积的导数不等于导数的乘积</h3></section>
+            <p>
+                <div>
+                    引出问题,为什么两个数乘积的导数不等于导数的乘积<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/04_为什么导数的乘积不是乘积的导数.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>4. Exploring why not展示为什么不是</h3></section>
+            <p>
+                <div>
+                    问题:假设t是时间单位s来测量,f和g是距离用m测量,问导数的单位?<br>
+                    答案:f'(t)意味着输入是t,输出是f,所以是输出每输入作为单位,也就是m/s<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/05_基本设置.png" alt=""><br>
+                    <br>
+                    问题:假设h(t)=f(t)g(t),单位是什么?<br>
+                    答案:f(t)是m,g(t)也是m.所以h(t)就是m^2<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/06_乘积单位.png" alt=""><br>
+                    <br>
+                    问题:导数的单位是什么?<br>
+                    答案:输出我们在上一个问题中知道变成m²了,输入还是t,所以单位就是m²/s,输入分之输出<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/07_导数单位.png" alt=""><br>
+                    <br>
+                    问题:f'(t)*g'(t)和h'(t)一样吗?<br>
+                    答案:显然不一样,一个单位是m²/s,一个是m²/s²<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/08_不匹配.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>5. Product of derivatives?乘积的导数是什么?</h3></section>
+            <p>
+                <div>
+                    证明了为什么乘积的导数不等于导数的乘积,引出问题,那么乘积的导数等于什么?<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/09_证明.png" alt=""><br>
+                    <br>
+                    思考这两个方向变化有多快?如何量化?<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/10_证明.png" alt=""><br>
+                    <br>
+                    问题:顶部增长多快?<br>
+                    解答:顶部变化的速度是2m/s,然后长度是f(3)=50m,所以顶部的增长速度就是2m/s*50m=100m²/s<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/11_顶部区域增长多快.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>6. Area growth面积增长</h3></section>
+            <p>
+                <div>
+                    问题:右侧区域增长多快?<br>
+                    解答:右侧区域变化的速度是4m/s,宽度是g(3)=30m,所以增长速度就是4m/s*30m=120m²/s<br>
+                    加起来总的变化就是120+100=220m²/s<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/12_右侧区域增长多快.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>7. Product rule乘积法则</h3></section>
+            <p>
+                <div>
+                    我们证明了整个过程,接下来符号化<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/13_证明.png" alt=""><br>
+                    <br>
+                    得到了乘积法则<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/14_乘积法则.png" alt=""><br>
+                </div>
+            </p>
+            <section><h3>8. Product Rule乘积法则公式</h3></section>
+            <p>
+                <div>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/15_乘积法则.png" alt=""><br>                    
+                </div>
+            </p>
+            <section><h3>9. Some problems一些问题练习</h3></section>
+            <p>
+                <div>
+                    练习乘积法则的使用<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/16_练习1.png" alt=""><br>                    
+                    <br>
+                    麦克大叔的大西瓜,主要注意的是价格是下降的.所以p'(d)=-0.01dollar/day<br>
+                    <img src="../../../0_Resoureces/img/learningPicture/20240412/6_MIT1801_Calculus/17_练习2.png" alt=""><br>                    
+                </div>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
-            document.write(document.lastModified);  // 打印上一次的修改时间
+            document.write(document.lastModified);
         </script>
     </body>
 </html>
