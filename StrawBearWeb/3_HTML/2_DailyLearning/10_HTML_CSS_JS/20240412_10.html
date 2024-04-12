@@ -1,24 +1,51 @@
-<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
-<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
-    <head>  <!--结构_Head抬头-->
-        <meta charset="UTF-8">  <!--编码格式属性charset-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
         <meta name="StrawBear" content="记录一个学习者的过程">
-        <title>20240412-HTML_CSS_JS学习</title>  <!--标题-->
+        <title>20240412-HTML_CSS_JS学习</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body >  <!--结构_Body-->
-        <header><h1>20240412-HTML_CSS_JS学习</h1></header>  <!--header(页眉)是介绍性内容的容器-->
-        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
-        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
-        <article><h2>大标题</h2>
-            <section><h3>小标题</h3></section>
-            <p> <!--每个p里面是小主题-->
-                <div>这里写正文,加粗通过strong来实现</div>
+    <body >
+        <header><h1>20240412-HTML_CSS_JS学习</h1></header>
+        <nav></nav>
+        <aside></aside>
+        <article><h2>8.使用颜色图像和多媒体</h2>
+            <section><h3>8.19 链接多媒体文件</h3></section>
+            <p> 
+                <div>
+                    可以通过a href="音频文件地址"来打开播放音频文件<br>
+                    <a href="../../../0_Resoureces/example/漂亮页面样式示例/Ambience Grocery Store Entrance 01.wav" target="_blank">点击播放音频</a><br>
+
+                    可以通过a href="视频文件地址"来打开播放视频文件<br>
+                    <a href="../../../0_Resoureces/video/20240405/6_MIT1801_Calculus/5. Derivative of sine.mp4" target="_blank">sin的导数视频</a>
+                </div>
             </p>
+            <section><h3>8.20 嵌入多媒体文件</h3></section>
+            <div>
+                1.可以通过video controls src="视频地址" type="video/mp4"来播放嵌入视频<br>
+                <video controls style="width: 600px; height: auto;" src="../../../0_Resoureces/video/20240401/7_MIT1801_Calculus/4. Introducing higher derivatives.mp4">介绍更高阶导数</video>
+                <br>
+                另外一种方式是通过video controls,然后在viedo标签对内新增多个source标签,里面会按照顺序执行<br>
+                video controls<br>
+                source src="视频地址" type=video/x-ms-wmv<br>
+                source src="视频地址" type=video/mp4<br>
+                写一段话,如果上面的都不行<br>
+                /video<br>
+                这样会提供更好的兼容性<br>
+                <br>
+                video还有几个属性preload是否预加载,loop是否循环播放视频,poster视频还没有加载好现实的图像,autoplay准备好后立即播放<br>
+                <br>
+                2.音频是类似的,使用audio标签,主流支持的三种流行格式WAV-audio/vnd.wave,MP3-audio/mpeg,MP4-audio/mp4<br>
+                <audio controls>
+                    <source src="../../../0_Resoureces/example/漂亮页面样式示例/Ambience Grocery Store Entrance 01.wav">
+                    <p>如果你不支持播放wav格式的音频</p>
+                </audio>
+            </div>
         </article>
-        <footer><a href="../../../../index.html">首页</a></footer>  <!--footer(页脚)是额外信息,例如:链接,版权说明,作者等等-->
+        <footer><a href="../../../../index.html">首页</a></footer>
         <script>
-            document.write(document.lastModified);  // 打印上一次的修改时间
+            document.write(document.lastModified);
         </script>
     </body>
 </html>
