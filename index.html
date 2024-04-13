@@ -353,9 +353,29 @@
                 <img style="width: 1024px;height: 768px;" src="StrawBearWeb/0_Resoureces/cover/20240412封面图.png" alt="图片" title="映射图片" usemap="#20240412学习封面图">
             </li>
             <li>
-                <a href="StrawBearWeb/TestUnityPackage/WebGL_Test/index.html">测试Unity</a>
+                20240413周六自由学习,不设定学习计划,想要看ShaderForge的作者芙蕾雅·霍尔默的数学教程,然后认真学习一下Unity的URP当中的Rendering Debugger怎么用,开个分享会.<br>
             </li>
         </ol> 
     </p>
+    <script>
+        // 读取存储的滚动位置并滚动到该位置  
+        const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+        const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+        
+        window.onload = function()  // 读取窗口的时候就回滚到上次位置
+        {
+            if (storedScrollPosition)  // 如果滚动位置存在 
+            {  
+                window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+            } 
+        } 
+           
+        // 监听滚动事件并存储位置  
+        window.addEventListener('scroll', () => 
+        {  
+            const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+            localStorage.setItem(scrollPositionKey, scrollPosition);  
+        });
+    </script>   
 </body>
 </html>
