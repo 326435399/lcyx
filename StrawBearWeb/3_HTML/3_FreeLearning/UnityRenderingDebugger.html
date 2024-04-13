@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>UnityRenderingDebugger学习</title>
+        <link rel="stylesheet" href="../../1_CSS/basicStyle.css">
+    </head>
+    <body >
+        <header><h1>UnityRenderingDebugger学习</h1></header>
+        <nav></nav>
+        <aside></aside>
+        <article><h2>RenderingDebugger</h2>
+            <section><h3>官方文档解析</h3></section>
+            <p> 
+                <div>
+                    <strong>RenderingDebugger</strong><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/00_封面.png" alt=""><br>
+                    <br>
+                    官方文档解析V14.0.10对应Unity2022.3.17f1c1 DX11<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/03_官方文档.png" alt=""><br>
+                    <br>
+                    <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/features/rendering-debugger.html">官网链接</a> 
+                    最新版本17.03多了渲染图像配置方式,光探头可视化,贴图流加载等新的检测方向.<br>
+                    <br>
+                    <br>
+                    <strong>1.Rendering Debugger:RD总览</strong><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/02_界面.png" alt=""><br>
+                    RD窗口让你能够可视化不同的灯光,渲染效果和材质属性.可视化能都帮助你确认渲染问题优化你的场景和渲染设置.<br>
+                    <br>
+                    包含以下几个主题:<br>
+                    1.如何打开RD窗口.<br>
+                    简介:在编辑器模式,运行模式,和开发者模式创建的执行程序包当中打开RD窗口<br>
+                    2.RD窗口的部分<br>
+                    简介:描述RD窗口当中的元素和属性.<br>
+                    3.在运行时使用<br>
+                    简介:如何在运行时找到RD接口<br>
+                    <br>
+                    1.How to access the Rendering Debugger window:如何打开RD窗口<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/01_打开方式.png" alt=""><br>
+                    <br>
+                    可用范围:RD能够在编辑器(Editor),运行模式(Game)和开发者模式打包(DeveLopment Builds)<br>
+                    <br>
+                    1.1开发者模式想要打包首先需要在全局设置当中取消这个选项.<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/04_开发者模式打包.png" alt=""><br>                    
+                    <br>
+                    1.2选择Development Build开发者打包模式<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/05_勾选开发者模式.png" alt=""><br>
+                    <br>
+                    1.3打开方式<br>
+                    1.桌面电脑,左ctrl+退格.苹果是左ctrl+delete<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/14_运行打开检测界面.png" alt=""><br>
+                    2.控制台,L3和R3(Left Stick and Right Stick)--没试过<br>
+                    3.移动设备,三指双击--没试过<br>
+                    <br>
+                    <br>
+                    <strong>2.Rendering Debugger window sections:RD设置</strong><br>
+                    2.1 FrequentlyUsed是常用的组件,把功能抽取出来做了一个合集<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/08_FrquentlyUsed.png" alt=""><br>
+                    <br>
+                    2.2Display Stats显示状态(编辑器模式没有)<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/06_运行模式独有.png" alt=""><br>
+                    <br>
+                    对应属性信息,瓶颈也只有在开发者打包模式中有用<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/07_DisplayStates.png" alt=""><br>
+                    <br>
+                    2.3 Rendering渲染<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/09_Rendering.png" alt=""><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/10_RenderingDebug.png" alt=""><br>
+                    <br>
+                    2.4 Materials材质<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/11_Materials_页面.png" alt=""><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/11_Materials.png" alt=""><br>
+                    <br>
+                    2.5 Lighting灯光<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/12_Lighting_页面.png" alt=""><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/12_Lighting.png" alt=""><br>
+                    <br>
+                    2.6 Volume体积<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/13_Volume_页面.png" alt=""><br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/13_Volume.png" alt=""><br>
+                    <br>
+                    <br>
+                    <strong>3.Navigation at runtime:在运行时使用</strong><br>
+                    在运行时打开检测界面左ctrl+backpace,在Game视口也可以这样打开的<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/14_运行打开检测界面.png" alt=""><br>
+                    <br>
+                    PageUP/Down切换页面,上下切换选项,左右或者回车确定更换不同选项.<br>
+                    <img src="../../0_Resoureces/img/otherTopic/RenderingDebugger/15_通过Page切换.png" alt=""><br>
+                </div>
+            </p>
+        </article>
+        <footer><a href="../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);
+        </script>
+    </body>
+</html>
