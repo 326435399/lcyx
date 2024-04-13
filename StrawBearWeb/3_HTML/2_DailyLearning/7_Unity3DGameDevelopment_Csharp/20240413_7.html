@@ -13,25 +13,93 @@
         <article><h2>9.1 Excel</h2>
             <section><h3>9.1.3 写入Excel文件</h3></section>
             <div>
-
+                脚本写内容到Excel<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/01_写内容到Excel.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/02_结果.png" alt=""><br>
             </div>
         </article>
         <article><h2>9.2 SQLite</h2>
-            <section><h3>9.1.3 写入Excel文件</h3></section>
+            <section><h3>9.2.1 创建数据库</h3></section>
             <div>
-
+                SQLite是一个开源的C语言数据库引擎.<br>
+                去微软下载之后把两个脚本丢进去就可以使用了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/03_SQLite的使用.png" alt=""><br>
+                <br>
+                创建数据库,采用异步的方法<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/04_创建数据库.png" alt=""><br>
+                <br>
+                数据库就拿到了,使用SQLiteStudio打开看是都有了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/05_结果.png" alt=""><br>
+            </div>
+            <section><h3>9.2.2 跨平台读取数据库</h3></section>
+            <div>
+                SQLite数据可以直接使用原生的方法调用,需要extern关键字并且配合DLLImport操作数据库,为了让本地编辑器可以直接操作,下载对应平台的库文件<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/06_sqlite3.png" alt=""><br>
+                <br>
+                读取数据库,指定ID为18的数据<br>
+                底层的SQL语句都是支持的,所以Insert,Get<T>,Table<T>,Delete,Query<T>,Execute这些操作都是可以执行的<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/07_跨平台读取数据库.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/08_结果.png" alt=""><br>
             </div>
         </article>
         <article><h2>9.3 Json</h2>
-            <section><h3>9.1.3 写入Excel文件</h3></section>
+            <section><h3>9.3.1 JsonUtility</h3></section>
             <div>
+                JSON是一种轻量的数据保存格式,Unity内置了JsonUtility工具类来处理,也支持使用功能.NET的JSON库,安装NewtonsoftJson包即可.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/09_NewtonsoftJson.png" alt=""><br>
+                <br>
+                游戏运行时是无法通过EPPlus读取Excel的.所以就需要保存成CSV,JSON和ScriptableObject等格式.Unity支持JSON的序列化和反序列化,序列化的类上方必须进行序列化声明.调用ToJson和FromJson进行序列化和反序列化.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/10_JSON序列化1.png" alt=""><br>
+                <br>
+                需要写好对应的数据结构类型,然后就支持序列化和反序列化了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/11_JSON序列化2.png" alt=""><br>
+            </div>
+            <section><h3>9.3.2 JSON支持字典</h3></section>
+            <div>
+                Unity的JSON不支持字典,不过可以通过继承ISerializationCallbackReceiver接口来间接实现字典序列化.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/12_JSON序列化字典1.png" alt=""><br>
+                <br>
+                核心逻辑是通过键表和值表来存储和转换<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/13_JSON序列化字典2.png" alt=""><br>
+            </div>
+            <section><h3>9.3.3 Newtonsoft JSON</h3></section>
+            <div>
+                Unity自带的这个JsonUtility有一个很讨厌的事情,就是要提前声明所有类的序列化,但是如果JSON结构还没有明确的类结构,就不行了,所以NET的就很好用了,可以动态解析JSON<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/14_Newton读取JSON.png" alt=""><br>
 
             </div>
         </article>
         <article><h2>9.4 文件的读取和写入</h2>
-            <section><h3>9.1.3 写入Excel文件</h3></section>
+            <section><h3>9.4.1 PlayerPrefs</h3></section>
             <div>
-
+                游戏中很多数据需要在运行期间读取或者写入,Unity自己提供了一套API-PlayerPrefs,但是功能比较单一,只支持Int,float和string三种类型.<br>
+                PlayerPrefs是Unity自带的方法,Unity引擎已经封装好了GetKey和SetKey方法,并且在保存数据方面做了优化.Unity默认会在应用程序即将切入后台时统一保存文件,开发者也可以强制调用PlayerPrefas.Save()来保存文件<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/15_设置代码.png" alt=""><br>
+                <br>
+                文件保存在注册表当中<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/16_PlayerPrefs存储路径.png" alt=""><br>
+                <br>
+                在不同的平台有不同的存储路径<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/17_PlayerPrefs存储路径.png" alt=""><br>
+            </div>
+            <section><h3>9.4.2 EditorPrefs</h3></section>
+            <div>
+                Unity提供的另外一组存档功能柜,因为是编辑器模式下使用的,所以不考虑性能,是会立即保存的.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/18_EditorPrefs存储路径.png" alt=""><br>
+            </div>
+            <section><h3>9.4.3 用PlayerPrefs保存复杂的数据结构</h3></section>
+            <div>
+                PlayerPrefs可以存储字符串,我们将复杂的结构先转换成JSON的字符串格式,然后再存进去,就实现了使用PlayerPrefs存储复杂数据的功能了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/19_存储复杂结构.png" alt=""><br>
+            </div>
+            <section><h3>9.4.4 PlayerPrefs实现版本升级</h3></section>
+            <div>
+                案例:有一个游戏有统一ID,然后游戏更新之后需要更换Key,所以就需要先获取新的Key,找不到再获取旧的Key,最后在有新Key之后再统一删除旧Key,这种保存在本地的操作都是有一定风险的,.所以重要数据尽量不要保存本地.<br>
+            </div>
+            <section><h3>9.4.5 文件读写</h3></section>
+            <div>
+                通过File实现文本的读和写<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240413/7_Unity3DGameDevelopment_Csharp/20_File文本读取和写入.png" alt=""><br>
             </div>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
