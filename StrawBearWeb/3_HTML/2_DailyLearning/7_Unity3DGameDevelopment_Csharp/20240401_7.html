@@ -1,46 +1,43 @@
-<!DOCTYPE html>  <!--也可以写成小写doctype,这个标签告诉浏览器这是一个HTML5文档-->
-<html lang="en">  <!--结构_HTML主体,属性lang设置语言-->
-    <head>  <!--结构_Head抬头-->
-        <meta charset="UTF-8">  <!--编码格式属性charset-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
         <meta name="StrawBear" content="记录一个学习者的过程">
-        <title>20240401-Unity3D游戏开发</title>  <!--标题-->
+        <title>20240401-Unity3D游戏开发</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
-    <body>  <!--结构_Body-->
-        <header><h1>20240401-Unity3D游戏开发</h1></header>  <!--header(页眉)是介绍性内容的容器-->
-        <nav></nav>  <!--nav是navigation的缩写,导航元素,通常是引向其他资源的链接之类的-->
-        <aside></aside>  <!--aside侧边栏,通常是一些相关主题或其他-->
+    <body>
+        <header><h1>20240401-Unity3D游戏开发</h1></header>
+        <nav></nav>
+        <aside></aside>
         <article>
-            <section>7.3.7 动画混合</section>
-            <p>
-                <strong class="smallTopic">PlayableGraph</strong><br /> <!--通过class实现的二级主题-->        
-                <div>
-                    <ol>
-                        <li>
-                            <a href="https://docs.unity3d.com/Manual/Playables-Examples.html" target="_blank">官方链接</a>
-                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_01_PlayableGraph官方手册.png" alt="">
-                        </li>
-                        <li>
-                            <a href = "https://github.com/Unity-Technologies/graph-visualizer/releases/tag/v2.2" target="_blank">Git Hub地址</a>
-                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_02_GitHub包.png" alt="">
-                        </li>
-                        <li>
-                            使用方法:<br>
-                            导入Assert文件夹,通过主菜单栏Windows_PlayableGraph Visualizer打开,当运行的时候会自动读取场景中的PlayableGraph实例.<br>
-                            <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_03_PlayableGraphVisualizer的样式.png" alt="">
-                        </li>
-                    </ol>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">动画混合的原理</strong><br /> <!--通过class实现的二级主题-->
-                <div>
-                    动画播放的原理是通过骨骼(通过权重)影响蒙皮的顶点.<br>
-                    如果有多个动画同时播放,只需要提供一个权重值来按比例影响骨骼的节点,就能使得动画有混合播放的效果.<br>
-                </div>
-            </p>
-            <p> <!--每个p里面是小主题-->
-                <strong class="smallTopic">代码实现</strong><br /> <!--通过class实现的二级主题-->
+            <section><h2>7.3.7 动画混合</h2></section>
+            <strong>PlayableGraph</strong><br> 
+            <div>
+                <ol>
+                    <li>
+                        <a href="https://docs.unity3d.com/Manual/Playables-Examples.html" target="_blank">官方链接</a><br>
+                        Playables-Examples:<br>
+                        <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_01_PlayableGraph官方手册.png" alt="">
+                    </li>
+                    <li>
+                        <a href = "https://github.com/Unity-Technologies/graph-visualizer/releases/tag/v2.2" target="_blank">Git Hub地址</a><br>
+                        GitHub包地址:<br>
+                        <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_02_GitHub包.png" alt="">
+                    </li>
+                    <li>
+                        使用方法:<br>
+                        导入Assert文件夹,通过主菜单栏Windows_PlayableGraph Visualizer打开,当运行的时候会自动读取场景中的PlayableGraph实例.<br>
+                        <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_03_PlayableGraphVisualizer的样式.png" alt="">
+                    </li>
+                </ol>
+            </div>
+            <strong>动画混合的原理</strong><br>
+            <div>
+                动画播放的原理是通过骨骼(通过权重)影响蒙皮的顶点.<br>
+                如果有多个动画同时播放,只需要提供一个权重值来按比例影响骨骼的节点,就能使得动画有混合播放的效果.<br>
+            </div>
+            <strong>代码实现</strong><br>
                 <div>
                     代码逻辑:通过将两个动画关联到混合Playable中,然后统一交给Playable播放,只需要在Update()中通过调用SetInputWeight就可以设置每个动画混合的权重实现混合动画了.<br>
                     声明部分<br>
@@ -59,7 +56,6 @@
                     最后效果<br>
                     <img src="../../../0_Resoureces/img/learningPicture/20240401/8_Unity3DGameDevelopment_CSharp/20240401_08_07_效果.gif" alt="">
                 </div>
-            </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
