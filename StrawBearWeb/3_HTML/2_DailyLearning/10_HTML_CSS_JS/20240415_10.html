@@ -3,18 +3,64 @@
     <head>
         <meta charset="UTF-8">
         <meta name="StrawBear" content="记录一个学习者的过程">
-        <title>20240412-HTML_CSS_JS学习</title>
+        <title>20240415-HTML_CSS_JS学习</title>
         <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>
     <body >
-        <header><h1>20240412-HTML_CSS_JS学习</h1></header>
+        <header><h1>20240415-HTML_CSS_JS学习</h1></header>
         <nav></nav>
         <aside></aside>
-        <article><h2>8.使用颜色图像和多媒体</h2>
-            <section><h3>8.19 链接多媒体文件</h3></section>
+        <article><h2>9.使用外边距,内边距,对齐和浮动</h2>
+            <section><h3>9.1外边距margin</h3></section>
             <div>
-
-            </div>                        
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/10_HTML_CSS_JS/04_盒子模型.png" alt=""><br>
+                margin属性设置的元素周围的外边距<br>
+                可选属性:top right bottom left<br>
+                也可以直接跟数字<br>
+                1个值设置全部外边距<br>
+                2个值设置上下和左右外边距<br>
+                3个值上外边距,左右外边距,下外边距<br>
+                4个值按照上,右,下,左的顺时针方向设置外边距<br>
+            </div>  
+            <section><h3>9.2内边距</h3></section> 
+            <div>
+                padding指定内边距,设置属性和margin一样.<br>
+            </div>
+            <section><h3>9.3保持对齐</h3></section> 
+            <div>
+                水平对齐:text-align<br>
+                属性:left,right,center,justify<br>
+                <br>
+                垂直对齐:vertical-align<br>
+                属性:top,middle,bottom,text-top,baseline,text-bottom<br>
+            </div> 
+            <section><h3>9.4内容块居中</h3></section> 
+            <div>
+                方法1<br>
+                设置margin-left:auto,margin-right:auto;这样就左右都自动对齐了<br>
+                <br>
+                方法2<br>
+                margin:0 auto;这样把上下外边距设置为0,左右外边距设置为自动<br>
+            </div> 
+            <section><h3>9.5理解float属性</h3></section> 
+            <div>
+                float浮动:元素只会左右浮动<br>
+                属性:left,right<br>
+                <br>
+                clear限制元素浮动<br>
+                属性:left,right,both,none,inherit<br>
+            </div>
+            <section><h3>无缝拼图</h3></section> 
+            <div>
+                1.使用PS切块大图像<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/10_HTML_CSS_JS/01_使用PS切片图像.png" alt=""><br>
+                <br>
+                2.使用嵌入样式表实现无缝拼贴<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/10_HTML_CSS_JS/02_局部样式实现无缝拼贴.png" alt=""><br>
+                <br>
+                3.结果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/10_HTML_CSS_JS/03_实现结果.png" alt=""><br>
+            </div>                     
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
