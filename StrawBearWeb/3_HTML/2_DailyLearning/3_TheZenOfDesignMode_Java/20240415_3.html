@@ -9,10 +9,86 @@
     <body>
         <header><h1>20240415-3.设计模式之禅</h1></header>
 
-        <article><h2>第13章  原型模式</h2>
-            <section><h3>13.1 个性化电子账单</h3></section>
+        <article><h2>第14章  中介者模式</h2>
+            <section><h3>1.例子引入</h3></section>
             <div>
-
+                <strong>Purchase采购类:</strong><br>
+                buyIBMcomputer方法根据销售情况,销售好就采购,销售不好就只采购一半.<br>
+                refuseBuyIBM方法则是拒绝购买<br>
+                <br>
+                <strong>Stock库存类:</strong><br>
+                维护一个静态的库存属性COMPUTER_NUMBER<br>
+                increase方法增加库存<br>
+                decrease方法减少库存<br>
+                getStockNumber方法获取当前库存数量<br>
+                clearStock方法告知销售清理库存,可以打折销售,告诉采购类拒绝以后得采购.<br>
+                <br>
+                <strong>Sale销售类:</strong><br>
+                sellIBMComputer方法查询库存售卖电脑,如果库存不够就通知采购类采购<br>
+                getSalseStatus方法查询当前销售情况<br>
+                offSale方法查询库存有多少,全部清仓折价出售<br>
+                <br>
+                <strong>Client客户类:</strong><br>
+                采购人员通过buyIBMComputer采购电脑<br>
+                销售人员通过sellIBMComputer来售卖电脑<br>
+                库存人员通过clearStock来清理库存<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/3_TheZenOfDesignMode_Java/01_UML图.png" alt=""><br>
+                <br>
+                三个类之间互相关联特别的紧密,根据迪米特法则,每个类只和朋友类交流,并且朋友越少越少.这样可以降低耦合性,所以我们就对这个情况进行改进,引入了中介者,他负责传达信息和沟通.<br>
+                <br>
+                <strong>AbstractMediator抽象中介者类:</strong><br>
+                定义抽象的部分,获取Pruchase,Sale,Stock的实例,提供execute方法来处理不同对象的事件.<br>
+                <br>
+                <strong>Mediator具体中介者类:</strong><br>
+                定义所有的执行方法,采购,销售,清仓,打折出售...<br>
+                <br>
+                <strong>AbstractColleague抽象同事类:</strong><br>
+                定义所有的抽象同事类都需要获得中介者的实例.<br>
+                <br>
+                <strong>Purchase采购类,Stock库存类,Sale销售类:</strong><br>
+                继承抽象同事类,覆盖构造器指定中介类,需要和其他类沟通的事情就让中介的execute协助处理,自己能够处理的事物还是自己处理.<br>
+                <br>
+                <strong>Client客户类:</strong><br>
+                现在先创建一个中介,然后采购,销售和库存都和中介建立联系,最后只处理自己的活动,与自己无关的活动让中介来处理.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/3_TheZenOfDesignMode_Java/02_改进后UML.png" alt=""><br>
+            </div>
+            <section><h3>2.正式定义</h3></section>
+            <div>
+                Define an object that encapsulates how a set of objects interact.Mediator promotes loose coupling by keeping objects from referring to each other explicitly,and it lets you vary their interaction independently.<br>
+                翻译:用一个中介者对象封装一系列的对象交互,中介者使各对象不需要显示地相互作用,从而使其松耦合,可以独立的改变它们之间的交互.<br>
+                <br>
+                <strong>Mediator抽象中介者角色:</strong><br>
+                抽象中介者角色定义统一的接口,用于各同事角色之间的通信.<br>
+                <br>
+                <strong>ConcreteMediator具体中介者角色:</strong><br>
+                具体中介者角色通过协调各同事角色实现写作行为,因此它必须依赖于各个同事角色<br>
+                <br>
+                <strong>Colleague同事角色:</strong><br>
+                每一个同事角色都知道中介者角色,同时与其他同事角色通信时,一定要通过中介者角色协助.<br>
+                每个同事类的行为分为两种:<br>
+                自发行为(Self-Method):同事本身的行为,与其他同事和中介者都没有依赖关系.<br>
+                依赖方法(Dep-Method):必须要依赖中介者才能完成.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/3_TheZenOfDesignMode_Java/03_通用UML.png" alt=""><br>
+                <br>
+                <strong>Mediator抽象中介者:</strong><br>
+                通过get set方法把抽象同事给添加到联系中来<br>
+                <br>
+                <strong>ConcreteMediator具体中介者:</strong><br>
+                实现不同同事之间的复杂交互逻辑<br>
+                <br>
+                <strong>Colleague抽象同事类:</strong><br>
+                和抽象中介者建立联系,让每个同事都知道抽象中介者<br>
+                <br>
+                <strong>ConcreteColleague具体同事类:</strong><br>
+                通过构造函数传递中介者,处理自由方法,依赖方法让中介者辅助执行<br>
+            </div>
+            <section><h3>3.应用</h3></section>
+            <div>
+                优点:把一对多变成了一对一依赖,降低了类间的耦合<br>
+                缺点:中介者会很复杂,同事越多越复杂.<br>
+                适用:当多个对象之间耦合逻辑复杂,可以考虑用中介者来简化逻辑<br>
+                实际案例:机场统一调度中心.MVC模式,媒体网关,房屋中介<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240415/3_TheZenOfDesignMode_Java/04_适用.png" alt=""><br>
             </div>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
