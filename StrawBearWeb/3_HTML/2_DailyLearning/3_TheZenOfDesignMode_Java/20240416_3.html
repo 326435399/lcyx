@@ -8,11 +8,95 @@
     </head>
     <body>
         <header><h1>20240416-3.设计模式之禅</h1></header>
-        <article><h2>第14章  中介者模式</h2>
-            <section><h3>1.例子引入</h3></section>
+        <article><h2>第15章  命令模式</h2>
+            <section><h3>1.例子引入:旅行社开发项目</h3></section>
             <div>
+                Group抽象组:<br>
+                定义每个特组所需要实现的共同方法<br>
+                CodeGroup代码组,PageGroup美工页面组,RequirementGroup代码组(需求组):<br>
+                按照Group抽象的约束,实现对应的方法<br>
+                Client客户类:<br>
+                客户直接和每个组沟通<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/01_例子引入UML.png" alt=""><br>
+                <br>
+                太过频繁的沟通让客户疲于奔命,选出来一个负责人帮他干这件沟通的事情.<br>
+                Invoker负责人类:<br>
+                负责传递客户的字符串命令,然后要求执行.<br>
+                Client客户类:<br>
+                现在只需要和负责人进行沟通即可.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/02_增加负责人UML.png" alt=""><br>
+                <br>
+                字符串的传达经过负责人之后意思可能变得不准了,这增加了风险性.所以更改了发出的命令不再是字符类型了<br>
+                Command命令类:<br>
+                抽象定义了三个组供子类共同使用,唯一的抽象方法是execute执行命令.<br>
+                DeltePageCommand,AddRequirementCommand,这些具体命令类,都是对于不同命令的具体执行,调用父类的三个组,来实现具体的execute.<br>
+                Client客户类:<br>
+                客户现在只需要告诉负责人什么命令,因为准确的执行方法已经在命令实现类定义好了,负责人只要传递就可以执行了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/03_准确传达UML.png" alt=""><br>
+            </div>
+            <section><h3>2.正式定义:命令模式</h3></section>
+            <div>
+                Encapsulate a request as an object,thereby letting you parameterize clients with different requests,queue or log requests,and support undoable operations.<br>
+                翻译:将一个请求封装成一个对象,从而让你使用不同的请求把客户端参数化,对请求排队或者记录请求日志,可以提供命令的撤销和恢复功能.<br>
+                <br>
+                Receiver接收者:<br>
+                具体命令的执行者,在例子当中就是三个组<br>
+                Command命令抽象类:<br>
+                定义所有命令都需要实现执行方法.内部提供所有的接收者关联<br>
+                ConcreteCommand具体命令类:<br>
+                具体的命令,在执行方法当中定义需要由哪些接收者执行.<br>
+                Invoker调用者类:<br>
+                接收命令,执行命令,在上面例子当中就是负责人<br>
+                Client客户类:<br>
+                客户只需要和负责人发命令,负责人执行命令,具体是谁执行,怎么执行,客户并不关心.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/04_通用UML.png" alt=""><br>
 
-            </div>>
+            </div>
+            <section><h3>3.应用</h3></section>
+            <div>
+                优点:<br>
+                1.类间解耦,调用者和接收者没有依赖关系,调用者只需要调用execute,具体执行具体命令类当中定义好了<br>
+                2.可扩展性:<br>
+                Command的子类是很容易扩展的<br>
+                缺点:<br>
+                随着命令数量的增多,Command子类快速膨胀.<br>
+            </div>
+        </article>
+        <article><h2>第16章  责任链模式</h2>
+            <section><h3>1.例子引入:古代妇女的加锁</h3></section>
+            <div>
+                IWomen女性接口类:<br>
+                定义女性类需要实现的方法<br>
+                IHandler控制权接口:<br>
+                需要处理女性类的请求.<br>
+                Father,Husband,Son三个实现类需要回复女性对象的请求.<br>
+                问题:职责界定不清晰,我们只能在Client部分来手动通过If..else来设定逻辑来判断<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/05_古代三从.png" alt=""><br>
+                <br>
+                顺序处理<br>
+                Handler当中设置好了模板方法HandleMessage,根据当前责任等级处理对应的事情,如果无法处理就传递给下一级别的对象处理.如果没有下一级别的处理就按照拒绝考虑<br>
+                Father,Husband,Son等实现类则是设置自身能够处理的级别,然后设置回复,如果级别不够会按照模板方法当中自动传递给下一级别的对象.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/06_顺序处理.png" alt=""><br>
+            </div>
+            <section><h3>2.正式定义:责任链模式</h3></section>
+            <div>
+                Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.Chain the receiving objects and pass the request along the chain until an object handles it.<br>
+                翻译:使多个对象都有机会处理请求,从而避免了请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,只掉有对象处理它为止.<br>
+                <br>
+                Handler请求抽象类:<br>
+                定义请求的处理方法handleMessage,定义下一个责任设置方法setNext,定义具体请求类需要实现的两个方法:定义自己可以处理的级别,具体的任务处理.<br>
+                ConcreteHandler具体处理者:<br>
+                定义自己的处理级别,完成具体的请求任务反馈.<br>
+                Client客户类:<br>
+                设置好所有级别的处理者,设置好责任的传递链,然后执行需求,需求会自动根据不同级别传递到对应的处理者.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/07_责任链通用UML.png" alt=""><br>
+            </div>
+            <section><h3>3.应用</h3></section>
+            <div>
+                优点:请求和处理分离,请求者不需要知道最后是谁处理了任务<br>
+                缺点:性能问题,类递归的循环调用方式必然性能消耗是不小的,然后就是调试麻烦<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/3_DesignMode/08_示例.png" alt=""><br>
+            </div>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

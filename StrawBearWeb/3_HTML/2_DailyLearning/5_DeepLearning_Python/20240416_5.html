@@ -8,10 +8,40 @@
     </head>
     <body>
         <header><h1>20240416-深度学习入门_自制框架</h1></header>
-        <article><h2>36.DeZero的其他用途</h2>
-            <section><h3>36.1 doublebackprop的用途</h3></section>
+        <article><h2>37 处理张量</h2>
+            <section><h3>37.1 对各元素进行计算</h3></section>
             <div>
+                张量×函数,等于张量中的每个元素分别计算函数值<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/01_张量乘函数.png" alt=""><br>
+                x和y的形状是相同的都是一行三列的矩阵,这样就能在张量的元素之间建立一一对应的关系.<br>
+                Numpy还有一个功能叫做广播(广泛传播):他可以对不同形状的张量,通过补齐数据变成相同形状然后计算.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/02_张量加张量.png" alt=""><br>
+            </div>
+            <section><h3>37.2 使用张量时的反向传播</h3></section>
+            <div>
+                概念:梯度(gradient),张量的导数就是梯度.
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/03_张量加张量.png" alt=""><br>
 
+                代码依然能正常传播,原因如下:
+                首先我们实现的是标量的反向传播,然后函数会把张量拆开当成一个一个标量来处理,所以我们对于标量的实现的反向传播自然也没有问题.
+                机器学习的问题中通常会设置一个张量作为输入,以标量为输出的函数(损失函数).
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/04_张量反向传播.png" alt=""><br>
+            </div>
+            <section><h3>37.3 使用张量时的反向传播(补充内容)</h3></section>
+            <div>
+                考虑向量的反向传播,y=F(x),y和x都是向量,设两个向量的元素都是n.张量可以通过预处理转换成一维向量,所以同样适用.<br>
+                这个对每个y求每个x的导数得到的矩阵,就是雅克比矩阵.<br>
+                如果y只有一个,那就只用y对所有x求导得到的就是1*n雅克比矩阵,是一个行向量.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/05_雅克比矩阵.png" alt=""><br>
+                <br>
+                考虑一个复合函数,根据链式法则,如果我们前向传播对所有x的导,那就每次都不需要计算一个雅克比矩阵,传播几次,就要计算几个,复杂度是很高的.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/06_复合函数前向传播.png" alt=""><br>
+                <br>
+                如果我们反过来进行传播,首先求的事y对b求导,因为y是标量,所以y对b的求导结果是一个1*n的雅克比矩阵,也可以说是一个行向量,然后b对a的导数是一个雅克比矩阵,然后乘以一个行向量,结果依然是一个行向量,继续传播,这远比正向传播的高效.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/07_符合范数反向传播.png" alt=""><br>
+                <br>
+                我们并不需要完全求出雅克比矩阵才能进行计算,利用雅克比矩阵是对角矩阵,Xi只会影响ai,所以我们可以通过各元素乘以导数的方式求结果,而不用构建雅克比矩阵.(还有一点不太清晰)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/5_DeepLearning/08_快速求法.png" alt=""><br>
             </div>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>

@@ -11,7 +11,16 @@
         <article><h2>4.5.1 顶点上的其他信息</h2>
             <section><h3>3.切线与副切线</h3></section>
             <div>
-                
+                在已知某个空间的两个点和基向量,和在另外一个空间两个点的坐标,如何求另外一个空间的基向量变换矩阵<br>
+                day1:暴露出来很多线性计算不熟的问题<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/4_HLSL/02线性空间求解失败.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/4_HLSL/01线性空间求解失败.png" alt=""><br>
+                <br>
+                求解过程中暴露出来两个问题:<br>
+                1.对于什么情况下空间有解不太熟悉了<br>
+                2.行主矩阵和列主矩阵区分模糊,然后变换的方向也考虑错了<br>
+                推测可能问题1:<br>
+                实际上这里是一个复合矩阵,是旋转缩放加位移,所以要升一个维度到齐次空间才能求解了.<br>
             </div>          
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
