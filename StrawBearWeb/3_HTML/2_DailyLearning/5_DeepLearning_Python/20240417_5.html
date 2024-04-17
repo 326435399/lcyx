@@ -8,9 +8,41 @@
     </head>
     <body>
         <header><h1>20240416-深度学习入门_自制框架</h1></header>
-        <article><h2>37 处理张量</h2>
-            <section><h3>37.1 对各元素进行计算</h3></section>
-            <p></p>
+        <article><h2>38.改变形状的函数</h2>
+            <section><h3>38.1 reshape函数的实现</h3></section>
+            <p>
+                我们首先确保变量的数据与梯度的形状一致<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/01_Numpy的Reshape函数.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/02_Reshape的逻辑.png" alt=""><br>
+                <br>
+                实现函数<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/03_Reshape函数的实现.png" alt=""><br>
+                <br>
+                使用<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/04_使用结果.png" alt=""><br>
+                <br>
+                计算图过程<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/05_计算图过程.png" alt=""><br>
+            </p>
+            <section><h3>38.2 从Variable对象调用reshape</h3></section>
+            <p>
+                现在调用还是比较麻烦,我们想把他变成Variable实例的方法.而且想要是可以传递可变长参数<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/06_让Variable可以调用.png" alt=""><br>
+
+            </p>
+            <section><h3>38.3 矩阵的转置</h3></section>
+            <p>
+                实现<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/07_实现Transpose转置.png" alt=""><br>
+                <br>
+                调用<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/08_实现Variable使用.png" alt=""><br>
+            </p>
+            <section><h3>38.4 实际的transpose函数(补充内容)</h3></section>
+            <p>
+                实际上的Numpy使用这个来调整轴的数据顺序,和HLSL当中的Swizzle操作一样,只是这里调整的事维度的排序.当只有两个轴(两个维度),那么交换顺序就是转置了.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/5_DeepLearning/09_实际例子.png" alt=""><br>
+            </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

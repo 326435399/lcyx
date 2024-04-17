@@ -10,8 +10,37 @@
         <header><h1>20240417-UnityShader入门到实践</h1></header>
         <article><h2>4.5.1 顶点上的其他信息</h2>
             <section><h3>3.切线与副切线</h3></section>
-            <p>       
+            <p>
+                坐标系的差异:OpenGL(右手系)和DX(左手系)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/01_坐标系.png" alt=""><br>
+                <br>
+                获取世界空间切线和副切线<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/02_切线和副切线.png" alt=""><br>  
+            </p>     
         </article>
+        <article><h2>4.5.2 其他信息</h2>
+            <section><h3>1.摄像机及屏幕信息</h3></section>
+            <p>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/03_摄像机及屏幕信息.png" alt=""><br>  
+            </p>
+            <section><h3>2.时间信息</h3></section>
+            <p>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/04_时间相关.png" alt=""><br>  
+            </p>
+        </article>
+        <article><h2>4.6 练习</h2>
+            <section><h3>1.quad切角</h3></section>
+            <p>
+                分析:不受到这些变化的影响,所以就是一个绝对值,那就是球形范围外的裁切,只要半径超过某个值就裁切,我们可以指定这个半径来控制圆角<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/05_尝试代码.png" alt=""><br>  
+                <br>
+                结果:颜色变化解决了,但是这个圆角依然还不行,并且会受到旋转,缩放的影响.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/06_圆角很生硬.gif" alt=""><br>  
+                <br>
+                学习资料:计划明天按照这个博主的尝试一下<br>
+                <a href="https://blog.csdn.net/Vitens/article/details/107371190/" target="_blank">学习资料</a>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/4_HLSL/07_明天学习实现.png" alt=""><br>  
+            </p>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
             document.write(document.lastModified);

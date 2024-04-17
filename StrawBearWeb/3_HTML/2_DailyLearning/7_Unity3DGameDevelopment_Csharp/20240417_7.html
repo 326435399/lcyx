@@ -9,10 +9,41 @@
     <body>
         <header><h1>20240417-Unity3D游戏开发</h1></header>     
         <article><h2>10.音频和视频</h2>
-            <section><h3>10.1音频</h3></section>
-            <div>
-                
-            </div>
+            <section><h3>10.2视频</h3></section>
+            <p>
+                <h4>1.视频自适应和渲染模式参数详解</h4>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/01_渲染模式和视频自适应.png" alt=""><br>
+                <br>
+                自适应参数:不缩放,垂直适应,水平适应,内部适应,外部适应,拉伸适应<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/02_视频自适应模式.gif" alt=""><br>
+                <br>
+                渲染模式参数:渲染的摄像机远平面/近平面/渲染纹理/材质球BaseTexture覆盖/API调用<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/03_渲染模式.gif" alt=""><br>
+                <br>
+                <h4>2.播放网络视频</h4>
+                file://读取本地视频<br>
+                http://读取网络视频<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/04_URL读取视频.png" alt=""><br>
+                <br>
+                <h4>3.自定义视频显示</h4>
+                设置了Shader修改了顶点的位置实现波动<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/05_Shader修改顶点位移.png" alt=""><br>
+                <br>
+                脚本传递视频的纹理<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/06_视频流传递.png" alt=""><br>
+                <br>
+                最终结果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/07_波浪视频.gif" alt=""><br>
+                <br>
+                <h4>4.下载视频到本地播放</h4>
+                通过VideoPlayer.time控制播放进度<br>
+                VideoPlayer.clip.length可以获取时长<br>
+                通过代码从网络上下载视频到本地播放<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/08_下载到本地播放.png" alt=""><br>
+                <br>
+                <h4>5.全景视频</h4>
+                <img src="../../../0_Resoureces/img/learningPicture/20240417/7_Unity3D/09_全景视频.png" alt=""><br>
+            </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
