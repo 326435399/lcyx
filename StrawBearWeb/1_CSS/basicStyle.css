@@ -87,7 +87,33 @@
                 padding: 3px;
             }
 
-            /*测试用的样式*/
+            #specialList ul
+            {
+                background-color: #6666ff;
+                border:1px solid #000000;
+                width:100px;
+            }
+            #specialList li
+            {
+                background-color: #cccccc;
+                border:1px solid #ffff00;
+            } 
+
+            /*导航样式*/
+            nav
+            {
+                width:150px;
+                float:right;
+                margin-top:12px;
+                margin-right: 18px;
+                position: sticky;
+                top: 50%;  
+                right: 0;  
+                transform: translateY(-50%); /*导航栏垂直方向居中*/
+                background-color: #f8f9fa;
+            }
+
+            /*超链接样式*/
             a
             {
                 font-family: 思源黑体;
