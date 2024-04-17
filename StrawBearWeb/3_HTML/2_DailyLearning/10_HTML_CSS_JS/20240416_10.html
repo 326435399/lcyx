@@ -10,11 +10,46 @@
         <header><h1>20240416-HTML_CSS_JS学习</h1></header>
         <nav></nav>
         <aside></aside>
-        <article><h2>9.使用外边距,内边距,对齐和浮动</h2>
-            <section><h3>9.1外边距margin</h3></section>
+        <article><h2>10.理解CSS盒子模型和定位</h2>
+            <section><h3>10.1 CSS盒子模型</h3></section>
             <div>
-
-            </div>                   
+                HTML所有的元素都被视为一个"盒子"<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240416/10_HTML/01_盒子模型.png" alt=""><br>
+                由外到内分别是margin(外边距),border(边框),padding(内边距),content(内容)<br>
+                元素的页面上实际占据的尺寸:<br>
+                宽度 = width + padding-left + padding-right + border-left + border_right + margin-left + margin-right;<br>
+                高度 = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom;<br>
+                <br>
+                还有一组特殊的额属性:轮廓属性,位置和border类似,他不会占用盒子模型中的任何空间,反过来会挤压内容部分<br>
+                对应的选项有outline.outline-width,outline-style,outline-color,outline-offset.<br>
+            </div>  
+            <section><h3>10.2 更改盒子模型</h3></section>
+            <div>
+                rem:相对于font-size的尺寸<br>
+                em:相对于当前标签字体的尺寸<br>
+                特殊的更改盒子模型的属性box-sizing:<br>
+                content-box:默认值,仅分配给内边距+内容框<br>
+                border-box:内容加外边距+边界框作为盒子的宽度和高度值<br>
+            </div>
+            <section><h3>10.3 整体定位</h3></section>
+            <div>
+                相对定位属性display:<br>
+                block:作为块,所以其他元素会在另外一行上显示<br>
+                inline:在同一行<br>
+                <br>
+                绝对定位属性:position<br>
+                relative:相对于其他元素的位置进行定位<br>
+                absoulute:绝对位置,相对于容器元素定位<br>
+                fixed:固定位置,相对于浏览器窗口的位置<br>
+                static:静态位置,正常显示,默认位置<br>
+                sticky:根据滚动位置在relative和fixed切换<br>
+                指定好了类型之后,可以使用left,right,top,bottom来指定具体的位移距离.<br>
+            </div>  
+            <section><h3>10.4 重叠顺序</h3></section>
+            <div>
+                使用:z-index:数值;<br>
+                指定绘制顺序,值小的优先绘制.<br>
+            </div>               
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
