@@ -10,13 +10,51 @@
         <header><h1>20240418-深度学习入门_自制框架</h1></header>
         <nav>
             <ul>
-                <li><a href="#1"></a></li>
+                <li><a href="#1">39.1 sum函数的反向传播</a></li>
+                <li><a href="#2">39.2 sum函数的实现</a></li>
+                <li><a href="#3">39.3 axia和keepdims</a></li>
             </ul>
         </nav>
-        <article><h2>4.输出图元</h2>
-            <section id="1"><h3>4.练习</h3></section>
+        <aside>
+            <ul>
+                <li><a href="#1">39.1 sum函数的反向传播</a></li>
+                <li><a href="#2">39.2 sum函数的实现</a></li>
+                <li><a href="#3">39.3 axia和keepdims</a></li>
+            </ul>
+        </aside>
+        <article><h2>39.求和的函数</h2>
+            <section id="1"><h3>39.1 sum函数的反向传播</h3></section>
             <p>
-
+                针对普通的加法y = x0+x1<br>
+                一个例子:x0=1,x1=2,y=1+2=3<br>
+                那么3就是求出来的函数值,y对y本身的导数是1,反向传播乘以两个输入的偏导数,分别也是1,所以结果就是gx0=dx0/dy * dy/dy = 1 * 1 = 1,gx1也是1<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/01_普通加法的计算图.png" alt=""><br>
+                <br>
+                现在考虑张量的情况,x两个值1和2,经过sum函数累加在一起得到了y值3,y对自身的导数依然是1,y对x的导数就分别对x的每个元素进行求导,gx = dx/dy * dy/dy = 1 * 1 = 1,所以结果就是和x张量一样形状的梯度值1<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/02_张量加法的反向计算图.png" alt=""><br>
+                <br>
+                扩展一下,两个以上元素组成的向量之和的反向传播应该也是返回向量形状的梯度1<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/03_扩展.png" alt=""><br>
+            </p>
+            <section id="2"><h3>39.2 sum函数的实现</h3></section>
+            <p>
+                代码:调用了我们后面准备的broadcast_to实现复制梯度到指定形状功能<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/04_Sum函数的实现.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/05_计算结果.png" alt=""><br>
+            </p>
+            <section id="3"><h3>39.3 axia和keepdims</h3></section>
+            <p>
+                Numpy的sum函数功能更加强大,可以通过axis参数指定沿着某个轴向进行求和.还有keepdims属性可以保持轴的数量(维度的数量),以此为目标,我们修改sum函数<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/06_Numpy的Sum.png" alt=""><br>
+                <br>
+                reshape_sum_backward这个函数我们也还没有自己实现,是先复制了代码,<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/07_修改后的Sum函数.png" alt=""><br>
+                <br>
+                在Variable当中声明类方法,这样就可以在Variable调用了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/08_让Varibale类可以调用.png" alt=""><br>
+                <br>
+                调用结果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240418/5_DeepLearning/09_调用.png" alt=""><br>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
