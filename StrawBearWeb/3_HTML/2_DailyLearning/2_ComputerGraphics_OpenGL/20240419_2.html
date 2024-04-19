@@ -10,18 +10,24 @@
         <header><h1>20240419-计算机图形学学习OpenGL</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">4.4 检查数据表一致性和完整性</a></li>
+                <li><a href="#1">如何建表?</a></li>
             </ul>
         </nav>
         <aside>
             <ul>
-                <li><a href="#1">4.4 检查数据表一致性和完整性</a></li>
+                <li><a href="#1">如何建表?</a></li>
             </ul>
         </aside>
         <article><h2>4.6 练习</h2>
-            <section id="1"><h3>4.4 检查数据表一致性和完整性</h3></section>
+            <section id="1"><h3>如何建表?</h3></section>
             <p>
-                
+                思考,要如何建表?<br>
+                顶点表:里面都是(x,y)数据结构,是否需要索引?还是纯粹的隔几个读取就算是索引了<br>
+                线表:记录两个顶点之间的连接?有必要嘛,不是面表就搞定了么<br>
+                面表:记录哪几个线段?不应该直接记录三个顶点还简单一点(三角面情况)<br>
+                <br>
+                obj格式参考<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/2_OpenGL/索引.png" alt=""><br>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
