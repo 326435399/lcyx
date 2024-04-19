@@ -10,19 +10,61 @@
         <header><h1>20240419-Unity3D游戏开发</h1></header>     
         <nav>
             <ul>
-                <li><a href="#1">11.1 UnityWebRequest</a></li>
-                <li><a href="#2">11.2 Socket</a></li>
+                <li><a href="#1">12.1 SRP</a></li>
+                <li><a href="#2">12.2 URP</a></li>
             </ul>
         </nav>
         <aside>
             <ul>
-                <li><a href="#1">11.1 UnityWebRequest</a></li>
-                <li><a href="#2">11.2 Socket</a></li>
+                <li><a href="#1">12.1 SRP</a></li>
+                <li><a href="#2">12.2 URP</a></li>
             </ul>
         </aside>
-        <article><h2>11.Netcode与网络编程</h2>
-            <section id="1"><h3>11.1 UnityWebRequest</h3></section>
+        <article><h2>12. 渲染管线</h2>
+            <section id="1"><h3>12.1 SRP</h3></section>
             <p>
+                unity为了让目标平台充分发挥性能和效果,Unity自2018版本起提供了SRP可编程渲染管线.将C++中调用的API接口尽可能浅层封装并对外提供开方C#调用接口.<br>
+                OpenGL和OpenGL ES图形API不支持延迟渲染<br>
+                所以Android不能用延迟渲染管线<br>
+                <br>
+                12.1.1 SRP Core<br>
+                unity所有公开的API都在UnityEngine.Renderer当中,URP和HDRP都是基于这些接口开发的,所以我们能接触到的最底层就在这里了.随着Unity越来越多的底层API开方,就可以做越多的优化处理.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/7_Unity3D/01_核心代码.png" alt=""><br>
+                12.1.2 安装与配置<br>
+                按照从上往下的关系越来越具体<br>
+                URP Global Settings Asset(URP全局文件)<br>
+                URP Render Pipeline Asset(URP渲染管线资源)<br>
+                URP Post-process Data/XR System Data(URP后处理配置文件和XR系统着色器)<br>
+                Universal Renderer Data(URP统一渲染数据)<br>
+                URP Renderer Feature(URP渲染功能)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/7_Unity3D/02_URP文件关系.png" alt=""><br>
+                <br>
+                12.1.3 摄像机组件工具<br>
+                一个是用来自由移动摄像机观察的<br>
+                一个是用来在Rendering Debugger中看不同摄像机的<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/7_Unity3D/03_FreeCamera和CameraSwitch.png" alt=""><br>
+                <br>
+                12.1.4 Look Dev<br>
+                HDRP才支持,URP不支持<br>
+                <br>
+                12.1.5 Render Graph Viewer<br>
+                SRP底层的渲染接口主要有两个ScriptableRenderContext类和CommandBuffer类中的draw系列函数,核心内容均封装在C++底层代码中.<br>
+                URP是直接调用,在HDRP中所有渲染接口都先经过RenderGraph,再继续调用,好处是这样就会被宰RenderGraphViewer窗口中看到每个渲染步骤,绿色表示可读,红色表示可写.<br>
+            </p>
+            <section id="2"><h3>12.2 URP</h3></section>
+            <p>
+                12.2.1 URP调试与修改<br>
+                可以把Package都下下来<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/7_Unity3D/04_把Packages里面的包都生成到本地.png" alt=""><br>
+                <br>
+                然后就需要复制出来,然后把左边的设置改成local packages,把其他关了这样就可以修改调试了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/7_Unity3D/05_可以获取.png" alt=""><br>
+                <br>
+                12.2.2 URP与内置渲染管线对比<br>
+                URP基本支持了绝大多数的built-in功能了<br>
+                <br>
+                12.2.3 升级着色器<br>
+                原本built-in的通用着色器Standard官方是提供了材质转换器的,但是如果有大量自定义的Shader,主要是引用的包含文件基本都变了,所以需要全部重新写包含文件,然后标签也全都改了,基本可以认为重写差不多了<br>
 
             </p>
         </article>

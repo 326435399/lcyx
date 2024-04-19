@@ -10,18 +10,38 @@
         <header><h1>20240419-UnityShader入门到实践</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">多邻国APP练习</a></li>
+                <li><a href="#1">5.1 边缘光效果</a></li>
             </ul>
         </nav>
         <aside>
             <ul>
-                <li><a href="#1">多邻国APP练习</a></li>
+                <li><a href="#1">5.1 边缘光效果</a></li>
             </ul>
         </aside>
-        <article><h2>4.6 习题</h2>
-            <section id="1"><h3>第二次尝试</h3></section>
+        <article><h2>5.1 边缘光效果</h2>
+            <section id="1"><h3>5.1.1 如何"看到"外边缘</h3></section>
             <p>
-                
+                目标效果<br>
+                从现实当中的菲涅尔效应Fresnel effect,摄影当中的轮廓光,抽象出来的效果边缘光RimLight<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/4_HLSL/01_目标效果.png" alt=""><br>
+                <br>
+                那么边缘是什么?<br>
+                是我们能看到的物体的外轮廓.<br>
+                那么外轮廓又有什么特性?<br>
+                是视线在物体上的切线,该点的法线方向和我们的摄像机视野方向是垂直的.<br>
+                那么我们怎么利用这个特性来识别边缘?<br>
+                向量的点乘,v和n的点乘,根据线性代数的知识,我们知道v·n得到的结果是v在n上的投影乘以n的长度,如果n规格化长度是1.那么就是n在v上的投影长度了,如果n也规格化,那得到的就是n在v上的投影是v长度的百分比了,所以如果是垂直的,v在n上投影是0,如果是180°,那么v在n上的投影是-n的长度.<br>
+                不同数值代表的物理意义:<br>
+                当n和v都规格化之后,n·v=0表示他们两个方向是垂直的,n·v=1表示两个向量方向完全一样,n·v=-1表示方向完全相反,[1,-1]就表示了两个向量的方向从相同到相反的过程.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/4_HLSL/02_如何找到边缘.png" alt=""><br>
+                <br>
+                根据点乘和方向的关系,我们来编写代码<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/4_HLSL/03_点乘和方向的关系.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/4_HLSL/04_代码.png" alt=""><br>
+                <br>
+                出现了摄像机异常情况,如果摄像机靠近就变成白色了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/4_HLSL/04_特殊情况靠近就变白了.png" alt=""><br>
+
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>

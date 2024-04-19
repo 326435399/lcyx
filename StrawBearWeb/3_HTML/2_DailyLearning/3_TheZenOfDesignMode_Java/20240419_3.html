@@ -9,26 +9,131 @@
     <body>
         <header><h1>20240419-设计模式之禅</h1></header>
         <nav>
-            <ul>
+            <ul>19.适配器模式
                 <li><a href="#1">1.例子引入</a></li>
                 <li><a href="#2">2.正式定义</a></li>
                 <li><a href="#3">3.应用</a></li>
                 <li><a href="#4">4.扩展</a></li>
+            </ul>
+            <ul>20.迭代器模式
+                <li><a href="#5">1.例子引入</a></li>
+                <li><a href="#6">2.正式定义</a></li>
+                <li><a href="#7">3.应用</a></li>
             </ul>
         </nav>
         <aside>
-            <ul>
+            <ul>19.适配器模式
                 <li><a href="#1">1.例子引入</a></li>
                 <li><a href="#2">2.正式定义</a></li>
                 <li><a href="#3">3.应用</a></li>
                 <li><a href="#4">4.扩展</a></li>
             </ul>
+            <ul>20.迭代器模式
+                <li><a href="#5">1.例子引入</a></li>
+                <li><a href="#6">2.正式定义</a></li>
+                <li><a href="#7">3.应用</a></li>
+            </ul>
         </aside>
-        <article><h2>第18章  策略模式</h2>
+        <article><h2>19.适配器模式</h2>
             <section id="1"><h3>1.例子引入</h3></section>
             <p>
-
+                需求:记录人员的信息<br>
+                IUserInfo抽象接口:<br>
+                定义了人员信息所需要的信息<br>
+                UserInfo具体信息类:<br>
+                具体的记录接口定义的信息<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/01_最初人员类型UML.png" alt=""><br>
+                <br>
+                劳务公司不同的人员信息记录方式<br>
+                IOuterUser接口:<br>
+                定义所有外部人员需要的信息<br>
+                OuterUser外部人员实现类:<br>
+                实现接口定义的具体信息<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/02_劳务公司的人员UML.png" alt=""><br>
+                <br>
+                为了可以用上劳务公司的人员数据<br>
+                OuterUserInfo外部人员信息转换接口:<br>
+                我们使用这个类来读取OuterUser的信息,一方面他通过继承OuterUser来获取劳务公司信息,一方面又实现IUserInfo接口来给我们提供想要的信息.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/03_增加中转处理UML.png" alt=""><br>
+            </p> 
+            <section id="2"><h3>2.正式定义</h3></section>
+            <p>
+                Convert the interface of a class into another interface clients expece.Adapter lets classes work togethere that couldn;t otherwise because of incompatible interfaces.<br>
+                翻译:将一个类的接口变换成客户端所期待的另一种接口,从而使原本因接口不匹配而无法再一起工作的两个类能够在一起工作<br>
+                <br>
+                Target目标对象:<br>
+                期望使用的接口<br>
+                Adaptee源对象:<br>
+                原始拥有的数据和信息<br>
+                Adapter适配器对象:<br>
+                把Adaptee源对象的信息翻译成Target需要的.<br>
+                Client客户对象:<br>
+                客户对象向Target发送需求,然后Target通过Adapter的翻译拿到Adaptee源对象的信息.<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/04_适配器模式通用UML.png" alt=""><br>
+                <br>
+                现实例子:<br>
+                可以认为Target是中文字幕,Adaptee是英文原版字幕看不懂,然后Adapter是自动翻译软件,把英文翻译成中文字幕,这样Client客户对象就可以看中文字幕了,实际上幕后翻译工具Adapter处理了转换.<br>
+            </p> 
+            <section id="3"><h3>3.应用</h3></section>
+            <p>
+                优点:<br>
+                1.普适性:只要翻译做的好,可以让两个没有关系的类一起工作<br>
+                2.封装了复杂性,客户只需要知道Target对象就行了,至于源角色是什么,不需要了解<br>
+                3.提供了复用性,可以让源角色在不同领域使用<br>
+                4.灵活性好,因为唯一的关联就是适配器,所以如果不想要,删掉适配器不会带来什么影响.<br>
+            </p> 
+            <section id="4"><h3>4.扩展</h3></section>
+            <p>
+                情形:如果实际上劳务公司的接口不止一个,又不支持多继承,那要怎么处理?<br>
+                解决方案也很简单,直接通过引用让OuterUserInfo获取这些不同对象的实例,然后整合数据,委托给这些对象获取数据,然后翻译<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/05_多接口适配UML.png" alt=""><br>
+                <br>
+                这个模式叫做对象适配器<br>
+                Adapter对象适配器:<br>
+                他负责把需求委托给不同对象处理,只是现在负责处理的类多一些了.原本的类适配器是通过继承,对象适配器是对对象合成关系,或者说关联的关系.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/06_对象适配器UML.png" alt=""><br>
             </p>           
+        </article>
+        <article><h2>20.迭代器模式</h2>
+            <section id="5"><h3>1.例子引入</h3></section>
+            <p>
+                需求:需要一个项目所有信息的快速遍历列表<br>
+                IProject项目接口:<br>
+                定义项目都需要执行的抽象逻辑<br>
+                Project项目实现类:<br>
+                实现抽象接口定义的逻辑<br>
+                Boss客户端类:<br>
+                查看项目信息<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/07_迭代器使用.png" alt=""><br>
+                <br>
+                Iterator迭代器接口:<br>
+                实现下一个元素,移除元素,是否有下一个元素统一方法<br>
+                IProjectIterator项目实现迭代器接口:<br>
+                定义实现迭代器的通过逻辑,现在可以为空,Iterator都定义好了逻辑,没有需要新增的逻辑<br>
+                ProjectIterator迭代器实现类:<br>
+                直接实现接口对象,这样就可以快速遍历任意集合类型的对象了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/08_自己实现迭代器.png" alt=""><br>
+            </p> 
+            <section id="6"><h3>2.正式定义</h3></section>
+            <p>
+                Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.<br>
+                翻译:提供一种方法访问一个容器对象中各个元素,而又不需要暴露该对象的内部细节.<br>
+                <br>
+                Iterator抽象迭代器:<br>
+                定义访问和便利元素的接口,first获取第一个元素,Next获取下一个元素,isDone判断是否到底部了,CurrentItem返回当前的元素.<br>
+                ConcreteIterator具体迭代器<br>
+                实现接口的定义,完成容器元素的便利<br>
+                Aggregate抽象容器:<br>
+                提供创建具体迭代器角色的接口,通常是createIterator或者iterator这样的方法可以返回容器的迭代器,然后就可以用迭代器遍历容器元素了<br>
+                ConcreteAggregate具体容器<br>
+                实现容器接口定义的方法,可以创建出迭代器对象.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/3_DesignMode/09_迭代器通用类图.png" alt=""><br>
+            </p>
+            <section id="7"><h3>3.应用</h3></section>
+            <p>
+                基本不存在自己写迭代器的机会,不是因为不重要,正是因为太常见了,基本所有的主流编程语言都实现了自己的迭代器方法,直接调用就好了.<br>
+            </p>          
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

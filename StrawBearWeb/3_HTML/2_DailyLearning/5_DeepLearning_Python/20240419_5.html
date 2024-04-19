@@ -10,22 +10,65 @@
         <header><h1>20240419-深度学习入门_自制框架</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">39.1 sum函数的反向传播</a></li>
-                <li><a href="#2">39.2 sum函数的实现</a></li>
-                <li><a href="#3">39.3 axia和keepdims</a></li>
+                <li><a href="#1">40.1 broadcast_to函数和sum_to函数</a></li>
+                <li><a href="#2">40.2 Dezero的broadcast_to函数和sum_to函数</a></li>
+                <li><a href="#3">40.3 支持广播</a></li>
+                <li><a href="#4">问题解决</a></li>
             </ul>
         </nav>
         <aside>
             <ul>
-                <li><a href="#1">39.1 sum函数的反向传播</a></li>
-                <li><a href="#2">39.2 sum函数的实现</a></li>
-                <li><a href="#3">39.3 axia和keepdims</a></li>
+                <li><a href="#1">40.1 broadcast_to函数和sum_to函数</a></li>
+                <li><a href="#2">40.2 Dezero的broadcast_to函数和sum_to函数</a></li>
+                <li><a href="#3">40.3 支持广播</a></li>
+                <li><a href="#4">问题解决</a></li>
             </ul>
         </aside>
-        <article><h2>39.求和的函数</h2>
-            <section id="1"><h3>39.1 sum函数的反向传播</h3></section>
+        <article><h2>40.进行广播的函数</h2>
+            <section id="1"><h3>40.1 broadcast_to函数和sum_to函数</h3></section>
             <p>
-
+                Numpy的行和列<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/01_Numpy的行和列.png" alt=""><br>
+                <br>
+                执行的逻辑是通过复制数据改变形状,然后反向传播回去每个元素因为复制了一份,都传播了两次,梯度累加起来就变成了2,broadcast_to函数的反向传播会求梯度的和,以使梯度的形状变为输入x的形状.<br>
+                其中我们用到了一个sum_to函数,需要求x的元素之和,然后改变形状.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/02_broadcast_to的反向传播.png" alt=""><br>
+                <br>
+                sum_to函数的反向传播就是broadcast_to函数<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/03_sumto的反向传播.png" alt=""><br>
+            </p>
+            <section id="2"><h3>40.2 Dezero的broadcast_to函数和sum_to函数</h3></section>
+            <p>
+                broadcast_to<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/04_broadcast_to函数.png" alt=""><br>
+                <br>
+                sum_to<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/05_sum_to函数.png" alt=""><br>
+            </p>
+            <section id="3"><h3>40.3 支持广播</h3></section>
+            <p>
+                Add<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/06_修改Add方法支持广播.png" alt=""><br>
+                <br>
+                Mul<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/07_修改Mul方法支持广播.png" alt=""><br>
+                <br>
+                Sub<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/08_修改Sub方法支持广播.png" alt=""><br>
+                <br>
+                Div<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/09_修改Div方法支持广播.png" alt=""><br>
+            </p>
+            <section id="4"><h3>问题解决</h3></section>
+            <p>
+                问题解决:<br>
+                现在出现问题在utils的sum_to函数报错,但是不一定是sum_to函数错了,可能是调用他的函数传递参数错误.<br>
+                <br>
+                总结:发现问题之后,首先通过打印的方式来一个一个判断,报错提示的是len()里面是NoneType,所以首先就测试了x0和x1的shape,发现是有值的,那么就往前走,看看是不是Sum_To函数的问题,然后就发现在backward里面调用utils.sum_to(x,self.shape)里面的shape构造函数那里没有赋值,所以确实传递的是空对象.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/10_找到问题是SumTo.png" alt=""><br>
+                <br>
+                修复后结果符合预期<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/5_DeepLearning/11_结果符合预期.png" alt=""><br>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>

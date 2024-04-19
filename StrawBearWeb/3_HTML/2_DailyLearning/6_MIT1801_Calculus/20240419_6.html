@@ -10,28 +10,54 @@
         <header><h1>20240419-数学学习_MIT1801微积分</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">1. Motivation 动机</a></li>
-                <li><a href="#2">2. The chain rule链式法则</a></li>
-                <li><a href="#3">3. Changing Units改变单位</a></li>
-                <li><a href="#4">4. Another viewpoint另一个视角</a></li>
-                <li><a href="#5">5. Compositions and Chaining符合函数和链</a></li>
+                <li><a href="#1">6.Deriving the Chain Rule推导链式求导法则</a></li>
+                <li><a href="#2">7.More Complicated Function更多复杂函数</a></li>
+                <li><a href="#3">8.Quotient Rule vs Product and Chain Rule商法则乘积法则和链式求导法则</a></li>
             </ul>
         </nav>
         <aside>
             <ul>
-                <li><a href="#1">1. Motivation 动机</a></li>
-                <li><a href="#2">2. The chain rule链式法则</a></li>
-                <li><a href="#3">3. Changing Units改变单位</a></li>
-                <li><a href="#4">4. Another viewpoint另一个视角</a></li>
-                <li><a href="#5">5. Compositions and Chaining符合函数和链</a></li>
+                <li><a href="#1">6.Deriving the Chain Rule推导链式求导法则</a></li>
+                <li><a href="#2">7.More Complicated Function更多复杂函数</a></li>
+                <li><a href="#3">8.Quotient Rule vs Product and Chain Rule商法则乘积法则和链式求导法则</a></li>
             </ul>
         </aside>
         <article><h2>2.3Chain rule 链式法则</h2>
-            <section id="1"><h3>1. Motivation 动机</h3></section>
+            <section id="1"><h3>6.Deriving the Chain Rule推导链式求导法则</h3></section>
             <p>
-
+                利用左边的示例,我们求得了链式求导法则.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/01_链式求导法则推导.png" alt=""><br>
+                <br>
+                正式定义:等后面有时间了再认真的统计一下正向传播和反向传播两种情况下分别需要计算一些什么<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/02_正式定义.png" alt=""><br>
+                <br>
+                示例<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/03_一个示例.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/04_另一个示例.png" alt=""><br>
             </p>
-
+            <section id="1"><h3>7.More Complicated Function更多复杂函数</h3></section>
+            <p>
+                首先我们考虑怎么计算f(x),最后发现是两个乘法乘在一起,所以我们求导也是按照一样的逻辑进行拆分.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/05_复杂函数示例.png" alt=""><br>
+                <br>
+                同样的首先考虑正向传播计算函数值,然后考虑如何拆分,按照执行的顺序步骤决定我们的导数计算逻辑<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/06_另一个复杂函数.png" alt=""><br>
+            </p>
+            <section id="1"><h3>8.Quotient Rule vs Product and Chain Rule商法则乘积法则和链式求导法则</h3></section>
+            <p>
+                商法则或者链式法则都可以求这个函数的导数值<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/07_链式法则替代了除法法则.png" alt=""><br>
+                <br>
+                如果我们不记得商法则了,可以用链式求导法则求出来<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/08_求商法则.png" alt=""><br>
+                <br>
+                一层一层求解:外层需要用到内层正向传播计算出来的导数值.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/09_结构分析.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/10_求解.png" alt=""><br>
+                <br>
+                总结<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240419/6_Calculus/11_总结.png" alt=""><br>
+            </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
