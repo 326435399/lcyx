@@ -9,15 +9,78 @@
     <body>
         <header><h1>20240423-深度学习入门_自制框架</h1></header>
         <nav>
-            <ul>
-                <li><a href="#1">41.1 向量的内积和矩阵的乘积</a></li>
-                <li><a href="#2">41.2 检查矩阵的形状</a></li>
-                <li><a href="#3">41.3.1 向量和矩阵的反向传播思考</a></li>
+            <ul>    
+                <li><a href="#1">41.3 矩阵乘积的反向传播</a></li>
+                <li><a href="#2">42.1 玩具数据集</a></li>
+                <li><a href="#3">42.2 线性回归的理论知识</a></li>
+                <li><a href="#4">42.3 线性回归的实现</a></li>
+                <li><a href="#5">42.4 DeZero的mean_squared_error函数</a></li>
             </ul>
         </nav>
         <article><h2>41.矩阵的乘积</h2>
-            <section id="1"><h3>41.1 向量的内积和矩阵的乘积</h3></section>
-            
+            <section id="1"><h3>41.3 矩阵乘积的反向传播</h3></section>
+            <p>
+                首先考虑了输入变量x是一行的这种情况<br>
+                当x变化时L的变化率 = 当y变化时L的变化率 * 变换矩阵的转置<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/01_反向传播.png" alt=""><br>
+                <br>
+                矩阵乘法的正向传播x * W = y<br>
+                矩阵乘法的反向传播 x变化对L的影响 = y变化对L的影响乘以WT矩阵,W变化对L的影响= xT*y变化对L的影响<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/02_矩阵乘法的正向和反向传播.png" alt=""><br>
+                <br>
+                现在只能先当做就是这样了,反向传播就是乘以转置矩阵,然后需要保持矩阵的形状.所以这样干了.可能的一些思路是先考虑x是一行,然后每个x都会对矩阵的一行影响.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/03_矩阵乘积的反向传播.png" alt=""><br>
+                <br>
+                代码实现<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/04_矩阵的反向传播.png" alt=""><br>
+                <br>
+                调用<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/05_求导的过程.png" alt=""><br>
+            </p>            
+        </article>
+        <article><h2>42.线性回归</h2>
+            <section id="2"><h3>42.1 玩具数据集</h3></section>
+            <p>
+                机器学习的本质是让计算机从收集的数据中找到问题的解决方案.
+
+                我们的目标是得到根据x值预测y值的模型(表达式)
+                这种根据x值预测实数值y的做法叫做回归(regression),另外当预测模型呈现线性时,这种回归分析称为线性回归.
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/06_玩具数据集代码.png" alt=""><br>
+
+                玩具数据集的样式
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/07_玩具数据集.png" alt=""><br>
+            </p> 
+            <section id="3"><h3>42.2 线性回归的理论知识</h3></section>
+            <p>
+                这个误差叫做残差(residual)<br>
+                我们首先求出每个点的残差然后平方之后求和,之后除以N得到平均数,这个值就叫做均方误差mean squared error.<br>
+                评估模型好坏的函数叫做损失函数(loss function).我们可以说线性回归使用均方误差作为损失函数.<br>
+                我们的目标是找出使损失函数输出最小的W和b,这是函数优化问题,我们使用梯度下降来解决这个问题.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/08_理论知识.png" alt=""><br>
+            </p> 
+            <section id="4"><h3>42.3 线性回归的实现</h3></section>
+            <p>
+                通过预处理,一次性对多个数据进行计算.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/09_预处理.png" alt=""><br>
+                <br>
+                线性回归的实现代码<br>
+                中间有一个问题就是这个损失函数的计算方法.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/10_实现线性回归.png" alt=""><br>
+                <br>
+                训练得到的拟合数据的模型<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/11_训练后的模型.png" alt=""><br>
+            </p> 
+            <section id="5"><h3>42.4 DeZero的mean_squared_error函数</h3></section>
+            <p>
+                当前损失函数存在的问题是大量的匿名变量,会占用内存<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/12_当前损失函数的问题.png" alt=""><br>
+                <br>
+                我们将新的代码添加到function类当中<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/13_新的损失函数代码.png" alt=""><br>
+                <br>
+                新的损失函数计算图<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/5_DeepLearning/14_新的损失函数计算图.png" alt=""><br>
+            </p>            
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

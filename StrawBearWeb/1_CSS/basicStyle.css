@@ -11,7 +11,7 @@
             body /*如果什么都没有设置的用这个设置*/ 
             {
                 font-size: 12pt;
-                font-weight:lighter;
+                font-weight:bold;
                 color: black;
                 font-family: 思源臻宋,Arial,Verdana,sans-serif;
                 line-height: 15pt;
@@ -66,7 +66,7 @@
             nav li a:link,nav li a:visited,aside li a:link,aside li a:visited
             {
                 font-size:15px;
-                font-weight: lighter;
+                font-weight: bold;
                 font-family: 思源臻宋;
                 display:block;
                 padding:3px 0px 3px 3px;

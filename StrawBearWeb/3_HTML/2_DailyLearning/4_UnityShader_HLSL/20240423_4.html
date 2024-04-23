@@ -10,13 +10,48 @@
         <header><h1>20240423-UnityShader入门到实践</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">5.1 边缘光效果</a></li>
+                <li><a href="#1">5.1.2 让效果不断变换</a></li>
+                <li><a href="#2">5.1.3 使用遮罩美化</a></li>
+
             </ul>
         </nav>
         <article><h2>5.1 边缘光效果</h2>
-            <section id="1"><h3>边缘光</h3></section>
+            <section id="1"><h3>5.1.2 让效果不断变换</h3></section>
             <p>
-                
+                1.目标:让边缘光增加忽明忽暗的效果<br>
+                <br>
+                2.Time参数配合其他函数实现的效果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/01_Time变换效果.png" alt=""><br>
+                <br>
+                3.代码:<br>
+                公开了三个变量到Inspector<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/02_声明了三个变量.png" alt=""><br>
+                <br>
+                函数体内声明对应的三个变量<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/03_声明了三个变量.png" alt=""><br>
+                <br>
+                通过lerp线性差值计算逻辑来实现<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/04_混合实现闪烁效果.png" alt=""><br>
+                <br>
+                4.结果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/05_结果.gif" alt=""><br>
+            </p>
+            <section id="2"><h3>5.1.3 使用遮罩美化</h3></section>
+            <p>
+                1.目标:修改边缘光的形状<br>
+                <br>
+                2.代码:<br>
+                声明了三个变量一个读取遮罩值,一个控制遮罩强度,一个控制影响范围<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/06_声明三个变量.png" alt=""><br>
+                <br>
+                传递到Shader<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/07_声明相关变量.png" alt=""><br>
+                <br>
+                计算通过两个线性差值,一个控制遮罩值的强度,一个控制对点积影响的范围<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/08_计算.png" alt=""><br>
+                <br>
+                3.结果:<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240423/4_HLSL/09_边缘遮罩.gif" alt=""><br>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
