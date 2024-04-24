@@ -10,14 +10,28 @@
         <header><h1>20240424-UnityShader入门到实践</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">5.1.2 让效果不断变换</a></li>
-                <li><a href="#2">5.1.3 使用遮罩美化</a></li>
-
+                <li><a href="#1">5.1.4 让功能是"可选的":Shader变体</a></li>
             </ul>
         </nav>
         <article><h2>5.1 边缘光效果</h2>
-            <section id="1"><h3>5.1.2 让效果不断变换</h3></section>
-            
+            <section id="1"><h3>5.1.4 让功能是"可选的":Shader变体</h3></section>
+            <p>
+                在材质中选择Shader中哪些代码块是要运行的,而哪些不运行.最好的办法是让Shader在编译时将那些不需要的代码不编译进去.<br>
+                在Shader中可以利用关键字Keyword实现这一功能.可以根据材质开启的关键字的不同选择执行不同的Shader变体(注意不同变体的增长是很夸张的2*2*2个关键字就有8个变体了),用空间换时间节省渲染开销.<br>
+                在Shader中使用multi_compile/shader_feature就可以控制产生Shader变体.<br>
+                <br>
+                1.声明关键字开关到Inspector面板<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/4_HLSL/01_声明到Inspector.png" alt=""><br>
+                <br>
+                2.编译关键字,注意shader_feature和multi_compile的区别<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/4_HLSL/02_声明编译关键字.png" alt=""><br>
+                <br>
+                3.完整代码<br>
+                <img style="width: 1280px;" src="../../../0_Resoureces/img/learningPicture/20240424/4_HLSL/03_代码.png" alt=""><br>
+                <br>
+                4.材质球样式<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/4_HLSL/04_材质球样式.png" alt=""><br>
+            </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

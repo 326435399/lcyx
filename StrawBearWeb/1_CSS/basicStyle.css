@@ -40,16 +40,10 @@
             nav
             {
                 float:right;
-                white-space: nowrap; /* 保持文本在一行内显示，不自动换行 */
-                overflow: hidden; /* 隐藏超出容器的文本 */
-                text-overflow: ellipsis; /* 超出的文本用省略号表示 */
             }
             aside
             {
                 float:left;
-                white-space: nowrap; /* 保持文本在一行内显示，不自动换行 */
-                overflow: hidden; /* 隐藏超出容器的文本 */
-                text-overflow: ellipsis; /* 超出的文本用省略号表示 */
             }
             nav ul,aside ul
             {

@@ -9,14 +9,125 @@
     <body>
         <header><h1>20240424-设计模式之禅</h1></header>
         <nav>
-            <ul>22.观察者模式
+            <ul>24.备忘录模式
                 <li><a href="#1">1.例子引入</a></li>
                 <li><a href="#2">2.正式定义</a></li>
-                <li><a href="#3">3.应用</a></li>
+                <li><a href="#3">3.应用和扩展</a></li>
+            </ul>
+            <ul>25.访问者模式
+                <li><a href="#4">1.例子引入</a></li>
+                <li><a href="#5">2.正式定义</a></li>
+                <li><a href="#6">3.应用和扩展</a></li>
             </ul>
         </nav>
-        <article><h2>22.观察者模式</h2>
-            
+        <article><h2>24.备忘录模式</h2>
+            <section id="1"><h3>1.例子引入</h3></section>
+            <p>
+                情境:预见未来电影中通过不断的回到过去来达到一个最佳结果,复制当前状态->尝试->失败后还原.<br>
+                Boy男孩类:<br>
+                获取状态,改变状态,设置状态存档<br>
+                问题:现在场景要负责存档读档,备份档案,这不应该是高层模块关心的.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/01_男孩状态类图.png" alt=""><br>
+                <br>
+                把原本客户端负责的存档部分抽取出来,让Memonto备忘录类来负责处理,这样高层模块Client就不用自己设置备份了<br>
+                问题:现在高层模块需要自己准备备忘录,本来这个事情也不是高层模块关心的.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/02_增加存档类.png" alt=""><br>
+                <br>
+                又把备忘录给封装了一下,现在让管理者来负责管理这个备忘录,现在高层模块仅仅是创建管理者,让管理者存档,获取调取存档,不再和具体的备忘录实现逻辑关联了(虽然觉得这样似乎更加复杂了,优点是对于存档类更方便执行一些操作了,每一层封装都意味着和下层模块的解耦).<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/03_增加管理者.png" alt=""><br>
+            </p>
+            <section id="2"><h3>2.正式定义</h3></section>
+            <p>
+                Without violating encapsulation,capture adn externalize an object's internal state so that the object can be restored to this state later.<br>
+                翻译:在不破坏封装的前提下,捕获一个对象的内部状态,并在该对象之外保存这个状态.这样之后就可以将该对象恢复到原先保存的状态.<br>
+                <br>
+                Originator原始角色<br>
+                记录当前时刻的内部状态,负责定义哪些部分需要备份,负责创建和恢复备忘录数据.<br>
+                Memento备忘录角色<br>
+                负责存储Originator对象的内部状态,需要的时候提供这个状态<br>
+                Caretaker备忘录管理员:<br>
+                对备忘录进行管理,保存和提供备忘录<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/04_备忘录模式.png" alt=""><br>
+            </p> 
+            <section id="3"><h3>3.应用和扩展</h3></section>
+            <p>
+                使用场景:<br>
+                需要回滚,需要保存和恢复数据的相关状态场景.<br>
+                注意事项:<br>
+                要主动管理备忘录的对象,不要出现大量备份带来的性能爆炸<br>
+                <br>
+                1.clone方式的备忘录<br>
+                原始角色直接通过实现Cloneable复制产生一个当前状态的副本<br>
+                如果再进一步,可以直接把管理员也给去掉,直接自己实现即可,需要注意的是浅拷贝和深拷贝的问题,如果碰到复杂的场景容易产生逻辑混乱.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/05_克隆方式备忘录.png" alt=""><br>
+                <br>
+                2.多状态的备忘录模式<br>
+                通过BeanUtils类把所有的状态都存到HashMap,到时候再恢复,这样不但实现了多状态的恢复,也实现了部分恢复(可以扩展仅恢复某个部分)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/06_多状态备忘录模式.png" alt=""><br>
+                <br>
+                3.多备份的备忘录<br>
+                改动也很简单,把管理员改成容器类可以容纳多个备份,然后再给一个索引,就可以根据索引调用指定的备份了<br>
+                <br>
+                4.带有访问权限的备忘录<br>
+                备忘录是原始对象的子类,所以只有他能访问,但是我们也准备了空接口,所以其余模块可以通过接口来访问,但是因为空接口没有提供任何操纵数据的方法,所以是相对安全的.<br>
+                这种设计叫做双接口设计,一个接口是业务的正常接口,实现所有的业务逻辑叫做宽接口,一个则是什么都没有的空接口,目的是提供其余模块的访问.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/07_内置类备忘录.png" alt=""><br>
+            </p>             
+        </article>
+        <article><h2>25.访问者模式</h2>
+            <section id="4"><h3>1.例子引入</h3></section>
+            <p>
+                情境:需要汇报所有员工的信息<br>
+                Employee抽象雇员类:<br>
+                定义所有员工的共同部分,名字,薪水,新别,报告其他信息<br>
+                CommonEmployee通用雇员:<br>
+                扩展抽象雇员,新增工作内容<br>
+                Manager管理雇员:<br>
+                扩展抽象雇员,新增绩效内容<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/08_初始信息类.png" alt=""><br>
+                <br>
+                改变:老板想要只看自己关心的部分,如果定制化不同的反馈报表?<br>
+                IVisitor访问者接口:<br>
+                他执行对不同雇员的访问,然后根据想要的逻辑来拼装信息,而不用雇员实现类自己来拼装了.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/09_定制化报表.png" alt=""><br>
+            </p>
+            <section id="5"><h3>2.正式定义</h3></section>
+            <p>
+                Represent an operation to be performed on the elements of an object structure.Vistor lets you define a new operation without changing the classes of the elements on which it operates.<br>
+                翻译:封装一些作用域某种数据结构中的各元素的操作,它可以在不改变数据结构的前提下定义作用域这些元素的新的操作.<br>
+                <br>
+                Visitor抽象访问者:<br>
+                声明访问者可以访问哪些对象.<br>
+                ConcreteVisitor具体访问者:<br>
+                访问之后要怎么处理.<br>
+                Element抽象元素:<br>
+                声明接受哪一些访问者访问,权限设置<br>
+                ConcreteElement具体元素:<br>
+                具体的信息,设置访问权限<br>
+                ObjectStructure结构对象:<br>
+                元素产生者.产生多个对象<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/10_访问者模式.png" alt=""><br>
+            </p> 
+            <section id="6"><h3>3.应用和扩展</h3></section>
+            <p>
+                优点:<br>
+                1.符合单一职责元素<br>
+                2.扩展性优秀,通过新的Visitor就可以增加新的数据处理逻辑了<br>
+                缺点:<br>
+                1.所有具体元素对访问者公布细节<br>
+                2.具体元素变更比较困难,因为都互相关联了<br>
+                3.未被了依赖倒置原则,访问者依赖具体元素.<br>
+                使用场景:<br>
+                一个对象结构包含很多类对象,需要对一个对象结构中的对象进行很多不同的操作.<br>
+                <br>
+                扩展-统计功能<br>
+                因为所有的数据访问者都可以访问,只要在里面写对应的逻辑就可以了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/11_统计功能.png" alt=""><br>
+                <br>
+                扩展-多个访问者<br>
+                细分一下就是多开几个接口,如果不想细分直接两个具体访问者实现也是可以做到的.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/3_DesignMode/12_多访问者.png" alt=""><br>
+            </p>             
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

@@ -10,13 +10,41 @@
         <header><h1>20240424-Unity3D游戏开发</h1></header>     
         <nav>
             <ul>
-                <li><a href="#1">1.Full Screen Pass RendererFeature 全屏幕渲染通道</a></li>
-                <li><a href="#2">2.Decal 贴花</a></li>
+                <li><a href="#1">4.Screen Space Ambient Occlusion屏幕空间环境光遮蔽</a></li>
             </ul>
         </nav>
         <article><h2>12. 渲染管线</h2>
-            <section id="1"><h3>1.Full Screen Pass RendererFeature 全屏幕渲染通道</h3></section>
-                      
+            <section id="1"><h3>4.Screen Space Ambient Occlusion屏幕空间环境光遮蔽</h3></section>
+            <p>
+                1.执行逻辑<br>
+                2.1.对每个物体执行获取深度和法线图存到_CameraNormalsTexture里面<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/01_预处理绘制法线和深度图.png" alt=""><br>
+                2.2.调用ScreenSpaceAmbientOcclusion这个Shader,然后引用了SSAO.hlsl文件当中的SSAO片段函数(346行)进行计算,得到贴图_SSAO_OcclusionTexture0(SSAO贴图0)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/02_调用SSAO执行第一遍计算.png" alt=""><br>
+                <br>
+                2.3.调用ScreenSpaceAmbientOcclusion这个Shader,引用SSAO.hlsl当中的HorizontalBlur片段函数(499-506行)来计算,进行水平模糊处理,得到贴图_SSAO_OcclusionTexture1(SSAO贴图1)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/03_调用SSAO水平模糊.png" alt=""><br>
+                <br>
+                2.4.调用ScreenSpaceAmbientOcclusion这个Shader,引用SSAO.hlsl当中的VerticalBlur片段函数(508-515行)来计算,进行水平模糊处理,得到贴图_SSAO_OcclusionTexture2(SSAO贴图2)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/04_调用SSAO垂直模糊.png" alt=""><br>
+                <br>
+                2.5.调用ScreenSpaceAmbientOcclusion这个Shader,引用SSAO.hlsl当中的FinalBlur片段函数(517-524行)来计算,进行水平模糊处理,得到贴图_SSAO_OcclusionTexture(SSAO最终贴图)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/05_调用SSAO合成得到最终贴图.png" alt=""><br>
+                <br>
+                2.6.重新读取附加贴图,释放内存(回到原本正常流程),清空我们设置值的所有颜色,模板值和深度值<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/06_清除.png" alt=""><br>
+                <br>
+                2.7.正式绘制过程中,我们的贴图就被参数_ScreenSpaceOcclusionTexture引用进行计算了<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/07_绘制调用.png" alt=""><br>
+                <br>
+                相关资源位置<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/08_Shader资源.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/09_引用的HLSL资源.png" alt=""><br>
+                <br>
+                参数设置<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/10_参数分析.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240424/7_Unity3D/11_SSAO参数信息.png" alt=""><br>           
+            </p>                     
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
