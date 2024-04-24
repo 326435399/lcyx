@@ -8,10 +8,18 @@
                 font-family: "思源臻宋";
                 src:url("../0_Resoureces/font/思源屏显臻宋.ttf"); /*添加思源屏显臻宋字体*/
             }
+
+            .imgBackground
+            {
+                /* background: #dfdfdf; */
+                background: url(../0_Resoureces/img/gameScreen/封面.png) center bottom;
+                /* background-color: rgba(255,255,255,0.2); */
+            }
+        
             body /*如果什么都没有设置的用这个设置*/ 
             {
                 font-size: 12pt;
-                font-weight:bold;
+                font-weight:normal;
                 color: black;
                 font-family: 思源臻宋,Arial,Verdana,sans-serif;
                 line-height: 15pt;
@@ -20,6 +28,7 @@
                 padding-top: 5pt;
                 text-align: left;
             }
+
             article
             {
                 margin:0 11%;
