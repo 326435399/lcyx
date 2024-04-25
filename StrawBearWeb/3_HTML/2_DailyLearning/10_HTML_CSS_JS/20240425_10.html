@@ -14,9 +14,19 @@
             </ul>
         </nav>
         <article ><h2>13.控制背景和边框</h2>
-            <section id="1"><h3>13.1 了解背景和边框</h3></section>
+            <section id="1"><h3>13.2 使用多个边框和背景</h3></section>
             <p>
-                
+                1.为四个边框设置不同的样式<br>
+                border-top;boreder-right;border-bottom;boreder-left;通过这四个属性分别设置边框的四个部分.<br>
+                <div class="imgBackground">
+                    在这中间就可以在背景上面写东西了<br>
+                </div>
+                <br>
+                2.设置多个背景的元素<br>
+                首先需要注意层级关系,在最上面的元素就是在顶层,会盖住其他图层<br>
+                background属性可以放置在任何块级HTML元素上,所以通常是在CSS当中设置一个类.class然后在HTML当中通过class="类名"来调用.<br>
+                当HTML元素当中没有尺寸的时候,我们需要在CSS当中通过width和height设定一个位置给背景图使用<br>
+                可以通过center,botto,等设置背景的位置.设置拼贴模式,设置尺寸等等.<br>
             </p>            
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
