@@ -10,14 +10,46 @@
         <header><h1>20240425-计算机图形学原理与实践XAML</h1></header>  <!--header(页眉)是介绍性内容的容器-->
         <nav>
             <ul>
-                <li><a href="#1">6.2.1.2 放置一个三角形</a></li>
+                <li><a href="#1">6.2.2 生成更真实的光照</a></li>
+                <li><a href="#2">6.2.3 固定功能绘制中的"光照"与"着色"</a></li>
+                <li><a href="#3">6.3.1 基于插值的着色处理(gouraud着色)</a></li>
+                <li><a href="#4">助记小故事--光照</a></li>
             </ul>
         </nav>
         <article><h2>6.固定功能的3D图形平台和层次建模简介</h2>
-            <section id="1"><h3>6.2.1.2 放置一个三角形</h3></section>
+            <section id="1"><h3>6.2.2 生成更真实的光照</h3></section>
             <p>
-                
-            </p>            
+                通过Lambert模型计算光线的衰减
+                理想漫反射Lambert模型的两个关键特征:认为反射光强度与观察的方向无关;仅决定于入射光线方向和表面上该点法线之间的夹角值.
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/01_生成更真实的光照.png" alt=""><br>
+
+            </p>
+            <section id="2"><h3>6.2.3 固定功能绘制中的"光照"与"着色"</h3></section>
+            <p>
+                固定功能中采用的是均匀着色,每个三角形选取一个顶点作为关键顶点,然后内部全部用这个颜色填充
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/02_均匀着色.png" alt=""><br>
+            </p> 
+            <section id="3"><h3>6.3.1 基于插值的着色处理(gouraud着色)</h3></section>
+            <p>
+                随着边数的增加,开始近似像一个圆锥,但是随着距离拉近,依然是能够看出来并不是的<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/03_曲面表示.png" alt=""><br>
+                <br>
+                犹他大学的Henri Gouraud提出的基于网格定点光亮度插值着色技术<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/04_Gouraud着色.png" alt=""><br>
+                <br>
+                2D情况下计算相邻顶点<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/05_2D法线平均算法.png" alt=""><br>
+                <br>
+                3D情况下计算相邻面法线的平均<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/06_3D法线平均算法.png" alt=""><br>
+                <br>
+                WPF是强制进行Gouraud着色的,但是我们可以通过手动顶点断开,让他无法进行插值计算,从而实现硬边效果<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/8_XAML/07_效果.png" alt=""><br>
+            </p> 
+            <section id="4"><h3>助记小故事--光照</h3></section>
+            <p>
+                研究前面小熊生成的球体,仔细研究会发现表面存在一些断裂边.后来法线是因为按照顶点里面填充了相同的颜色导致的,后面采用了Gouraud着色技术,对顶点计算法线平均值,这样就生成的均匀的颜色了,只有中间有一小片区域因为顶点是和其他的边断开的,依然是均匀着色.<br>
+            </p>             
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>

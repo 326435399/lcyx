@@ -10,13 +10,19 @@
         <header><h1>20240425-UnityShader入门到实践</h1></header>
         <nav>
             <ul>
-                <li><a href="#1">5.1.4 让功能是"可选的":Shader变体</a></li>
+                <li><a href="#1">漫反射+镜面反射+环境光</a></li>
             </ul>
         </nav>
-        <article><h2>5.1 边缘光效果</h2>
-            <section id="1"><h3>5.1.4 让功能是"可选的":Shader变体</h3></section>
+        <article><h2>5.2 简单光照</h2>
+            <section id="1"><h3>漫反射+镜面反射+环境光</h3></section>
             <p>
-                
+                完整代码:<br>
+                主要注意核心部分的漫反射+镜面反射+环境光部分<br>
+                <img style="width: 1024px;" src="../../../0_Resoureces/img/learningPicture/20240425/4_HLSL/01_代码.png" alt=""><br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/4_HLSL/02_结果.png" alt=""><br>
+                <br>
+                助记小故事:<br>
+                小熊进入到一个没有光的世界,前面有一个小球,首先给整个小球加上了一个微弱的蓝色作为环境光,然后使用手电筒作为平行光照亮小球,朝向手电筒的部分被照亮了,按照Lambert法则根据光线和法线的夹角来确定强弱.然后考虑这个对象的金属度,根据金属度的值,让非金属的部分乘以漫反射就获得了漫反射部分,然后让金属的部分通过Phong模型计算灯光和视线方向夹角得到镜面反射系数,乘以镜面反射颜色就得到了反射部分.最后就得到了一个看起来还不错的地面小球了<br>
             </p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>

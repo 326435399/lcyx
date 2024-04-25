@@ -10,12 +10,40 @@
         <header><h1>20240425-Unity3D游戏开发</h1></header>     
         <nav>
             <ul>
-                <li><a href="#1">4.Screen Space Ambient Occlusion屏幕空间环境光遮蔽</a></li>
+                <li><a href="#1">12.3 SRP Batch</a></li>
+                <li><a href="#2">助记小故事-三维打印机</a></li>
+
             </ul>
         </nav>
         <article><h2>12. 渲染管线</h2>
-            <section id="1"><h3>4.Screen Space Ambient Occlusion屏幕空间环境光遮蔽</h3></section>
-                              
+            <section id="1"><h3>12.3 SRP Batch</h3></section>
+            <p>
+                SRP Batch是URP一个重要的优化手段,它并不会减少Set Pass Call和Draw Call,但是会减少每个Draw Call的渲染消耗.<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/7_Unity3D/00_SRP开关.png" alt=""><br>
+                <br>
+                Set Pass Call和Draw Call<br>
+                Set Pass Call是设置渲染需要的状态,例如纹理,顶点等等<br>
+                Draw Call是按照配置进行渲染<br>
+                而多Pass注定会导致多次调用Set Pass,这就是为什么URP取消了原本的多通道设计,为了优化提高性能<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/7_Unity3D/01_SetPassCall和DrawCall.png" alt=""><br>
+                <br>
+                SRP Batch原理<br>
+                通过将一些不变的数据放到GPU上减少CPU的设置渲染状态的处理,SRP的打断方式是有不同变体,也就是有不同Shader才会打断,材质的参数变化并不会打断<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/7_Unity3D/02_SRP原理.png" alt=""><br>
+                <br>
+                CBUFFER_START(UnityPerDraw)是最大的CBUFFER,里面记录了公用的转换矩阵,灯光参数,环境贴图,烘焙参数等等.<br>
+                每个材质则需要我们自己指定一个CBUFFER,只要还是这些参数,也不会产生新的SetPassCall<br>
+                CBUFFER_START(UnityPerMaterial)<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/7_Unity3D/03_SRP Batch.png" alt=""><br>
+                <br>
+                判断材质是否支持SRP的方式就是这里是否显示compatible<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240425/7_Unity3D/04_如何判断是否支持SRP.png" alt=""><br>
+            </p>
+            <section id="1"><h3>助记小故事-三维打印机</h3></section>
+            <p>
+                助记小故事:<br>
+                小熊有一台三维打印机,每次打印不同的模型,都需要设置材料要什么,打多快,怎么打.一大堆的设置,这个过程叫做Set Pass Call,然后设置好了最后按下执行就开始打印了,这个打印的过程叫做Draw Call,然后我要打10个模型,就要执行10次这个过程.现在提出了一个新的技术,SRP Batch,他会自动把这些基本不会改的东西都准备好,就像什么材料,多快,怎么打这些都有默认值固定了,我就只需要换不同的模型,然后开机,SPR会自动把Set Pass Call当中一样的部分固定下来(用上次设置好的参数),这样如果没有改变Set Pass Call部分,我们就只需要设置一次了,这就极大的简化了工作流程,很快就打完了10个模型.<br>
+            </p>                             
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
