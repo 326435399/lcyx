@@ -9,16 +9,62 @@
     <body>
         <header><h1>20240426-设计模式之禅</h1></header>
         <nav>
-            <ul>第26章  状态模式
+            <ul>第27章  解释器模式
                 <li><a href="#1">1.例子引入</a></li>
                 <li><a href="#2">2.正式定义</a></li>
                 <li><a href="#3">3.应用和扩展</a></li>
                 <li><a href="#4">4.助记小故事</a></li>                
             </ul>
         </nav>
-        <article><h2>26.状态模式</h2>
+        <article><h2>27.解释器模式</h2>
             <section id="1"><h3>1.例子引入</h3></section>
-                           
+            <p>
+                情境:加减乘除四则运算<br>
+                VarExpression运算元素<br>
+                需要计算用的值<br>
+                SymbolExpression抽象符号解析器<br>
+                定义符号解析器需要执行的操作<br>
+                AddExpression和SubExpression具体符号解析<br>
+                对不同的符号做出计算处理操作<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240426/3_DesignMode/01_初步分析.png" alt=""><br>
+                <br>
+                Expression表达式抽象类:<br>
+                所有表达式都需要对传入的式子进行解析,分离<br>
+                Calculator计算器类<br>
+                对整个表达式的逻辑进行封装,让客户端调用它就可以了<br>
+                VarExpression和SymbolExpressoin原本的元素表达式和符号表达式<br>
+                定义两种不同类型的元素处理方式<br>
+                SubExpression和AddExpression具体的符号表达式,实现计算逻辑<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240426/3_DesignMode/02_完整的加减法类图.png" alt=""><br>
+            </p>
+            <section id="2"><h3>2.正式定义</h3></section>
+            <p>
+                Given a language,define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.<br>
+                翻译:给定一门语言,定义它的文法的一种表示,并定义一个解释器,该解释器使用该表示来解释语言中的句子.<br>
+                <br>
+                AbstaractExpression抽象解释器<br>
+                定义所有的解释器需要实现的逻辑框架<br>
+                TerminalExpression元素表达式<br>
+                通常是数值对象<br>
+                NonterminalExpression非最终表达式<br>
+                也就是符号表达式,用来解析不同的文法规则<br>
+                Context环境角色<br>
+                进行沟通的封装角色<br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240426/3_DesignMode/03_解释器模式.png" alt=""><br>
+            </p>
+            <section id="3"><h3>3.应用和扩展</h3></section>
+            <p>
+                优点:<br>
+                修改语法规则只要修改相应的符号即可<br>
+                缺点:<br>
+                每个语法都要有一个新的类,然后是递归调用效率很差.<br>
+                应用场景:大量重复发生的问题<br>
+            </p>
+            <section id="4"><h3>4.助记小故事</h3></section>
+            <p>
+                小熊的英语字典和语法书<br>
+                小熊买了一本英文书,但是看不懂,正苦恼的时候小兔提供了一本英文字典(就是红色大部头牛津词典),小熊现在就可以根据字典上面来看书了,但是现在只有单词,究竟要按照什么顺序来翻译?这就需要另外一本语法书,它讲了如何将这些词按照什么逻辑组织起来,这本字典就是元素表达式,语法书就是符号表达式,他们解释翻译了内容.这就是解释器模式<br>
+            </p>                           
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
