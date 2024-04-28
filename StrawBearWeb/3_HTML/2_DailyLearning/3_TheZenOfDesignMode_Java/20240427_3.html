@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="记录一个学习者的过程">
+        <title>20240426-设计模式之禅</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>
+    <body>
+        <header><h1>20240426-设计模式之禅</h1></header>
+        <nav>
+            <ul>第28章 享元模式
+                <li><a href="#1">1.例子引入</a></li>
+                <li><a href="#2">2.正式定义</a></li>
+                <li><a href="#3">3.应用和扩展</a></li>               
+            </ul>
+            <ul>第29章 桥梁模式
+                <li><a href="#4">1.例子引入</a></li>
+                <li><a href="#5">2.正式定义</a></li>
+                <li><a href="#6">3.应用和扩展</a></li>
+                <li><a href="#7">4.助记小故事</a></li>                
+            </ul>
+        </nav>
+        <article><h2>28.享元模式</h2>
+            <section id="1"><h3>1.例子引入</h3></section>
+            <p>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/01_基础报考系统类图.png" alt=""><br>
+                SignInfo信息类记录信息<br>
+                SignInfoFactory信息工厂类创建SignInfo对象<br>
+                Client客户端通过工厂类来创建信息类<br>
+                问题:当有大量的对象同时被创建,GC无法快速回收,导致的内存溢出.<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/02_增加对象池.png" alt=""><br>
+                增加了对象池对象SignInfo4Pool<br>
+                我们通过对key值抽象把相同的部分提取出来,仅保留不同的部分作为key,在这里就是考试科目+考试地点是唯一不同的地方,我们的池里面就仅仅用这个来作为区分,科目+地点的数量基本可以算出来是有限的,自然就不会导致内存溢出了<br>
+            </p>
+            <section id="2"><h3>2.正式定义</h3></section>
+            <p>
+                Use sharing to support large numbers of fine-grained objects efficiently.<br>
+                翻译:使用共享对象可以有效地支持大量的细粒度的对象.<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/03_享元模式正式定义.png" alt=""><br>
+                内部状态:可以共享的信息,不会随着环境改变而改变<br>
+                外部状态:每个对象不同的统一标识,会不断改变的,独特部分<br>
+                Flywight抽象享元对象:<br>
+                定义产品的外部状态和内部状态的接口或实现<br>
+                ConcreteFlyWeight具体享元角色<br>
+                参与共享的部分,需要定义内部状态和外部状态的实现<br>
+                unsharedConcreteFlyweith不可共享的享元角色<br>
+                特殊标明不能参与享元的角色,通常不出现在享元工厂中<br>
+                享元工厂对象:如果池中不包含这个外部状态就创建添加到池当中,通过对外部状态的定义来实现控制池的大小.<br>
+            </p> 
+            <section id="3"><h3>3.应用和扩展</h3></section>
+            <p>
+                优点:<br>
+                可以极大的减少对象的数量<br>
+                缺点:<br>
+                造成逻辑复杂,需要分离出内部和外部状态.让内部状态不可变,外部状态唯一作为key<br>
+                应用:<br>
+                大量相似对象的场景,需要缓冲池的场景<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/04_类作为外部状态.png" alt=""><br>
+                扩展<br>
+                通过一个类来定义外部状态,但是性能很差劲..<br>
+            </p>                                   
+        </article>
+        <article><h2>29.桥梁模式</h2>
+            <section id="4"><h3>1.例子引入</h3></section>
+            <p>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/05_基础盈利.png" alt=""><br>
+                Corp抽象公司类<br>
+                定义框架<br>
+                HouseCorp和ClothersCorp具体公司类<br>
+                实现抽象定义的框架逻辑<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/06_升级.png" alt=""><br>
+                更换了一个具体实现类<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/07_使用快速变换.png" alt=""><br>
+                通过新开一个接口<br>
+                Product产品抽象接口把产品部分给抽离出来,这样就自由了,随便哪个公司可以生产任意产品了<br>
+            </p>
+            <section id="5"><h3>2.正式定义</h3></section>
+            <p>
+                Decouple an abstraction from its implementation so that the  two can vary independently<br>
+                翻译:将抽象和实现解耦.使得两者可以独立地变化.<br>
+                <br>
+                <img src="../../../0_Resoureces/img/learningPicture/20240427/3_DesignMode/08_桥梁模式.png" alt=""><br>
+                Abstraction抽象对象<br>
+                定义处对象的行为,保留一个对实现角色的引用<br>
+                Implementor抽象实现对象<br>
+                定义角色必须的属性和行为<br>
+                RefinedAbstraction抽象具体对象<br>
+                他通过引用实现化角色实现不同的角色<br>
+                ConcreteImplementor具体实现角色<br>
+                具体实现逻辑<br>
+            </p> 
+            <section id="6"><h3>3.应用和扩展</h3></section>
+            <p>
+                优点:<br>
+                抽象和实现分离,扩展很方便,因为都是接口<br>
+                <br>
+                缺点:<br>
+                细节是透明的.<br>
+            </p> 
+            <section id="7"><h3>4.助记小故事</h3></section>
+            <p>
+                一些小朋友买了很多玩具,很快家里就装不下了,为了解决这个问题,小熊把附近的小朋友都聚集在一起,让他们找出来大家都有的玩具,然后统一放到一个塑料池里面,以后所有小朋友就只需要来这个池里面就可以找到所有人都有的玩具了,如果有新的池里面没有的玩具就添加进去.这样这个池不需要太大就可以把所有种类的玩具都装进去了.这就是享元模式/分享模式.<br>
+                其中有一个玩具是灭霸的手套,只要嵌入不同的宝石就会获得不同的能力,宝石槽是固定的(接口)不同的宝石决定了不同能力的手套.这个就是桥梁模式.<br>
+            </p>                                   
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+            document.write(document.lastModified);
+        </script>
+    </body>
+</html>
