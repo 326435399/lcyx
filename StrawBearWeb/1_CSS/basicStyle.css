@@ -101,8 +101,9 @@
                 line-height: 16pt;
             }
 
-            p,li /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
+            p,li,pre /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
             {
+                font-family: 思源臻宋;
                 font-size: 12pt;
                 font-weight:lighter;
                 line-height:15pt;
