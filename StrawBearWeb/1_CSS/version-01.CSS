@@ -1,0 +1,132 @@
+/* ------------------------------------字体样式设置部分-------------------------------------- */
+@font-face
+{
+    font-family: "思源臻宋";
+    src:url("../0_Resoureces/font/思源屏显臻宋.ttf"); /*添加思源屏显臻宋字体*/
+}
+
+/* 总体设置 */
+body
+{
+    font-size: 18px;
+    font-weight:lighter;
+    color: black;
+    font-family: 思源臻宋,Arial,Verdana,sans-serif;
+    line-height: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5px;
+    text-align: left;
+}
+
+/* 细节设置 */
+header
+{
+    font-size: 36px;
+    line-height: 60px;
+    font-weight:bold;
+    text-align: center;
+}
+
+article
+{
+    font-size: 24px;
+    line-height: 40px;
+    font-weight:bold;
+    text-align: center;
+}
+
+section
+{
+    font-size: 18px;
+    line-height: 20px;
+    font-weight:lighter;
+    text-align: left;
+}
+
+p,nav,aside
+{
+    font-size: 18px;
+    line-height: 20px;
+    font-weight:lighter;
+    text-align: left;
+}
+
+footer
+{
+    font-size: 18px;
+    line-height: 20px;
+    font-weight:lighter;
+    text-align: left;
+}
+
+/* ------------------------------------总体布局设置部分-------------------------------------- */
+body
+{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+    width: 100%;
+    border: 2px  solid black;
+    margin:20px 0px;
+}
+
+article
+{
+    margin:0 19%;
+    width: 62%; 
+}
+nav
+{
+    width: 19%;
+    float: left;
+    margin-top:12px;
+    padding:1px;
+    position: sticky;
+    top: 50%;  
+    right: 0;  
+    transform: translateY(-50%); /*导航栏垂直方向居中*/
+}
+aside
+{
+    width: 19%;
+    float: right;
+    margin-top:12px;
+    padding:1px;
+    position: sticky;
+    top: 50%;  
+    right: 0;  
+    transform: translateY(-50%); /*导航栏垂直方向居中*/
+}
+footer
+{
+    width:100%;
+    border: 2px  solid black;
+    margin:20px 0px;
+}
+
+/* ------------------------------------链接设置部分-------------------------------------- */
+/* 总设置部分 */
+img 
+{
+    width: 512px;
+    height: auto;
+}
+/* 图片文本组合类型 */
+figure 
+{
+    text-align: center;
+    display: block;
+    margin: 2em auto;
+    padding: 0;
+}
+
+figure p
+{
+    font-size: 14px;
+    line-height: 16px;
+    font-weight:lighter;
+    text-align: center;
+}
