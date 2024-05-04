@@ -29,6 +29,7 @@ body /*如果什么都没有设置的用这个设置*/
     padding-right: 5%;
     padding-top: 5pt;
     text-align: left;
+    background-color: #eaebee;
 }
 
 article
@@ -38,25 +39,29 @@ article
     width:62%;
 }
 /*导航样式*/
-nav,aside
+aside
 {
-    margin-top:12px;
-    width:18%;
-    padding:1px;
-    position: sticky;
-    top: 50%;  
-    right: 0;  
-    transform: translateY(-50%); /*导航栏垂直方向居中*/
+    position: fixed; /* 固定定位 */
+    top: 0; /* 距离顶部的距离 */
+    left: 0; /* 距离左侧的距离 */
+    width: 18%; /* 侧边栏宽度 */
+    height: 100%; /* 高度撑满整个窗口 */
+    overflow-y: auto; /* 垂直方向上显示滚动条 */
+    border: 1px solid #ccc; /* 边框 */
+    padding: 10px; /* 内边距 */
 }
 nav
 {
-    float:right;
-    /* border:1px solid black; */
+    position: fixed; /* 固定定位 */
+    top: 0; /* 距离顶部的距离 */
+    right: 0; /* 距离左侧的距离 */
+    width: 18%; /* 侧边栏宽度 */
+    height: 100%; /* 高度撑满整个窗口 */
+    overflow-y: auto; /* 垂直方向上显示滚动条 */
+    border: 1px solid #ccc; /* 边框 */
+    padding: 10px; /* 内边距 */
 }
-aside
-{
-    float:left;
-}
+
 nav ul,aside ul
 {
     padding:1px;
@@ -76,7 +81,7 @@ nav li,aside li
 
 footer
 {
-    border-top: 30px solid #ffffff;
+    border-top: 30px solid #eaebee;
 }
 h1 /*大标题*/
 {

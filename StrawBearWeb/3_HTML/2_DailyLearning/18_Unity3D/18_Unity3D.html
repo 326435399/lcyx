@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>Untiy3D游戏开发</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1 基础知识</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 Unity简介</a></li>
+                        <li><a href="#1.2">1.2 跨平台</a></li>
+                        <li><a href="#1.3">1.3 协作开发</a></li>
+                        <li><a href="#1.4">1.4 Unity版本</a></li>
+                        <li><a href="#1.5">1.5 Package Manager</a></li>
+                        <li><a href="#1.6">1.6 示例项目与发布</a></li>
+                        <li><a href="#1.7">1.7 Unity服务</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2 编辑器的结构</a>
+                    <ul>
+                        <li><a href="#2.1">2.1 UnityHub</a></li>
+                        <li><a href="#2.2">2.2 编辑器布局</a></li>
+                        <li><a href="#2.3">2.3 Project视图</a></li>
+                        <li><a href="#2.4">2.4 Hierarchy视图</a></li>
+                        <li><a href="#2.5">2.5 Inspector视图</a></li>
+                        <li><a href="#2.6">2.6 Scene视图</a></li>
+                        <li><a href="#2.7">2.7 Game视图</a></li>
+                        <li><a href="#2.8">2.8 导航栏视图</a></li>
+                    </ul>
+                </li>
+                <li><a href="#3">3 游戏脚本</a>
+                    <ul>
+                        <li><a href="#3.1">3.1 C#运行时</a></li>
+                        <li><a href="#3.2">3.2 C#与引擎交互</a></li>
+                        <li><a href="#3.3">3.3 游戏对象</a></li>
+                        <li><a href="#3.4">3.4 游戏组件</a></li>
+                        <li><a href="#3.5">3.5 游戏脚本</a></li>
+                        <li><a href="#3.6">3.6 脚本的生命周期</a></li>
+                        <li><a href="#3.7">3.7 脚本的管理</a></li>
+                        <li><a href="#3.8">3.8 脚本序列化</a></li>
+                        <li><a href="#3.9">3.9 脚本属性</a></li>
+                        <li><a href="#3.10">3.10 协程任务</a></li>
+                        <li><a href="#3.11">3.11 通过脚本操作对象和组件</a></li>
+                    </ul>
+                </li>
+                <li><a href="#4">4 UGUI</a>
+                    <ul>
+                        <li><a href="#4.1">4.1 游戏界面</a></li>
+                        <li><a href="#4.2">4.2 界面布局</a></li>
+                        <li><a href="#4.3">4.3 Canvas组件</a></li>
+                        <li><a href="#4.4">4.4 Atlas</a></li>
+                        <li><a href="#4.5">4.5 事件系统</a></li>
+                    </ul>
+                </li>
+                <li><a href="#5">5 UI Toolkit</a>
+                    <ul>
+                        <li><a href="#5.1">5.1 UI Toolkit简介</a></li>
+                        <li><a href="#5.2">5.2 UI Builder编辑器</a></li>
+                        <li><a href="#5.3">5.3 UI组件</a></li>
+                        <li><a href="#5.4">5.4 事件系统</a></li>
+                        <li><a href="#5.5">5.5 进阶技巧</a></li>
+                        <li><a href="#5.6">5.6 UI Toolkit渲染</a></li>
+                        <li><a href="#5.7">5.7 UI Toolkit学习资料</a></li>
+                    </ul>
+                </li>
+                <li><a href="#6">6 2D游戏开发</a>
+                    <ul>
+                        <li><a href="#6.1">6.1 Sprite Renderer组件</a></li>
+                        <li><a href="#6.2">6.2 Tile地图</a></li>
+                        <li><a href="#6.3">6.3 2D物理系统</a></li>
+                        <li><a href="#6.4">6.4 像素风</a></li>
+                        <li><a href="#6.5">6.5 精灵形状</a></li>
+                        <li><a href="#6.6">6.6 精灵编辑器</a></li>
+                    </ul>
+                </li>
+                <li><a href="#7">7 3D游戏开发</a>
+                    <ul>
+                        <li><a href="#7.1">7.1 Renderer</a></li>
+                        <li><a href="#7.2">7.2 游戏对象和资源</a></li>
+                        <li><a href="#7.3">7.3 动画系统</a></li>
+                        <li><a href="#7.4">7.4 3D物理系统</a></li>
+                        <li><a href="#7.5">7.5 输入系统</a></li>
+                        <li><a href="#7.6">7.6 Transform组件</a></li>
+                    </ul>
+                </li>
+                <li><a href="#8">8 静态对象</a>
+                    <ul>
+                        <li><a href="#8.1">8.1 光照贴图</a></li>
+                        <li><a href="#8.2">8.2 反射探针</a></li>
+                        <li><a href="#8.3">8.3 遮挡剔除</a></li>
+                        <li><a href="#8.4">8.4 静态合批</a></li>
+                        <li><a href="#8.5">8.5 导航网格</a></li>
+                    </ul>
+                </li>
+                <li><a href="#9">9 持久化数据</a>
+                    <ul>
+                        <li><a href="#9.1">9.1 Excel</a></li>
+                        <li><a href="#9.2">9.2 SQLite</a></li>
+                        <li><a href="#9.3">9.3 JSON</a></li>
+                        <li><a href="#9.4">9.4 文件的读取与写入</a></li>
+                        <li><a href="#9.5">9.5 XML</a></li>
+                        <li><a href="#9.6">9.6 YAML</a></li>
+                        <li><a href="#9.7">9.7 生成代码</a></li>
+                    </ul>
+                </li>
+                <li><a href="#10">10 多媒体</a>
+                    <ul>
+                        <li><a href="#10.1">10.1 音频</a></li>
+                        <li><a href="#10.2">10.2 视频</a></li>
+                    </ul>
+                </li>
+                <li><a href="#11">11 Netcode与网络编程</a>
+                    <ul>
+                        <li><a href="#11.1">11.1 UnityWebRequest</a></li>
+                        <li><a href="#11.2">11.2 Socket</a></li>
+                        <li><a href="#11.3">11.3 Netcode</a></li>
+                    </ul>
+                </li>
+                <li><a href="#12">12 渲染管线</a>
+                    <ul>
+                        <li><a href="#12.1">12.1 SRP</a></li>
+                        <li><a href="#12.2">12.2 URP</a></li>
+                        <li><a href="#12.3">12.3 SRP Batch</a></li>
+                        <li><a href="#12.4">12.4 渲染技术</a></li>
+                        <li><a href="#12.5">12.5 自定义渲染管线</a></li>
+                    </ul>
+                </li>
+                <li><a href="#13">13 DOTS1.0</a></li>
+                <li><a href="#14">14 扩展编辑器</a></li>
+                <li><a href="#15">15 资源管理</a></li>
+                <li><a href="#16">16 自动化与打包</a></li>
+                <li><a href="#17">17 代码优化</a></li>
+                <li><a href="#18">18 通用案例与优化</a></li>
+            </ul>
+        </aside>
+        <nav>
+            计划是要写小故事的:
+        </nav>
+        <header><h1>Untiy3D游戏开发</h1></header>
+        <article id="1"><h2>1 基础知识</h2>
+            <section id="1.1">1.1 Unity简介</section><p></p>
+            <section id="1.2">1.2 跨平台</section><p></p>
+            <section id="1.3">1.3 协作开发</section><p></p>
+            <section id="1.4">1.4 Unity版本</section><p></p>
+            <section id="1.5">1.5 Package Manager</section><p></p>
+            <section id="1.6">1.6 示例项目与发布</section><p></p>
+            <section id="1.7">1.7 Unity服务</section><p></p>
+        </article>
+        <article id="2"><h2>2 编辑器的结构</h2>
+            <section id="2.1">2.1 UnityHub</section><p></p>
+            <section id="2.2">2.2 编辑器布局</section><p></p>
+            <section id="2.3">2.3 Project视图</section><p></p>
+            <section id="2.4">2.4 Hierarchy视图</section><p></p>
+            <section id="2.5">2.5 Inspector视图</section><p></p>
+            <section id="2.6">2.6 Scene视图</section><p></p>
+            <section id="2.7">2.7 Game视图</section><p></p>
+            <section id="2.8">2.8 导航栏视图</section><p></p>
+        </article>
+        <article id="3"><h2>3 游戏脚本</h2>
+            <section id="3.1">3.1 C#运行时</section><p></p>
+            <section id="3.2">3.2 C#与引擎交互</section><p></p>
+            <section id="3.3">3.3 游戏对象</section><p></p>
+            <section id="3.4">3.4 游戏组件</section><p></p>
+            <section id="3.5">3.5 游戏脚本</section><p></p>
+            <section id="3.6">3.6 脚本的生命周期</section><p></p>
+            <section id="3.7">3.7 脚本的管理</section><p></p>
+            <section id="3.8">3.8 脚本序列化</section><p></p>
+            <section id="3.9">3.9 脚本属性</section><p></p>
+            <section id="3.10">3.10 协程任务</section><p></p>
+            <section id="3.11">3.11 通过脚本操作对象和组件</section><p></p>
+        </article>
+        <article id="4"><h2>4 UGUI</h2>
+            <section id="4.1">4.1 游戏界面</section><p></p>
+            <section id="4.2">4.2 界面布局</section><p></p>
+            <section id="4.3">4.3 Canvas组件</section><p></p>
+            <section id="4.4">4.4 Atlas</section><p></p>
+            <section id="4.5">4.5 事件系统</section><p></p>
+        </article>
+        <article id="5"><h2>5 UI Toolkit</h2>
+            <section id="5.1">5.1 UI Toolkit简介</section><p></p>
+            <section id="5.2">5.2 UI Builder编辑器</section><p></p>
+            <section id="5.3">5.3 UI组件</section><p></p>
+            <section id="5.4">5.4 事件系统</section><p></p>
+            <section id="5.5">5.5 进阶技巧</section><p></p>
+            <section id="5.6">5.6 UI Toolkit渲染</section><p></p>
+            <section id="5.7">5.7 UI Toolkit学习资料</section><p></p>
+        </article>
+        <article id="6"><h2>6 2D游戏开发</h2>
+            <section id="6.1">6.1 Sprite Renderer组件</section><p></p>
+            <section id="6.2">6.2 Tile地图</section><p></p>
+            <section id="6.3">6.3 2D物理系统</section><p></p>
+            <section id="6.4">6.4 像素风</section><p></p>
+            <section id="6.5">6.5 精灵形状</section><p></p>
+            <section id="6.6">6.6 精灵编辑器</section><p></p>
+        </article>
+        <article id="7"><h2>7 3D游戏开发</h2>
+            <section id="7.1">7.1 Renderer</section><p></p>
+            <section id="7.2">7.2 游戏对象和资源</section><p></p>
+            <section id="7.3">7.3 动画系统</section><p></p>
+            <section id="7.4">7.4 3D物理系统</section><p></p>
+            <section id="7.5">7.5 输入系统</section><p></p>
+            <section id="7.6">7.6 Transform组件</section><p></p>
+        </article>
+        <article id="8"><h2>8 静态对象</h2>
+            <section id="8.1">8.1 光照贴图</section><p></p>
+            <section id="8.2">8.2 反射探针</section><p></p>
+            <section id="8.3">8.3 遮挡剔除</section><p></p>
+            <section id="8.4">8.4 静态合批</section><p></p>
+            <section id="8.5">8.5 导航网格</section><p></p>
+        </article>
+        <article id="9"><h2>9 持久化数据</h2>
+            <section id="9.1">9.1 Excel</section><p></p>
+            <section id="9.2">9.2 SQLite</section><p></p>
+            <section id="9.3">9.3 JSON</section><p></p>
+            <section id="9.4">9.4 文件的读取与写入</section><p></p>
+            <section id="9.5">9.5 XML</section><p></p>
+            <section id="9.6">9.6 YAML</section><p></p>
+            <section id="9.7">9.7 生成代码</section><p></p>
+        </article>
+        <article id="10"><h2>10 多媒体</h2>
+            <section id="10.1">10.1 音频</section><p></p>
+            <section id="10.2">10.2 视频</section><p></p>
+        </article>
+        <article id="11"><h2>11 Netcode与网络编程</h2>
+            <section id="11.1">11.1 UnityWebRequest</section><p></p>
+            <section id="11.2">11.2 Socket</section><p></p>
+            <section id="11.3">11.3 Netcode</section><p></p>
+        </article>
+        <article id="12"><h2>12 渲染管线</h2>
+            <section id="12.1">12.1 SRP</section><p></p>
+            <section id="12.2">12.2 URP</section><p></p>
+            <section id="12.3">12.3 SRP Batch</section><p></p>
+            <section id="12.4">12.4 渲染技术</section><p></p>
+            <section id="12.5">12.5 自定义渲染管线</section><p></p>
+        </article>
+        <article id="13"><h2>13 DOTS1.0</h2>
+            <section id="13.1"></section>
+            <p></p>
+        </article>
+        <article id="14"><h2>14 扩展编辑器</h2>
+            <section id="14.1"></section>
+            <p></p>
+        </article>
+        <article id="15"><h2>15 资源管理</h2>
+            <section id="15.1"></section>
+            <p></p>
+        </article>
+        <article id="16"><h2>16 自动化与打包</h2>
+            <section id="16.1"></section>
+            <p></p>
+        </article>
+        <article id="17"><h2>17 代码优化</h2>
+            <section id="17.1"></section>
+            <p></p>
+        </article>
+        <article id="18"><h2>18 通用案例与优化</h2>
+            <section id="18.1"></section>
+            <p></p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>

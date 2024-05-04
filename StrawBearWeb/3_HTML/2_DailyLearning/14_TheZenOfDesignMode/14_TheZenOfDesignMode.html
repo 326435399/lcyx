@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>设计模式之禅</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1 单一职责原则</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 我是"牛"类,我可以担任多职吗</a></li>
+                        <li><a href="#1.2">1.2 绝杀技,打破你的传统思维</a></li>
+                        <li><a href="#1.3">1.3 我单纯,所以我快乐</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2 里氏替换原则</a>
+                    <ul>
+                        <li><a href="#2.1">2.1 爱恨纠葛的父子关系</a></li>
+                        <li><a href="#2.2">2.2 纠纷不断,规则压制</a></li>
+                    </ul>
+                </li>
+                <li><a href="#3">3 依赖倒置原则</a>
+                    <ul>
+                        <li><a href="#3.1">3.1 依赖倒置原则的定义</a></li>
+                        <li><a href="#3.2">3.2 言而无信,你太需要契约</a></li>
+                        <li><a href="#3.3">3.3 依赖的三种写法</a></li>
+                    </ul>
+                </li>
+                <li><a href="#4">4 接口隔离原则</a>
+                    <ul>
+                        <li><a href="#4.1">4.1 接口隔离原则的定义</a></li>
+                        <li><a href="#4.2">4.2 美女何其多,观点个不同</a></li>
+                        <li><a href="#4.3">4.3 保证接口的纯洁性</a></li>
+                    </ul>
+                </li>
+                <li><a href="#5">5 迪米特法则</a>
+                    <ul>
+                        <li><a href="#5.1">5.1 迪米特法则的定义</a></li>
+                        <li><a href="#5.2">5.2 我的知识你知道得越少越好</a></li>
+                    </ul>
+                </li>
+                <li><a href="#6">6 开闭原则</a>
+                    <ul>
+                        <li><a href="#6.1">6.1 开闭原则的定义</a></li>
+                        <li><a href="#6.2">6.2 开闭原则的庐山真面目</a></li>
+                        <li><a href="#6.3">6.3 为什么要采用开闭原则</a></li>
+                        <li><a href="#6.4">6.4 如恶化使用开闭原则</a></li>
+                    </ul>
+                </li>
+                <li><a href="#7">7 单例模式</a>
+                    <ul>
+                        <li><a href="#7.1">7.1 我是皇帝我独苗</a></li>
+                        <li><a href="#7.2">7.2 单例模式的定义</a></li>
+                        <li><a href="#7.3">7.3 单例模式的应用</a></li>
+                        <li><a href="#7.4">7.4 单利模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#8">8 工厂方法模式</a>
+                    <ul>
+                        <li><a href="#8.1">8.1 女娲造人的故事</a></li>
+                        <li><a href="#8.2">8.2 工厂方法模式的定义</a></li>
+                        <li><a href="#8.3">8.3 工厂方法模式的应用</a></li>
+                        <li><a href="#8.4">8.4 工厂方法模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#9">9 抽象工厂模式</a>
+                    <ul>
+                        <li><a href="#9.1">9.1 女娲的失误</a></li>
+                        <li><a href="#9.2">9.2 抽象工厂模式的定义</a></li>
+                        <li><a href="#9.3">9.3 抽象工厂模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#10">10 模板方法模式</a>
+                    <ul>
+                        <li><a href="#10.1">10.1 辉煌工程-制造悍马</a></li>
+                        <li><a href="#10.2">10.2 模板方法模式的定义</a></li>
+                        <li><a href="#10.3">10.3 模板方法模式的应用</a></li>
+                        <li><a href="#10.4">10.4 模板方法模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#11">11 建造者模式</a>
+                    <ul>
+                        <li><a href="#11.1">11.1 变化是永恒的</a></li>
+                        <li><a href="#11.2">11.2 建造者模式的定义</a></li>
+                        <li><a href="#11.3">11.3 建造者模式的应用</a></li>
+                        <li><a href="#11.4">11.4 建造者模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#12">12 代理模式</a>
+                    <ul>
+                        <li><a href="#12.1">12.1 我是游戏至尊</a></li>
+                        <li><a href="#12.2">12.2 代理模式的定义</a></li>
+                        <li><a href="#12.3">12.3 代理模式的应用</a></li>
+                        <li><a href="#12.4">12.4 代理模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#13">13 原型模式</a>
+                    <ul>
+                        <li><a href="#13.1">13.1 个性化电子账单</a></li>
+                        <li><a href="#13.2">13.2 原型模式的定义</a></li>
+                        <li><a href="#13.3">13.3 原型模式的应用</a></li>
+                        <li><a href="#13.4">13.4 原型模式的注意事项</a></li>
+                    </ul>
+                </li>
+                <li><a href="#14">14 中介者模式</a>
+                    <ul>
+                        <li><a href="#14.1">14.1 进销存管理是这个样子的吗</a></li>
+                        <li><a href="#14.2">14.2 中介者模式的定义</a></li>
+                        <li><a href="#14.3">14.3 中介者模式的应用</a></li>
+                        <li><a href="#14.4">14.4 中介者模式的实际应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#15">15 命令模式</a>
+                    <ul>
+                        <li><a href="#15.1">15.1 项目经理也难当</a></li>
+                        <li><a href="#15.2">15.2 命令模式的定义</a></li>
+                        <li><a href="#15.3">15.3 命令模式的应用</a></li>
+                        <li><a href="#15.4">15.4 命令模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#16">16 责任链模式</a>
+                    <ul>
+                        <li><a href="#16.1">16.1 古代妇女的枷锁-"三从四德"</a></li>
+                        <li><a href="#16.2">16.2 责任链模式的定义</a></li>
+                        <li><a href="#16.3">16.3 责任链模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#17">17 装饰模式</a>
+                    <ul>
+                        <li><a href="#17.1">17.1 罪恶的成绩单</a></li>
+                        <li><a href="#17.2">17.2 装饰模式的定义</a></li>
+                        <li><a href="#17.3">17.3 装饰模式应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#18">18 策略模式</a>
+                    <ul>
+                        <li><a href="#18.1">18.1 刘备江东娶妻,赵云他容易吗</a></li>
+                        <li><a href="#18.2">18.2 策略模式的定义</a></li>
+                        <li><a href="#18.3">18.3 策略模式的应用</a></li>
+                        <li><a href="#18.4">18.4 策略模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#19">19 适配器模式</a>
+                    <ul>
+                        <li><a href="#19.1">19.1 业务发展-上帝才能控制</a></li>
+                        <li><a href="#19.2">19.2 适配器模式的定义</a></li>
+                        <li><a href="#19.3">19.3 适配器模式的应用</a></li>
+                        <li><a href="#19.4">19.4 适配器模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#20">20 迭代器模式</a>
+                    <ul>
+                        <li><a href="#20.1">20.1 整理项目信息-苦差事</a></li>
+                        <li><a href="#20.2">20.2 迭代器模式的定义</a></li>
+                        <li><a href="#20.3">20.3 迭代器模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#21">21 组合模式</a>
+                    <ul>
+                        <li><a href="#21.1">21.1 公司的人事架构是这样的吗</a></li>
+                        <li><a href="#21.2">21.2 组合模式的定义</a></li>
+                        <li><a href="#21.3">21.3 组合模式的应用</a></li>
+                        <li><a href="#21.4">21.4 组合模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#22">22 观察者模式</a>
+                    <ul>
+                        <li><a href="#22.1">22.1 韩非子身边的卧底是谁派来的</a></li>
+                        <li><a href="#22.2">22.2 观察者模式的定义</a></li>
+                        <li><a href="#22.3">22.3 观察者模式的应用</a></li>
+                        <li><a href="#22.4">22.4 观察者模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#23">23 门面模式</a>
+                    <ul>
+                        <li><a href="#23.1">23.1 我要投递信件</a></li>
+                        <li><a href="#23.2">23.2 门面模式的定义</a></li>
+                        <li><a href="#23.3">23.3 门面模式的应用</a></li>
+                        <li><a href="#23.4">23.4 门面模式的注意事项</a></li>
+                    </ul>
+                </li>
+                <li><a href="#24">24 备忘录模式</a>
+                    <ul>
+                        <li><a href="#24.1">24.1 如此追女孩子,你还不乐</a></li>
+                        <li><a href="#24.2">24.2 备忘录模式的定义</a></li>
+                        <li><a href="#24.3">24.3 备忘录模式的应用</a></li>
+                        <li><a href="#24.4">24.4 备忘录模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#25">25 访问者模式</a>
+                    <ul>
+                        <li><a href="#25.1">25.1 员工的隐私何在</a></li>
+                        <li><a href="#25.2">25.2 访问者模式的定义</a></li>
+                        <li><a href="#25.3">25.3 访问者模式的应用</a></li>
+                        <li><a href="#25.4">25.4 访问者模式的扩展</a></li>
+                    </ul>
+                </li>
+                <li><a href="#26">26 状态模式</a>
+                    <ul>
+                        <li><a href="#26.1">26.1 城市的纵向发展功臣-电梯</a></li>
+                        <li><a href="#26.2">26.2 状态模式的定义</a></li>
+                        <li><a href="#26.3">26.3 状态模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#27">27 解释器模式</a>
+                    <ul>
+                        <li><a href="#27.1">27.1 四则运算你会吗</a></li>
+                        <li><a href="#27.2">27.2 解释器模式的定义</a></li>
+                        <li><a href="#27.3">27.3 解释器模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#28">28 享元模式</a>
+                    <ul>
+                        <li><a href="#28.1">28.1 内存溢出,司空见惯</a></li>
+                        <li><a href="#28.2">28.2 享元模式的定义</a></li>
+                        <li><a href="#28.3">28.3 享元模式的应用</a></li>
+                        <li><a href="#28.4">28.4 享元模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#29">29 桥梁模式</a>
+                    <ul>
+                        <li><a href="#29.1">29.1 我有一个梦想</a></li>
+                        <li><a href="#29.2">29.2 桥梁模式的定义</a></li>
+                        <li><a href="#29.3">29.3 桥梁模式的应用</a></li>
+                    </ul>
+                </li>
+                <li><a href="#30">30 创建类模式大PK</a></li>
+                <li><a href="#31">31 结构类模式大PK</a></li>
+                <li><a href="#32">32 行为类模式大PK</a></li>
+                <li><a href="#33">33 跨战区PK</a></li>
+                <li><a href="#34">34 命令模式+责任链模式</a></li>
+                <li><a href="#35">35 工厂方法模式+策略模式</a></li>
+                <li><a href="#36">36 观察者模式+中介者模式</a></li>
+                <li><a href="#37">37 MVC框架</a></li>
+                <li><a href="#38">38 新模式</a></li>
+            </ul>
+        </aside>
+        <nav>
+            计划是要写小故事的:
+        </nav>
+        <header><h1>设计模式之禅</h1></header>
+        <article id="1"><h2>1 单一职责原则</h2>
+            <section id="1.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+            <section id="1.2">1.2 绝杀技,打破你的传统思维</section>
+            <p></p>
+            <section id="1.3">1.3 我单纯,所以我快乐</section>
+            <p></p>
+        </article>
+        <article id="2"><h2>2 里氏替换原则</h2>
+            <section id="2.1">2.1 爱恨纠葛的父子关系</section>
+            <p></p>
+            <section id="2.2">2.2 纠纷不断,规则压制</section>
+            <p></p>
+        </article>
+        <article id="3"><h2>3 依赖倒置原则</h2>
+            <section id="3.1">3.1 依赖倒置原则的定义</section>
+            <p></p>
+            <section id="3.2">3.2 言而无信,你太需要契约</section>
+            <p></p>
+            <section id="3.3">3.3 依赖的三种写法</section>
+            <p></p>
+        </article>
+        <article id="4"><h2>4 接口隔离原则</h2>
+            <section id="4.1">4.1 接口隔离原则的定义</section>
+            <p></p>
+            <section id="4.2">4.2 美女何其多,观点个不同</section>
+            <p></p>
+            <section id="4.3">4.3 保证接口的纯洁性</section>
+            <p></p>
+        </article>
+        <article id="5"><h2>5 迪米特法则</h2>
+            <section id="5.1">5.1 迪米特法则的定义</section>
+            <p></p>
+            <section id="5.2">5.2 我的知识你知道得越少越好</section>
+            <p></p>
+        </article>
+        <article id="6"><h2>6 开闭原则</h2>
+            <section id="6.1">6.1 开闭原则的定义</section>
+            <p></p>
+            <section id="6.2">6.2 开闭原则的庐山真面目</section>
+            <p></p>
+            <section id="6.3">6.3 为什么要采用开闭原则</section>
+            <p></p>
+            <section id="6.4">6.4 如恶化使用开闭原则</section>
+            <p></p>
+        </article>
+        <article id="7"><h2>7 单例模式</h2>
+            <section id="7.1">7.1 我是皇帝我独苗</section>
+            <p></p>
+            <section id="7.2">7.2 单例模式的定义</section>
+            <p></p>
+            <section id="7.3">7.3 单例模式的应用</section>
+            <p></p>
+            <section id="7.4">7.4 单利模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="8"><h2>8 工厂方法模式</h2>
+            <section id="8.1">8.1 女娲造人的故事</section>
+            <p></p>
+            <section id="8.2">8.2 工厂方法模式的定义</section>
+            <p></p>
+            <section id="8.3">8.3 工厂方法模式的应用</section>
+            <p></p>
+            <section id="8.4">8.4 工厂方法模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="9"><h2>9 抽象工厂模式</h2>
+            <section id="9.1">9.1 女娲的失误</section>
+            <p></p>
+            <section id="9.2">9.2 抽象工厂模式的定义</section>
+            <p></p>
+            <section id="9.3">9.3 抽象工厂模式的应用</section>
+            <p></p>
+        </article>
+        <article id="10"><h2>10 模板方法模式</h2>
+            <section id="10.1">10.1 辉煌工程-制造悍马</section>
+            <p></p>
+            <section id="10.2">10.2 模板方法模式的定义</section>
+            <p></p>
+            <section id="10.3">10.3 模板方法模式的应用</section>
+            <p></p>
+            <section id="10.4">10.4 模板方法模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="11"><h2>11 建造者模式</h2>
+            <section id="11.1">11.1 变化是永恒的</section>
+            <p></p>
+            <section id="11.2">11.2 建造者模式的定义</section>
+            <p></p>
+            <section id="11.3">11.3 建造者模式的应用</section>
+            <p></p>
+            <section id="11.4">11.4 建造者模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="12"><h2>12 代理模式</h2>
+            <section id="12.1">12.1 我是游戏至尊</section>
+            <p></p>
+            <section id="12.2">12.2 代理模式的定义</section>
+            <p></p>
+            <section id="12.3">12.3 代理模式的应用</section>
+            <p></p>
+            <section id="12.4">12.4 代理模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="13"><h2>13 原型模式</h2>
+            <section id="13.1">13.1 个性化电子账单</section>
+            <p></p>
+            <section id="13.2">13.2 原型模式的定义</section>
+            <p></p>
+            <section id="13.3">13.3 原型模式的应用</section>
+            <p></p>
+            <section id="13.4">13.4 原型模式的注意事项</section>
+            <p></p>
+        </article>
+        <article id="14"><h2>14 中介者模式</h2>
+            <section id="14.1">14.1 进销存管理是这个样子的吗</section>
+            <p></p>
+            <section id="14.2">14.2 中介者模式的定义</section>
+            <p></p>
+            <section id="14.3">14.3 中介者模式的应用</section>
+            <p></p>
+            <section id="14.4">14.4 中介者模式的实际应用</section>
+            <p></p>
+        </article>
+        <article id="15"><h2>15 命令模式</h2>
+            <section id="15.1">15.1 项目经理也难当</section>
+            <p></p>
+            <section id="15.2">15.2 命令模式的定义</section>
+            <p></p>
+            <section id="15.3">15.3 命令模式的应用</section>
+            <p></p>
+            <section id="15.4">15.4 命令模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="16"><h2>16 责任链模式</h2>
+            <section id="16.1">16.1 古代妇女的枷锁-"三从四德"</section>
+            <p></p>
+            <section id="16.2">16.2 责任链模式的定义</section>
+            <p></p>
+            <section id="16.3">16.3 责任链模式的应用</section>
+            <p></p>
+        </article>
+        <article id="17"><h2>17 装饰模式</h2>
+            <section id="17.1">17.1 罪恶的成绩单</section>
+            <p></p>
+            <section id="17.2">17.2 装饰模式的定义</section>
+            <p></p>
+            <section id="17.3">17.3 装饰模式应用</section>
+            <p></p>
+        </article>
+        <article id="18"><h2>18 策略模式</h2>
+            <section id="18.1">18.1 刘备江东娶妻,赵云他容易吗</section>
+            <p></p>
+            <section id="18.2">18.2 策略模式的定义</section>
+            <p></p>
+            <section id="18.3">18.3 策略模式的应用</section>
+            <p></p>
+            <section id="18.4">18.4 策略模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="19"><h2>19 适配器模式</h2>
+            <section id="19.1">19.1 业务发展-上帝才能控制</section>
+            <p></p>
+            <section id="19.2">19.2 适配器模式的定义</section>
+            <p></p>
+            <section id="19.3">19.3 适配器模式的应用</section>
+            <p></p>
+            <section id="19.4">19.4 适配器模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="20"><h2>20 迭代器模式</h2>
+            <section id="20.1">20.1 整理项目信息-苦差事</section>
+            <p></p>
+            <section id="20.2">20.2 迭代器模式的定义</section>
+            <p></p>
+            <section id="20.2">20.3 迭代器模式的应用</section>
+            <p></p>
+        </article>
+        <article id="21"><h2>21 组合模式</h2>
+            <section id="21.1">21.1 公司的人事架构是这样的吗</section>
+            <p></p>
+            <section id="21.2">21.2 组合模式的定义</section>
+            <p></p>
+            <section id="21.3">21.3 组合模式的应用</section>
+            <p></p>
+            <section id="21.4">21.4 组合模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="22"><h2>22 观察者模式</h2>
+            <section id="22.1">22.1 韩非子身边的卧底是谁派来的</section>
+            <p></p>
+            <section id="22.2">22.2 观察者模式的定义</section>
+            <p></p>
+            <section id="22.3">22.3 观察者模式的应用</section>
+            <p></p>
+            <section id="22.4">22.4 观察者模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="23"><h2>23 门面模式</h2>
+            <section id="23.1">23.1 我要投递信件</section>
+            <p></p>
+            <section id="23.2">23.2 门面模式的定义</section>
+            <p></p>
+            <section id="23.3">23.3 门面模式的应用</section>
+            <p></p>
+            <section id="23.4">23.4 门面模式的注意事项</section>
+            <p></p>
+        </article>
+        <article id="24"><h2>24 备忘录模式</h2>
+            <section id="24.1">24.1 如此追女孩子,你还不乐</section>
+            <p></p>
+            <section id="24.2">24.2 备忘录模式的定义</section>
+            <p></p>
+            <section id="24.3">24.3 备忘录模式的应用</section>
+            <p></p>
+            <section id="24.4">24.4 备忘录模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="25"><h2>25 访问者模式</h2>
+            <section id="25.1">25.1 员工的隐私何在</section>
+            <p></p>
+            <section id="25.2">25.2 访问者模式的定义</section>
+            <p></p>
+            <section id="25.3">25.3 访问者模式的应用</section>
+            <p></p>
+            <section id="25.4">25.4 访问者模式的扩展</section>
+            <p></p>
+        </article>
+        <article id="26"><h2>26 状态模式</h2>
+            <section id="26.1">26.1 城市的纵向发展功臣-电梯</section>
+            <p></p>
+            <section id="26.2">26.2 状态模式的定义</section>
+            <p></p>
+            <section id="26.3">26.3 状态模式的应用</section>
+            <p></p>
+        </article>
+        <article id="27"><h2>27 解释器模式</h2>
+            <section id="27.1">27.1 四则运算你会吗</section>
+            <p></p>
+            <section id="27.2">27.2 解释器模式的定义</section>
+            <p></p>
+            <section id="27.3">27.3 解释器模式的应用</section>
+            <p></p>
+        </article>
+        <article id="28"><h2>28 享元模式</h2>
+            <section id="28.1">28.1 内存溢出,司空见惯</section>
+            <p></p>
+            <section id="28.2">28.2 享元模式的定义</section>
+            <p></p>
+            <section id="28.3">28.3 享元模式的应用</section>
+            <p></p>
+            <section id="28.4">28.4 享元模式的应用</section>
+            <p></p>
+        </article>
+        <article id="29"><h2>29 桥梁模式</h2>
+            <section id="29.1">29.1 我有一个梦想</section>
+            <p></p>
+            <section id="29.2">29.2 桥梁模式的定义</section>
+            <p></p>
+            <section id="29.3">29.3 桥梁模式的应用</section>
+            <p></p>
+        </article>
+        <article id="30"><h2>30 创建类模式大PK</h2>
+            <section id="30.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="31"><h2>31 结构类模式大PK</h2>
+            <section id="31.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="32"><h2>32 行为类模式大PK</h2>
+            <section id="32.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="33"><h2>33 跨战区PK</h2>
+            <section id="33.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="34"><h2>34 命令模式+责任链模式</h2>
+            <section id="34.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="35"><h2>35 工厂方法模式+策略模式</h2>
+            <section id="35.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="36"><h2>36 观察者模式+中介者模式</h2>
+            <section id="36.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="37"><h2>37 MVC框架</h2>
+            <section id="37.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <article id="38"><h2>38 新模式</h2>
+            <section id="38.1">1.1 我是"牛"类,我可以担任多职吗</section>
+            <p></p>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>
