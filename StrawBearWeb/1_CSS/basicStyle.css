@@ -45,7 +45,7 @@ aside
     top: 0; /* 距离顶部的距离 */
     left: 0; /* 距离左侧的距离 */
     width: 18%; /* 侧边栏宽度 */
-    height: 100%; /* 高度撑满整个窗口 */
+    height: 95%; /* 高度撑满整个窗口 */
     overflow-y: auto; /* 垂直方向上显示滚动条 */
     border: 1px solid #ccc; /* 边框 */
     padding: 10px; /* 内边距 */
@@ -56,7 +56,7 @@ nav
     top: 0; /* 距离顶部的距离 */
     right: 0; /* 距离左侧的距离 */
     width: 18%; /* 侧边栏宽度 */
-    height: 100%; /* 高度撑满整个窗口 */
+    height: 95%; /* 高度撑满整个窗口 */
     overflow-y: auto; /* 垂直方向上显示滚动条 */
     border: 1px solid #ccc; /* 边框 */
     padding: 10px; /* 内边距 */
