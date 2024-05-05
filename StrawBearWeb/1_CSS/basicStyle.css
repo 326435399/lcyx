@@ -1,3 +1,4 @@
+/* ------------------------------------字体样式设置部分-------------------------------------- */
 @font-face 
 {
     font-family: "思源黑体";
@@ -9,35 +10,67 @@
     src:url("../0_Resoureces/font/思源屏显臻宋.ttf"); /*添加思源屏显臻宋字体*/
 }
 
-.imgBackground
-{
-    /* background: #dfdfdf; */
-    width: 743px;
-    height:614px;
-    background: url(../0_Resoureces/img/gameScreen/封面.png) center bottom;
-    /* background-color: rgba(255,255,255,0.2); */
-}
-
-body /*如果什么都没有设置的用这个设置*/ 
-{
+/* 总体设置 */
+body
+{  
+    background-color: #eaebee;
     font-size: 12pt;
-    font-weight:normal;
+    font-weight:lighter;
     color: black;
     font-family: 思源臻宋,Arial,Verdana,sans-serif;
-    line-height: 15pt;
+    line-height: 14pt;
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 5pt;
     text-align: left;
-    background-color: #eaebee;
+}
+
+/* 细节设置 */
+header,h1
+{
+    font-size: 24pt;
+    line-height: 32pt;
+    font-weight:bold;
+    text-align: center;
 }
 
 article
 {
     margin:0 19%;
-    padding:1px;
+    padding:1pt;
     width:62%;
+    font-size: 20pt;
+    line-height: 26pt;
+    font-weight:bold;
+    text-align: left;
 }
+
+section,h2,h3
+{
+    font-size: 16pt;
+    line-height: 20pt;
+    font-weight:lighter;
+    text-align: left;
+}
+
+p,li,pre,h4
+{
+    font-family: 思源臻宋;
+    font-size: 14pt;
+    font-weight:lighter;
+    line-height:15pt;
+    text-align: left;
+}
+
+footer,h5
+{
+    border-top: 30pt solid #eaebee;
+    font-size: 12pt;
+    line-height: 14pt;
+    font-weight:lighter;
+    text-align: center;
+}
+
 /*导航样式*/
 aside
 {
@@ -48,7 +81,7 @@ aside
     height: 95%; /* 高度撑满整个窗口 */
     overflow-y: auto; /* 垂直方向上显示滚动条 */
     border: 1px solid #ccc; /* 边框 */
-    padding: 10px; /* 内边距 */
+    padding: 10pt; /* 内边距 */
 }
 nav
 {
@@ -59,13 +92,13 @@ nav
     height: 95%; /* 高度撑满整个窗口 */
     overflow-y: auto; /* 垂直方向上显示滚动条 */
     border: 1px solid #ccc; /* 边框 */
-    padding: 10px; /* 内边距 */
+    padding: 10pt; /* 内边距 */
 }
 
 nav ul,aside ul
 {
-    padding:1px;
-    margin: 1px 1px 1px 12px;
+    padding:1pt;
+    margin: 1pt 1pt 1pt 12pt;
     background-color:rgb(49, 95, 49);
     color:#ffffff;
 }
@@ -78,50 +111,21 @@ nav li,aside li
     line-height:15pt;
 }
 
-footer
-{
-    border-top: 30px solid #eaebee;
-}
-h1 /*大标题*/
-{
-    font-family: 思源黑体;
-    font-size: 20pt;
-    font-weight: bold;
-    line-height: 20pt;
-    text-align:center;
-}
-h2
-{
-    font-size: 16pt;
-    line-height: 18pt;
-}
-h3
-{
-    font-size: 14pt;
-    line-height: 16pt;
-}
-
-p,li,pre /*最常用的字体大小,绝大部分文章都是这个大小,通过strong来加粗*/ 
-{
-    font-family: 思源臻宋;
-    font-size: 12pt;
-    font-weight:lighter;
-    line-height:15pt;
-}
-
+/* 图片和视频设置 */
 img 
 {
-    width: 512px;
+    width: 512pt;
     height: auto;
 }
-/* 图片文本组合类型 */
+
 figure 
 {
     text-align: center;
     display: block;
-    margin: 5px auto;
+    margin: 5pt auto;
     padding: 0;
 }
+
 
 figure p
 {
@@ -139,12 +143,7 @@ figure li
     font-weight:lighter;
     text-align: left;
 }
-div 
-{
-    font-size: 12pt;
-    font-weight: lighter;
-    line-height: 15pt;
-}
+
 
 video /*设置视频格式和图片一样*/
 {
@@ -182,14 +181,10 @@ a:focus,a:active
 }
 
 
-/* 字体等级设置 */
-section
-{
-    font-weight: bold;
-}
+/* 时间戳 */
 
 p.timeStamp
 {
     color: red;
-    border: 1px solid black;
+    border: 1pt solid black;
 }
