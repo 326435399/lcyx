@@ -227,10 +227,32 @@
                         <li><a href="#29.3">29.3 桥梁模式的应用</a></li>
                     </ul>
                 </li>
-                <li><a href="#30">30 创建类模式大PK</a></li>
-                <li><a href="#31">31 结构类模式大PK</a></li>
-                <li><a href="#32">32 行为类模式大PK</a></li>
-                <li><a href="#33">33 跨战区PK</a></li>
+                <li><a href="#30">30 创建类模式大PK</a>
+                    <ul>
+                        <li><a href="#30.1">30.1 工厂方法模式VS建造者模式</a></li>
+                        <li><a href="#30.2">30.2 抽象工厂模式VS建造者模式</a></li>
+                    </ul>
+                </li>
+                <li><a href="#31">31 结构类模式大PK</a>
+                    <ul>
+                        <li><a href="#31.1">31.1 代理模式VS装饰模式</a></li>
+                        <li><a href="#31.2">31.2 装饰模式VS适配器模式</a></li>
+                    </ul>
+                </li>
+                <li><a href="#32">32 行为类模式大PK</a>
+                    <ul>
+                        <li><a href="#32.1">32.1 命令模式VS策略模式</a></li>
+                        <li><a href="#32.2">32.2 策略模式VS状态模式</a></li>
+                        <li><a href="#32.3">32.3 观察者模式VS责任链模式</a></li>
+                    </ul>
+                </li>
+                <li><a href="#33">33 跨战区PK</a>
+                    <ul>
+                        <li><a href="#33.1">32.1 策略模式VS桥梁模式</a></li>
+                        <li><a href="#33.2">32.2 门面模式VS中介者模式</a></li>
+                        <li><a href="#33.3">32.3 包装模式群PK</a></li>
+                    </ul>
+                </li>
                 <li><a href="#34">34 命令模式+责任链模式</a></li>
                 <li><a href="#35">35 工厂方法模式+策略模式</a></li>
                 <li><a href="#36">36 观察者模式+中介者模式</a></li>
@@ -239,7 +261,15 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            计划是要写小故事的:<br>
+            20240505:小熊的炼丹炉<br>
+            小熊有一个青铜炼丹炉用来生产不同的丹药产品,炼丹炉虽然锈迹斑斑,但是上面有LED显示屏,可以选择五种不同的炼丹模式:<br>
+            分别是单例模式,原型模式,建造者模式,工厂方法模式,抽象工厂模式.五种不同的模式有不同的作用.<br>
+            单例模式会消耗所有的药材,炼制唯一的一颗丹药,因此这颗丹药往往价值不菲.例如十全补血丸<br>
+            原型模式则是根据上一次炼制的原型,重复炼制批量产生相同的丹药,有利于在找到合适的药方之后批量生产.<br>
+            工厂方法模式可以设置想要生产的丹药类型,例如设置补血丸,则可以根据投入的药物不同生产小补血丸和大补血丸.<br>
+            抽象工厂模式不但可以设置丹药类型,还可以控制火候,这样哪怕是相同的有药物也可以通过这两个维度的控制产生不同的产品.例如稳定火候的小补血丸肯定是比不稳定火候的小补血丸要价值更高的<br>
+            建造者模式又称为大师模式,往往是针对非常珍贵的药材,可以控制炼药过程的火候,熔炼方式等等,拥有对炼制过程的绝对控制,不同的过程会带来不同的产品,属于定制化产品.大师炼制的补血丸自然是比普通药剂师要练得昂贵,因为过程的控制不同<br>
         </nav>
         <header><h1>设计模式之禅</h1></header>
         <article id="1"><h2>1 单一职责原则</h2>
@@ -505,20 +535,103 @@
             <p></p>
         </article>
         <article id="30"><h2>30 创建类模式大PK</h2>
-            <section id="30.1">1.1 我是"牛"类,我可以担任多职吗</section>
-            <p></p>
+            <p>
+                <p class="timeStamp">20240505开始</p>
+                <strong>创建类模式有哪些?</strong><br>
+                创建类模式包括:工厂方法模式,抽象工厂模式,建造者模式,单例模式和原型模式.<br>
+                共性:都能提供对象的创建和管理职责.<br>
+                <br>
+                单例模式:保持在内存中只有唯一的一个对象.<br>
+                <figure>
+                    <img src="Resources/img/30-01-单例模式通用UML类图.png" alt="单例模式通用UML类图">
+                    <p>
+                        Ensure a class has only one instance,and provide a global point of access to it.<br>
+                        确保一个类只有一个实例对象,并且提供一个全局点来访问他.<br>
+                    </p>
+                </figure>
+                <br>
+                原型模式:要求新对象的产生都要通过复制原型.<br>
+                <figure>
+                    <img src="Resources/img/30-02-原型模式通用UML类图.png" alt="原型模式通用UML类图">
+                    <p>
+                        Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.<br>
+                        用原型实例指定创建对象的种类,并且通过拷贝这些原型创建新的对象<br>
+                    </p>
+                </figure>
+                <br>
+                工厂方法模式:工厂提供一个创建对象的接口,根据传入不同的类创建不同的对象.<br>
+                <figure>
+                    <img src="Resources/img/30-03-工厂方法模式UML.png" alt="工厂方法模式">
+                    <p>
+                        Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to subclasses.<br>
+                        定义一个用于创建对象的接口,但是让子类来决定哪个类实例化.工厂方法让类的实例化延迟到其子类.<br>
+                    </p>
+                </figure>
+                <br>
+                抽象工厂模式:两个维度的划分,不同工厂一个维度,不同产品一个维度.<br>
+                <figure>
+                    <img src="Resources/img/30-04-抽象工厂模式UML.png" alt="抽象工厂模式">
+                    <p>
+                        Provide an interface for creating families of related or dependent objects without specifying their concrete classes.<br>
+                        为创建一组相关或互相依赖的对象提供一个接口,而且无须指定他们的具体类.<br>
+                    </p>
+                </figure>
+                <br>
+                建造者模式:针对不同次序结果不同的产品,让建造者负责设置顺序创建对象,建造者再聚合成导演对象.<br>
+                <figure>
+                    <img src="Resources/img/30-05-建造者模式UML.png" alt="建造者模式">
+                    <p>
+                        Separate the construction of a complex object from its representation so that the same construction process can create different representations.<br>
+                        将一个复杂对象的构建与它的表示分离,使得同样的构建过程可以创建不同的表示.<br>
+                    </p>
+                </figure>
+            </p>
+            <section id="30.1">30.1 工厂方法模式VS建造者模式</section>
+            <p>
+                <p>
+                    <strong>两个模式之间的侧重点不同</strong><br>
+                    工厂模式:侧重于不同产品的产生.<br>
+                    <figure>
+                        <img src="Resources/img/30-06-工厂方法超人.png" alt="工厂方法超人">
+                        <p>
+                            工厂方法超人侧重于通过接口对不同类型的超人进行分类.工厂负责生产不同的超人对象<br>
+                            关注的是产品的整体,产品具有相似的功能和架构(接口控制).<br>
+                        </p>
+                    </figure>
+                    <br>
+                    建造者模式:侧重于不同产品的生产顺序的不同.<br>
+                    <figure>
+                        <img src="Resources/img/30-07-建造者模式超人.png" alt="建造者模式超人">
+                        <p>
+                            配合使用了模板方法,建造者负责定义了需要哪些部件,具体建造者则按照自己想要的顺序实现不同对象的组合,并返回这个对象.<br>
+                            导演类则是通过聚合不同的建造者进一步封装了建造者,方便调用.<br>
+                            关注的重点是产品的制造顺序,最后返回产品,可以认为建造者模式比工厂模式更细致,控制力更强一点(同样也意味着需要知道的更多).<br>
+                        </p>
+                    </figure>
+                    <br>
+                    <strong>总结</strong><br>
+                    意图不同:工厂方法侧重产品整体,建造者侧重构建顺序.<br>
+                    产品的复杂度不同:工厂方法创建一般都是单一性质的产品,而建造者往往创造的是复杂产品,不同顺序会带来不同的产品.所以工厂方法粒度比较粗,建造者模式粒度比较细.<br>
+                    根据上面两个区别,很容易可以意识到,针对复杂产品使用建造者模式,针对普通的单一产品使用工厂方法.<br>
+                    <p class="timeStamp">20240505结束</p>
+                </p>
+            </p>
+            <section id="30.2">30.2 抽象工厂模式VS建造者模式</section><p></p>
+
         </article>
         <article id="31"><h2>31 结构类模式大PK</h2>
-            <section id="31.1">1.1 我是"牛"类,我可以担任多职吗</section>
-            <p></p>
+            <section id="31.1">31.1 代理模式VS装饰模式</section><p></p>
+            <section id="31.2">31.2 装饰模式VS适配器模式</section><p></p>
         </article>
         <article id="32"><h2>32 行为类模式大PK</h2>
-            <section id="32.1">1.1 我是"牛"类,我可以担任多职吗</section>
-            <p></p>
+            <section id="32.1">32.1 命令模式VS策略模式</section><p></p>
+            <section id="32.2">32.2 策略模式VS状态模式</section><p></p>
+            <section id="32.3">32.3 观察者模式VS责任链模式</section><p></p>
         </article>
         <article id="33"><h2>33 跨战区PK</h2>
-            <section id="33.1">1.1 我是"牛"类,我可以担任多职吗</section>
-            <p></p>
+            <section id="33.1">32.1 策略模式VS桥梁模式</section><p></p>
+            <section id="33.2">32.2 门面模式VS中介者模式</section><p></p>
+            <section id="33.3">32.3 包装模式群PK</section><p></p>
         </article>
         <article id="34"><h2>34 命令模式+责任链模式</h2>
             <section id="34.1">1.1 我是"牛"类,我可以担任多职吗</section>

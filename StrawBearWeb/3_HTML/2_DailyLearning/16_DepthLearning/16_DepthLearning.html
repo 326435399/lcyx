@@ -338,7 +338,14 @@
                         <li><a href="#45.4">45.4 MLP类</a></li>
                     </ul>
                 </li>
-                <li><a href="#46">46 通过Optimizer更新参数</a></li>
+                <li><a href="#46">46 通过Optimizer更新参数</a>
+                    <ul>
+                        <li><a href="#46.1">46.1 Optimizer类</a></li>
+                        <li><a href="#46.2">46.2 SGD类的实现</a></li>
+                        <li><a href="#46.3">46.3 使用SGD类来解决问题</a></li>
+                        <li><a href="#46.4">46.4 SGD以外的优化方法</a></li>
+                    </ul>
+                </li>
                 <li><a href="#47">47 softmax函数和交叉熵误差</a></li>
                 <li><a href="#48">48 多分类</a></li>
                 <li><a href="#49">49 Dataset类和预处理</a></li>
@@ -356,7 +363,11 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            20240505:苹果农场优化<br>
+            在前面的学习当中小熊用了Paramater和Layer,Model方法来对整个苹果筛选工艺进行了整理.<br>
+            我们是通过手动调整参数的方式来优化这些工艺,为了方便以后可以自由的更换工艺,采购了一个机器人Optimizers后面简称Op来统一管理工艺参数调优.<br>
+            机器人Op可以在网络上下载别人设置好的优化方案,也可以自己手动编写优化方案,只要是相同类型的机器都可以快速切换不同的优化方案,实现了快速调整机器参数优化方案的功能.<br>
+            现在我们采用的都是传统的SGD随机梯度下降优化方案,有人提出了MomentumSGD动量随机梯度下降方案,在某些情况下拥有比SGD更好的优化效果.<br>
         </nav>
         <header><h1>深度学习入门-自制框架</h1></header>
         <article id="1"><h2>1 作为"箱子"的变量</h2>
@@ -748,8 +759,67 @@
             <p></p>
         </article>
         <article id="46"><h2>46 通过Optimizer更新参数</h2>
-            <section id="46.1">1.1 安装基础软件</section>
-            <p></p>
+            <p class="timeStamp">20240505开始</p>
+            <p>
+                <strong>前言</strong><br>
+                我们前面都是使用的梯度下降方法(SGD)来更新参数.在深度学习领域还有各种优化方法,在这一节我们将参数更新工作的代码模块化,方便后期轻松更换优化方法.<br>
+            </p>
+            <section id="46.1">46.1 Optimizer类</section>
+            <p>
+                把参数更新的基础类实现为Optimizer类.具体的优化类需要继承并实现它的抽象方法update_one.
+                <figure>
+                    <img src="Resources/img/46-1-1-Optimizers类.png" alt="Optimizers类">
+                    <p>
+                        初始化阶段:实例化了两个变量target和hooks,其中target是需要汇总参数的目标对象,hooks是需要预处理的函数.<br>
+                        setup方法:设置target变量,返回设置好的Optimizer对象.<br>
+                        update方法:将None之外的target对象的参数汇总,对hooks当中的函数执行预处理,对汇总的参数执行抽象方法update_one更新参数.<br>
+                        add_hook方法:可选的添加哪些函数需要进行预处理,这个机制可以用于权重衰减,梯度裁剪等.<br>
+                    </p>
+                </figure>
+            </p>
+            <section id="46.2">46.2 SGD类的实现</section>
+            <p>
+                SGD是Stochastic Gradient Descent的缩写--随机梯度下降法.<br>
+                随机指的是从对象数据中随机选择数据实施梯度下降法.<br>
+                <figure>
+                    <img src="Resources/img/46-2-1-SGD类.png" alt="SGD类">
+                    <p>
+                        新增了自己的变量lr(learning rate)学习率,实现了抽象方法update_one,实现梯度下降操作.<br>
+                        可以通过from dezero.optimizers import SGD从外部导入这个随机梯度下降方法了.<br>
+                    </p>
+                </figure>
+            </p>
+            <section id="46.3">46.3 使用SGD类来解决问题</section>
+            <p>
+                现在使用我们准备好的SGD类来解决问题<br>
+                <figure>
+                    <img src="Resources/img/46-3-1-使用MLP和SGD.png" alt="使用MLP和SGD">
+                    <p>
+                        使用了MLP和SGD分别设置了模型和参数优化部分.<br>
+                    </p>
+                </figure>
+            </p>
+            <section id="46.4">46.4 SGD以外的优化方法</section>
+            <p>
+                基于梯度的优化方法有很多,比较代表的有Momentum,AdaGrad,AdaDelata,Adam等.<br>
+                <figure>
+                    <img src="Resources/img/46-4-1-Momentum方法.png" alt="Momentum方法">
+                    <p>
+                        Momentum方法的理论,按照力学的方式在逐渐降低学习速率.<br>
+                        式子46.1表示:物体在梯度方向上受到一个力,这个力使物体加速.<br>
+                        式子46.2表示:物体以该速度进行移动<br>
+                    </p>
+                </figure>
+                <figure>
+                    <img src="Resources/img/46-4-2-Momentum实现.png" alt="Momentum实现">
+                    <p>
+                        实现方式也是相同的,通过继承Optimizer然后实现抽象方法update_one.<br>
+                        后面就可以通过from dezero.optimizers import MomentumSGD来调用这个梯度方法了<br>
+                        更换优化方法也是非常简单的,直接将SGD换成MomentumSGD就可以了.<br>
+                    </p>
+                </figure>
+            </p>
+            <p class="timeStamp">20240505结束</p>
         </article>
         <article id="47"><h2>47 softmax函数和交叉熵误差</h2>
             <section id="47.1">1.1 安装基础软件</section>

@@ -61,7 +61,10 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            20240505-小熊的隐身能力:<br>
+            小熊被吸入了游戏空间当中,游戏是一个RPG游戏,主角小熊需要收集沿途掉落的各种能力球来升级打败BOSS扭曲彩虹龙<br>
+            第一个能力球是隐身球,小熊获得之后就会隐去身形,但是因为不知名的原因,小熊人隐身了,但是影子依然还在,导致不断被怪物追杀.<br>
+            后来小熊找到了问题所在,原来它在计算ShadowCaster的时候没有裁切,所以阴影部分依然还在,修改之后小熊就成功逃过了追杀获得了第一个能力-隐身<br>
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -118,7 +121,27 @@
             <section id="5.1">5.1 边缘光效果</section>
             <p></p>
             <section id="5.2">5.2 简单光照</section>
-            <p></p>
+            <p>
+                <p>
+                    <p class="timeStamp">20240505开始</p>
+                    <strong>5.2.4 阴影</strong>
+                    <figure>
+                        <img src="Resources/img/5-2-4-1 裁切阴影代码.png" alt="裁切阴影代码">
+                        <p>
+                            为了实现对于透明物体的正确阴影,需要在ShodwCaster通道当中对阴影执行同样的裁切逻辑.<br>
+                            SHADOW_COORDS,TRANSFER_SHADOW,SHADOW_ATTENUATION是Unity提供的帮助执行阴影计算的宏,是一个系列的.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/5-2-4-2 代码结果.png" alt="代码结果">
+                        <p>
+                            实现了对于透明物体的阴影裁切效果.
+                        </p>
+                    </figure>
+                    <p class="timeStamp">20240505结束</p>
+                </p>
+
+            </p>
             <section id="5.3">5.3 法线贴图</section>
             <p></p>
             <section id="5.4">5.4 类玻璃物体的渲染</section>

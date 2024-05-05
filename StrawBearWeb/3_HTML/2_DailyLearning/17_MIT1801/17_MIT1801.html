@@ -50,7 +50,10 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            20240505:E先生<br>
+            小熊创造了一个数学游戏,数学游戏当中有一个神秘的角色E先生,他戴着一顶黑色的帽子,拥有空间穿梭的能力<br>
+            他是指数学院毕业的高材生,他的毕业分数是2.71828,能力是任何指数只要以他为底,那么变化率就是自己本身,这让强者恒强<br>
+            拥有这个能力的他还有两个死对头,鹅先生(2)和红旗先生(4),鹅先生的能力是让任何指数都不断按照0.7衰减,红旗先生的能力是让任何指数都按照1.25增加,他们三个并称为指数三杰<br>
         </nav>
         <header><h1>MIT1801微积分</h1></header>
         <article id="1"><h2>1 Limits极限</h2>
@@ -91,7 +94,110 @@
             <section id="3.6">3.6 Inverse functions 反函数</section>
             <p></p>
             <section id="3.7">3.7 Exponential functions 指数函数</section>
-            <p></p>
+            <p>
+                <p class="timeStamp">20240505开始</p>
+                <p>
+                    <strong>1. Motivation 动机</strong><br>
+                    <figure>
+                        <img src="Resources/img/3-7-1-1-细菌指数增长.png" alt="细菌指数增长">
+                        <p>细菌的指数增长</p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-1-2-质点弹簧的指数下降.png" alt="质点弹簧的指数下降">
+                        <p>质点弹簧系统的指数下降</p>
+                    </figure>
+                    指数在数学,物理,引擎,经济学等等领域广泛存在,所以我们必须要认真的了解.<br>
+                </p>
+                
+                <p>
+                    <strong>2. Exponential functions and their derivatives 指数函数和导数</strong><br>
+                    <figure>
+                        <img src="Resources/img/3-7-2-1-目标.png" alt="目标">
+                        <p>
+                            目标1:能够计算指数函数的导数.<br>
+                            目标2:定义当x=0的时候e<sup>x</sup>的导数值<br>
+                        </p>
+                    </figure>
+                </p>
+
+                <p>
+                    <strong>3. Properties of exponents 指数函数的属性</strong><br>
+                    <figure>
+                        <img src="Resources/img/3-7-3-1-基础指数属性.png" alt="基础指数属性">
+                        <p>
+                            当a是实数的时候,基础的指数法则.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-3-2-指数函数图像.png" alt="指数函数图像">
+                        <p>
+                            2是底数,x是指数,在底数>1的情况下,结果值恒定为正.<br>
+                            我们从一个具体数值的底数2开始尝试求导数<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-3-3-底数小于1的图像.png" alt="底数小于1的指数图像">
+                        <p>
+                            y = 1/2<sup>x</sup>的图像和y=2<sup>x</sup>的图像沿着Y轴对称.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-3-4-指数函数的属性.png" alt="指数函数的属性">
+                        <p>
+                            指数函数是连续函数-即可导.<br>
+                            定义域是所有的实数.<br>
+                            值域是正实数-即恒为正.<br>
+                        </p>
+                    </figure>
+                </p>
+                
+                <p>
+                    <strong>4. Finding the Derivative 寻找导数</strong><br>
+                    <figure>
+                        <img src="Resources/img/3-7-4-1-导数定义求指数函数.png" alt="导数定义求指数函数">
+                        <p>
+                            我们使用导数的定义来求解指数函数的导数.<br>
+                            我们写出定义,然后利用简单的指数法则将a<sup>x</sup>作为常量提取出来.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-4-2-公式替换.png" alt="公式替换">
+                        <p>
+                            把这个神秘的部分给假设成M(a).<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-4-3-Ma的等式.png" alt="Ma的等式">
+                        <p>
+                            利用当x=0的时候a<sup>x</sup>结果为1,我们找到了M(a)的等式.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/3-7-4-4-M2.png" alt="M2">
+                        <p>
+                            当x=0的时候a<sup>x</sup>的导数(斜率)就等于M(a),这里是2<sup>x</sup>的图像,所以就是M(2)<br>
+                        </p>
+                    </figure>
+                </p>
+                
+                <p>
+                    <strong>5. The derivative of an exponential function 指数函数的导数</strong><br>
+                    <figure>
+                        <img src="Resources/img/3-7-5-1-正式定义.png" alt="正式定义">
+                        <p>
+                            M(a)的公式表示就是在x=0处的斜率.<br>
+                            使用公式计算器大致的计算结果,得到2<sup>x</sup>在x=0的导数大约是0.7,4<sup>x</sup>次方大约是1.24.那么中间肯定有个值会导数等于1<br>
+                            这很自然就引出了一个特殊的数e,e<sup>x</sup>在x=0的导数为1,这意味着e<sup>x</sup>的导数等于e<sup>x</sup> * M(e),而M(e)=1,所以e<sup>x</sup>的导数等于自己<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="timeStamp">20240505开始</p>   
+                <strong>6. Numerical results 数值结果</strong><br>
+                <strong>7. Definition of e e的定义</strong><br>
+                <strong>8. Why e exists 为什么e存在</strong><br>
+                <strong>9. Additional practice 附加练习</strong><br>
+                <strong>10. Summary 总结</strong><br>
+            </p>
             <section id="3.8">3.8 Logarithms 对数</section>
             <p></p>
         </article>

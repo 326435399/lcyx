@@ -65,14 +65,13 @@ nav
 nav ul,aside ul
 {
     padding:1px;
-    margin:1px;
+    margin: 1px 1px 1px 12px;
     background-color:rgb(49, 95, 49);
     color:#ffffff;
 }
 nav li,aside li
 {
     list-style-type: none;
-    border-bottom:1px solid #ffffff;
     font-family: 思源臻宋;
     font-size: 12pt;
     font-weight:lighter;
@@ -109,17 +108,7 @@ p,li,pre /*最常用的字体大小,绝大部分文章都是这个大小,通过s
     font-weight:lighter;
     line-height:15pt;
 }
-/* img 
-{
-    display: block;
-    width:66%;
-    height:auto;
-    object-fit:contain;
-    border-width:2pt;
-    border-color:black;
-    border-style:inset;
-} */
-/* 总设置部分 */
+
 img 
 {
     width: 512px;
@@ -132,20 +121,21 @@ figure
     display: block;
     margin: 5px auto;
     padding: 0;
-    /* border:1px solid black; */
 }
 
 figure p
 {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 12pt;
+    line-height: 16pt;
     font-weight:lighter;
     text-align: center;
+    width: 80%;
+    padding: 0% 10%;
 }
 figure li
 {
-    font-size: 14px;
-    line-height: 16px;
+    font-size: 14pt;
+    line-height: 16pt;
     font-weight:lighter;
     text-align: left;
 }
@@ -155,10 +145,7 @@ div
     font-weight: lighter;
     line-height: 15pt;
 }
-strong.smallTopic {
-    font-size: 13pt;
-    line-height: 15pt;
-}
+
 video /*设置视频格式和图片一样*/
 {
     display: block;
@@ -169,26 +156,6 @@ video /*设置视频格式和图片一样*/
     border-color:forestgreen;
     border-style:inset;
 }
-table,tr,th,td /*表格样式设置*/
-{
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 3px;
-}
-
-#specialList ul
-{
-    background-color: #6666ff;
-    border:1px solid #000000;
-    width:100px;
-}
-#specialList li
-{
-    background-color: #cccccc;
-    border:1px solid #ffff00;
-} 
-
-
 
 /*超链接样式*/
 a
@@ -219,4 +186,10 @@ a:focus,a:active
 section
 {
     font-weight: bold;
+}
+
+p.timeStamp
+{
+    color: red;
+    border: 1px solid black;
 }

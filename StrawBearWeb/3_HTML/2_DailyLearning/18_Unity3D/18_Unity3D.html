@@ -129,7 +129,17 @@
                         <li><a href="#12.5">12.5 自定义渲染管线</a></li>
                     </ul>
                 </li>
-                <li><a href="#13">13 DOTS1.0</a></li>
+                <li><a href="#13">13 DOTS1.0</a>
+                    <ul>
+                        <li><a href="#13.1">13.1 DOTS的组成</a></li>
+                        <li><a href="#13.2">13.2 游戏对象转到ECS</a></li>
+                        <li><a href="#13.3">13.3 实体组件</a></li>
+                        <li><a href="#13.4">13.4 系统</a></li>
+                        <li><a href="#13.5">13.5 Job</a></li>
+                        <li><a href="#13.6">13.6 Burst</a></li>
+                        <li><a href="#13.7">13.7 渲染</a></li>
+                    </ul>
+                </li>
                 <li><a href="#14">14 扩展编辑器</a></li>
                 <li><a href="#15">15 资源管理</a></li>
                 <li><a href="#16">16 自动化与打包</a></li>
@@ -138,7 +148,10 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            20240505:ECS系统<br>
+            小熊在游戏当中创建了一只军队,现在每个小队都自由控制所有的装备和作战,这导致了战斗力及其低下,为了加强军队的战斗力引入了ECS系统.<br>
+            把相同的武器装备全部集中在了一起,这些武器就是组件Component,所有的武器统一在武器库管理,这个武器库就是实体Entities.<br>
+            最后所有的士兵统一接受指挥部(Job System)的调度,每个士兵的任务Job同步执行,这样就极大的提高了军队的战斗力.<br>
         </nav>
         <header><h1>Untiy3D游戏开发</h1></header>
         <article id="1"><h2>1 基础知识</h2>
@@ -238,8 +251,85 @@
             <section id="12.5">12.5 自定义渲染管线</section><p></p>
         </article>
         <article id="13"><h2>13 DOTS1.0</h2>
-            <section id="13.1"></section>
-            <p></p>
+            <p class="timeStamp">20240505开始</p>
+            <section id="13.1">13.1 DOTS的组成</section>
+            <p>
+                DOTS的全称是Data-Oriented Tech Stack多线程式数据导向型技术栈,原理是充分利用CPU多核处理器,让游戏处理的速度更快,更高效.<br>
+                DOTS主要由ECS+Job System+Burst Compiler三部分组成.可以任意组合使用<br>
+                ECS:实体组件系统用于默认编写高性能代码.<br>
+                Job System:任务系统,用于高效运行多线程代码<br>
+                Burst Compiler:编译加速器用于生成高度优化的本地代码,提供单指令多数据SIMD.<br>
+                
+                <p>
+                    <strong>13.1.1 ECS简介</strong><br>
+                    ECS的全称是Entity(实体) Component(组件) System(系统).<br>
+                    概念始于GDC 2017当中守望先锋游戏架构的分享.<br>
+                    实体组件是一个结构体struct,它本身不需要GC(垃圾回收),只保存数据而不保存逻辑,不对外提供方法.<br>
+                    传统的做法是通过游戏对象找到组件,再执行逻辑,实体组件则是通过系统来找组件,系统规定了组件的组合结构,因为在内存中是连续的,所以查询遍历速度非常快<br>
+
+                    <figure>
+                        <img src="Resources/img/13-1-1-1-传统内存排布.png" alt="传统内存排布">
+                        <p>
+                            传统游戏当中,大量游戏对象和脚本互相引用,导致在内存中排布非常混乱,CPU的高速缓存命中率几乎为零,这就导致每次想要获取新的数据
+                            CPU都不得不从内存当中重新加载新的数据到高速缓存当中,这就导致了执行效率不会高.<br>
+                            另外一个问题是传统的组件非常的庞大,很多时候仅仅需要很少的几个数据,但是不得不把整个组件都加载,
+                            大量没用数据的加载导致每次CPU都需要从内存加载很多数据,导致效率低下.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/13-1-1-2-E代码.png" alt="E代码">
+                        <p>
+                            首先组件必须是结构体,Script组件自身是无法驱动的,必须通过ECSSystem来驱动.<br>
+                            Entities.ForEach会遍历指定的Script组件类型,系统会把所有满足的Script组件全部给连续保存在缓存或内存中<br>
+                            下一帧OnUpdate执行因为已经全部连续加载了,所以遍历会非常快(就像以前机械硬盘的磁盘整理一样)<br>
+                            ScheduleParallel就会对所有的Script组件并行执行(这样极大的利用了CPU的并行能力)<br>
+                            实体对象也是可以绑定多个实体组件的,这样会把这一些组件都在内存中连续保存<br>
+                        </p>
+                    </figure>
+                </p>
+
+                <p>
+                    <strong>13.1.2 Job System简介</strong><br>
+                    Unity传统游戏对象提供的核心API是不支持多线程的,为了实现多线程就有了Job System.<br>
+                    DOTS专门提供了com.unity.entities.graphics包用于更新DOTS渲染<br>
+                    Job System在底层安全的处理了死锁竞争问题,每个Job都是一个单独的任务,由Job System统一处理,Job之间可以设置并行,串行,等待主线程等等
+                    比较糟心的事Unity的API大部分都不能再Job中使用<br>
+                </p>
+                
+                <p>
+                    <strong>13.1.3 Burst Compiler简介</strong><br>
+                    Burst Compiler底层是一个基于LLVM的编译器,我们在Job前面会加上[BurstCompile]标记开启Burst编译.<br>
+                    原本的Unity代码引擎部分是用C++写的,为了简化难度引入了C#语言来开发,早期的.NET不支持多平台,Unity就采用了开源的Mono来跨平台执行DLL代码<br>
+                    后来需要支持的平台越来越多,又引入了IL2CPP在打包的时候把DLL转换成C++代码并引入贝姆垃圾收集器.这么一大堆自然就效率上不去了<br>
+                    经过测试.NetCore的性能和IL2CPP差不多,比C++慢1/2,比Mono快2-3倍,在采用IL2CPP方案打开BurstCompiler后性能比C++还要快,所以效率极高<br>
+                    Unity计划在2024年放弃Mono,采用.NETCore方案来实现多平台编译<br>
+                </p>
+                
+                <p>
+                    <strong>13.1.4 安装</strong><br>
+                    <figure>
+                        <img src="Resources/img/13-1-4-1-安装包.png" alt="安装包">
+                        <p>                           
+                            com.unity.entities(实体组件库)<br>
+                            com.unity.entities.graphics(实体组件渲染包)<br>
+                            com.unity.burst(Burst编译库)<br>
+                            com.unity.netcode(网络编程)<br>
+                            com.unity.physics(物理)<br>
+                            com.unity.collections(HPC#容器)<br>
+                            com.unity.logging(异步日志方案)<br>
+                        </p>
+                    </figure>
+                    
+                </p>               
+            </p>
+            <p class="timeStamp">20240505结束</p>
+
+            <section id="13.2">13.2 游戏对象转到ECS</section><p></p>
+            <section id="13.3">13.3 实体组件</section><p></p>
+            <section id="13.4">13.4 系统</section><p></p>
+            <section id="13.5">13.5 Job</section><p></p>
+            <section id="13.6">13.6 Burst</section><p></p>
+            <section id="13.7">13.7 渲染</section><p></p>
         </article>
         <article id="14"><h2>14 扩展编辑器</h2>
             <section id="14.1"></section>
