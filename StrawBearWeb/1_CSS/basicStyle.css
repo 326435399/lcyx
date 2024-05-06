@@ -10,66 +10,59 @@
     src:url("../0_Resoureces/font/思源屏显臻宋.ttf"); /*添加思源屏显臻宋字体*/
 }
 
+/* 设定除了这三个类以外的字体都统一 */
+*:not(.chapter):not(.section):not(.paragraph) 
+{
+    font-size: 12pt;
+    font-family: 思源臻宋,Arial,Verdana,sans-serif;
+    line-height: 14pt;    
+}
+
+/* 三个特殊的类,chapter对应章,section对应节,paragraph对应段 */
+.chapter
+{
+    font-size: 20pt;
+    line-height: 22pt;
+    font-weight:bold;
+    text-align: center;
+}
+
+.section
+{
+    font-size: 16pt;
+    line-height: 18pt;
+    font-weight:bold;
+    text-align: left;
+}
+
+.paragraph
+{
+    font-size:14pt;
+    line-height: 16pt;
+    font-weight:bold;
+    text-align: left;
+}
+
 /* 总体设置 */
 body
 {  
-    background-color: #eaebee;
-    font-size: 12pt;
-    font-weight:lighter;
-    color: black;
-    font-family: 思源臻宋,Arial,Verdana,sans-serif;
-    line-height: 14pt;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 5pt;
-    text-align: left;
+    background-color: #eaebee;   
 }
 
-/* 细节设置 */
-header,h1
-{
-    font-size: 24pt;
-    line-height: 32pt;
-    font-weight:bold;
-    text-align: center;
-}
 
 article
 {
+    text-align: left;
     margin:0 19%;
     padding:1pt;
-    width:62%;
-    font-size: 20pt;
-    line-height: 26pt;
-    font-weight:bold;
-    text-align: left;
+    width:60%;
 }
 
-section,h2,h3
+footer
 {
-    font-size: 16pt;
-    line-height: 20pt;
-    font-weight:lighter;
-    text-align: left;
-}
-
-p,li,pre,h4
-{
-    font-family: 思源臻宋;
-    font-size: 14pt;
-    font-weight:lighter;
-    line-height:15pt;
-    text-align: left;
-}
-
-footer,h5
-{
-    border-top: 30pt solid #eaebee;
-    font-size: 12pt;
-    line-height: 14pt;
-    font-weight:lighter;
     text-align: center;
 }
+
 
 /*导航样式*/
 aside
@@ -78,37 +71,31 @@ aside
     top: 0; /* 距离顶部的距离 */
     left: 0; /* 距离左侧的距离 */
     width: 18%; /* 侧边栏宽度 */
-    height: 95%; /* 高度撑满整个窗口 */
-    overflow-y: auto; /* 垂直方向上显示滚动条 */
-    border: 1px solid #ccc; /* 边框 */
-    padding: 10pt; /* 内边距 */
+    height: 100%; /* 高度撑满整个窗口 */
+    overflow-y: scroll; /* 开启垂直滚动条 */
+    background-color:rgb(49, 95, 49);
+    color:#ffffff;
+    padding: 1pt;
 }
 nav
 {
     position: fixed; /* 固定定位 */
     top: 0; /* 距离顶部的距离 */
-    right: 0; /* 距离左侧的距离 */
+    right: 0; /* 距离右侧的距离 */
     width: 18%; /* 侧边栏宽度 */
-    height: 95%; /* 高度撑满整个窗口 */
-    overflow-y: auto; /* 垂直方向上显示滚动条 */
-    border: 1px solid #ccc; /* 边框 */
-    padding: 10pt; /* 内边距 */
+    height: 100%; /* 高度撑满整个窗口 */
+    overflow-y: scroll; /* 开启垂直滚动条 */
+    padding: 1pt;
 }
 
 nav ul,aside ul
 {
-    padding:1pt;
-    margin: 1pt 1pt 1pt 12pt;
     background-color:rgb(49, 95, 49);
     color:#ffffff;
 }
 nav li,aside li
 {
     list-style-type: none;
-    font-family: 思源臻宋;
-    font-size: 12pt;
-    font-weight:lighter;
-    line-height:15pt;
 }
 
 /* 图片和视频设置 */
@@ -159,7 +146,6 @@ video /*设置视频格式和图片一样*/
 /*超链接样式*/
 a
 {
-    font-family: 思源臻宋;
     font-weight: lighter;
     text-decoration: none;
 } 

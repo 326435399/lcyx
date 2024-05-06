@@ -1,0 +1,23 @@
+/* 设定除了这三个类以外的字体都统一 */
+*:not(.chapter):not(.section):not(.paragraph) 
+{
+    font-family: Arial, sans-serif;
+    font-size: 12px; /* 设置字体大小为16像素，可以根据需要调整 */
+
+}
+
+/* 三个特殊的类,chapter对应章,section对应节,paragraph对应段 */
+.chapter
+{
+    font-size:18pt;
+}
+
+.section
+{
+    font-size:16pt;
+}
+
+.paragraph
+{
+    font-size:14pt;
+}

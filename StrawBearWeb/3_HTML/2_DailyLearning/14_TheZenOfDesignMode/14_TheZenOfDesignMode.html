@@ -261,17 +261,27 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:<br>
             20240505:小熊的炼丹炉<br>
             小熊有一个青铜炼丹炉用来生产不同的丹药产品,炼丹炉虽然锈迹斑斑,但是上面有LED显示屏,可以选择五种不同的炼丹模式:<br>
             分别是单例模式,原型模式,建造者模式,工厂方法模式,抽象工厂模式.五种不同的模式有不同的作用.<br>
-            单例模式会消耗所有的药材,炼制唯一的一颗丹药,因此这颗丹药往往价值不菲.例如十全补血丸<br>
-            原型模式则是根据上一次炼制的原型,重复炼制批量产生相同的丹药,有利于在找到合适的药方之后批量生产.<br>
-            工厂方法模式可以设置想要生产的丹药类型,例如设置补血丸,则可以根据投入的药物不同生产小补血丸和大补血丸.<br>
-            抽象工厂模式不但可以设置丹药类型,还可以控制火候,这样哪怕是相同的有药物也可以通过这两个维度的控制产生不同的产品.例如稳定火候的小补血丸肯定是比不稳定火候的小补血丸要价值更高的<br>
-            建造者模式又称为大师模式,往往是针对非常珍贵的药材,可以控制炼药过程的火候,熔炼方式等等,拥有对炼制过程的绝对控制,不同的过程会带来不同的产品,属于定制化产品.大师炼制的补血丸自然是比普通药剂师要练得昂贵,因为过程的控制不同<br>
+            <strong>单例模式</strong>会消耗所有的药材,炼制唯一的一颗丹药,因此这颗丹药往往价值不菲.例如十全补血丸<br>
+            <strong>原型模式</strong>则是根据上一次炼制的原型,重复炼制批量产生相同的丹药,有利于在找到合适的药方之后批量生产.<br>
+            <strong>工厂方法模式</strong>可以设置想要生产的丹药类型,例如设置补血丸,则可以根据投入的药物不同生产小补血丸和大补血丸.<br>
+            <strong>抽象工厂模式</strong>不但可以设置丹药类型,还可以控制火候,这样哪怕是相同的有药物也可以通过这两个维度的控制产生不同的产品.例如稳定火候的小补血丸肯定是比不稳定火候的小补血丸要价值更高的<br>
+            <strong>建造者模式</strong>又称为大师模式,往往是针对非常珍贵的药材,可以控制炼药过程的火候,熔炼方式等等,拥有对炼制过程的绝对控制,不同的过程会带来不同的产品,属于定制化产品.大师炼制的补血丸自然是比普通药剂师要练得昂贵,因为过程的控制不同<br>
+            <br>
+            20240506:炼丹炉的拼装<br>
+            这个青铜炼丹炉是小熊自己组装的,青铜炉的盖比较小不能盖好,所以我们需要使用<strong>适配器</strong>(衔接小盖的基础上扩大下盘)才能盖好.<br>
+            炉腿整体采用的是<strong>桥接</strong>的方式,镶嵌的炉体底座上形成底,每个炉腿和镶嵌口都通过定位器作为<strong>代理</strong>衔接在一起<br>
+            炉体则是青铜一体铸造,为了<strong>外观</strong>好看的功能,<strong>装饰</strong>上了使用<strong>组合</strong>递归形成的青铜树状结构作为花纹<br>
+            这个青铜炼丹炉也会添加到共享池当中,每个需要的人都可以付费使用,避免重复制造的浪费,这个就叫做<strong>享元/分享模式</strong><br>
+            20240506:炼丹炉的拼装<br>
+            这个青铜炼丹炉是小熊自己组装的,青铜炉的盖比较小不能盖好,所以我们需要使用<strong>适配器</strong>(衔接小盖的基础上扩大下盘)才能盖好.<br>
+            炉腿整体采用的是<strong>桥接</strong>的方式,镶嵌的炉体底座上形成底,每个炉腿和镶嵌口都通过定位器作为<strong>代理</strong>衔接在一起<br>
+            炉体则是青铜一体铸造,为了<strong>外观</strong>好看的功能,<strong>装饰</strong>上了使用<strong>组合</strong>递归形成的青铜树状结构作为花纹<br>
+            这个青铜炼丹炉也会添加到共享池当中,每个需要的人都可以付费使用,避免重复制造的浪费,这个就叫做<strong>享元/分享模式</strong><br>
         </nav>
-        <header><h1>设计模式之禅</h1></header>
+        <header class="chapter">设计模式之禅</header>
         <article id="1"><h2>1 单一职责原则</h2>
             <section id="1.1">1.1 我是"牛"类,我可以担任多职吗</section>
             <p></p>
@@ -534,7 +544,7 @@
             <section id="29.3">29.3 桥梁模式的应用</section>
             <p></p>
         </article>
-        <article id="30"><h2>30 创建类模式大PK</h2>
+        <article id="30" ><p class="section">30 创建类模式大PK</p>
             <p>
                 <p class="timeStamp">20240505开始</p>
                 <strong>创建类模式有哪些?</strong><br>
@@ -586,7 +596,8 @@
                     </p>
                 </figure>
             </p>
-            <section id="30.1">30.1 工厂方法模式VS建造者模式</section>
+            <section id="30.1" class="paragraph">30.1 工厂方法模式VS建造者模式</section>
+            <p class="timeStamp">20240506开始</p>
             <p>
                 <p>
                     <strong>两个模式之间的侧重点不同</strong><br>
@@ -616,12 +627,100 @@
                     <p class="timeStamp">20240505结束</p>
                 </p>
             </p>
-            <section id="30.2">30.2 抽象工厂模式VS建造者模式</section><p></p>
-
+            <section id="30.2">30.2 抽象工厂模式VS建造者模式</section>
+            <p>
+                <figure>
+                    <img src="Resources/img/30-08-抽象工厂生产汽车.png" alt="抽象工厂生产汽车">
+                    <p>
+                        两个维度,一个是品牌,一个是型号,型号由ICar接口的两个抽象子类AbsBenz和AbsBMW决定<br>
+                        一个是品牌,由CarFactory工厂来控制,然后在实现当中进行工厂的划分<br>
+                        这样就实现了两个维度,品牌和型号<br>
+                    </p>
+                </figure>
+                <figure>
+                    <img src="Resources/img/30-09-建造者模式生产汽车.png" alt="建造者模式生产汽车">
+                    <p>
+                        建造者的侧重点则完全不同,Director导演类是车间主任,调用不同的建造者来得到不同构件步骤创建不同的汽车产品<br>
+                    </p>
+                </figure>
+                <strong>总结</strong><br>
+                抽象工厂模式在工厂方法模式再进了一步,增加了第二个维度工厂的区分,是更高层次的封装,建造者则侧重单个产品的构件步骤,所以更灵活<br>
+            </p>
         </article>
         <article id="31"><h2>31 结构类模式大PK</h2>
-            <section id="31.1">31.1 代理模式VS装饰模式</section><p></p>
-            <section id="31.2">31.2 装饰模式VS适配器模式</section><p></p>
+            <p>
+                <strong>有哪些结构类模式?</strong><br>
+                结构类模式包括:适配器模式,桥梁/桥接模式,组合模式,装饰模式,门面/外观模式,享元模式和代理模式.<br>
+                共性:通过组合类或对象产生更大结构以适应更高层次的逻辑.<br>
+                适配器模式:继承需要适配的对象,然后用他的数据来实现当前需要接口的方法<br>
+                <figure>
+                    <img src="Resources/img/31-01-适配器模式.png" alt="适配器模式">
+                    <p>
+                        Convert the interface of a class into another interface clients expece.Adapter lets classes work togethere that couldn;t otherwise because of incompatible interfaces.<br>
+                        翻译:将一个类的接口变换成客户端所期待的另一种接口,从而使原本因接口不匹配而无法再一起工作的两个类能够在一起工作<br>
+                    </p>
+                </figure>
+                桥梁/桥接模式:将抽象和实现分离,多个实现聚合成抽象类的实例对象.<br>
+                <figure>
+                    <img src="Resources/img/31-02-桥接模式.png" alt="桥接模式">
+                    <p>
+                        Decouple an abstraction from its implementation so that the  two can vary independently<br>
+                        翻译:将抽象和实现解耦.使得两者可以独立地变化.<br>
+                    </p>
+                </figure>
+                组合模式:通过树状的递归结构,让使用单个对象和使用一组对象一样.<br>
+                <figure>
+                    <img src="Resources/img/31-03-组合模式.png" alt="组合模式">
+                    <p>
+                        Compose objects into tree structures to represent part-shole hierarchies.Composite lets clients treat individual objects and compositions of objects niformly<br>
+                        翻译:将对象组合成树形结构以表示"部分-整体"的层次结构,使得用户对单个对象和组合对象的使用具有一致性.<br>
+                    </p>
+                </figure>
+                装饰模式:装饰者和被修饰对象继承相同的抽象类,装饰者传入修饰对象进行修改,所以可以独立发展.<br>
+                <figure>
+                    <img src="Resources/img/31-04-装饰模式.png" alt="装饰模式">
+                    <p>
+                        Attach additional responsibilities to an object dynamically keeping the same interface.Decorators provide a flexible alternative to subclassing for extending functionality.<br>
+                        翻译:动态的给一个对象添加一些额外的职责.就增加功能来说,装饰模式相比生成子类更为灵活.<br>
+                    </p>
+                </figure>
+                门面/外观模式:汇总子系统的业务逻辑,客户端调用外观对象,外观对象委托给各个子对象执行<br>
+                <figure>
+                    <img src="Resources/img/31-05-外观模式.png" alt="外观模式">
+                    <p>
+                        Provide a unified interface to a set of interfaces in a subsystem.Facade defines a higher-level interface that makes the subsystem easier to use.<br>
+                        翻译:要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行.<br>
+                    </p>
+                </figure>
+                享元模式:通过抽象提取到一个共享池,获取对象会先获取这个池当中的对象.<br>
+                <figure>
+                    <img src="Resources/img/31-06-享元模式.png" alt="享元模式">
+                    <p>
+                        Use sharing to support large numbers of fine-grained objects efficiently.<br>
+                        翻译:使用共享对象可以有效地支持大量的细粒度的对象.<br>
+                    </p>
+                </figure>
+                代理模式:需要通过代理对象才能获取真实对象的访问,增加了一个中间控制过程<br>
+                <figure>
+                    <img src="Resources/img/31-07-代理模式.png" alt="代理模式">
+                    <p>
+                        定义:Provide a surrogate or placeholder for another object to control access to it.<br>
+                        翻译:为其他对象提供一种代理以控制对这个对象的访问.<br>
+                    </p>
+                </figure>
+                总结:<br>
+                适配器做的是两个不同类之间的翻译配合工作,装饰者模式是给一个类增加新的功能;<br>
+                桥接模式是让多个实现来组成当前类,组合模式是递归的树状结构组合成当前类;<br>
+                外观模式是让一个类的负责汇总功能给别人看,代理模式是给真实类增加一个中间人;<br>
+                享元模式是把共用的部分抽取到公共池当中,客户访问池里面的不同的对象;<br>
+                <p class="timeStamp">20240506结束</p>
+            </p>
+            <p>
+                <section id="31.1">31.1 代理模式VS装饰模式</section><p></p>
+            </p>
+            <p>
+                <section id="31.2">31.2 装饰模式VS适配器模式</section><p></p>
+            </p>            
         </article>
         <article id="32"><h2>32 行为类模式大PK</h2>
             <section id="32.1">32.1 命令模式VS策略模式</section><p></p>
