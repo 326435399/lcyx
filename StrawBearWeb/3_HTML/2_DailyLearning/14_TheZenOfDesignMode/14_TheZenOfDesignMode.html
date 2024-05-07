@@ -261,7 +261,8 @@
             </ul>
         </aside>
         <nav>
-            20240505:小熊的炼丹炉<br>
+            
+            <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:小熊的炼丹炉<br>
             小熊有一个青铜炼丹炉用来生产不同的丹药产品,炼丹炉虽然锈迹斑斑,但是上面有LED显示屏,可以选择五种不同的炼丹模式:<br>
             分别是单例模式,原型模式,建造者模式,工厂方法模式,抽象工厂模式.五种不同的模式有不同的作用.<br>
             <strong>单例模式</strong>会消耗所有的药材,炼制唯一的一颗丹药,因此这颗丹药往往价值不菲.例如十全补血丸<br>
@@ -269,20 +270,21 @@
             <strong>工厂方法模式</strong>可以设置想要生产的丹药类型,例如设置补血丸,则可以根据投入的药物不同生产小补血丸和大补血丸.<br>
             <strong>抽象工厂模式</strong>不但可以设置丹药类型,还可以控制火候,这样哪怕是相同的有药物也可以通过这两个维度的控制产生不同的产品.例如稳定火候的小补血丸肯定是比不稳定火候的小补血丸要价值更高的<br>
             <strong>建造者模式</strong>又称为大师模式,往往是针对非常珍贵的药材,可以控制炼药过程的火候,熔炼方式等等,拥有对炼制过程的绝对控制,不同的过程会带来不同的产品,属于定制化产品.大师炼制的补血丸自然是比普通药剂师要练得昂贵,因为过程的控制不同<br>
-            <br>
-            20240506:炼丹炉的拼装<br>
+            <br>    
+            <a href="#20240506"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240506:炼丹炉的拼装<br> 
             这个青铜炼丹炉是小熊自己组装的,青铜炉的盖比较小不能盖好,所以我们需要使用<strong>适配器</strong>(衔接小盖的基础上扩大下盘)才能盖好.<br>
             炉腿整体采用的是<strong>桥接</strong>的方式,镶嵌的炉体底座上形成底,每个炉腿和镶嵌口都通过定位器作为<strong>代理</strong>衔接在一起<br>
             炉体则是青铜一体铸造,为了<strong>外观</strong>好看的功能,<strong>装饰</strong>上了使用<strong>组合</strong>递归形成的青铜树状结构作为花纹<br>
             这个青铜炼丹炉也会添加到共享池当中,每个需要的人都可以付费使用,避免重复制造的浪费,这个就叫做<strong>享元/分享模式</strong><br>
-            20240506:炼丹炉的拼装<br>
-            这个青铜炼丹炉是小熊自己组装的,青铜炉的盖比较小不能盖好,所以我们需要使用<strong>适配器</strong>(衔接小盖的基础上扩大下盘)才能盖好.<br>
-            炉腿整体采用的是<strong>桥接</strong>的方式,镶嵌的炉体底座上形成底,每个炉腿和镶嵌口都通过定位器作为<strong>代理</strong>衔接在一起<br>
-            炉体则是青铜一体铸造,为了<strong>外观</strong>好看的功能,<strong>装饰</strong>上了使用<strong>组合</strong>递归形成的青铜树状结构作为花纹<br>
-            这个青铜炼丹炉也会添加到共享池当中,每个需要的人都可以付费使用,避免重复制造的浪费,这个就叫做<strong>享元/分享模式</strong><br>
+            <br>            
+            <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507:天鹅丹(筑基丹)<br> 
+            小熊用青铜炉炼制的第一颗丹药就是天鹅丹(筑基丹),它有三个版本.<br>
+            第一个版本是<strong>代理版本</strong>,服用丹药之后会出现绝对理智的代理神魂控制你的身体进行筑基操作,稳定高效,但是缺少了对于心智的磨砺<br>
+            第二个版本是<strong>装饰版本</strong>,服用丹药之后会出现各种保护身体的灵力,保证身体不会奔溃,从而筑基,优点是得到了磨砺,但是很多人心理奔溃了依然会失败<br>
+            第三个版本是<strong>适配器版本</strong>,服用丹药之后会自动根据当前需要能量传递灵气,确保稳定的筑基,缺点是如果根基较差则会筑基不够完美,导致后期升级困难<br>      
         </nav>
-        <header class="chapter">设计模式之禅</header>
-        <article id="1"><h2>1 单一职责原则</h2>
+        <header class="header">设计模式之禅</header>
+        <article id="1"><h2 class="chapter">1 单一职责原则</h2>
             <section id="1.1">1.1 我是"牛"类,我可以担任多职吗</section>
             <p></p>
             <section id="1.2">1.2 绝杀技,打破你的传统思维</section>
@@ -290,13 +292,13 @@
             <section id="1.3">1.3 我单纯,所以我快乐</section>
             <p></p>
         </article>
-        <article id="2"><h2>2 里氏替换原则</h2>
+        <article id="2"><h2 class="chapter">2 里氏替换原则</h2>
             <section id="2.1">2.1 爱恨纠葛的父子关系</section>
             <p></p>
             <section id="2.2">2.2 纠纷不断,规则压制</section>
             <p></p>
         </article>
-        <article id="3"><h2>3 依赖倒置原则</h2>
+        <article id="3"><h2 class="chapter">3 依赖倒置原则</h2>
             <section id="3.1">3.1 依赖倒置原则的定义</section>
             <p></p>
             <section id="3.2">3.2 言而无信,你太需要契约</section>
@@ -304,7 +306,7 @@
             <section id="3.3">3.3 依赖的三种写法</section>
             <p></p>
         </article>
-        <article id="4"><h2>4 接口隔离原则</h2>
+        <article id="4"><h2 class="chapter">4 接口隔离原则</h2>
             <section id="4.1">4.1 接口隔离原则的定义</section>
             <p></p>
             <section id="4.2">4.2 美女何其多,观点个不同</section>
@@ -312,13 +314,13 @@
             <section id="4.3">4.3 保证接口的纯洁性</section>
             <p></p>
         </article>
-        <article id="5"><h2>5 迪米特法则</h2>
+        <article id="5"><h2 class="chapter">5 迪米特法则</h2>
             <section id="5.1">5.1 迪米特法则的定义</section>
             <p></p>
             <section id="5.2">5.2 我的知识你知道得越少越好</section>
             <p></p>
         </article>
-        <article id="6"><h2>6 开闭原则</h2>
+        <article id="6"><h2 class="chapter">6 开闭原则</h2>
             <section id="6.1">6.1 开闭原则的定义</section>
             <p></p>
             <section id="6.2">6.2 开闭原则的庐山真面目</section>
@@ -328,7 +330,7 @@
             <section id="6.4">6.4 如恶化使用开闭原则</section>
             <p></p>
         </article>
-        <article id="7"><h2>7 单例模式</h2>
+        <article id="7"><h2 class="chapter">7 单例模式</h2>
             <section id="7.1">7.1 我是皇帝我独苗</section>
             <p></p>
             <section id="7.2">7.2 单例模式的定义</section>
@@ -338,7 +340,7 @@
             <section id="7.4">7.4 单利模式的扩展</section>
             <p></p>
         </article>
-        <article id="8"><h2>8 工厂方法模式</h2>
+        <article id="8"><h2 class="chapter">8 工厂方法模式</h2>
             <section id="8.1">8.1 女娲造人的故事</section>
             <p></p>
             <section id="8.2">8.2 工厂方法模式的定义</section>
@@ -348,7 +350,7 @@
             <section id="8.4">8.4 工厂方法模式的扩展</section>
             <p></p>
         </article>
-        <article id="9"><h2>9 抽象工厂模式</h2>
+        <article id="9"><h2 class="chapter">9 抽象工厂模式</h2>
             <section id="9.1">9.1 女娲的失误</section>
             <p></p>
             <section id="9.2">9.2 抽象工厂模式的定义</section>
@@ -356,7 +358,7 @@
             <section id="9.3">9.3 抽象工厂模式的应用</section>
             <p></p>
         </article>
-        <article id="10"><h2>10 模板方法模式</h2>
+        <article id="10"><h2 class="chapter">10 模板方法模式</h2>
             <section id="10.1">10.1 辉煌工程-制造悍马</section>
             <p></p>
             <section id="10.2">10.2 模板方法模式的定义</section>
@@ -366,7 +368,7 @@
             <section id="10.4">10.4 模板方法模式的扩展</section>
             <p></p>
         </article>
-        <article id="11"><h2>11 建造者模式</h2>
+        <article id="11"><h2 class="chapter">11 建造者模式</h2>
             <section id="11.1">11.1 变化是永恒的</section>
             <p></p>
             <section id="11.2">11.2 建造者模式的定义</section>
@@ -376,7 +378,7 @@
             <section id="11.4">11.4 建造者模式的扩展</section>
             <p></p>
         </article>
-        <article id="12"><h2>12 代理模式</h2>
+        <article id="12"><h2 class="chapter">12 代理模式</h2>
             <section id="12.1">12.1 我是游戏至尊</section>
             <p></p>
             <section id="12.2">12.2 代理模式的定义</section>
@@ -386,7 +388,7 @@
             <section id="12.4">12.4 代理模式的扩展</section>
             <p></p>
         </article>
-        <article id="13"><h2>13 原型模式</h2>
+        <article id="13"><h2 class="chapter">13 原型模式</h2>
             <section id="13.1">13.1 个性化电子账单</section>
             <p></p>
             <section id="13.2">13.2 原型模式的定义</section>
@@ -396,7 +398,7 @@
             <section id="13.4">13.4 原型模式的注意事项</section>
             <p></p>
         </article>
-        <article id="14"><h2>14 中介者模式</h2>
+        <article id="14"><h2 class="chapter">14 中介者模式</h2>
             <section id="14.1">14.1 进销存管理是这个样子的吗</section>
             <p></p>
             <section id="14.2">14.2 中介者模式的定义</section>
@@ -406,7 +408,7 @@
             <section id="14.4">14.4 中介者模式的实际应用</section>
             <p></p>
         </article>
-        <article id="15"><h2>15 命令模式</h2>
+        <article id="15"><h2 class="chapter">15 命令模式</h2>
             <section id="15.1">15.1 项目经理也难当</section>
             <p></p>
             <section id="15.2">15.2 命令模式的定义</section>
@@ -416,7 +418,7 @@
             <section id="15.4">15.4 命令模式的扩展</section>
             <p></p>
         </article>
-        <article id="16"><h2>16 责任链模式</h2>
+        <article id="16"><h2 class="chapter">16 责任链模式</h2>
             <section id="16.1">16.1 古代妇女的枷锁-"三从四德"</section>
             <p></p>
             <section id="16.2">16.2 责任链模式的定义</section>
@@ -424,7 +426,7 @@
             <section id="16.3">16.3 责任链模式的应用</section>
             <p></p>
         </article>
-        <article id="17"><h2>17 装饰模式</h2>
+        <article id="17"><h2 class="chapter">17 装饰模式</h2>
             <section id="17.1">17.1 罪恶的成绩单</section>
             <p></p>
             <section id="17.2">17.2 装饰模式的定义</section>
@@ -432,7 +434,7 @@
             <section id="17.3">17.3 装饰模式应用</section>
             <p></p>
         </article>
-        <article id="18"><h2>18 策略模式</h2>
+        <article id="18"><h2 class="chapter">18 策略模式</h2>
             <section id="18.1">18.1 刘备江东娶妻,赵云他容易吗</section>
             <p></p>
             <section id="18.2">18.2 策略模式的定义</section>
@@ -442,7 +444,7 @@
             <section id="18.4">18.4 策略模式的扩展</section>
             <p></p>
         </article>
-        <article id="19"><h2>19 适配器模式</h2>
+        <article id="19"><h2 class="chapter">19 适配器模式</h2>
             <section id="19.1">19.1 业务发展-上帝才能控制</section>
             <p></p>
             <section id="19.2">19.2 适配器模式的定义</section>
@@ -452,7 +454,7 @@
             <section id="19.4">19.4 适配器模式的扩展</section>
             <p></p>
         </article>
-        <article id="20"><h2>20 迭代器模式</h2>
+        <article id="20"><h2 class="chapter">20 迭代器模式</h2>
             <section id="20.1">20.1 整理项目信息-苦差事</section>
             <p></p>
             <section id="20.2">20.2 迭代器模式的定义</section>
@@ -460,7 +462,7 @@
             <section id="20.2">20.3 迭代器模式的应用</section>
             <p></p>
         </article>
-        <article id="21"><h2>21 组合模式</h2>
+        <article id="21"><h2 class="chapter">21 组合模式</h2>
             <section id="21.1">21.1 公司的人事架构是这样的吗</section>
             <p></p>
             <section id="21.2">21.2 组合模式的定义</section>
@@ -470,7 +472,7 @@
             <section id="21.4">21.4 组合模式的扩展</section>
             <p></p>
         </article>
-        <article id="22"><h2>22 观察者模式</h2>
+        <article id="22"><h2 class="chapter">22 观察者模式</h2>
             <section id="22.1">22.1 韩非子身边的卧底是谁派来的</section>
             <p></p>
             <section id="22.2">22.2 观察者模式的定义</section>
@@ -480,7 +482,7 @@
             <section id="22.4">22.4 观察者模式的扩展</section>
             <p></p>
         </article>
-        <article id="23"><h2>23 门面模式</h2>
+        <article id="23"><h2 class="chapter">23 门面模式</h2>
             <section id="23.1">23.1 我要投递信件</section>
             <p></p>
             <section id="23.2">23.2 门面模式的定义</section>
@@ -490,7 +492,7 @@
             <section id="23.4">23.4 门面模式的注意事项</section>
             <p></p>
         </article>
-        <article id="24"><h2>24 备忘录模式</h2>
+        <article id="24"><h2 class="chapter">24 备忘录模式</h2>
             <section id="24.1">24.1 如此追女孩子,你还不乐</section>
             <p></p>
             <section id="24.2">24.2 备忘录模式的定义</section>
@@ -500,7 +502,7 @@
             <section id="24.4">24.4 备忘录模式的扩展</section>
             <p></p>
         </article>
-        <article id="25"><h2>25 访问者模式</h2>
+        <article id="25"><h2 class="chapter">25 访问者模式</h2>
             <section id="25.1">25.1 员工的隐私何在</section>
             <p></p>
             <section id="25.2">25.2 访问者模式的定义</section>
@@ -510,7 +512,7 @@
             <section id="25.4">25.4 访问者模式的扩展</section>
             <p></p>
         </article>
-        <article id="26"><h2>26 状态模式</h2>
+        <article id="26"><h2 class="chapter">26 状态模式</h2>
             <section id="26.1">26.1 城市的纵向发展功臣-电梯</section>
             <p></p>
             <section id="26.2">26.2 状态模式的定义</section>
@@ -518,7 +520,7 @@
             <section id="26.3">26.3 状态模式的应用</section>
             <p></p>
         </article>
-        <article id="27"><h2>27 解释器模式</h2>
+        <article id="27"><h2 class="chapter">27 解释器模式</h2>
             <section id="27.1">27.1 四则运算你会吗</section>
             <p></p>
             <section id="27.2">27.2 解释器模式的定义</section>
@@ -526,7 +528,7 @@
             <section id="27.3">27.3 解释器模式的应用</section>
             <p></p>
         </article>
-        <article id="28"><h2>28 享元模式</h2>
+        <article id="28"><h2 class="chapter">28 享元模式</h2>
             <section id="28.1">28.1 内存溢出,司空见惯</section>
             <p></p>
             <section id="28.2">28.2 享元模式的定义</section>
@@ -536,7 +538,7 @@
             <section id="28.4">28.4 享元模式的应用</section>
             <p></p>
         </article>
-        <article id="29"><h2>29 桥梁模式</h2>
+        <article id="29"><h2 class="chapter">29 桥梁模式</h2>
             <section id="29.1">29.1 我有一个梦想</section>
             <p></p>
             <section id="29.2">29.2 桥梁模式的定义</section>
@@ -544,9 +546,9 @@
             <section id="29.3">29.3 桥梁模式的应用</section>
             <p></p>
         </article>
-        <article id="30" ><p class="section">30 创建类模式大PK</p>
+        <article id="30" ><p class="chapter">30 创建类模式大PK</p>
             <p>
-                <p class="timeStamp">20240505开始</p>
+                <p class="timeStamp" id="20240505">20240505开始</p>
                 <strong>创建类模式有哪些?</strong><br>
                 创建类模式包括:工厂方法模式,抽象工厂模式,建造者模式,单例模式和原型模式.<br>
                 共性:都能提供对象的创建和管理职责.<br>
@@ -596,8 +598,8 @@
                     </p>
                 </figure>
             </p>
-            <section id="30.1" class="paragraph">30.1 工厂方法模式VS建造者模式</section>
-            <p class="timeStamp">20240506开始</p>
+            <section id="30.1" class="section">30.1 工厂方法模式VS建造者模式</section>
+            <p class="timeStamp" id="20240506">20240506开始</p>
             <p>
                 <p>
                     <strong>两个模式之间的侧重点不同</strong><br>
@@ -627,7 +629,7 @@
                     <p class="timeStamp">20240505结束</p>
                 </p>
             </p>
-            <section id="30.2">30.2 抽象工厂模式VS建造者模式</section>
+            <section id="30.2" class="section">30.2 抽象工厂模式VS建造者模式</section>
             <p>
                 <figure>
                     <img src="Resources/img/30-08-抽象工厂生产汽车.png" alt="抽象工厂生产汽车">
@@ -647,7 +649,7 @@
                 抽象工厂模式在工厂方法模式再进了一步,增加了第二个维度工厂的区分,是更高层次的封装,建造者则侧重单个产品的构件步骤,所以更灵活<br>
             </p>
         </article>
-        <article id="31"><h2>31 结构类模式大PK</h2>
+        <article id="31"><h2 class="chapter">31 结构类模式大PK</h2>
             <p>
                 <strong>有哪些结构类模式?</strong><br>
                 结构类模式包括:适配器模式,桥梁/桥接模式,组合模式,装饰模式,门面/外观模式,享元模式和代理模式.<br>
@@ -712,14 +714,98 @@
                 适配器做的是两个不同类之间的翻译配合工作,装饰者模式是给一个类增加新的功能;<br>
                 桥接模式是让多个实现来组成当前类,组合模式是递归的树状结构组合成当前类;<br>
                 外观模式是让一个类的负责汇总功能给别人看,代理模式是给真实类增加一个中间人;<br>
-                享元模式是把共用的部分抽取到公共池当中,客户访问池里面的不同的对象;<br>
-                <p class="timeStamp">20240506结束</p>
+                享元模式是把共用的部分抽取到公共池当中,客户访问池里面的不同的对象;<br>                
             </p>
             <p>
-                <section id="31.1">31.1 代理模式VS装饰模式</section><p></p>
+                <section id="31.1" class="section">31.1 代理模式VS装饰模式</section>
+                <p class="timeStamp" id="20240507">20240507开始</p>
+                <p>
+                    <div class="paragraph">31.1.1 代理模式</div>
+                    <figure>
+                        <img src="Resources/img/31-1-01-代理模式运动员.png" alt="代理模式运动员">
+                        <p>
+                            IRunner运动员接口<br>
+                            定义运动员具有的抽象方法,跑步<br>
+                            Runner具体运动员<br>
+                            实现跑步方法<br>
+                            RunnerAgent运动员代理<br>
+                            在构造函数传递实现了IRunner接口的对象,也就是Runner具体运动员,然后自行安排是否执行.<br>
+                            Client客户端对象<br>
+                            客户端对象通过访问代理对象访问具体运动员<br>
+                        </p>
+                    </figure>
+                    <p>
+                        代理在不改变接口的前提下,对过程进行控制,在这个例子当中就是对运动员是否跑步进行控制<br>
+                    </p>
+                    <div class="paragraph">31.1.2 装饰模式</div>
+                    <figure>
+                        <img src="Resources/img/31-1-02-装饰模式运动员.png" alt="装饰模式运动员">
+                        <p>
+                            IRunner接口和Runner具体运动员和代理模式一样<br>
+                            RunnerWithJet装饰类<br>
+                            同样的在构造函数传递了运动员,通过委托增强了某个方法的功能,而不是决定这个功能是否执行<br>
+                            Client客户端对象<br>
+                            调用的装饰过后的Runner对象(也就是RunnerWithJet对象)就会执行装饰类新增的部分和原始Runner对象的run部分<br>
+                        </p>
+                    </figure>
+                    <p>
+                        装饰在不修改原始类的情况下,给他新增了功能,他不能决定被代理的方法是否执行<br>
+                    </p>
+                    <div class="paragraph">31.1.3 对比</div>
+                    <p>
+                        代理模式是把当前的行为火功能委托给其他对象执行,代理类负责接口限定过滤等等.<br>
+                        装饰模式是在要保证接口不变的情况下加强火衰弱类的功能,但是不考虑准入条件判断和参数过滤等.<br>
+                    </p>                   
+                </p>
             </p>
             <p>
-                <section id="31.2">31.2 装饰模式VS适配器模式</section><p></p>
+                <section id="31.2" class="section">31.2 装饰模式VS适配器模式</section>
+                <p>
+                    <div class="paragraph">31.2.1 用装饰模式描述丑小鸭</div>
+                    <figure>
+                        <img src="Resources/img/31-2-01-装饰丑小鸭.png" alt="装饰丑小鸭">
+                        <p>
+                            Swan天鹅接口<br>
+                            天鹅会飞,会叫,有漂亮的外表三个方法<br>
+                            UglyDuckling丑小鸭实现类<br>
+                            丑小鸭是一只天鹅,实现Swan天鹅接口的方法,只是小时候不太像<br>
+                            Decorator装饰抽象类<br>
+                            装饰类把传入的实现Swan天鹅接口的对象(丑小鸭)重新修饰天鹅的方法<br>
+                            BeautifyAppearance外观,StrongBehavior行为修饰实现类<br>
+                            分别对外观和行为进行修饰,丑小鸭对象在修饰过后就变成了真正的白天鹅<br>
+                        </p>
+                    </figure>
+                    <p>
+                        装饰模式关注了对象功能的强化,是对原始对象的行为和属性的修正和加强.<br>
+                    </p>
+                    <div class="paragraph">31.2.2 用适配器模式实现丑小鸭</div>
+                    <figure>
+                        <img src="Resources/img/31-2-02-适配丑小鸭.png" alt="适配丑小鸭">
+                        <p>
+                            丑小鸭本质是白天鹅WhiteSwan继承Swan接口,鸭妈妈的孩子都继承了Duck接口,绝大多数孩子都是Dcukling鸭对象
+                            ,只有UglyDuckling丑小鸭,他实际上是白天鹅,鸭妈妈按照Duck接口的标准觉得她很丑陋.强行把一只鹅对象看成了鸭对象<br>
+                        </p>
+                    </figure>
+                    <p>
+                        侧重点是不同类之间的匹配,在例子当中就是把天鹅当鸭子看,自然觉得哪哪都不对劲<br>
+                    </p>
+                    <div class="paragraph">31.2.3 对比</div>
+                    <p>
+                        意图不同:<br>
+                        装饰模式的意图是对象的加强或衰减<br>
+                        适配器模式的意图是不同对象的转化(或者说换个视角看待问题)<br>
+                        <br>
+                        针对对象不同:<br>
+                        装饰模式真的是有相同接口或父类的对象,是同宗的<br>
+                        适配器模式则是两个不同的对象之间进行转换翻译<br>
+                        <br>
+                        使用场景不同:<br>
+                        装饰模式在任何情况都可以使用,而适配器模式通常是在一个成熟项目中的补救措施.<br>
+                        <br>
+                        扩展性不同:<br>
+                        装饰模式是可以随便扩展的,不想要不装饰就好了,适配器模式那就不一样了,一旦适配了,想要撤销就要考虑后面所有引用了适配之后的类的对象了<br>
+                    </p>
+                </p>
             </p>            
         </article>
         <article id="32"><h2>32 行为类模式大PK</h2>

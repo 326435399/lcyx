@@ -346,7 +346,13 @@
                         <li><a href="#46.4">46.4 SGD以外的优化方法</a></li>
                     </ul>
                 </li>
-                <li><a href="#47">47 softmax函数和交叉熵误差</a></li>
+                <li><a href="#47">47 softmax函数和交叉熵误差</a>
+                    <ul>
+                        <li><a href="#47.1">47.1 用于切片操作的函数</a></li>
+                        <li><a href="#47.2">47.2 softmax函数</a></li>
+                        <li><a href="#47.3">47.3 交叉熵误差</a></li>
+                    </ul>
+                </li>
                 <li><a href="#48">48 多分类</a></li>
                 <li><a href="#49">49 Dataset类和预处理</a></li>
                 <li><a href="#50">50 用于取出小批量数据的DataLoader</a></li>
@@ -363,14 +369,18 @@
             </ul>
         </aside>
         <nav>
-            20240505:苹果农场优化<br>
+            <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:苹果农场优化<br>            
             在前面的学习当中小熊用了Paramater和Layer,Model方法来对整个苹果筛选工艺进行了整理.<br>
             我们是通过手动调整参数的方式来优化这些工艺,为了方便以后可以自由的更换工艺,采购了一个机器人Optimizers后面简称Op来统一管理工艺参数调优.<br>
             机器人Op可以在网络上下载别人设置好的优化方案,也可以自己手动编写优化方案,只要是相同类型的机器都可以快速切换不同的优化方案,实现了快速调整机器参数优化方案的功能.<br>
             现在我们采用的都是传统的SGD随机梯度下降优化方案,有人提出了MomentumSGD动量随机梯度下降方案,在某些情况下拥有比SGD更好的优化效果.<br>
+            <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507-苹果分类问题:<br>
+            为了对不同区域苹果树品质进行区分,我们调用了Op机器人的新的损失函数,<strong>交叉熵误差</strong>,通过对苹果品质的统计得到概率,转换概率
+            使用的函数是<strong>softmax</strong>,使用<strong>get_item</strong>函数来对不同的树木组数据来切片对比分析,最后得到了不同区域不同切片组的
+            树木的苹果品质结果,针对性的对品质较差的树木进行重点改善提高品质<br>      
         </nav>
-        <header><h1>深度学习入门-自制框架</h1></header>
-        <article id="1"><h2>1 作为"箱子"的变量</h2>
+        <header><h1 class="header">深度学习入门-自制框架</h1></header>
+        <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
             <section id="1.1">1.1 什么是变量</section>
             <p></p>
             <section id="1.2">1.2 实现Variable类</section>
@@ -378,7 +388,7 @@
             <section id="1.3">1.3 (补充)NumPy的多维数组</section>
             <p></p>
         </article>
-        <article id="2"><h2>2 创建变量的函数</h2>
+        <article id="2"><h2 class="chapter">2 创建变量的函数</h2>
             <section id="2.1">2.1 什么是函数</section>
             <p></p>
             <section id="2.2">2.2 Function类的实现</section>
@@ -386,13 +396,13 @@
             <section id="2.3">2.3 使用功能Function类</section>
             <p></p>
         </article>
-        <article id="3"><h2>3 函数的连续调用</h2>
+        <article id="3"><h2 class="chapter">3 函数的连续调用</h2>
             <section id="3.1">3.1 Exp函数的实现</section>
             <p></p>
             <section id="3.2">3.2 函数的连续调用</section>
             <p></p>
         </article>
-        <article id="4"><h2>4 数值微分</h2>
+        <article id="4"><h2 class="chapter">4 数值微分</h2>
             <section id="4.1">4.1 什么是导数</section>
             <p></p>
             <section id="4.2">4.2 数值微分的实现</section>
@@ -402,7 +412,7 @@
             <section id="4.4">4.4 数值微分存在的问题</section>
             <p></p>
         </article>
-        <article id="5"><h2>5 反向传播的理论知识</h2>
+        <article id="5"><h2 class="chapter">5 反向传播的理论知识</h2>
             <section id="5.1">5.1 链式法则</section>
             <p></p>
             <section id="5.2">5.2 反向传播的推导</section>
@@ -410,7 +420,7 @@
             <section id="5.3">5.3 用计算图表示</section>
             <p></p>
         </article>
-        <article id="6"><h2>6 手动进行反向传播</h2>
+        <article id="6"><h2 class="chapter">6 手动进行反向传播</h2>
             <section id="6.1">6.1 Variable类的功能扩展</section>
             <p></p>
             <section id="6.2">6.2 Function类的功能扩展</section>
@@ -420,7 +430,7 @@
             <section id="6.4">6.4 反向传播的实现</section>
             <p></p>
         </article>
-        <article id="7"><h2>7 反向传播的自动化</h2>
+        <article id="7"><h2 class="chapter">7 反向传播的自动化</h2>
             <section id="7.1">7.1 为反向传播的自动化创造条件</section>
             <p></p>
             <section id="7.2">7.2 尝试反向传播</section>
@@ -428,7 +438,7 @@
             <section id="7.3">7.3 增加backward方法</section>
             <p></p>
         </article>
-        <article id="8"><h2>8 从递归到循环</h2>
+        <article id="8"><h2 class="chapter">8 从递归到循环</h2>
             <section id="8.1">8.1 现在的Variable类</section>
             <p></p>
             <section id="8.2">8.2 使用功能循环实现</section>
@@ -436,7 +446,7 @@
             <section id="8.3">8.3 代码验证</section>
             <p></p>
         </article>
-        <article id="9"><h2>9 让函数更容易</h2>
+        <article id="9"><h2 class="chapter">9 让函数更容易</h2>
             <section id="9.1">9.1 作为Python函数使用</section>
             <p></p>
             <section id="9.2">9.2 简化backward方法</section>
@@ -444,7 +454,7 @@
             <section id="9.3">9.3 只支持ndarray</section>
             <p></p>
         </article>
-        <article id="10"><h2>10 测试</h2>
+        <article id="10"><h2 class="chapter">10 测试</h2>
             <section id="10.1">10.1 Python的单元测试</section>
             <p></p>
             <section id="10.2">10.2 square函数反向传播的测试</section>
@@ -454,13 +464,13 @@
             <section id="10.4">10.4 测试小结</section>
             <p></p>
         </article>
-        <article id="11"><h2>11 可变长参数(正向传播篇)</h2>
+        <article id="11"><h2 class="chapter">11 可变长参数(正向传播篇)</h2>
             <section id="11.1">11.1 修改Function类</section>
             <p></p>
             <section id="11.1">11.2 Add类的实现</section>
             <p></p>
         </article>
-        <article id="12"><h2>12 可变长参数(改进篇)</h2>
+        <article id="12"><h2 class="chapter">12 可变长参数(改进篇)</h2>
             <section id="12.1">12.1 第1项改进:使函数更容易使用</section>
             <p></p>
             <section id="12.2">12.2 第2项改进:使函数更容易使用</section>
@@ -468,7 +478,7 @@
             <section id="12.3">12.3 add函数的实现</section>
             <p></p>
         </article>
-        <article id="13"><h2>13 可变长参数(反向传播篇)</h2>
+        <article id="13"><h2 class="chapter">13 可变长参数(反向传播篇)</h2>
             <section id="13.1">13.1 支持可变长参数的Add类的反向传播</section>
             <p></p>
             <section id="13.2">13.2 修改Variable类</section>
@@ -476,7 +486,7 @@
             <section id="13.3">13.3 Square类的实现</section>
             <p></p>
         </article>
-        <article id="14"><h2>14 重复使用同一个变量</h2>
+        <article id="14"><h2 class="chapter">14 重复使用同一个变量</h2>
             <section id="14.1">14.1 问题的原因</section>
             <p></p>
             <section id="14.2">14.2 解决方案</section>
@@ -484,7 +494,7 @@
             <section id="14.3">14.3 重置导数</section>
             <p></p>
         </article>
-        <article id="15"><h2>15 复杂的计算图(理论篇)</h2>
+        <article id="15"><h2 class="chapter">15 复杂的计算图(理论篇)</h2>
             <section id="15.1">15.1 反向传播的正确顺序</section>
             <p></p>
             <section id="15.2">15.2 当前的DeZero</section>
@@ -492,7 +502,7 @@
             <section id="15.3">15.3 函数的优先级</section>
             <p></p>
         </article>
-        <article id="16"><h2>16 复杂的计算图(实现篇)</h2>
+        <article id="16"><h2 class="chapter">16 复杂的计算图(实现篇)</h2>
             <section id="16.1">16.1 增加"辈分"变量</section>
             <p></p>
             <section id="16.2">16.2 按照"辈分"顺序取出元素</section>
@@ -502,7 +512,7 @@
             <section id="16.4">16.4 代码验证</section>
             <p></p>
         </article>
-        <article id="17"><h2>17 内存管理和循环引用</h2>
+        <article id="17"><h2 class="chapter">17 内存管理和循环引用</h2>
             <section id="17.1">17.1 内存管理</section>
             <p></p>
             <section id="17.2">17.2 引用计数方式的内存管理</section>
@@ -514,7 +524,7 @@
             <section id="17.5">17.5 代码验证</section>
             <p></p>
         </article>
-        <article id="18"><h2>18 减少内存使用量的模式</h2>
+        <article id="18"><h2 class="chapter">18 减少内存使用量的模式</h2>
             <section id="18.1">18.1 不保留不必要的导数</section>
             <p></p>
             <section id="18.2">18.2 回顾Function类</section>
@@ -526,7 +536,7 @@
             <section id="18.5">18.5 使用with语句切换</section>
             <p></p>
         </article>
-        <article id="19"><h2>19 让变量更容易</h2>
+        <article id="19"><h2 class="chapter">19 让变量更容易</h2>
             <section id="19.1">19.1 命名变量</section>
             <p></p>
             <section id="19.2">19.2 示例变量ndarray</section>
@@ -534,13 +544,13 @@
             <section id="19.3">19.3 len函数和print函数</section>
             <p></p>
         </article>
-        <article id="20"><h2>20 运算符重载(1)</h2>
+        <article id="20"><h2 class="chapter">20 运算符重载(1)</h2>
             <section id="20.1">20.1 Mul类的实现</section>
             <p></p>
             <section id="20.2">20.2 运算符重载</section>
             <p></p>
         </article>
-        <article id="21"><h2>21 运算符重载(2)</h2>
+        <article id="21"><h2 class="chapter">21 运算符重载(2)</h2>
             <section id="21.1">21.1 与ndarray一起使用</section>
             <p></p>
             <section id="21.2">21.2 与float和int一起使用</section>
@@ -550,7 +560,7 @@
             <section id="21.4">21.4 问题2:左项为ndarray实例的情况</section>
             <p></p>
         </article>
-        <article id="22"><h2>22 运算符重载(3)</h2>
+        <article id="22"><h2 class="chapter">22 运算符重载(3)</h2>
             <section id="22.1">22.1 负数</section>
             <p></p>
             <section id="22.2">22.2 减法</section>
@@ -560,7 +570,7 @@
             <section id="22.4">22.4 幂运算</section>
             <p></p>
         </article>
-        <article id="23"><h2>23 打包</h2>
+        <article id="23"><h2 class="chapter">23 打包</h2>
             <section id="23.1">23.1 文件结构</section>
             <p></p>
             <section id="23.2">23.2 将代码移到核心类</section>
@@ -572,7 +582,7 @@
             <section id="23.5">23.5 导入dezero</section>
             <p></p>
         </article>
-        <article id="24"><h2>24 复杂函数的求导</h2>
+        <article id="24"><h2 class="chapter">24 复杂函数的求导</h2>
             <section id="24.1">24.1 Sphere函数</section>
             <p></p>
             <section id="24.2">24.2 matyas函数</section>
@@ -580,7 +590,7 @@
             <section id="24.3">24.3 Goldstein-Price函数</section>
             <p></p>
         </article>
-        <article id="25"><h2>25 计算图的可视化(1)</h2>
+        <article id="25"><h2 class="chapter">25 计算图的可视化(1)</h2>
             <section id="25.1">25.1 安装Graphviz</section>
             <p></p>
             <section id="25.2">25.2 使用DOT语言描述图形</section>
@@ -590,7 +600,7 @@
             <section id="25.4">25.4 连接节点</section>
             <p></p>
         </article>
-        <article id="26"><h2>26 计算图的可视化(2)</h2>
+        <article id="26"><h2 class="chapter">26 计算图的可视化(2)</h2>
             <section id="26.1">26.1 可视化代码的使用示例</section>
             <p></p>
             <section id="26.2">26.2 从计算图转换为DOT语言</section>
@@ -600,7 +610,7 @@
             <section id="26.4">26.4 代码验证</section>
             <p></p>
         </article>
-        <article id="27"><h2>27 泰勒展开的导数</h2>
+        <article id="27"><h2 class="chapter">27 泰勒展开的导数</h2>
             <section id="27.1">27.1 sin函数的实现</section>
             <p></p>
             <section id="27.2">27.2 泰勒展开的理论知识</section>
@@ -610,7 +620,7 @@
             <section id="27.4">27.4 计算图的可视化</section>
             <p></p>
         </article>
-        <article id="28"><h2>28 函数优化</h2>
+        <article id="28"><h2 class="chapter">28 函数优化</h2>
             <section id="28.1">28.1 Rosenbrock函数</section>
             <p></p>
             <section id="28.2">28.2 求导</section>
@@ -618,13 +628,13 @@
             <section id="28.3">28.3 梯度下降法的实现</section>
             <p></p>
         </article>
-        <article id="29"><h2>29 使用牛顿法进行优化(手动计算)</h2>
+        <article id="29"><h2 class="chapter">29 使用牛顿法进行优化(手动计算)</h2>
             <section id="29.1">29.1 使用牛顿法进行优化的理论知识</section>
             <p></p>
             <section id="29.2">29.2 使用牛顿法实现优化</section>
             <p></p>
         </article>
-        <article id="30"><h2>30 高阶导数(准备篇)</h2>
+        <article id="30"><h2 class="chapter">30 高阶导数(准备篇)</h2>
             <section id="30.1">30.1 确认工作1:Variable实例变量</section>
             <p></p>
             <section id="30.2">30.2 确认工作2:Function类</section>
@@ -632,13 +642,13 @@
             <section id="30.3">30.3 确认工作3:Variable类的反向传播</section>
             <p></p>
         </article>
-        <article id="31"><h2>31 高阶导数(理论篇)</h2>
+        <article id="31"><h2 class="chapter">31 高阶导数(理论篇)</h2>
             <section id="31.1">31.1 在反向传播时进行的计算</section>
             <p></p>
             <section id="31.2">31.2 创建反向传播的计算图的方法</section>
             <p></p>
         </article>
-        <article id="32"><h2>32 高阶导数(实现篇)</h2>
+        <article id="32"><h2 class="chapter">32 高阶导数(实现篇)</h2>
             <section id="32.1">32.1 新的DeZero</section>
             <p></p>
             <section id="32.2">32.2 函数类的反向传播</section>
@@ -648,13 +658,13 @@
             <section id="32.4">32.4 修改__init__.py</section>
             <p></p>
         </article>
-        <article id="33"><h2>33 使用牛顿法进行优化(自动计算)</h2>
+        <article id="33"><h2 class="chapter">33 使用牛顿法进行优化(自动计算)</h2>
             <section id="33.1">33.1 求二阶导数</section>
             <p></p>
             <section id="33.2">33.2 使用牛顿法进行优化</section>
             <p></p>
         </article>
-        <article id="34"><h2>34 sin函数的高阶导数</h2>
+        <article id="34"><h2 class="chapter">34 sin函数的高阶导数</h2>
             <section id="34.1">34.1 sin函数的实现</section>
             <p></p>
             <section id="34.2">34.2 cos函数的实现</section>
@@ -662,7 +672,7 @@
             <section id="34.3">34.3 sin函数的高阶导数</section>
             <p></p>
         </article>
-        <article id="35"><h2>35 高阶导数的计算图</h2>
+        <article id="35"><h2 class="chapter">35 高阶导数的计算图</h2>
             <section id="35.1">35.1 tanh函数的导数</section>
             <p></p>
             <section id="35.2">35.2 tanh函数的实现</section>
@@ -670,13 +680,13 @@
             <section id="35.3">35.3 高阶导数的计算图可视化</section>
             <p></p>
         </article>
-        <article id="36"><h2>36 DeZero的其他用途</h2>
+        <article id="36"><h2 class="chapter">36 DeZero的其他用途</h2>
             <section id="36.1">36.1 double backprop的用途</section>
             <p></p>
             <section id="36.2">36.2 深度学习研究中的应用示例</section>
             <p></p>
         </article>
-        <article id="37"><h2>37 处理张量</h2>
+        <article id="37"><h2 class="chapter">37 处理张量</h2>
             <section id="37.1">37.1 对个元素进行计算</section>
             <p></p>
             <section id="37.2">37.2 使用张量时的反向传播</section>
@@ -684,7 +694,7 @@
             <section id="37.3">37.3 使用张量时的反向传播(补充内容)</section>
             <p></p>
         </article>
-        <article id="38"><h2>38 改变形状的函数</h2>
+        <article id="38"><h2 class="chapter">38 改变形状的函数</h2>
             <section id="38.1">38.1 reshape函数的实现</section>
             <p></p>
             <section id="38.2">38.2 从Variable对象调用reshape</section>
@@ -694,7 +704,7 @@
             <section id="38.4">38.4 实际的transpose函数(补充内容)</section>
             <p></p>
         </article>
-        <article id="39"><h2>39 求和的函数</h2>
+        <article id="39"><h2 class="chapter">39 求和的函数</h2>
             <section id="39.1">39.1 sum函数的反向传播</section>
             <p></p>
             <section id="39.2">39.2 sum函数的实现</section>
@@ -702,7 +712,7 @@
             <section id="39.3">39.3 axis和keepdims</section>
             <p></p>
         </article>
-        <article id="40"><h2>40 进行广播的函数</h2>
+        <article id="40"><h2 class="chapter">40 进行广播的函数</h2>
             <section id="40.1">40.1 broadcast_to函数和sum_to函数</section>
             <p></p>
             <section id="40.2">40.2 DeZero的broadcast_to函数和sum_to函数</section>
@@ -710,7 +720,7 @@
             <section id="40.3">40.3 支持广播</section>
             <p></p>
         </article>
-        <article id="41"><h2>41 矩阵的乘积</h2>
+        <article id="41"><h2 class="chapter">41 矩阵的乘积</h2>
             <section id="41.1">41.1 向量的内积和矩阵的乘积</section>
             <p></p>
             <section id="41.2">41.2 检查矩阵的形状</section>
@@ -718,7 +728,7 @@
             <section id="41.3">41.3 矩阵乘积的反向传播</section>
             <p></p>
         </article>
-        <article id="42"><h2>42 线性回归</h2>
+        <article id="42"><h2 class="chapter">42 线性回归</h2>
             <section id="42.1">42.1 玩具数据集</section>
             <p></p>
             <section id="42.2">42.2 线性回归的理论知识</section>
@@ -728,7 +738,7 @@
             <section id="42.4">42.4 DeZero的mean_squared_error函数(补充内容)</section>
             <p></p>
         </article>
-        <article id="43"><h2>43 神经网络</h2>
+        <article id="43"><h2 class="chapter">43 神经网络</h2>
             <section id="43.1">43.1 DeZero中的linear函数</section>
             <p></p>
             <section id="43.2">43.2 非线性数据集</section>
@@ -738,7 +748,7 @@
             <section id="43.4">43.4 神经网络的实现</section>
             <p></p>
         </article>
-        <article id="44"><h2>44 汇总参数的层</h2>
+        <article id="44"><h2 class="chapter">44 汇总参数的层</h2>
             <section id="44.1">44.1 Parameter类的实现</section>
             <p></p>
             <section id="44.2">44.2 Layer类的实现</section>
@@ -748,7 +758,7 @@
             <section id="44.4">44.4 使用Layer实现神经网络</section>
             <p></p>
         </article>
-        <article id="45"><h2>45 汇总层的层</h2>
+        <article id="45"><h2 class="chapter">45 汇总层的层</h2>
             <section id="45.1">45.1 扩展Layer类</section>
             <p></p>
             <section id="45.2">45.2 Model类</section>
@@ -758,13 +768,13 @@
             <section id="45.4">45.4 MLP类</section>
             <p></p>
         </article>
-        <article id="46"><h2>46 通过Optimizer更新参数</h2>
-            <p class="timeStamp">20240505开始</p>
+        <article id="46"><h2 class="chapter">46 通过Optimizer更新参数</h2>
+            <p class="timeStamp" id="20240505">20240505开始</p>
             <p>
                 <strong>前言</strong><br>
                 我们前面都是使用的梯度下降方法(SGD)来更新参数.在深度学习领域还有各种优化方法,在这一节我们将参数更新工作的代码模块化,方便后期轻松更换优化方法.<br>
             </p>
-            <section id="46.1">46.1 Optimizer类</section>
+            <section id="46.1" class="section">46.1 Optimizer类</section>
             <p>
                 把参数更新的基础类实现为Optimizer类.具体的优化类需要继承并实现它的抽象方法update_one.
                 <figure>
@@ -777,7 +787,7 @@
                     </p>
                 </figure>
             </p>
-            <section id="46.2">46.2 SGD类的实现</section>
+            <section id="46.2"  class="section">46.2 SGD类的实现</section>
             <p>
                 SGD是Stochastic Gradient Descent的缩写--随机梯度下降法.<br>
                 随机指的是从对象数据中随机选择数据实施梯度下降法.<br>
@@ -789,7 +799,7 @@
                     </p>
                 </figure>
             </p>
-            <section id="46.3">46.3 使用SGD类来解决问题</section>
+            <section id="46.3"  class="section">46.3 使用SGD类来解决问题</section>
             <p>
                 现在使用我们准备好的SGD类来解决问题<br>
                 <figure>
@@ -799,7 +809,7 @@
                     </p>
                 </figure>
             </p>
-            <section id="46.4">46.4 SGD以外的优化方法</section>
+            <section id="46.4"  class="section">46.4 SGD以外的优化方法</section>
             <p>
                 基于梯度的优化方法有很多,比较代表的有Momentum,AdaGrad,AdaDelata,Adam等.<br>
                 <figure>
@@ -819,61 +829,116 @@
                     </p>
                 </figure>
             </p>
-            <p class="timeStamp">20240505结束</p>
         </article>
-        <article id="47"><h2>47 softmax函数和交叉熵误差</h2>
-            <section id="47.1">1.1 安装基础软件</section>
-            <p></p>
+        <article id="47"><h2 class="chapter">47 softmax函数和交叉熵误差</h2>
+            <p class="timeStamp" id="20240507">20240507开始</p>
+            <p>
+                我们现在需要处理多分类问题-将数据分类为多个值的问题.<br>
+            </p>
+            <section id="47.1" class="section">47.1 用于切片操作的函数
+                <p>
+                    <figure>
+                        <img src="Resources/img/47-1-01-切片函数get_item.png" alt="切片函数get_item">
+                        <p>
+                            切片函数的实现,需要理解的是反向传播切片只是单纯的传递导数值<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/47-1-02-调用.png" alt="调用">
+                        <p>
+                            也可以使用get_item函数多次提取同一组元素,可以通过定义Variable.__getitem__=F.get_item让Variable也可以调用,原本的切片操作x[1]会调用我们准的这个函数了<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/47-1-03-计算图示例.png" alt="计算图示例">
+                        <p>
+                            注意反向传播先填0,然后再把指定切片的导数传递(1)<br>
+                        </p>
+                    </figure>
+                </p>
+            </section>
+            <section id="47.2" class="section">47.2 softmax函数
+                <p>
+                    <figure>
+                        <img src="Resources/img/47-2-01-softmax函数.png" alt="softmax函数">
+                        <p>
+                            softmax函数将值转换成概率<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/47-2-02-代码实现.png" alt="代码实现">
+                        <p>
+                            代码实现,后面可以调用这个函数来将输出值转换成概率了<br>
+                        </p>
+                    </figure>
+                </p>
+            </section>
+            <section id="47.3" class="section">47.3 交叉熵误差
+                <p>
+                    <figure>
+                        <img src="Resources/img/47-3-01-交叉熵误差.png" alt="交叉熵误差">
+                        <p>
+                            在线性回归中我们使用均方误差作为损失函数,多分类的时候使用功能的损失函数就是交叉熵误差.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/47-3-02-代码实现.png" alt="代码实现">
+                        <p>
+                            代码实现,其中clip函数也是额外实现的,作用是控制p不要超出指定的范围<br>
+                        </p>
+                    </figure>
+                </p>
+            </section>
         </article>
-        <article id="48"><h2>48 多分类</h2>
+        <article id="48"><h2 class="section">48 多分类</h2>
             <section id="48.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="49"><h2>49 Dataset类和预处理</h2>
+        <article id="49"><h2 class="section">49 Dataset类和预处理</h2>
             <section id="49.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="50"><h2>50 用于取出小批量数据的DataLoader</h2>
+        <article id="50"><h2 class="section">50 用于取出小批量数据的DataLoader</h2>
             <section id="50.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="51"><h2>51 MINST的训练</h2>
+        <article id="51"><h2 class="section">51 MINST的训练</h2>
             <section id="51.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="52"><h2>52 支持GPU</h2>
+        <article id="52"><h2 class="section">52 支持GPU</h2>
             <section id="52.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="53"><h2>53 模型的保存和加载</h2>
+        <article id="53"><h2 class="section">53 模型的保存和加载</h2>
             <section id="53.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="54"><h2>54 Dropout和测试模式</h2>
+        <article id="54"><h2 class="section">54 Dropout和测试模式</h2>
             <section id="54.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="55"><h2>55 CNN的机制(1)</h2>
+        <article id="55"><h2 class="section">55 CNN的机制(1)</h2>
             <section id="55.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="56"><h2>56 CNN的机制(2)</h2>
+        <article id="56"><h2 class="section">56 CNN的机制(2)</h2>
             <section id="56.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="57"><h2>57 conv2d函数和pooling函数</h2>
+        <article id="57"><h2 class="section">57 conv2d函数和pooling函数</h2>
             <section id="57.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="58"><h2>58 具有代表性的CNN(VGG16)</h2>
+        <article id="58"><h2 class="section">58 具有代表性的CNN(VGG16)</h2>
             <section id="58.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="59"><h2>59 使用RNN处理时间序列数据</h2>
+        <article id="59"><h2 class="section">59 使用RNN处理时间序列数据</h2>
             <section id="59.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="60"><h2>60 LSTM与数据加载器</h2>
+        <article id="60"><h2 class="section">60 LSTM与数据加载器</h2>
             <section id="60.1">1.1 安装基础软件</section>
             <p></p>
         </article>

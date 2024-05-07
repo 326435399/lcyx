@@ -148,13 +148,17 @@
             </ul>
         </aside>
         <nav>
-            20240505:ECS系统<br>
+            <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:ECS系统<br>           
             小熊在游戏当中创建了一只军队,现在每个小队都自由控制所有的装备和作战,这导致了战斗力及其低下,为了加强军队的战斗力引入了ECS系统.<br>
             把相同的武器装备全部集中在了一起,这些武器就是组件Component,所有的武器统一在武器库管理,这个武器库就是实体Entities.<br>
             最后所有的士兵统一接受指挥部(Job System)的调度,每个士兵的任务Job同步执行,这样就极大的提高了军队的战斗力.<br>
+            <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507:ECS的实现1<br>
+            我们首先使用<strong>创作模式</strong>生产所有的武器,然后准备<strong>实体组件结构体</strong>仓库规划来对这些武器分门别类,
+            按照不同的<strong>Archetype原型 </strong>武器种类作为分类依据,每个武器种类由一个一个的<strong>Chunk簇</strong>(一套这个类型武器)组成,
+            最后统一交由武器管理部<strong>System系统</strong>控制来控制存储和支取武器,支取的方式是先找对应原型,然后遍历每个簇来获得想要的指定武器<br>         
         </nav>
-        <header><h1>Untiy3D游戏开发</h1></header>
-        <article id="1"><h2>1 基础知识</h2>
+        <header><p class="header">Untiy3D游戏开发</p></header>
+        <article id="1"><p class="chapter">1 基础知识</p>
             <section id="1.1">1.1 Unity简介</section><p></p>
             <section id="1.2">1.2 跨平台</section><p></p>
             <section id="1.3">1.3 协作开发</section><p></p>
@@ -163,7 +167,7 @@
             <section id="1.6">1.6 示例项目与发布</section><p></p>
             <section id="1.7">1.7 Unity服务</section><p></p>
         </article>
-        <article id="2"><h2>2 编辑器的结构</h2>
+        <article id="2"><p class="chapter">2 编辑器的结构</p>
             <section id="2.1">2.1 UnityHub</section><p></p>
             <section id="2.2">2.2 编辑器布局</section><p></p>
             <section id="2.3">2.3 Project视图</section><p></p>
@@ -173,7 +177,7 @@
             <section id="2.7">2.7 Game视图</section><p></p>
             <section id="2.8">2.8 导航栏视图</section><p></p>
         </article>
-        <article id="3"><h2>3 游戏脚本</h2>
+        <article id="3"><p class="chapter">3 游戏脚本</p>
             <section id="3.1">3.1 C#运行时</section><p></p>
             <section id="3.2">3.2 C#与引擎交互</section><p></p>
             <section id="3.3">3.3 游戏对象</section><p></p>
@@ -186,14 +190,14 @@
             <section id="3.10">3.10 协程任务</section><p></p>
             <section id="3.11">3.11 通过脚本操作对象和组件</section><p></p>
         </article>
-        <article id="4"><h2>4 UGUI</h2>
+        <article id="4"><p class="chapter">4 UGUI</p>
             <section id="4.1">4.1 游戏界面</section><p></p>
             <section id="4.2">4.2 界面布局</section><p></p>
             <section id="4.3">4.3 Canvas组件</section><p></p>
             <section id="4.4">4.4 Atlas</section><p></p>
             <section id="4.5">4.5 事件系统</section><p></p>
         </article>
-        <article id="5"><h2>5 UI Toolkit</h2>
+        <article id="5"><p class="chapter">5 UI Toolkit</p>
             <section id="5.1">5.1 UI Toolkit简介</section><p></p>
             <section id="5.2">5.2 UI Builder编辑器</section><p></p>
             <section id="5.3">5.3 UI组件</section><p></p>
@@ -202,7 +206,7 @@
             <section id="5.6">5.6 UI Toolkit渲染</section><p></p>
             <section id="5.7">5.7 UI Toolkit学习资料</section><p></p>
         </article>
-        <article id="6"><h2>6 2D游戏开发</h2>
+        <article id="6"><p class="chapter">6 2D游戏开发</p>
             <section id="6.1">6.1 Sprite Renderer组件</section><p></p>
             <section id="6.2">6.2 Tile地图</section><p></p>
             <section id="6.3">6.3 2D物理系统</section><p></p>
@@ -210,7 +214,7 @@
             <section id="6.5">6.5 精灵形状</section><p></p>
             <section id="6.6">6.6 精灵编辑器</section><p></p>
         </article>
-        <article id="7"><h2>7 3D游戏开发</h2>
+        <article id="7"><p class="chapter">7 3D游戏开发</p>
             <section id="7.1">7.1 Renderer</section><p></p>
             <section id="7.2">7.2 游戏对象和资源</section><p></p>
             <section id="7.3">7.3 动画系统</section><p></p>
@@ -218,14 +222,14 @@
             <section id="7.5">7.5 输入系统</section><p></p>
             <section id="7.6">7.6 Transform组件</section><p></p>
         </article>
-        <article id="8"><h2>8 静态对象</h2>
+        <article id="8"><p class="chapter">8 静态对象</p>
             <section id="8.1">8.1 光照贴图</section><p></p>
             <section id="8.2">8.2 反射探针</section><p></p>
             <section id="8.3">8.3 遮挡剔除</section><p></p>
             <section id="8.4">8.4 静态合批</section><p></p>
             <section id="8.5">8.5 导航网格</section><p></p>
         </article>
-        <article id="9"><h2>9 持久化数据</h2>
+        <article id="9"><p class="chapter">9 持久化数据</p>
             <section id="9.1">9.1 Excel</section><p></p>
             <section id="9.2">9.2 SQLite</section><p></p>
             <section id="9.3">9.3 JSON</section><p></p>
@@ -234,24 +238,24 @@
             <section id="9.6">9.6 YAML</section><p></p>
             <section id="9.7">9.7 生成代码</section><p></p>
         </article>
-        <article id="10"><h2>10 多媒体</h2>
+        <article id="10"><p class="chapter">10 多媒体</p>
             <section id="10.1">10.1 音频</section><p></p>
             <section id="10.2">10.2 视频</section><p></p>
         </article>
-        <article id="11"><h2>11 Netcode与网络编程</h2>
+        <article id="11"><p class="chapter">11 Netcode与网络编程</p>
             <section id="11.1">11.1 UnityWebRequest</section><p></p>
             <section id="11.2">11.2 Socket</section><p></p>
             <section id="11.3">11.3 Netcode</section><p></p>
         </article>
-        <article id="12"><h2>12 渲染管线</h2>
+        <article id="12"><p class="chapter">12 渲染管线</p>
             <section id="12.1">12.1 SRP</section><p></p>
             <section id="12.2">12.2 URP</section><p></p>
             <section id="12.3">12.3 SRP Batch</section><p></p>
             <section id="12.4">12.4 渲染技术</section><p></p>
             <section id="12.5">12.5 自定义渲染管线</section><p></p>
         </article>
-        <article id="13"><h2>13 DOTS1.0</h2>
-            <p class="timeStamp">20240505开始</p>
+        <article id="13"><p class="chapter">13 DOTS1.0</p>
+            <p class="timeStamp" id="20240505">20240505学习</p>
             <section id="13.1">13.1 DOTS的组成</section>
             <p>
                 DOTS的全称是Data-Oriented Tech Stack多线程式数据导向型技术栈,原理是充分利用CPU多核处理器,让游戏处理的速度更快,更高效.<br>
@@ -322,32 +326,115 @@
                     
                 </p>               
             </p>
-            <p class="timeStamp">20240505结束</p>
+            
 
-            <section id="13.2">13.2 游戏对象转到ECS</section><p></p>
+            <section id="13.2">
+                <p class="timeStamp" id="20240507">20240507学习</p>
+                <p class="section">13.2 游戏对象转到ECS</p>                
+                <div>
+                    <p class="paragraph">13.2.1 传统的对象与组件</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/13-2-1-1-传统组件方式.png" alt="传统组件方式">
+                            <p>
+                                传统情况每个游戏对象就是一个容器,可以通过组合的方式不断给对象添加更多的功能,通过组合的方式产生不同的游戏对象<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">13.2.2 Entity(实体)</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/13-2-2-1-实体组件方式.png" alt="实体组件方式">
+                            <p>
+                                实体组件则只能保存数据,是一个结构体,值类型数据,不提供任何的逻辑,这样组件和组件之间完全不存在耦合,统一通过System来驱动.由于实体组件在内存中会尽可能地将相同组件排列在一起,所以缓存命中率会非常高,CPU的高速缓存也能用上,遍历速度非常快.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">13.2.3 Archetype(原型)</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/13-2-3-1-Archetype.png" alt="Archetype">
+                            <p>
+                                实体对象可以任意绑定实体组件,反正只是数据.会把有相同组件的对象创建一组原型Archetype<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/13-2-3-2-chunk.png" alt="chunk">
+                            <p>
+                                原型里面由若干簇Chunk数组组成,每个簇16KB大小,相同的组件会以数组的形式保存在一起,例如我们可以通过遍历每个Chunk,然后找个每个position修改数据就可以统一修改position,需要注意的是怎么给对象分组(不同原型)<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">13.2.4 Component(组件)</p>
+                    <p>
+                        实体组件需要继承IComponentData接口,但本身是一个struct对象,无法在编辑模式下使用.<br>
+                        所以我们需要两类对象,一类是创作对象,使用传统游戏对象方式开发,在运行游戏时转换成ECS的方式运行,另一类是程序对象,本身是运行时动态生成的.<br>
+                        <figure>
+                            <img src="Resources/img/13-2-4-1-SubScene.png" alt="SubScene">
+                            <p>
+                                创建一个子场景,右侧的勾如果勾选就会子场景里面的对象还是安装传统的情况制作,取消勾选会转换成ECS方式运行<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/13-2-4-2-创作模式脚本.png" alt="创作模式脚本">
+                            <p>
+                                准备传统脚本,实体组件和转换器<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/13-2-4-3-创作模式下.png" alt="创作模式下">
+                            <p>
+                                在创作者模式下,依然还是传统的方式使用功能脚本,构建逻辑<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/13-2-4-4-ECS模式.png" alt="ECS模式">
+                            <p>
+                                取消勾选,就会自动转换成ECS数据结构(通过我们准的Baker方法转换)<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">13.2.5 System(系统)</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/13-2-5-1-System系统.png" alt="System系统">
+                            <p>
+                                统一通过System系统来控制,通过遍历来找<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/13-2-5-2-System结果.gif" alt="System结果">
+                            <p>
+                                实现的结果,标记了我们脚本的被放到一个原型了,然后我们遍历就找到所有的数据然后操作就可以了,方块没有标记,所以没有移动<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
+
             <section id="13.3">13.3 实体组件</section><p></p>
             <section id="13.4">13.4 系统</section><p></p>
             <section id="13.5">13.5 Job</section><p></p>
             <section id="13.6">13.6 Burst</section><p></p>
             <section id="13.7">13.7 渲染</section><p></p>
         </article>
-        <article id="14"><h2>14 扩展编辑器</h2>
+        <article id="14"><p class="chapter">14 扩展编辑器</p>
             <section id="14.1"></section>
             <p></p>
         </article>
-        <article id="15"><h2>15 资源管理</h2>
+        <article id="15"><p class="chapter">15 资源管理</p>
             <section id="15.1"></section>
             <p></p>
         </article>
-        <article id="16"><h2>16 自动化与打包</h2>
+        <article id="16"><p class="chapter">16 自动化与打包</p>
             <section id="16.1"></section>
             <p></p>
         </article>
-        <article id="17"><h2>17 代码优化</h2>
+        <article id="17"><p class="chapter">17 代码优化</p>
             <section id="17.1"></section>
             <p></p>
         </article>
-        <article id="18"><h2>18 通用案例与优化</h2>
+        <article id="18"><p class="chapter">18 通用案例与优化</p>
             <section id="18.1"></section>
             <p></p>
         </article>

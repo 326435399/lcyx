@@ -11,20 +11,27 @@
 }
 
 /* 设定除了这三个类以外的字体都统一 */
-*:not(.chapter):not(.section):not(.paragraph) 
+*:not(.chapter):not(.section):not(.paragraph):not(.header)
 {
     font-size: 12pt;
     font-family: 思源臻宋,Arial,Verdana,sans-serif;
-    line-height: 14pt;    
+    line-height: 14pt;   
 }
 
-/* 三个特殊的类,chapter对应章,section对应节,paragraph对应段 */
-.chapter
+/* 四个特殊的类,header对应书本名,chapter对应章,section对应节,paragraph对应段 */
+.header
 {
     font-size: 20pt;
     line-height: 22pt;
     font-weight:bold;
     text-align: center;
+}
+.chapter
+{
+    font-size: 18pt;
+    line-height: 20pt;
+    font-weight:bold;
+    text-align: left;
 }
 
 .section
@@ -101,7 +108,7 @@ nav li,aside li
 /* 图片和视频设置 */
 img 
 {
-    width: 512pt;
+    width: 60%;
     height: auto;
 }
 
@@ -120,8 +127,8 @@ figure p
     line-height: 16pt;
     font-weight:lighter;
     text-align: center;
-    width: 80%;
-    padding: 0% 10%;
+    width: 60%;
+    padding: 0% 20%;
 }
 figure li
 {
@@ -171,6 +178,5 @@ a:focus,a:active
 
 p.timeStamp
 {
-    color: red;
-    border: 1pt solid black;
+    border-bottom: 1pt solid red;
 }

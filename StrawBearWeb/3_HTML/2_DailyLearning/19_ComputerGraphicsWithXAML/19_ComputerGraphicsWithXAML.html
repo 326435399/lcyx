@@ -111,158 +111,225 @@
             </ul>
         </aside>
         <nav>
-            计划是要写小故事的:
+            <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507:球体纹理<br>
+            生产的球体因为颜色比较单一看起来并不真实,为了提高场景的真实性,我们引入了<strong>纹理映射</strong>来给地面贴上了草地的纹理,
+            然后给了一个HDR天空球纹理,让天空也变得真实起来,最后为了让光照看起来更加自然,引入了<strong>Phong光照模型</strong>,它把物体表面的光照简化成
+            <strong>环境光+漫反射光+镜面反射光</strong>. 环境光直接采用了Unity提供的球谐光照,漫反射通过Lambert余弦计算,
+            镜面反射采用phong模型,最后得到了自然的光照效果,球面上反射着地面的青草颜色和泥土的褐色<br>
         </nav>
-        <header><h1>计算机图形学原理与实践-XAML</h1></header>
-        <article id="1"><h2>1 绪论</h2>
-            <section id="1.1">1.1 计算机图形学简介</section><p></p>
-            <section id="1.2">1.2 简要历史</section><p></p>
-            <section id="1.3">1.3 一个光照的例子</section><p></p>
-            <section id="1.4">1.4 目标,资源和适度的抽象</section><p></p>
-            <section id="1.5">1.5 图形学中的常数和一些参数值的量级</section><p></p>
-            <section id="1.6">1.6 图形管线</section><p></p>
-            <section id="1.7">1.7 图形学与艺术,设计,感知的关系</section><p></p>
-            <section id="1.8">1.8 基本图形系统</section><p></p>
-            <section id="1.9">1.9 视为黑盒的多边形绘制</section><p></p>
-            <section id="1.10">1.10 图形系统中的交互</section><p></p>
-            <section id="1.11">1.11 不同类型的图形应用</section><p></p>
-            <section id="1.12">1.12 不同类型的图形包</section><p></p>
-            <section id="1.13">1.13 构建真实感绘制模块:概述</section><p></p>
-            <section id="1.14">1.14 学习计算机图形学</section><p></p>
+        <header><p class="header">计算机图形学原理与实践-XAML</p></header>
+        <article id="1"><p class="chapter">1 绪论</p>
+            <section id="1.1"><p class="section">1.1 计算机图形学简介</p></section>
+            <section id="1.2"><p class="section">1.2 简要历史</p></section>
+            <section id="1.3"><p class="section">1.3 一个光照的例子</p></section>
+            <section id="1.4"><p class="section">1.4 目标,资源和适度的抽象</p></section>
+            <section id="1.5"><p class="section">1.5 图形学中的常数和一些参数值的量级</p></section>
+            <section id="1.6"><p class="section">1.6 图形管线</p></section>
+            <section id="1.7"><p class="section">1.7 图形学与艺术,设计,感知的关系</p></section>
+            <section id="1.8"><p class="section">1.8 基本图形系统</p></section>
+            <section id="1.9"><p class="section">1.9 视为黑盒的多边形绘制</p></section>
+            <section id="1.10"><p class="section">1.10 图形系统中的交互</p></section>
+            <section id="1.11"><p class="section">1.11 不同类型的图形应用</p></section>
+            <section id="1.12"><p class="section">1.12 不同类型的图形包</p></section>
+            <section id="1.13"><p class="section">1.13 构建真实感绘制模块:概述</p></section>
+            <section id="1.14"><p class="section">1.14 学习计算机图形学</p></section>
         </article>
-        <article id="2"><h2>2 2D图形学简介-基于WPF</h2>
-            <section id="2.1">2.1 引言</section><p></p>
-            <section id="2.2">2.2 2D图形流水线概述</section><p></p>
-            <section id="2.3">2.3 2D图形平台的演变</section><p></p>
-            <section id="2.4">2.4 使用WPF定义2D场景</section><p></p>
-            <section id="2.5">2.5 用WPF实现的2D图形动态显示</section><p></p>
-            <section id="2.6">2.6 支持各种形状系数</section><p></p>
+        <article id="2"><p class="chapter">2 2D图形学简介-基于WPF</p>
+            <section id="2.1"><p class="section">2.1 引言</p></section>
+            <section id="2.2"><p class="section">2.2 2D图形流水线概述</p></section>
+            <section id="2.3"><p class="section">2.3 2D图形平台的演变</p></section>
+            <section id="2.4"><p class="section">2.4 使用WPF定义2D场景</p></section>
+            <section id="2.5"><p class="section">2.5 用WPF实现的2D图形动态显示</p></section>
+            <section id="2.6"><p class="section">2.6 支持各种形状系数</p></section>
         </article>
-        <article id="3"><h2>3 一个古老的绘制器</h2>
-            <section id="3.1">3.1 一幅丟勒的木刻画</section><p></p>
-            <section id="3.2">3.2 可见性</section><p></p>
-            <section id="3.3">3.3 实现</section><p></p>
-            <section id="3.4">3.4 程序</section><p></p>
-            <section id="3.5">3.5 局限性</section><p></p>
+        <article id="3"><p class="chapter">3 一个古老的绘制器</p>
+            <section id="3.1"><p class="section">3.1 一幅丟勒的木刻画</p></section>
+            <section id="3.2"><p class="section">3.2 可见性</p></section>
+            <section id="3.3"><p class="section">3.3 实现</p></section>
+            <section id="3.4"><p class="section">3.4 程序</p></section>
+            <section id="3.5"><p class="section">3.5 局限性</p></section>
         </article>
-        <article id="4"><h2>4 2D图形测试平台</h2>
-            <section id="4.1">4.1 引言</section><p></p>
-            <section id="4.2">4.2 测试平台的细节</section><p></p>
-            <section id="4.3">4.3 C#代码</section><p></p>
-            <section id="4.4">4.4 动画</section><p></p>
-            <section id="4.5">4.5 交互</section><p></p>
-            <section id="4.6">4.6 测试平台的一个应用程序</section><p></p>
+        <article id="4"><p class="chapter">4 2D图形测试平台</p>
+            <section id="4.1"><p class="section">4.1 引言</p></section>
+            <section id="4.2"><p class="section">4.2 测试平台的细节</p></section>
+            <section id="4.3"><p class="section">4.3 C#代码</p></section>
+            <section id="4.4"><p class="section">4.4 动画</p></section>
+            <section id="4.5"><p class="section">4.5 交互</p></section>
+            <section id="4.6"><p class="section">4.6 测试平台的一个应用程序</p></section>
         </article>
-        <article id="5"><h2>5 人类视觉感知简介</h2>
-            <section id="5.1">5.1 引言</section><p></p>
-            <section id="5.2">5.2 视觉系统</section><p></p>
-            <section id="5.3">5.3 眼睛</section><p></p>
-            <section id="5.4">5.4 恒常性及其影响</section><p></p>
-            <section id="5.5">5.5 延续性</section><p></p>
-            <section id="5.6">5.6 阴影</section><p></p>
+        <article id="5"><p class="chapter">5 人类视觉感知简介</p>
+            <section id="5.1"><p class="section">5.1 引言</p></section>
+            <section id="5.2"><p class="section">5.2 视觉系统</p></section>
+            <section id="5.3"><p class="section">5.3 眼睛</p></section>
+            <section id="5.4"><p class="section">5.4 恒常性及其影响</p></section>
+            <section id="5.5"><p class="section">5.5 延续性</p></section>
+            <section id="5.6"><p class="section">5.6 阴影</p></section>
         </article>
-        <article id="6"><h2>6 固定功能的3D图形平台和层次建模简介</h2>
-            <section id="6.1">6.1 引言</section><p></p>
-            <section id="6.2">6.2 网格和光照属性</section><p></p>
-            <section id="6.3">6.3 曲面表示和绘制</section><p></p>
-            <section id="6.4">6.4 WPF中的表面纹理</section><p></p>
-            <section id="6.5">6.5 WPF反射模型</section><p></p>
-            <section id="6.6">6.6 基于场景图进行层次建模</section><p></p>
+        <article id="6"><p class="chapter">6 固定功能的3D图形平台和层次建模简介</p>
+            <section id="6.1"><p class="section">6.1 引言</p></section>
+            <section id="6.2"><p class="section">6.2 网格和光照属性</p></section>
+            <section id="6.3"><p class="section">6.3 曲面表示和绘制</p></section>
+
+            <p class="timeStamp" id="20240507">20240507学习</p>
+            <section id="6.4"><p class="section">6.4 WPF中的表面纹理</p>                                
+                <div>
+                    <p class="paragraph">引入</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-4-0-1-WPF的纹理映射.png" alt="WPF的纹理映射">
+                            <p>
+                                引入:什么是最有效的逼近真实的技巧?那肯定是纹理映射,纹理相当于一张可伸缩的接触式印相纸覆盖到物体的表面,我们需要确定物体上每个顶点对应到纹理的位置,其余位置则通过插值得到.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-4-0-2-WPF的纹理映射代码.png" alt="WPF的纹理映射代码">
+                            <p>
+                                1.指定漫反射材质笔刷;<br>
+                                2.指定模型的顶点和UV位置对应;<br>
+                                3.实例化模型对象;<br>
+                                结果是一个无限拉伸的纹理,依然是失真的,这就引出来两种拉伸策略<br>
+                            </p>
+                        </figure>
+                    </p>
+                    
+                    <p class="paragraph">6.4.1 基于分片拼接的纹理映射</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-4-1-1-拼贴纹理.png" alt="拼贴纹理">
+                            <p>
+                                需要时无缝贴图,通过重复铺贴实现的结果<br>
+                            </p>
+                        </figure>
+                    </p> 
+                    <p class="paragraph">6.4.2 基于拉伸的纹理映射</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-4-2-1-拉伸天空.png" alt="拉伸天空">
+                            <p>
+                                针对那些大块的纹理,往往会用合适的模型进行拉伸,这里采用的就是圆柱+拉伸纹理制作的天空<br>
+                            </p>
+                        </figure>
+                    </p> 
+                </div>
+            </section>
+            <section id="6.5"><p class="section">6.5 WPF反射模型</p>
+                <div>
+                    <p class="paragraph">6.5.1 颜色设置</p>
+                    <p>
+                        概念:颜色用来描述多个属性:光波的光谱分布,表面反射的不同波长光的数量以及人们观察该物体时的感知.<br>
+                        思考:在描述一个场景的时候,我们需要指定光源的颜色和物体本身的颜色<br>
+                    </p>
+                    <p class="paragraph">6.5.2 光源几何</p>
+                    <p>
+                        简化:WPF简化了光源,提供了两种光源,点光源和聚光灯,点光源均匀的球形发散衰减,聚光灯锥形衰减.<br>
+                    </p>
+                    <p class="paragraph">6.5.3 phong模型光照</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-4-3-1-phong模型.png" alt="phong模型">
+                            <p>
+                                采用了Phong光照模型:泛光+漫反射+镜面反射来近似光照效果<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
+            <section id="6.6"><p class="section">6.6 基于场景图进行层次建模</p></section>
         </article>
-        <article id="7"><h2>7 2D和3D空间职工的基础数学与几何</h2>
+        <article id="7"><p class="chapter">7 2D和3D空间职工的基础数学与几何</p>
             <section id="7.1"></section><p></p>
         </article>
-        <article id="8"><h2>8 2D和3D形状的简单表示</h2>
+        <article id="8"><p class="chapter">8 2D和3D形状的简单表示</p>
             <section id="8.1"></section><p></p>
         </article>
-        <article id="9"><h2>9 网格函数</h2>
+        <article id="9"><p class="chapter">9 网格函数</p>
             <section id="9.1"></section><p></p>
         </article>
-        <article id="10"><h2>10 2D变换</h2>
+        <article id="10"><p class="chapter">10 2D变换</p>
             <section id="10.1"></section><p></p>
         </article>
-        <article id="11"><h2>11 3D变换</h2>
+        <article id="11"><p class="chapter">11 3D变换</p>
             <section id="11.1"></section><p></p>
         </article>
-        <article id="12"><h2>12 2D和3D图形变换库</h2>
+        <article id="12"><p class="chapter">12 2D和3D图形变换库</p>
             <section id="12.1"></section><p></p>
         </article>
-        <article id="13"><h2>13 相机设定及变换</h2>
+        <article id="13"><p class="chapter">13 相机设定及变换</p>
             <section id="13.1"></section><p></p>
         </article>
-        <article id="14"><h2>14 标准化近似和表示</h2>
+        <article id="14"><p class="chapter">14 标准化近似和表示</p>
             <section id="14.1"></section><p></p>
         </article>
-        <article id="15"><h2>15 光线投射与光栅化</h2>
+        <article id="15"><p class="chapter">15 光线投射与光栅化</p>
             <section id="15.1"></section><p></p>
         </article>
-        <article id="16"><h2>16 实时3D图形平台综述</h2>
+        <article id="16"><p class="chapter">16 实时3D图形平台综述</p>
             <section id="16.1"></section><p></p>
         </article>
-        <article id="17"><h2>17 图像表示与操作</h2>
+        <article id="17"><p class="chapter">17 图像表示与操作</p>
             <section id="17.1"></section><p></p>
         </article>
-        <article id="18"><h2>18 图像和信号处理</h2>
+        <article id="18"><p class="chapter">18 图像和信号处理</p>
             <section id="18.1"></section><p></p>
         </article>
-        <article id="19"><h2>19 图像缩放</h2>
+        <article id="19"><p class="chapter">19 图像缩放</p>
             <section id="19.1"></section><p></p>
         </article>
-        <article id="20"><h2>20 纹理与纹理映射</h2>
+        <article id="20"><p class="chapter">20 纹理与纹理映射</p>
             <section id="20.1"></section><p></p>
         </article>
-        <article id="21"><h2>21 交互技术</h2>
+        <article id="21"><p class="chapter">21 交互技术</p>
             <section id="21.1"></section><p></p>
         </article>
-        <article id="22"><h2>22 样条曲线和细分曲线</h2>
+        <article id="22"><p class="chapter">22 样条曲线和细分曲线</p>
             <section id="22.1"></section><p></p>
         </article>
-        <article id="23"><h2>23 样条曲面和细分曲面</h2>
+        <article id="23"><p class="chapter">23 样条曲面和细分曲面</p>
             <section id="23.1"></section><p></p>
         </article>
-        <article id="24"><h2>24 形状的隐式表示</h2>
+        <article id="24"><p class="chapter">24 形状的隐式表示</p>
             <section id="24.1"></section><p></p>
         </article>
-        <article id="25"><h2>25 网格</h2>
+        <article id="25"><p class="chapter">25 网格</p>
             <section id="25.1"></section><p></p>
         </article>
-        <article id="26"><h2>26 光</h2>
+        <article id="26"><p class="chapter">26 光</p>
             <section id="26.1"></section><p></p>
         </article>
-        <article id="27"><h2>27 材质和散射</h2>
+        <article id="27"><p class="chapter">27 材质和散射</p>
             <section id="27.1"></section><p></p>
         </article>
-        <article id="28"><h2>28 颜色</h2>
+        <article id="28"><p class="chapter">28 颜色</p>
             <section id="28.1"></section><p></p>
         </article>
-        <article id="29"><h2>29 光线传播</h2>
+        <article id="29"><p class="chapter">29 光线传播</p>
             <section id="29.1"></section><p></p>
         </article>
-        <article id="30"><h2>30 概率和蒙特卡洛积分</h2>
+        <article id="30"><p class="chapter">30 概率和蒙特卡洛积分</p>
             <section id="30.1"></section><p></p>
         </article>
-        <article id="31"><h2>31 解绘制方程:理论方法</h2>
+        <article id="31"><p class="chapter">31 解绘制方程:理论方法</p>
             <section id="31.1"></section><p></p>
         </article>
-        <article id="32"><h2>32 绘制实践</h2>
+        <article id="32"><p class="chapter">32 绘制实践</p>
             <section id="32.1"></section><p></p>
         </article>
-        <article id="33"><h2>33 着色器</h2>
+        <article id="33"><p class="chapter">33 着色器</p>
             <section id="33.1"></section><p></p>
         </article>
-        <article id="34"><h2>34 表意式绘制</h2>
+        <article id="34"><p class="chapter">34 表意式绘制</p>
             <section id="34.1"></section><p></p>
         </article>
-        <article id="35"><h2>35 运动</h2>
+        <article id="35"><p class="chapter">35 运动</p>
             <section id="35.1"></section><p></p>
         </article>
-        <article id="36"><h2>36 可见性判定</h2>
+        <article id="36"><p class="chapter">36 可见性判定</p>
             <section id="36.1"></section><p></p>
         </article>
-        <article id="37"><h2>37 空间数据结构</h2>
+        <article id="37"><p class="chapter">37 空间数据结构</p>
             <section id="37.1"></section><p></p>
         </article>
-        <article id="38"><h2>38 现代图形硬件</h2>
+        <article id="38"><p class="chapter">38 现代图形硬件</p>
             <section id="38.1"></section><p></p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
