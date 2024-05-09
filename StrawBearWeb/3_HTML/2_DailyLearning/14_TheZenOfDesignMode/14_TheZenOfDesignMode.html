@@ -241,6 +241,7 @@
                 </li>
                 <li><a href="#32">32 行为类模式大PK</a>
                     <ul>
+                        <li><a href="#32.0">32.0 总览</a></li>
                         <li><a href="#32.1">32.1 命令模式VS策略模式</a></li>
                         <li><a href="#32.2">32.2 策略模式VS状态模式</a></li>
                         <li><a href="#32.3">32.3 观察者模式VS责任链模式</a></li>
@@ -282,6 +283,13 @@
             第一个版本是<strong>代理版本</strong>,服用丹药之后会出现绝对理智的代理神魂控制你的身体进行筑基操作,稳定高效,但是缺少了对于心智的磨砺<br>
             第二个版本是<strong>装饰版本</strong>,服用丹药之后会出现各种保护身体的灵力,保证身体不会奔溃,从而筑基,优点是得到了磨砺,但是很多人心理奔溃了依然会失败<br>
             第三个版本是<strong>适配器版本</strong>,服用丹药之后会自动根据当前需要能量传递灵气,确保稳定的筑基,缺点是如果根基较差则会筑基不够完美,导致后期升级困难<br>      
+            <a href="#20240509"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240509:守卫傀儡剑一<br> 
+            丹药素材耗尽了,需要出去购买,最近的百草园都有几万公里,小熊只好离家去买药去了,首先给家里的防卫傀儡剑一下达防卫<strong>命令</strong>进入防守<strong>状态</strong>,
+            访问者名单写在<strong>备忘录</strong>上,没有访问权限的<strong>访问者</strong>一律禁止进入.为了防止出现语言不通的问题,安装了语言<strong>解释器</strong>,
+            又设定了远程<strong>观察</strong>模式,这样只要一有异动就会报警发送更新信息到我的希卡石板上,为了防止碰到处理不了的问题,
+            又设置了<strong>责任链</strong>,当剑一解决不了会提交给青铜炉的灵体炉一处理,这些模块都是通过<strong>中介者</strong>购买的不同守卫<strong>策略</strong>模块,
+            为了以后得扩展性,还安装了<strong>迭代器</strong>模块,方便以后更新,安装了<strong>模板方法</strong>模块允许自定义模块.这样终于准备好了,可以出发去百草园了<br>
+
         </nav>
         <header class="header">设计模式之禅</header>
         <article id="1"><h2 class="chapter">1 单一职责原则</h2>
@@ -809,6 +817,132 @@
             </p>            
         </article>
         <article id="32"><h2>32 行为类模式大PK</h2>
+            <p class="timeStamp" id="20240509">20240509开始</p>
+            <section id="32.0">
+                <p class="section">32.0 总览</p>
+                <div>
+                    <p class="paragraph">1.封装变化</p>
+                    <p>
+                        策略模式Stategy:实现策略接口的都能用<br>                                                                  
+                        <figure>
+                            <img src="Resources/img/32-01-策略模式类图.png" alt="策略模式">
+                            <p>
+                                Define a family of algorithms,encapsulate each one,and make them interchangeable.<br>
+                                翻译:定义一组算法,将每个算法都封装起来,并且使它们之间可以互换.<br>
+                                Context通过变量引用实现Startegy接口的策略实现类.因为是通过接口引用的,所以所有符合接口的都可以方便的调用.<br>
+                            </p>
+                        </figure>
+                        <br> 
+                        状态模式State:用状态来封装不同的表现,自己维护一个状态类context<br> 
+                        <figure>
+                            <img src="Resources/img/32-02-状态模式类图.png" alt="状态模式">
+                            <p>
+                                Allow an objet to alter its behavior when its internal state changes.The object will appear to change its class.<br>
+                                翻译:当一个对象内在状态改变时允许其改变行为,这个对象看起来像改变了其类<br>
+                                Context通过变量引用继承State抽象类的状态实现类,通过切换不同的状态实现不同的行为,和策略模式相比不同之处<br>
+                                State当中定义了Context的存储方便子类来调用<br>
+                                ConcreteState当中定义了不同状态之间的切换<br>
+                                Context通过不同的状态实现不同的功能<br>
+                            </p>
+                        </figure>
+                        <br> 
+                        中介者模式Mediator:抽象同事类Colleage存了中介,所有具体同事类通过中介找其他人沟通<br> 
+                        <figure>
+                            <img src="Resources/img/32-03-中介者模式类图.png" alt="中介者模式">
+                            <p>
+                                Define an object that encapsulates how a set of objects interact.Mediator promotes loose coupling by keeping objects from referring to each other explicitly,and it lets you vary their interaction independently.<br>
+                                翻译:用一个中介者对象封装一系列的对象交互,中介者使各对象不需要显示地相互作用,从而使其松耦合,可以独立的改变它们之间的交互.<br>
+                                Mediator中介者抽象类,Colleague同事抽象类通过构造器知道中介者,所有同事之间的沟通都是通过唯一的具体中介对象ConcreteMediator<br>
+                            </p>
+                        </figure>
+                        <br> 
+                        迭代器模式Iterator:容器实现容器的添加删除元素和返回迭代器功能,迭代器实现遍历的功能<br> 
+                        <figure>
+                            <img src="Resources/img/32-04-迭代器模式类图.png" alt="迭代器模式">
+                            <p>
+                                Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.<br>
+                                翻译:提供一种方法访问一个容器对象中各个元素,而又不需要暴露该对象的内部细节.<br>
+                                ConcreteIterator迭代器对象通过抽象类Iterator规定的方法实现对于容器对象的遍历.<br>
+                                ConcreteAggregate聚合容器类则是在实现容器本身的添加删除元素等功能的基础上实现Aggregate抽象类定义的返回迭代器对象功能.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">2.传递对象作为参数</p>
+                    <p>
+                        访问者模式Visitor:通过访问者访问每一个对象<br>
+                        <figure>
+                            <img src="Resources/img/32-05-访问者模式类图.png" alt="访问者模式">
+                            <p>
+                                Represent an operation to be performed on the elements of an object structure.Vistor lets you define a new operation without changing the classes of the elements on which it operates.<br>
+                                翻译:封装一些作用域某种数据结构中的各元素的操作,它可以在不改变数据结构的前提下定义作用域这些元素的新的操作.<br>
+                                具体元素对象设置访问权限,引用访问者对象的访问方法来执行不同的操作.<br>
+                            </p>
+                        </figure>
+                        <br>
+                        备忘录模式Memento:通过管理员获得自己存档<br>
+                        <figure>
+                            <img src="Resources/img/32-06-备忘录模式类图.png" alt="备忘录模式">
+                            <p>
+                                Without violating encapsulation,capture adn externalize an object's internal state so that the object can be restored to this state later.<br>
+                                翻译:在不破坏封装的前提下,捕获一个对象的内部状态,并在该对象之外保存这个状态.这样之后就可以将该对象恢复到原先保存的状态.<br>
+                                Originator发起人自己创建Memento备忘录对象,管理员Caretaker存储,保管,提供备忘录对象<br>
+                            </p>
+                        </figure>
+                        <br>
+                        命令模式Command:通过命令类来访问具体执行者对象<br>
+                        <figure>
+                            <img src="Resources/img/32-07-命令模式类图.png" alt="命令模式">
+                            <p>
+                                Encapsulate a request as an object,thereby letting you parameterize clients with different requests,queue or log requests,and support undoable operations.<br>
+                                翻译:将一个请求封装成一个对象,从而让你使用不同的请求把客户端参数化,对请求排队或者记录请求日志,可以提供命令的撤销和恢复功能.<br>
+                                Invoker执行者持有ConcreteCommand命令对象,命令对象持有Receiver具体执行者,执行具体的逻辑<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">3.其他</p>
+                    <p>
+                        责任链模式Chain:递归定义一系列不同级别的责任人来处理某个事情<br>                     
+                        <figure>
+                            <img src="Resources/img/32-08-责任链模式.png" alt="责任链模式">
+                            <p>
+                                Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.Chain the receiving objects and pass the request along the chain until an object handles it.<br>                                翻译:使多个对象都有机会处理请求,从而避免了请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,只掉有对象处理它为止.
+                                Handler执行者完成两件事,定义自己能够处理的等级,然后处理,然后设置下一个执行者<br>
+                            </p>
+                        </figure>
+                        <br>
+                        解释器模式Interpreter:对不同的字符分别进行不同解释来执行(需要有固定模式)<br>
+                        <figure>
+                            <img src="Resources/img/32-09-解释器模式.png" alt="解释器模式">
+                            <p>
+                                Given a language,define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.<br>
+                                翻译:给定一门语言,定义它的文法的一种表示,并定义一个解释器,该解释器使用该表示来解释语言中的句子.<br>
+                                TerminalExpression终结符表达式负责处理多个NoneterminalExpression非终结符表达式之间的关系,类比成算术就是,终结符是+-*/等运算,非终结符就是数字,这个模式通过一个一个拆解一个一个分析字符来处理.<br>
+                            </p>
+                        </figure>
+                        <br>
+                        观察者模式Observer:设置观察者列表来实现更新通知<br>
+                        <figure>
+                            <img src="Resources/img/32-10-观察者模式.png" alt="观察者模式">
+                            <p>
+                                Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically.<br>
+                                翻译:定义对象间一种一对多的依赖关系,使得每当一个对象改变状态,则所有依赖于它的对象都会得到通知并被自动更新.<br>
+                                Subject主题对象持有Observer观察者列表,可以添加删除列表中的观察者对象,当自身改变的时候可以通知所有的观察者,而观察者则是被通知后就更新<br>
+                            </p>
+                        </figure>
+                        <br>
+                        模板方法模式TemplateMethod:父类定义框架,子类实现具体执行<br>
+                        <figure>
+                            <img src="Resources/img/32-11-模板方法模式.png" alt="模板方法模式">
+                            <p>
+                                定义:Define the skeleton of an algorithm in an operation,deferring some steps to subclasses.Template Method lets subclasses redefine certain seteps of an algorithm without changing the algorithm's structure.<br>
+                                翻译:定义一个操作中的算法框架,将一些步骤延迟到子类中,使得子类可以不改变一个算法的结构既可以重定义该算法的某些特定步骤.<br>
+                                在抽象类当中定义框架(模板方法),框架中的方法(基本方法)则抽象延迟到子类实现.<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+
+            </section><p></p>
             <section id="32.1">32.1 命令模式VS策略模式</section><p></p>
             <section id="32.2">32.2 策略模式VS状态模式</section><p></p>
             <section id="32.3">32.3 观察者模式VS责任链模式</section><p></p>

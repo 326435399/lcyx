@@ -56,7 +56,10 @@
             拥有这个能力的他还有两个死对头,鹅先生(2)和红旗先生(4),鹅先生的能力是让任何指数都不断按照0.7衰减,红旗先生的能力是让任何指数都按照1.4增加,他们三个并称为指数三杰<br>
             <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507:E先生的来历<br>
             我们找寻E先生的过往,据闻首先是为了求鹅先生2的x次方的导数,导数等于?*2<sup>x</sup>,我们把这个?命名成转换器M(a),经过计算得到M(2)约等于0.7,M(4)约等于1.4
-            ,而E先生就是其中的一个非常特殊的情况,<strong>M(e)=1</strong>,这意味着它的导数等于自身,这个独特的值也被叫做欧拉数<br>           
+            ,而E先生就是其中的一个非常特殊的情况,<strong>M(e)=1</strong>,这意味着它的导数等于自身,这个独特的值也被叫做欧拉数<br>
+            <a href="#20240509"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240509:E女士-自然对数<br>
+            E女士和E先生相反,她们来自<strong>对数</strong>学院,教学的对数刚好是指数的反过程,一个物体x经过E先生转换成e<sup>x</sup>,然后经过E女士的log<sub>e</sub>e<sup>x</sup>重新又变回了x,
+            不同于E先生的导数是自己,E女士的导数是X的倒数也就是1/x.<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -249,9 +252,82 @@
                     </figure>
                 </p>
             </section>
-            
-            <section id="3.8">3.8 Logarithms 对数</section>
-            <p></p>
+
+            <p class="timeStamp" id="20240509">20240509自然对数学习</p>
+            <section id="3.8"><p class="section">3.8 Logarithms 对数</p>
+                <div>
+                    <p class="paragraph">1. Motivation 动机</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-1-1酸度.png" alt="1酸度">
+                            <p>
+                                对数对于真实世界现象建模很有用,例如:声音,用分贝测量,地震强度,用里式震级;水的酸碱度,用pH测量;经济上的股价等等,我们先回顾对数的属性然后求导.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">2. Logarithms and their derivatives 对数和他的导数</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-2-1目标.png" alt="1目标">
+                        </figure>
+                        <p>
+                            目标<br>
+                            1.求对数函数的导数<br>
+                            2.明确a<sup>x</sup>的导数<br>
+                            3.利用e的反函数ln来处理复杂指数函数<br>
+                            4.使用对数的导数来处理指数变化的函数<br>
+                        </p>                        
+                    </p>
+                    <p class="paragraph">3. Preliminaries 准备工作</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-3-1对数定义.png" alt="1对数定义">
+                            <p>对数函数是相同底数的指数函数的反函数<br></p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/3-8-3-2对数属性.png" alt="2对数属性">
+                            <p>自然对数的定义,是指数e<sup>x</sup>的反函数,指数的基础法则<br></p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/3-8-3-3对数属性.png" alt="3对数属性">
+                            <p>对数属性正式定义<br></p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">4. Properties of the logarithm function对数函数的属性</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-4-1属性练习.png" alt="1属性练习">
+                            <p>要通过指数知道对数关系,对数知道指数关系<br></p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">5. Domain and Range 定义域和值域</p>
+                    <p>
+                        定义域和值域:<br>
+                        指数函数的定义域是全体实数,值域是所有正实数<br>
+                        对数函数的定义域是所有正实数,值域是全体实数<br>
+                        注意:指数函数和对数函数是反函数关系,所以定义域和值域就是互调的<br>
+                        <br>
+                        极大值:<br>
+                        指数函数:<br>
+                        当x=∞,结果e<sup>x</sup>=∞<br>
+                        当x=-∞,e<sup>x</sup>无限接近于0<br>
+                        对数函数:<br>
+                        当x无限接近于0,lnx接近于-∞<br>
+                    </p>
+                    <p class="paragraph">6. Differentiating the logarithm对数的微分/导数</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-5-1对数导数.png" alt="1对数导数">
+                            <p>
+                                求对数的导数,利用了隐式微分求导,先对外面的u求导,再对里面的x求导,最后得到导数就是1/x<br>
+                                <figure>
+                                    <img src="Resources/img/3-8-5-2证明过程.png" alt="2证明过程">                               
+                                </figure>                               
+                            </p>
+                        </figure>
+                    </p>
+                </div>               
+            </section>
         </article>
         <article id="4"><h2  class="chapter">4 Approximations 近似</h2>
             <section id="4.1"></section>

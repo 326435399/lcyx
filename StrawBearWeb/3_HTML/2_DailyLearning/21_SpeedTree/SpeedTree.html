@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>SpeedTree</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1.主标题栏</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 File栏</a></li>
+                        <li><a href="#1.2">1.2 Edit栏</a></li>
+                        <li><a href="#1.3">1.3 Tools工具栏</a></li>
+                        <li><a href="#1.4">1.4 Window窗口栏</a></li>
+                        <li><a href="#1.5">1.5 Help帮助栏</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2 信息部分</a>
+                    <ul>
+                        <li><a href="#2.1">2.1 主窗口</a></li>
+                        <li><a href="#2.2">2.2 信息输出</a></li>
+                    </ul>
+                </li>
+                <li><a href="#3">3 属性部分</a>
+                    <ul>
+                        <li><a href="#3.1">3.1 显示和编辑栏</a></li>
+                        <li><a href="#3.2">3.2 属性栏</a></li>
+                        <li><a href="#3.3">3.3 材质栏</a></li>
+                        <li><a href="#3.4">3.4 节点栏</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </aside>
+        <nav>
+            <a href="#20240509"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240509:开天辟地的植物园<br>
+            小熊买下了乡间的一块土地,打算种植一个植物园,它购买了一个软件<strong>SpeedTree</strong>来制作想要的植物布局,软件提供了一些基础的植物
+            我们需要学习怎么使用这个软件,首先就找到了主标题界面,从基础认知开始,学习了File文件的<strong>创建,保存,导入,导出</strong>四种基本操作.现在可以自由的导入
+            导出想要的植物了,走出了第一步.
+        </nav>
+        <header>
+            <p class="header">SpeedTree9.5</p>
+            <figure><img src="Resources/img/1-界面布局图.png" alt="界面布局图"></figure>
+        </header>
+        <article id="1"><p class="chapter">1.主标题栏</p>
+            <p class="timeStamp" id="20240509">20240509初始学习</p>
+            <figure><img src="Resources/img/2-主标题栏.png" alt="主标题栏"></figure>
+            
+            <section id="1.1"><p class="section">1.1 File栏</p> 
+                <figure><img src="Resources/img/3-File栏.png" alt="File栏"></figure>              
+                <div>
+                    <p class="paragraph">1.1.1 创建组</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-创建组.png" alt="创建组">
+                            <p>
+                                New:新建<br>
+                                创建新的项目是.spm(SpeedTreeModeler)格式的文件<br>
+                                Open:打开<br>
+                                打开指定的.spm尾缀的文件<br>
+                                Recent:最近<br>
+                                打开最近打开过的文件<br>
+                                Close:关闭<br>
+                                关闭当前打开的文件<br>
+                                Revert to saved:回档到上次存档状态<br>
+                                将当前项目回档到上次保存状态<br>
+                            </p>
+                        </figure>
+                    </p> 
+                    <p class="paragraph">1.1.2 保存组</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/5-保存组.png" alt="保存组">
+                            <p>
+                                Save:保存<br>
+                                保存当前打开的文件状态<br>
+                                Save incremental:增量保存<br>
+                                创建一个新的版本来保存,新版本自动添加_00*这样的尾标<br>
+                                Save as:另存<br>
+                                创建一个新的文件来存储当前文件状态(原来文件不变)<br>
+                                <figure>
+                                    <img src="Resources/img/5-1 结果.png" alt="结果">
+                                    <p>
+                                        Save as with assets:资产归档<br>
+                                        将所有使用到的资产统一打包存储到指定位置<br>
+                                    </p>
+                                </figure>
+                            </p>
+                        </figure>
+                    </p> 
+                    <p class="paragraph">1.1.3 导入组</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-导入组.png" alt="导入组">
+                            <p>
+                                Import tree parts:导入树木资产<br>
+                                打开.spm格式的树木资产文件<br>
+                                Import material asset:导入材质资产<br>
+                                导入贴图作为材质资产<br>
+                                Import mesh asset:导入网格资产<br>
+                                导入模型资产FBX,OBJ都支持<br>
+                                Import camera from FBX:导入FBX格式的相机<br>
+                                导入FBX文件当摄像机使用<br>
+                            </p>
+                        </figure>
+                    </p> 
+                    <p class="paragraph">1.1.4 导出组</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/7-导出组.png" alt="导出组">
+                            <p>
+                                Export mesh:导出网格<br>
+                                导出当前对象的网格,可以设置不同的格式,LOD等级等等<br>
+                                <figure>
+                                    <img src="Resources/img/7-1 结果.png" alt="结果">
+                                    <p>
+                                        Render photo:渲染相片<br>
+                                        渲染一张高质量图片<br>
+                                    </p>
+                                </figure>
+                                Export image:导出图片<br>
+                                导出想要的任意图片<br>
+                                Export material:导出材质<br>
+                                导出相关的材质球<br>
+                                Export image sequence:导出图片序列<br>
+                                导出序列帧,主要用来导出动画<br>
+                            </p>
+                        </figure>
+                    </p> 
+                    <p class="paragraph">1.1.5 其他</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/8-其他.png" alt="其他">
+                            <p>
+                                Adavced_Open(compute disabled):高级_打开(不计算)<br>
+                                打开一个不计算的模型,需要手动运算才能生成<br>
+                                Exit:退出<br>
+                                退出程序,关闭所有项目<br>
+                            </p>
+                        </figure>
+                    </p> 
+                </div>                                                               
+            </section>
+            <section id="1.2"><p class="section">1.2 Edit栏</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p></p> 
+                </div>                                                               
+            </section>
+            <section id="1.3"><p class="section">1.3 Tools工具栏</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p></p> 
+                </div>                                                               
+            </section>
+            <section id="1.4"><p class="section">1.4 Window窗口栏</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p></p> 
+                </div>                                                               
+            </section>
+            <section id="1.5"><p class="section">1.5 Help帮助栏</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p></p> 
+                </div>                                                               
+            </section>
+        </article>
+        <article id="2"><p class="chapter">2 信息部分</p>
+            <p class="timeStamp" id="20240505">跳转标记对象</p>
+            <section id="1.1"><p class="section">1.1 小节名</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p>
+                        <strong>1.1.1.1 重点标记</strong><br>
+                        普通文字.......<br>
+                        <figure>
+                            <img src="" alt="">
+                            <p></p>
+                        </figure>
+                    </p> 
+                </div>                                                               
+            </section>
+        </article>
+        <article id="3"><p class="chapter">3 属性部分</p>
+            <p class="timeStamp" id="20240505">跳转标记对象</p>
+            <section id="1.1"><p class="section">1.1 小节名</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p>
+                        <strong>1.1.1.1 重点标记</strong><br>
+                        普通文字.......<br>
+                        <figure>
+                            <img src="" alt="">
+                            <p></p>
+                        </figure>
+                    </p> 
+                </div>                                                               
+            </section>
+        </article>
+
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>

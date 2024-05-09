@@ -108,7 +108,9 @@ nav li,aside li
 /* 图片和视频设置 */
 img 
 {
-    width: 60%;
+    /* 设置最大宽度60%,超过就会缩放到宽度60% */
+    max-width: 60%;
+    width: auto;
     height: auto;
 }
 
