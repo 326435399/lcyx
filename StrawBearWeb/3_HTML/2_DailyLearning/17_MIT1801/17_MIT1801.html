@@ -60,6 +60,10 @@
             <a href="#20240509"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240509:E女士-自然对数<br>
             E女士和E先生相反,她们来自<strong>对数</strong>学院,教学的对数刚好是指数的反过程,一个物体x经过E先生转换成e<sup>x</sup>,然后经过E女士的log<sub>e</sub>e<sup>x</sup>重新又变回了x,
             不同于E先生的导数是自己,E女士的导数是X的倒数也就是1/x.<br>
+            <a href="#20240510"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240510:M(a)=log<sub>e</sub>a<br>
+            指数学院的核心计算转换器M(a),所有学员需要取得才能毕业,有两个途径,途径1是向E女士求助,将a转换成e<sup>lna</sup>,最后得到<strong>M(a)=lna</strong>,
+            另外一个途径是直接对lnu求导会得到核心公式<strong>(lnu)'=u'/u</strong>,这里面包含了导数和不是导数两个类型的值!在之后的学习生涯当中都可以通过ln对问题求导
+            降低维度,然后求u的值!<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -324,6 +328,76 @@
                                     <img src="Resources/img/3-8-5-2证明过程.png" alt="2证明过程">                               
                                 </figure>                               
                             </p>
+                        </figure>
+                    </p>
+
+                    <p class="timeStamp" id="20240510">20240510指数函数的导数</p>
+                    <p class="paragraph">7. The derivative of the natural logarithm自然对数的导数</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-7-1-lnx的导数.png" alt="lnx的导数">
+                            <p>
+                                lnx的导数,ln(kx)的导数依然是1/x,k≠0<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">8. Differentiating exponential functions 指数函数求导</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-8-1-指数函数求导证明.png" alt="指数函数求导证明">
+                            <p>
+                                利用了对数函数的意义,指数函数基本属性<br>
+                                <figure>
+                                    <img src="Resources/img/3-8-8-2-指数函数求导证明2.png" alt="指数函数求导证明2">
+                                    <p>
+                                        注意lna是一个常量,不会变的.<br>
+                                    </p>
+                                </figure>
+                                <figure>
+                                    <img src="Resources/img/3-8-8-3-指数函数求导证明3.png" alt="指数函数求导证明3">
+                                    <p>
+                                        这样我们就得到了M(a)这个值<br>
+                                    </p>
+                                </figure>
+                                <figure>
+                                    <img src="Resources/img/3-8-8-4-示例.png" alt="示例">
+                                    <p>
+                                        示例,底为2和10是常见的两个值<br>
+                                    </p>
+                                </figure>
+                                <figure>
+                                    <img src="Resources/img/3-8-8-5-正式公式.png" alt="正式公式">
+                                </figure>
+                                <figure>
+                                    <img src="Resources/img/3-8-8-6-例子.png" alt="例子">
+                                    <p>
+                                        计算例子,这里有一个很重要的点,x=log10t,这是因为反函数的定义就是输入y等于x,而y值恰恰就是g(t)的值<br>
+                                    </p>
+                                </figure>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">9. Method 2: Logarithmic differentiation 方法二:对数微分</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/3-8-9-1-对数证明.png" alt="对数证明">
+                            <p>
+                                链式求导法则和已知的d/du(lnu)=1/u<br>
+                            </p>
+                            <figure>
+                                <img src="Resources/img/3-8-9-2-对数证明2.png" alt="对数证明2">
+                                <p>简单的乘法法则求导<br></p>
+                            </figure>
+                            <figure>
+                                <img src="Resources/img/3-8-9-3-对数证明3.png" alt="对数证明3">
+                                <p>最后同样得到了指数的导数<br></p>
+                            </figure>
+                            <figure>
+                                <img src="Resources/img/3-8-9-4-例子.png" alt="例子">
+                            </figure>
+                            <figure>
+                                <img src="Resources/img/3-8-9-5-法则证明.png" alt="法则证明">
+                            </figure>
                         </figure>
                     </p>
                 </div>               

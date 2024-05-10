@@ -262,7 +262,7 @@
             </ul>
         </aside>
         <nav>
-            
+            <a href="../../4_MonthLearning/3-DesignMode/20240429_UML.html">UML语言学习</a>           
             <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:小熊的炼丹炉<br>
             小熊有一个青铜炼丹炉用来生产不同的丹药产品,炼丹炉虽然锈迹斑斑,但是上面有LED显示屏,可以选择五种不同的炼丹模式:<br>
             分别是单例模式,原型模式,建造者模式,工厂方法模式,抽象工厂模式.五种不同的模式有不同的作用.<br>
@@ -286,10 +286,12 @@
             <a href="#20240509"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240509:守卫傀儡剑一<br> 
             丹药素材耗尽了,需要出去购买,最近的百草园都有几万公里,小熊只好离家去买药去了,首先给家里的防卫傀儡剑一下达防卫<strong>命令</strong>进入防守<strong>状态</strong>,
             访问者名单写在<strong>备忘录</strong>上,没有访问权限的<strong>访问者</strong>一律禁止进入.为了防止出现语言不通的问题,安装了语言<strong>解释器</strong>,
-            又设定了远程<strong>观察</strong>模式,这样只要一有异动就会报警发送更新信息到我的希卡石板上,为了防止碰到处理不了的问题,
+            又设定了远程<strong>观察</strong>模式,这样只要一有异动就会报警发送更新信息到存储中,回家可以查看记录的信息,为了防止碰到处理不了的问题,
             又设置了<strong>责任链</strong>,当剑一解决不了会提交给青铜炉的灵体炉一处理,这些模块都是通过<strong>中介者</strong>购买的不同守卫<strong>策略</strong>模块,
             为了以后得扩展性,还安装了<strong>迭代器</strong>模块,方便以后更新,安装了<strong>模板方法</strong>模块允许自定义模块.这样终于准备好了,可以出发去百草园了<br>
-
+            <a href="#20240510"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240510:可以联网的炉一<br>
+            炉一也有<strong>策略</strong>模块,比较特殊的是他的<strong>命令</strong>是可以联网下达的,通过DNS解析服务一层层<strong>责任链</strong>传达到指定的<strong>观察者</strong>网络中,
+            从而实现更加方便的远程控制.<br> 
         </nav>
         <header class="header">设计模式之禅</header>
         <article id="1"><h2 class="chapter">1 单一职责原则</h2>
@@ -818,8 +820,7 @@
         </article>
         <article id="32"><h2>32 行为类模式大PK</h2>
             <p class="timeStamp" id="20240509">20240509开始</p>
-            <section id="32.0">
-                <p class="section">32.0 总览</p>
+            <section id="32.0"><p class="section">32.0 总览</p>
                 <div>
                     <p class="paragraph">1.封装变化</p>
                     <p>
@@ -941,11 +942,104 @@
                         </figure>
                     </p>
                 </div>
-
             </section><p></p>
-            <section id="32.1">32.1 命令模式VS策略模式</section><p></p>
-            <section id="32.2">32.2 策略模式VS状态模式</section><p></p>
-            <section id="32.3">32.3 观察者模式VS责任链模式</section><p></p>
+            <p class="timeStamp" id="20240510">20240510开始</p>
+            <section id="32.1"><p class="section">32.1 命令模式VS策略模式</p>
+                <div>
+                    <p class="paragraph">1.前言</p>
+                    <p>
+                        策略模式意图:认为算法是一个独立,不可拆分的原子业务,让算法独立,可以互相替换,让行为的变换独立于拥有行为的客户.<br>
+                        命令模式意图:对行为的分解,将行为分解成了执行行为(命令)要求执行者(接收者)处理,让命令和行为互相独立,这样就可以独立的对命令或者行为进行替换了.<br>
+                        对比:命令模式比策略模式封装更细<br>
+                    </p>
+                    <p class="paragraph">2.策略模式实现压缩算法</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/32-12-策略模式压缩算法.png" alt="策略模式压缩算法">
+                            <p>
+                                Zip和Gzip类实现接口Algorithm定义的压缩和解压缩方法<br>
+                                context内容对象通过引用Algorithm定义的接口方法来引用具体算法实现类.<br>
+                                Client客户端通过Context引用具体算法<br>
+                                在这个过程当中,算法被封装成了接口,所以只要实现接口的具体算法都可以实现互换,独立的实现算法被认为是原子业务<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">3.命令模式实现压缩算法</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/32-13-命令模式压缩算法.png" alt="命令模式压缩算法">
+                            <p>
+                                AbstractCmd通过聚合实例引用了实现IReceiver接口的接收者对象ZipReceiver和GzipReceiver,具体命令*Cmd类则是对不同的方法进行区分,
+                                Invoker通过接口关联具体命令,具体命令通过抽象命令找到执行者执行
+                                在这个过程中所有命令方法被独立成了对象,通过抽象命令封装.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">4.对比</p>
+                    <p>
+                        策略模式关注算法的替换<br>
+                        命令模式关注请求者和执行者的解耦,让请求者知道命令就好了,具体算法隐藏<br>
+                    </p>
+                </div>
+            </section>
+            <section id="32.2"><p class="section">32.2 策略模式VS状态模式</p>
+                <p class="paragraph">1.前言</p>
+                <p>
+                    策略模式封装的是算法,算法之间是没有交互的<br>
+                    状态模式封装的事状态,状态之间是存在切换关系的<br>
+                </p>
+                <p class="paragraph">2.策略模式实现人生</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/32-14-策略模式人生.png" alt="策略模式人生">
+                        <p>
+                            WorkAlgorithm人生算法抽象类定义了算法框架<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">3.状态模式实现人生</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/32-15-状态模式人生.png" alt="状态模式人生">
+                        <p>
+                            Human对象持有状态,并按照状态执行,允许其他对象设置状态<br>
+                            HumanState抽象状态类可以给某个Human对象设置状态<br>
+                            具体状态对象则是实现当前状态的逻辑,定义(设置)下一个状态<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">4.小结</p>
+                <p>
+                    环境角色的职责不同:<br>
+                    策略模式的Context环境对象只是委托对象,负责替换算法;<br>
+                    状态模式的Human环境对象不仅仅要委托给具体状态执行,还需要登记状态的变化,辅助具体状态对象完成状态的切换工作;<br>
+                    <br>
+                    解决问题的重点不同:<br>
+                    策略模式重点是算法切换,状态模式则是状态的切换.<br>
+                </p>
+
+            </section>
+            <section id="32.3"><p class="section">32.3 观察者模式VS责任链模式</p>
+                <p class="paragraph">1. 责任链模式DNS解析</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/32-16-责任链DNS.png" alt="责任链DNS">
+                        <p>
+                            DnsServer抽象类定义DNS的框架<br>
+                            具体的DNS服务按照责任链的模式,上海的解决不了就传到中国DNS,中国的不行再传到顶级DNS这个责任模式<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">2. 观察责任链模式DNS解析</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/32-17-责任链观察者DNS.png" alt="责任链观察者DNS">
+                        <p>
+                            添加了观察者模式的观察者和接收者,顶级域名是不负责反馈的,只是传递信息让子DNS服务商更新信息,这个传递通过观察者模式处理.<br>
+                        </p>
+                    </figure>
+                </p>
+            </section>
         </article>
         <article id="33"><h2>33 跨战区PK</h2>
             <section id="33.1">32.1 策略模式VS桥梁模式</section><p></p>

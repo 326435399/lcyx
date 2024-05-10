@@ -353,7 +353,12 @@
                         <li><a href="#47.3">47.3 交叉熵误差</a></li>
                     </ul>
                 </li>
-                <li><a href="#48">48 多分类</a></li>
+                <li><a href="#48">48 多分类</a>
+                    <ul>
+                        <li><a href="#48.1">48.1 螺旋数据集</a></li>
+                        <li><a href="#48.2">48.2 用于训练的代码</a></li>
+                    </ul>
+                </li>
                 <li><a href="#49">49 Dataset类和预处理</a></li>
                 <li><a href="#50">50 用于取出小批量数据的DataLoader</a></li>
                 <li><a href="#51">51 MINST的训练</a></li>
@@ -377,7 +382,9 @@
             <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507-苹果分类问题:<br>
             为了对不同区域苹果树品质进行区分,我们调用了Op机器人的新的损失函数,<strong>交叉熵误差</strong>,通过对苹果品质的统计得到概率,转换概率
             使用的函数是<strong>softmax</strong>,使用<strong>get_item</strong>函数来对不同的树木组数据来切片对比分析,最后得到了不同区域不同切片组的
-            树木的苹果品质结果,针对性的对品质较差的树木进行重点改善提高品质<br>      
+            树木的苹果品质结果,针对性的对品质较差的树木进行重点改善提高品质<br>  
+            <a href="#20240510"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240510-螺旋小批量<br>
+            因为苹果数量比较多,一次性质检太过工作量非常巨大,小熊采用了<strong>螺旋</strong>选择方式,对范围内的苹果随机采样,然后对部分采样<strong>小批量</strong>质量检验,得到一个近似准确的统计结果<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -890,55 +897,98 @@
                 </p>
             </section>
         </article>
-        <article id="48"><h2 class="section">48 多分类</h2>
-            <section id="48.1">1.1 安装基础软件</section>
-            <p></p>
+        <article id="48"><h2 class="chapter">48 多分类</h2>
+            <p class="timeStamp" id="20240510">20240510开始</p>
+            <section id="48.1"><p class="section">48.1 螺旋数据集</p>
+                <div>
+                    <p class="paragraph"></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/48-01-螺旋数据集.png" alt="螺旋数据集">
+                            <p>
+                                train=True返回训练数据,等于False返回测试数据<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/48-02-螺旋数据集.png" alt="螺旋数据集">
+                            <p>
+                                数据集有300个数据,每个数据是0 1 2 之间的一个t值<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
+            <section id="48.2"><p class="section">48.2 用于训练的代码</p>
+                <div>
+                    <p class="paragraph"></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/48-03-代码.png" alt="代码">
+                            <p>
+                                中间一个比较特殊的做法是小批量,把大量的数据分批次加载<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/48-04-损失函数图像.png" alt="损失函数图像">
+                            <p>
+                                损失函数的图像,明显能看到逐渐趋于平缓了<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/48-05-计算结果.png" alt="计算结果">
+                            <p>
+                                最终训练的结果,能够识别出三种数据的边界了<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
         </article>
-        <article id="49"><h2 class="section">49 Dataset类和预处理</h2>
+        <article id="49"><h2 class="chapter">49 Dataset类和预处理</h2>
             <section id="49.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="50"><h2 class="section">50 用于取出小批量数据的DataLoader</h2>
+        <article id="50"><h2 class="chapter">50 用于取出小批量数据的DataLoader</h2>
             <section id="50.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="51"><h2 class="section">51 MINST的训练</h2>
+        <article id="51"><h2 class="chapter">51 MINST的训练</h2>
             <section id="51.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="52"><h2 class="section">52 支持GPU</h2>
+        <article id="52"><h2 class="chapter">52 支持GPU</h2>
             <section id="52.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="53"><h2 class="section">53 模型的保存和加载</h2>
+        <article id="53"><h2 class="chapter">53 模型的保存和加载</h2>
             <section id="53.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="54"><h2 class="section">54 Dropout和测试模式</h2>
+        <article id="54"><h2 class="chapter">54 Dropout和测试模式</h2>
             <section id="54.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="55"><h2 class="section">55 CNN的机制(1)</h2>
+        <article id="55"><h2 class="chapter">55 CNN的机制(1)</h2>
             <section id="55.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="56"><h2 class="section">56 CNN的机制(2)</h2>
+        <article id="56"><h2 class="chapter">56 CNN的机制(2)</h2>
             <section id="56.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="57"><h2 class="section">57 conv2d函数和pooling函数</h2>
+        <article id="57"><h2 class="chapter">57 conv2d函数和pooling函数</h2>
             <section id="57.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="58"><h2 class="section">58 具有代表性的CNN(VGG16)</h2>
+        <article id="58"><h2 class="chapter">58 具有代表性的CNN(VGG16)</h2>
             <section id="58.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="59"><h2 class="section">59 使用RNN处理时间序列数据</h2>
+        <article id="59"><h2 class="chapter">59 使用RNN处理时间序列数据</h2>
             <section id="59.1">1.1 安装基础软件</section>
             <p></p>
         </article>
-        <article id="60"><h2 class="section">60 LSTM与数据加载器</h2>
+        <article id="60"><h2 class="chapter">60 LSTM与数据加载器</h2>
             <section id="60.1">1.1 安装基础软件</section>
             <p></p>
         </article>
