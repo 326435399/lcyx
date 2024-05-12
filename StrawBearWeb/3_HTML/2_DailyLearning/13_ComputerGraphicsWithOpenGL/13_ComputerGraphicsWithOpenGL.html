@@ -103,9 +103,11 @@
             </ul>
         </aside>
         <nav>
-            测试一下位置:<br>
+            <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513:字符世界<br>
+            小熊的RPG游戏当中的字体是通过字符来设定的,可以通过OpenGL函数或者GLUT核心库来设定,字符的高度由脚底到帽底<strong>(基线到帽线)</strong>决定,也有一些特殊的字符会超出,但一定不会超过一个字符的地面到帽顶<strong>(底线和顶线)</strong>.
+            字符的方向由一个叫做<strong>字符向上向量</strong>的红色箭头决定<br>
         </nav>
-        <header><h1>计算机图形学原理-OpenGL</h1></header>
+        <header><p class="header">计算机图形学原理-OpenGL</p></header>
         <article id="1"><h2>1 计算机图形学综述</h2>
             <section id="1.1">1.1 安装基础软件</section>
             <p></p>
@@ -188,37 +190,48 @@
             <section id="4.16">4.16 OpenGL显示窗口重定形函数</section>
             <p></p>
         </article>
-        <article id="5"><h2>5 图元的属性</h2>
-            <section id="5.1">5.1 OpenGL状态变量</section>
-            <p></p>
-            <section id="5.2">5.2 颜色和灰度</section>
-            <p></p>
-            <section id="5.3">5.3 OpenGL颜色函数</section>
-            <p></p>
-            <section id="5.4">5.4 点的属性</section>
-            <p></p>
-            <section id="5.5">5.5 OpenGL点属性函数</section>
-            <p></p>
-            <section id="5.6">5.6 线的属性</section>
-            <p></p>
-            <section id="5.7">5.7 OpenGL线属性函数</section>
-            <p></p>
-            <section id="5.8">5.8 曲线属性</section>
-            <p></p>
-            <section id="5.9">5.9 填充区属性</section>
-            <p></p>
-            <section id="5.10">5.10 OpenGL填充区属性函数</section>
-            <p></p>
-            <section id="5.11">5.11 字符属性</section>
-            <p></p>
-            <section id="5.12">5.12 OpenGL字符属性函数</section>
-            <p></p>
-            <section id="5.13">5.13 OpenGL反走样函数</section>
-            <p></p>
-            <section id="5.14">5.14 OpenGL查询函数</section>
-            <p></p>
-            <section id="5.15">5.15 OpenGL属性组</section>
-            <p></p>
+        <article id="5"><p class="chapter">5 图元的属性</p>
+            <section id="5.1"><p class="section">5.1 OpenGL状态变量</p></section>
+            <section id="5.2"><p class="section">5.2 颜色和灰度</p></section>
+            <section id="5.3"><p class="section">5.3 OpenGL颜色函数</p></section>
+            <section id="5.4"><p class="section">5.4 点的属性</p></section>
+            <section id="5.5"><p class="section">5.5 OpenGL点属性函数</p></section>
+            <section id="5.6"><p class="section">5.6 线的属性</p></section>
+            <section id="5.7"><p class="section">5.7 OpenGL线属性函数</p></section>
+            <section id="5.8"><p class="section">5.8 曲线属性</p></section>
+            <section id="5.9"><p class="section">5.9 填充区属性</p></section>
+            <section id="5.10"><p class="section">5.10 OpenGL填充区属性函数</p></section>
+            <p class="timeStamp" id="20240513">20240513开始</p>
+            <section id="5.11"><p class="section">5.11 字符属性</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/5-11-01-字符体.png" alt="字符体">
+                        <p>
+                            字符可以设置字体,大小,颜色和方向,样式等属性<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/5-11-02-字符串对齐.png" alt="字符串对齐">
+                        <p>
+                            对齐方式通过字符向上向量设定<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="5.12"><p class="section">5.12 OpenGL字符属性函数</p>
+                <div>
+                    <p>
+                        两种生成方式:<br>
+                        1.使用核心库中的位图函数来设计字体集<br>
+                        2.引用OpenGL字符生成函数<br>
+                        <br>
+                        GLUT当中通过GLUT_BITMAP_9_BY_15,间隔15,字体大小9的字体设置,也可以通过glLineWidth指定宽度,glLineStripple选择线型等等<br>
+                    </p>
+                </div>
+            </section>
+            <section id="5.13"><p class="section">5.13 OpenGL反走样函数</p></section>
+            <section id="5.14"><p class="section">5.14 OpenGL查询函数</p></section>
+            <section id="5.15"><p class="section">5.15 OpenGL属性组</p></section>
         </article>
         <article id="6"><h2>6 实现图元及属性的算法</h2>
             <section id="6.1">2.1 安装基础软件</section>
