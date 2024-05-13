@@ -76,7 +76,21 @@
                         <li><a href="#6.6">6.6 基于场景图进行层次建模</a></li>
                     </ul>
                 </li>
-                <li><a href="#7">7 2D和3D空间职工的基础数学与几何</a></li>
+                <li><a href="#7">7 2D和3D空间职工的基础数学与几何</a>
+                    <ul>
+                        <li><a href="#7.1">7.1 引言</a></li>
+                        <li><a href="#7.2">7.2 记号</a></li>
+                        <li><a href="#7.3">7.3 集合</a></li>
+                        <li><a href="#7.4">7.4 函数</a></li>
+                        <li><a href="#7.5">7.5 坐标</a></li>
+                        <li><a href="#7.6">7.6 坐标运算</a></li>
+                        <li><a href="#7.7">7.7 直线求交</a></li>
+                        <li><a href="#7.8">7.8 更一般的求交计算</a></li>
+                        <li><a href="#7.9">7.9 三角形</a></li>
+                        <li><a href="#7.10">7.10 多边形</a></li>
+                        <li><a href="#7.11">7.11 讨论</a></li>
+                    </ul>
+                </li>
                 <li><a href="#8">8 2D和3D形状的简单表示</a></li>
                 <li><a href="#9">9 网格函数</a></li>
                 <li><a href="#10">10 2D变换</a></li>
@@ -116,6 +130,10 @@
             然后给了一个HDR天空球纹理,让天空也变得真实起来,最后为了让光照看起来更加自然,引入了<strong>Phong光照模型</strong>,它把物体表面的光照简化成
             <strong>环境光+漫反射光+镜面反射光</strong>. 环境光直接采用了Unity提供的球谐光照,漫反射通过Lambert余弦计算,
             镜面反射采用phong模型,最后得到了自然的光照效果,球面上反射着地面的青草颜色和泥土的褐色<br>
+            <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513:笛卡尔的仿真工具<br>
+            数学模型的介绍,空间之神<strong>笛卡尔</strong>坐标系,在当中系数为1的组合称为<strong>仿射组合</strong>,具有空间稳固性,在不同空间之间结果不变<br>
+            利用这个特性创造的第一个有用的工具就是<strong>线性插值</strong><br>
+
         </nav>
         <header><p class="header">计算机图形学原理与实践-XAML</p></header>
         <article id="1"><p class="chapter">1 绪论</p>
@@ -234,28 +252,103 @@
                     </p>
                 </div>
             </section>
-            <section id="6.6"><p class="section">6.6 基于场景图进行层次建模</p></section>
+            <section id="6.6"><p class="section">6.6 基于场景图进行层次建模</p>
+                <div>
+                    层次化建模并不是我需要学习的重点,知道有这个建模概念即可<br>
+                </div>
+            </section>
         </article>
+        <p class="timeStamp" id="20240513">20240513学习</p>
         <article id="7"><p class="chapter">7 2D和3D空间职工的基础数学与几何</p>
-            <section id="7.1"></section><p></p>
+            <section id="7.1"><p class="section">7.1 引言</p>
+                <div>
+                    将数学知识都安排在这一章是为了温故知新.<br>
+                    实现原则:如果你对一个数学问题的理解足够透彻,则一定可以写一个程序实现它,一个好的程序一定是可以重用的.<br>
+                </div>
+            </section>
+            <section id="7.2"><p class="section">7.2 记号</p>
+                <div>
+                    变量用斜体字母表示,向量和矩阵用加粗斜体字母,向量用小写,矩阵用大写.<br>
+                    R表示实数集合,C表示复数集合,R+代表正实数集合,R0+表示非负实数集合.<br>
+                </div>
+            </section>
+            <section id="7.3"><p class="section">7.3 集合</p>
+                <div>
+                    把BxC读作B叉乘C,但是称为"笛卡尔"乘积,而不是叉积.<br>
+                </div>
+            </section>
+            <section id="7.4"><p class="section">7.4 函数</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/07-4-1-函数定义.png" alt="函数定义">
+                        <p>
+                            f是函数的名称,第一个:后的两个集合,箭头左侧为定义域,右侧为陪域.第二个:后的则是定义域到陪域的映射规则.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/07-4-2-对应关系.png" alt="对应关系">
+                        <p>
+                            满射:所有陪域的值都有对应关系<br>
+                            单射:每个定义域的值只有唯一对应的陪域值,但是还有一些陪域的值没有对应<br>
+                            双射:定义域和培域有一一对应关系,这样的函数才可逆<br>
+                        </p>
+                    </figure>
+                    如果θ在大于-π小于π范围内,atan2(sinθ,cosθ)=θ,这个函数常用于在已知x,y值的情况下求角度<br>
+                </div>
+            </section>
+            <section id="7.5"><p class="section">7.5 坐标</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/07-5-1-坐标系.png" alt="坐标系">
+                        <p>
+                            点P在黑色坐标系的值是3,5,在灰色坐标系则是2,2
+                            直线l在黑色坐标系的方程是y=5,在灰色坐标系则是x+y=4
+                            无论是点的坐标还是直线的方程都是依赖于坐标系的选定的.
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="7.6"><p class="section">7.6 坐标运算</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/07-6-1-仿射组合.png" alt="仿射组合">
+                        <p>
+                            各项系数之和为1的组合称之为仿射组合,结果在不同坐标系下具有不变性.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/07-6-2-插值.png" alt="插值">
+                        <p>
+                            线性插值函数,利用了仿射组合,1-a和a两个系数的和始终为1<br>
+                            思考:当我们改变坐标系的时候,长度,角度和面积是否不变?如果会变的话要如何限制才能不变?<br>
+                        </p>
+                    </figure>
+                    <p class="paragraph"></p>
+                </div>
+            </section>
+            <section id="7.7"><p class="section">7.7 直线求交</p></section>
+            <section id="7.8"><p class="section">7.8 更一般的求交计算</p></section>
+            <section id="7.9"><p class="section">7.9 三角形</p></section>
+            <section id="7.10"><p class="section">7.10 多边形</p></section>
+            <section id="7.11"><p class="section">7.11 讨论</p></section>
         </article>
         <article id="8"><p class="chapter">8 2D和3D形状的简单表示</p>
-            <section id="8.1"></section><p></p>
+            <section id="8.1"></section>
         </article>
         <article id="9"><p class="chapter">9 网格函数</p>
-            <section id="9.1"></section><p></p>
+            <section id="9.1"></section>
         </article>
         <article id="10"><p class="chapter">10 2D变换</p>
-            <section id="10.1"></section><p></p>
+            <section id="10.1"></section>
         </article>
         <article id="11"><p class="chapter">11 3D变换</p>
-            <section id="11.1"></section><p></p>
+            <section id="11.1"></section>
         </article>
         <article id="12"><p class="chapter">12 2D和3D图形变换库</p>
-            <section id="12.1"></section><p></p>
+            <section id="12.1"></section>
         </article>
         <article id="13"><p class="chapter">13 相机设定及变换</p>
-            <section id="13.1"></section><p></p>
+            <section id="13.1"></section>
         </article>
         <article id="14"><p class="chapter">14 标准化近似和表示</p>
             <section id="14.1"></section><p></p>

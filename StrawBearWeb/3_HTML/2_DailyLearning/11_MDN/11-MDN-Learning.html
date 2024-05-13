@@ -35,268 +35,292 @@
         <nav>
             计划是要写小故事的:
         </nav>
-        <header><h1>MDN网页学习</h1></header>
-        <article id="1"><h2>1.Web入门</h2>
-            <section id="1.1">1.1 安装基础软件</section>
-            <p>
-                前言:说到建设网站的工具，有很多可供选择的。如果你初入门径，你可能会被外面的一系列代码编辑器、框架和测试工具所迷惑。在这篇文章中，我们将逐步向你展示如何安装你需要的软件，以开始基本的 web 开发。
-            </p>
-            <p>
-                <strong>专业人员使用什么工具?</strong><br>
-                计算机: 操作平台: 台式电脑,笔记本<br>
-                文本编辑器: 编辑代码: VScode,Subline Text等等<br>
-                网络浏览器: 浏览网页文件: Firefox,Chrome,IE等等<br>
-                图形编辑器: 制作图形: XD,Figma,PS<br>
-                版本控制系统: 对更新记录的维护备份: Git和Git Hub<br>
-                FTP工具: 用于传输文件到服务器: FileZilla<br>
-                自动化构建工具: 自动测试等等: Grunt,Gulp<br>
-                库,框架: 一整个系统,出名的有: Docker,Angular,React,Vue<br>
-            </p>
-            <p>
-                <strong>初期需要的工具</strong><br>
-                一台计算机,一个文本编辑器,一个浏览器.<br>
-            </p>
-
-            <section id="1.2">1.2 设计网站外观</section>
-            <p>
-                前言:在你开始为你的网站写代码之前，你应该先计划一下。需要展示什么信息？使用什么字体和颜色？我们概述了一个简单的方法，你可以按照这个方法来规划网站的内容和设计。
-            </p>
-            <p>
-                <strong>第一步:计划</strong><br>
-                网站的主题是什么? : 记录学习笔记<br>
-                要展示哪些信息? : 展示学习笔记,方便以后查询.<br>
-                网站的外观是什么样的? : 类似一本书籍,方便查询的书籍<br>
-            </p>
-            <p>
-                <strong>绘制草图</strong><br>
-                <figure>
-                    <img src="Resources/img/1-1-框架草图1.png" alt="框架草图"><br>
-                    <p>对于网站的基础框架构思设计</p>
-                </figure>
-                主要考虑比较多的是怎么处理文件夹的结构<br>
-                <figure>
-                    <img src="Resources/img/1-2-框架草图2.png" alt="框架草图"><br>
-                    <p>对于图片+文字的样式思考</p>
-                </figure>
-                最后决定采用的图片居中,512px,文字在下方的方式.<br>
-            </p>
-            <p>
-                <strong>素材选择</strong><br>
-                1.文本内容:标题和文字内容<br>
-                2.颜色:字体的颜色和背景颜色,链接颜色等等:
-                <a href="https://paletton.com/#uid=12l0u0kllllaFw0g0qFqFg0w0aF" alt="推荐的一个配色网站">Paletton配色网站</a><br>
-                3.图像:可以通过PS等制图软件制作,也可以在网络上收集(不过需要注意许可问题)<br>
-                <figure>
-                    <img src="Resources/img/1-3-图片获取.png" alt="google搜索图片"><br>
-                    <p>在google可以获取有商业许可的图片</p>
-                </figure>
-                4.字体:通常推荐一个网页不超过两个字体,不然会容易造成混乱,在这里我选择了免费的思源臻宋;<br>
-                安全字体:肯定每台电脑都有的字体(适合作为备选字体),Arial、Times New Roman、Courier New<br>
-                <br>
-                使用方式:<br>
-                1.下载到本地,然后通过在CSS当中@font-face指定好,通过font-family定义名字就可以调用了<br>
-                2.网络上使用:<a href="https://developers.google.com/fonts?hl=zh-cn">fonts</a><br>
-            </p>
-            <section id="1.3">1.3 处理文件</section>
-            <p>
-                前言:一个网站由许多文件组成：文本内容、代码、样式表、媒体内容，等等。当你建立一个网站时，你需要将这些文件组合成一个合理的结构，并确保它们能够相互交流。这篇文章解释了如何为你的网站建立一个合理的文件结构以及你应该注意的问题。
-            </p>
-            <p>
-                <strong>网站应该保存在何处?</strong><br>
-                把相关联的东西放在一个文件夹当中,核心目标是当可以使用相对路径安全的读取到相关资源,这样进行迁移的时候可以减少出现问题的几率.<br>
-            </p>
-            <p>
-                <strong>关于大小写和空格的提示</strong><br>
-                HTML是区分大小写的,所以建议是全部使用小写,这样就不容易造成因为大小写不同而带来混乱.<br>
-                HTML当中对于多个空格会进行处理,在不指定特殊标记情况下,默认是连续空格只会保留一个.<br>
-                HTML对于区分单词默认使用的是-而不是其余编程语言的_,所以使用-是更好的习惯.<br>
-            </p>
-            <p>
-                <strong>网站应该什么文件结构</strong><br>
-                一个网站通常需要:<br>
-                1.HTML文件夹:存放文本内容<br>
-                2.CSS文件夹:存放网页的显示样式<br>
-                3.JS文件夹:存放网页交互相关代码<br>
-                4.Resources文件夹:存放网页需要的相关数字资源<br>
-                <figure>
-                    <img src="Resources/img/1-4-文件夹结构.png" alt="自己定义的文件夹结构">
-                    <p>自己定义的文件夹结构,资源放到对应的HTML文件夹当中了,这样HTML文件引用的就都是自己的子集资源了</p>
-                </figure>
-
-                <br>
-                相对路径:从当前层级出发,当前层级可以直接调用,上一级用../表示.<br>
-                例如src="Resources/a.img"表示读取当前层级的Resources文件夹里面的a.img图片<br>
-                绝对路径:通常是从盘符出发或者互联网上的某个地址,比较特殊的是如果是本地的路径,用的是反斜杠\替换正斜杠/<br>
-                实例: src="C:\desktop\a.img"表示读取当前电脑的C盘的desktop文件夹里面的a.img图片.<br>
-                建议:绝大多数情况下都不推荐使用绝对路径.<br>
-            </p>
-
-            <section id="1.4">1.4 HTML基础</section>
-            <p>
-                前言:超文本标记语言(HTML)是你用来组织你的网络内容，并赋予它意义和目的的代码。例如，我的内容是一组段落还是一个要点列表?我的页面上是否插入了图片?我有一个数据表吗?在你的接受能力之内，这篇文章提供了足够的信息，使你熟悉 HTML。
-            </p>
-
-            <p>
-                <strong>基础概念</strong><br>
-                超文本标记语言:HyperText Markup Language简称HTML
-                HTML不是编程语言,而是用于定义内容结构的标记语言,HTML由一系列的元素组成,这些元素包围不同的文本,使其以某种方式呈现在网页上.
-                <figure>
-                    <img src="Resources/img/1-5-元素详解.png" alt="什么是元素?">
+        <header><p class="header">MDN网页学习</p></header>
+        <article id="1"><p class="chapter">1.Web入门</p>
+            <section id="1.1"><p class="section">1.1 安装基础软件</p>
+                <div>
                     <p>
-                        <ol style="text-align: left;">
-                            <li>开始标签(Opening tag):包含元素的名称(本例为 p),被大于号、小于号所包围。表示元素从这里开始或者开始起作用——在本例中即段落由此开始。</li>
-                            <li>结束标签(Closing tag);与开始标签相似,只是其在元素名之前包含了一个斜杠。这表示着元素的结尾——在本例中即段落在此结束。初学者常常会犯忘记包含结束标签的错误,这可能会产生一些奇怪的结果。</li>
-                            <li>内容(Content)：元素的内容，本例中就是所输入的文本本身。</li>
-                            <li>元素(Element)：开始标签、结束标签与内容相结合，便是一个完整的元素。</li>
-                        </ol>
+                        前言:说到建设网站的工具，有很多可供选择的。如果你初入门径，你可能会被外面的一系列代码编辑器、框架和测试工具所迷惑。在这篇文章中，我们将逐步向你展示如何安装你需要的软件，以开始基本的 web 开发。
                     </p>
-                </figure>
-                由标签包裹的内容就组成了一个元素.<br>
-                <br>
-                <figure>
-                    <img src="Resources/img/1-6-元素的属性.png" alt="元素可以包含属性">
                     <p>
-                        元素是可以包含多个属性的,通过空格进行分隔.<br>
-                        例如:标签名 属性="值" 属性2="值2"<br>
+                        <strong>专业人员使用什么工具?</strong><br>
+                        计算机: 操作平台: 台式电脑,笔记本<br>
+                        文本编辑器: 编辑代码: VScode,Subline Text等等<br>
+                        网络浏览器: 浏览网页文件: Firefox,Chrome,IE等等<br>
+                        图形编辑器: 制作图形: XD,Figma,PS<br>
+                        版本控制系统: 对更新记录的维护备份: Git和Git Hub<br>
+                        FTP工具: 用于传输文件到服务器: FileZilla<br>
+                        自动化构建工具: 自动测试等等: Grunt,Gulp<br>
+                        库,框架: 一整个系统,出名的有: Docker,Angular,React,Vue<br>
                     </p>
-                </figure>
-                通过属性值,可以方便的给相同元素定义各种不同的表现效果.<br>
-                <br>
-                元素是可以嵌套的,但是必须要保证次序,例如 A B 内容 B A这是正确的嵌套,A B 内容 A B,这样的话[A B 内容 A]B没有结束标签了(这里假定A和B都是有开始和结束标签的)<br>
-
-                空元素概念:没有任何内容的元素.例如img元素<br>
-            </p>
-
-            <p>
-                <strong>HTML文档抬头详解</strong><br>
-                每个HTML文件都包含的抬头部分.
-                <figure>
-                    <img src="Resources/img/1-7-HTML抬头详解.png" alt="HTML抬头部分详解">
                     <p>
-                        <ol>
-                            <li>!DOCTYPE html:关联HTML编写规范,让浏览器知道要读取的是HTML文件</li>
-                            <li>html元素标签:包含整个页面的所有内容,称之为根元素,其中的lang属性是language的缩写含义是语言,en是英语,zh-cn是中文</li>
-                            <li>head元素标签:头文件,这里面的内容是不向用户展示的,是给浏览器引擎准的.</li>
-                            <li>meta元素标签:元数据,属性charset指定了编译用的字符集.uft-8是世界上通用的字符集,不建议修改.</li>
-                            <li>name属性:指定视口的名字,配合content属性控制显示方式width=device-width指明宽度匹配设备的宽度,可以避免不同手机带来的渲染问题</li>
-                            <li>title元素标签:指定了网页的标题.</li>
-                            <li>body元素标签:包含了网页希望显示的所有内容</li>
-                        </ol>
+                        <strong>初期需要的工具</strong><br>
+                        一台计算机,一个文本编辑器,一个浏览器.<br>
                     </p>
-                </figure>
-            </p>
-
-            <p>
-                <strong>图像</strong><br>
-                img元素:<br>
-                src属性指定图像链接:src="Resources/a.img"<br>
-                alt属性指定替换文本:当图片无法显示的时候显示这个文字,也可以帮助视觉障碍者通过阅读器播放实现无障碍阅读.<br>
-            </p>
-
-            <p>
-                <strong>标记文本</strong><br>
-                标题元素h1-h6:是Heading的缩写<br>
-                通常最多用到3-4级别,如果有其余的指定方式也可以完全不使用标题元素<br>
-                <br>
-                段落元素p:最常用的内容段落<br>
-                <br>
-                列表元素ul,ol:<br>
-                ul是UnorderedList无序列表,里面的每个项目用元素li标识<br>
-                ol是OrderedList有序列表<br>
-                <br>
-                链接元素a:是Anchor的缩写<br>
-                配合属性href来指定链接,href是Hypertext reference超文本引用的缩写<br>
-            </p>
-
-            <section id="1.5">1.5 CSS基础</section>
-            <p>
-                前言:层叠样式表(CSS)是你用来为你的网站设置样式的代码。例如，你希望文本是黑色还是红色?内容应该画在屏幕的什么地方?应该用什么背景图片和颜色来装饰你的网站?在这篇文章中，我们将带你了解你所需要的东西，以便开始使用。
-            </p>
-                <strong>什么是CSS?</strong><br>
-                CSS是一门样式表语言,用来选择性的为HTML元素添加样式.<br>
-
-                <strong>CSS规则集详解</strong><br>
-                <figure>
-                    <img src="Resources/img/1-8-CSS规则集详解.png" alt="CSS规则集详解">
+                </div>
+            </section>
+            
+            <section id="1.2"><p class="section">1.2 设计网站外观</p>
+                <div>
                     <p>
-                        选择器(Selector):选择一个或多个需要添加样式的元素,可以通过,分隔指定多个元素.<br>
-                        语法: p,a,li {}<br>
+                        前言:在你开始为你的网站写代码之前，你应该先计划一下。需要展示什么信息？使用什么字体和颜色？我们概述了一个简单的方法，你可以按照这个方法来规划网站的内容和设计。
+                    </p>
+                    <p>
+                        <strong>第一步:计划</strong><br>
+                        网站的主题是什么? : 记录学习笔记<br>
+                        要展示哪些信息? : 展示学习笔记,方便以后查询.<br>
+                        网站的外观是什么样的? : 类似一本书籍,方便查询的书籍<br>
+                    </p>
+                    <p>
+                        <strong>绘制草图</strong><br>
+                        <figure>
+                            <img src="Resources/img/1-1-框架草图1.png" alt="框架草图"><br>
+                            <p>对于网站的基础框架构思设计</p>
+                        </figure>
+                        主要考虑比较多的是怎么处理文件夹的结构<br>
+                        <figure>
+                            <img src="Resources/img/1-2-框架草图2.png" alt="框架草图"><br>
+                            <p>对于图片+文字的样式思考</p>
+                        </figure>
+                        最后决定采用的图片居中,512px,文字在下方的方式.<br>
+                    </p>
+                    <p>
+                        <strong>素材选择</strong><br>
+                        1.文本内容:标题和文字内容<br>
+                        2.颜色:字体的颜色和背景颜色,链接颜色等等:
+                        <a href="https://paletton.com/#uid=12l0u0kllllaFw0g0qFqFg0w0aF" alt="推荐的一个配色网站">Paletton配色网站</a><br>
+                        3.图像:可以通过PS等制图软件制作,也可以在网络上收集(不过需要注意许可问题)<br>
+                        <figure>
+                            <img src="Resources/img/1-3-图片获取.png" alt="google搜索图片"><br>
+                            <p>在google可以获取有商业许可的图片</p>
+                        </figure>
+                        4.字体:通常推荐一个网页不超过两个字体,不然会容易造成混乱,在这里我选择了免费的思源臻宋;<br>
+                        安全字体:肯定每台电脑都有的字体(适合作为备选字体),Arial、Times New Roman、Courier New<br>
                         <br>
-                        声明(Declaration):单独的规则,用来指定添加样式元素的属性.<br>
-                        语法是 属性:值;<br>
+                        使用方式:<br>
+                        1.下载到本地,然后通过在CSS当中@font-face指定好,通过font-family定义名字就可以调用了<br>
+                        2.网络上使用:<a href="https://developers.google.com/fonts?hl=zh-cn">fonts</a><br>
                     </p>
-                </figure>
-
-                选择器有很多不同的类型:<br>
-                1.元素选择器(标签/类型选择器):作用是指定类型的所有HTML元素,直接输入指定的HTML元素名就可以.<br>
-                语法:p,aside,body<br>
-                <br>
-                2.ID选择器:具有唯一ID的元素,单一HTML网页当中每个ID只有一个.<br>
-                语法:#my-id指定  HTML中通过id="my-id"属性标识<br>
-                <br>
-                3.类选择器:具有特定类的元素,单一页面,一个类可以有多个实例.<br>
-                语法:.my-class指定,在HTML当中通过属性class="my-class"标识<br>
-                <br>
-                4.属性选择器:拥有特定属性的元素<br>
-                语法: img[src] 选择有src属性的img元素对象<br>
-                <br>
-                5.伪类选择器:特定状态下的特定元素<br>
-                语法: a:hover 会对a元素鼠标悬停的时候起作用<br>
-                <br>
-
-                样式应用到HTML的方法:<br>
-                1.外部样式表<br>
-                在head元素内,通过link元素的属性rel="stylesheet"指定是链接样式表文件 href="../3_CSS/basicStyle.css"指定链接样式表的位置<br>
-                2.内部样式表<br>
-                在head元素内,通过style元素内部的内容作为样式表<br>
-                3.内联样式表<br>
-                在任意元素当中通过属性style="color:black"这种方式来指定该元素的样式<br>
-            <p>
-
-            <p>
-                <strong>CSS:一切皆盒子</strong><br>
-                CSS布局主要是基于盒子模型,每个元素都可以看成一个盒子.
-                <figure>
-                    <img src="Resources/img/1-9-盒子模型.png" alt="盒子模型示意图">
+                </div>
+            </section>
+            
+            <section id="1.3"><p class="section">1.3 处理文件</p>
+                <div>
                     <p>
-                        <ol>
-                            <li>content(内容):最里面的文字就是内容的部分</li>
-                            <li>padding(内边距):指的是内容周围的空间</li>
-                            <li>border(边框):指的是内外边距之间的边框分界线</li>
-                            <li>margin(外边距):指的是边界外部的空间</li>
-                        </ol>
+                        前言:一个网站由许多文件组成：文本内容、代码、样式表、媒体内容，等等。当你建立一个网站时，你需要将这些文件组合成一个合理的结构，并确保它们能够相互交流。这篇文章解释了如何为你的网站建立一个合理的文件结构以及你应该注意的问题。
                     </p>
-                </figure>
+                    <p>
+                        <strong>网站应该保存在何处?</strong><br>
+                        把相关联的东西放在一个文件夹当中,核心目标是当可以使用相对路径安全的读取到相关资源,这样进行迁移的时候可以减少出现问题的几率.<br>
+                    </p>
+                    <p>
+                        <strong>关于大小写和空格的提示</strong><br>
+                        HTML是区分大小写的,所以建议是全部使用小写,这样就不容易造成因为大小写不同而带来混乱.<br>
+                        HTML当中对于多个空格会进行处理,在不指定特殊标记情况下,默认是连续空格只会保留一个.<br>
+                        HTML对于区分单词默认使用的是-而不是其余编程语言的_,所以使用-是更好的习惯.<br>
+                    </p>
+                    <p>
+                        <strong>网站应该什么文件结构</strong><br>
+                        一个网站通常需要:<br>
+                        1.HTML文件夹:存放文本内容<br>
+                        2.CSS文件夹:存放网页的显示样式<br>
+                        3.JS文件夹:存放网页交互相关代码<br>
+                        4.Resources文件夹:存放网页需要的相关数字资源<br>
+                        <figure>
+                            <img src="Resources/img/1-4-文件夹结构.png" alt="自己定义的文件夹结构">
+                            <p>自己定义的文件夹结构,资源放到对应的HTML文件夹当中了,这样HTML文件引用的就都是自己的子集资源了</p>
+                        </figure>
+        
+                        <br>
+                        相对路径:从当前层级出发,当前层级可以直接调用,上一级用../表示.<br>
+                        例如src="Resources/a.img"表示读取当前层级的Resources文件夹里面的a.img图片<br>
+                        绝对路径:通常是从盘符出发或者互联网上的某个地址,比较特殊的是如果是本地的路径,用的是反斜杠\替换正斜杠/<br>
+                        实例: src="C:\desktop\a.img"表示读取当前电脑的C盘的desktop文件夹里面的a.img图片.<br>
+                        建议:绝大多数情况下都不推荐使用绝对路径.<br>
+                    </p>
+                </div>
+            </section>
+            
 
-                一些基本的属性有:<br>
-                width(宽度):指定元素的宽度<br>
-                background-color(背景色):内容和内边距元素背面的颜色<br>
-                color(颜色):元素内容文本的颜色<br>
-                display(显示模式):控制如何显示元素<br>
-                text-shadow(文本阴影):为内容的文本增加阴影效果<br>
-                <br>
-                margin(外边距)/padding(内边距):如果跟1个值,那就是四个方向一样,2个值就是上下和左右,三个值就是上,下,左右,四个值就是上,右,下,左.<br>
-                例如:margin 1px;表示元素的四周都有1px的距离.margin 1px 3px;就是上下方向1px,左右方向3px距离.<br>
-                <br>
-                border(边框):指定的是内外边距中间的分界线<br>
-                例如:border: 5px solid black;  设置边框线的宽度是5px,线型是solid实线,颜色是black黑色.<br>
-                <br>
-                Tips:元素也是分等级的,body,div等是块级元素所以他们有外边距这些,而img这些是行级元素,他们没有外边距,不过可以通过display:block让他也具备块级元素的行为.<br>
-            </p>
+            <section id="1.4"><p class="=section">1.4 HTML基础</p>
+                <div>
+                    <p>
+                        前言:超文本标记语言(HTML)是你用来组织你的网络内容，并赋予它意义和目的的代码。例如，我的内容是一组段落还是一个要点列表?我的页面上是否插入了图片?我有一个数据表吗?在你的接受能力之内，这篇文章提供了足够的信息，使你熟悉 HTML。
+                    </p>
+        
+                    <p>
+                        <strong>基础概念</strong><br>
+                        超文本标记语言:HyperText Markup Language简称HTML
+                        HTML不是编程语言,而是用于定义内容结构的标记语言,HTML由一系列的元素组成,这些元素包围不同的文本,使其以某种方式呈现在网页上.
+                        <figure>
+                            <img src="Resources/img/1-5-元素详解.png" alt="什么是元素?">
+                            <p>
+                                <ol style="text-align: left;">
+                                    <li>开始标签(Opening tag):包含元素的名称(本例为 p),被大于号、小于号所包围。表示元素从这里开始或者开始起作用——在本例中即段落由此开始。</li>
+                                    <li>结束标签(Closing tag);与开始标签相似,只是其在元素名之前包含了一个斜杠。这表示着元素的结尾——在本例中即段落在此结束。初学者常常会犯忘记包含结束标签的错误,这可能会产生一些奇怪的结果。</li>
+                                    <li>内容(Content)：元素的内容，本例中就是所输入的文本本身。</li>
+                                    <li>元素(Element)：开始标签、结束标签与内容相结合，便是一个完整的元素。</li>
+                                </ol>
+                            </p>
+                        </figure>
+                        由标签包裹的内容就组成了一个元素.<br>
+                        <br>
+                        <figure>
+                            <img src="Resources/img/1-6-元素的属性.png" alt="元素可以包含属性">
+                            <p>
+                                元素是可以包含多个属性的,通过空格进行分隔.<br>
+                                例如:标签名 属性="值" 属性2="值2"<br>
+                            </p>
+                        </figure>
+                        通过属性值,可以方便的给相同元素定义各种不同的表现效果.<br>
+                        <br>
+                        元素是可以嵌套的,但是必须要保证次序,例如 A B 内容 B A这是正确的嵌套,A B 内容 A B,这样的话[A B 内容 A]B没有结束标签了(这里假定A和B都是有开始和结束标签的)<br>
+        
+                        空元素概念:没有任何内容的元素.例如img元素<br>
+                    </p>
+        
+                    <p>
+                        <strong>HTML文档抬头详解</strong><br>
+                        每个HTML文件都包含的抬头部分.
+                        <figure>
+                            <img src="Resources/img/1-7-HTML抬头详解.png" alt="HTML抬头部分详解">
+                            <p>
+                                <ol>
+                                    <li>!DOCTYPE html:关联HTML编写规范,让浏览器知道要读取的是HTML文件</li>
+                                    <li>html元素标签:包含整个页面的所有内容,称之为根元素,其中的lang属性是language的缩写含义是语言,en是英语,zh-cn是中文</li>
+                                    <li>head元素标签:头文件,这里面的内容是不向用户展示的,是给浏览器引擎准的.</li>
+                                    <li>meta元素标签:元数据,属性charset指定了编译用的字符集.uft-8是世界上通用的字符集,不建议修改.</li>
+                                    <li>name属性:指定视口的名字,配合content属性控制显示方式width=device-width指明宽度匹配设备的宽度,可以避免不同手机带来的渲染问题</li>
+                                    <li>title元素标签:指定了网页的标题.</li>
+                                    <li>body元素标签:包含了网页希望显示的所有内容</li>
+                                </ol>
+                            </p>
+                        </figure>
+                    </p>
+        
+                    <p>
+                        <strong>图像</strong><br>
+                        img元素:<br>
+                        src属性指定图像链接:src="Resources/a.img"<br>
+                        alt属性指定替换文本:当图片无法显示的时候显示这个文字,也可以帮助视觉障碍者通过阅读器播放实现无障碍阅读.<br>
+                    </p>
+        
+                    <p>
+                        <strong>标记文本</strong><br>
+                        标题元素h1-h6:是Heading的缩写<br>
+                        通常最多用到3-4级别,如果有其余的指定方式也可以完全不使用标题元素<br>
+                        <br>
+                        段落元素p:最常用的内容段落<br>
+                        <br>
+                        列表元素ul,ol:<br>
+                        ul是UnorderedList无序列表,里面的每个项目用元素li标识<br>
+                        ol是OrderedList有序列表<br>
+                        <br>
+                        链接元素a:是Anchor的缩写<br>
+                        配合属性href来指定链接,href是Hypertext reference超文本引用的缩写<br>
+                    </p>
+                </div>
+            </section>
+            
 
+            <section id="1.5"><p class="section">1.5 CSS基础</p>
+                <div>
+                    <p>
+                        前言:层叠样式表(CSS)是你用来为你的网站设置样式的代码。例如，你希望文本是黑色还是红色?内容应该画在屏幕的什么地方?应该用什么背景图片和颜色来装饰你的网站?在这篇文章中，我们将带你了解你所需要的东西，以便开始使用。
+                    </p>
+                        <strong>什么是CSS?</strong><br>
+                        CSS是一门样式表语言,用来选择性的为HTML元素添加样式.<br>
+        
+                        <strong>CSS规则集详解</strong><br>
+                        <figure>
+                            <img src="Resources/img/1-8-CSS规则集详解.png" alt="CSS规则集详解">
+                            <p>
+                                选择器(Selector):选择一个或多个需要添加样式的元素,可以通过,分隔指定多个元素.<br>
+                                语法: p,a,li {}<br>
+                                <br>
+                                声明(Declaration):单独的规则,用来指定添加样式元素的属性.<br>
+                                语法是 属性:值;<br>
+                            </p>
+                        </figure>
+        
+                        选择器有很多不同的类型:<br>
+                        1.元素选择器(标签/类型选择器):作用是指定类型的所有HTML元素,直接输入指定的HTML元素名就可以.<br>
+                        语法:p,aside,body<br>
+                        <br>
+                        2.ID选择器:具有唯一ID的元素,单一HTML网页当中每个ID只有一个.<br>
+                        语法:#my-id指定  HTML中通过id="my-id"属性标识<br>
+                        <br>
+                        3.类选择器:具有特定类的元素,单一页面,一个类可以有多个实例.<br>
+                        语法:.my-class指定,在HTML当中通过属性class="my-class"标识<br>
+                        <br>
+                        4.属性选择器:拥有特定属性的元素<br>
+                        语法: img[src] 选择有src属性的img元素对象<br>
+                        <br>
+                        5.伪类选择器:特定状态下的特定元素<br>
+                        语法: a:hover 会对a元素鼠标悬停的时候起作用<br>
+                        <br>
+        
+                        样式应用到HTML的方法:<br>
+                        1.外部样式表<br>
+                        在head元素内,通过link元素的属性rel="stylesheet"指定是链接样式表文件 href="../3_CSS/basicStyle.css"指定链接样式表的位置<br>
+                        2.内部样式表<br>
+                        在head元素内,通过style元素内部的内容作为样式表<br>
+                        3.内联样式表<br>
+                        在任意元素当中通过属性style="color:black"这种方式来指定该元素的样式<br>
+                    <p>
+        
+                    <p>
+                        <strong>CSS:一切皆盒子</strong><br>
+                        CSS布局主要是基于盒子模型,每个元素都可以看成一个盒子.
+                        <figure>
+                            <img src="Resources/img/1-9-盒子模型.png" alt="盒子模型示意图">
+                            <p>
+                                <ol>
+                                    <li>content(内容):最里面的文字就是内容的部分</li>
+                                    <li>padding(内边距):指的是内容周围的空间</li>
+                                    <li>border(边框):指的是内外边距之间的边框分界线</li>
+                                    <li>margin(外边距):指的是边界外部的空间</li>
+                                </ol>
+                            </p>
+                        </figure>
+        
+                        一些基本的属性有:<br>
+                        width(宽度):指定元素的宽度<br>
+                        background-color(背景色):内容和内边距元素背面的颜色<br>
+                        color(颜色):元素内容文本的颜色<br>
+                        display(显示模式):控制如何显示元素<br>
+                        text-shadow(文本阴影):为内容的文本增加阴影效果<br>
+                        <br>
+                        margin(外边距)/padding(内边距):如果跟1个值,那就是四个方向一样,2个值就是上下和左右,三个值就是上,下,左右,四个值就是上,右,下,左.<br>
+                        例如:margin 1px;表示元素的四周都有1px的距离.margin 1px 3px;就是上下方向1px,左右方向3px距离.<br>
+                        <br>
+                        border(边框):指定的是内外边距中间的分界线<br>
+                        例如:border: 5px solid black;  设置边框线的宽度是5px,线型是solid实线,颜色是black黑色.<br>
+                        <br>
+                        Tips:元素也是分等级的,body,div等是块级元素所以他们有外边距这些,而img这些是行级元素,他们没有外边距,不过可以通过display:block让他也具备块级元素的行为.<br>
+                    </p>
+                </div>
+            </section>
+            
             </p>
-            <section id="1.6">1.6 JavaScript基础</section>
-            <p>
-                前言:JavaScript 是一种编程语言，你用它来给你的网站添加交互功能。例如游戏、当按钮被按下或数据被输入表格时发生的事情、动态造型效果、动画等。这篇文章将让你了解这种令人兴奋的语言的潜力，以及如何开始使用。
-            </p>
-            <section id="1.7">1.7 发布网站</section>
-            <p>
-                前言:一旦你完成了编写代码并组织构成你的网站的文件时，你需要把它们全部放在网上，以便人们能够找到它。这篇文章描述了如何以最简便的方式将你的简单示例上线至网络。
-            </p>
-            <section id="1.8">1.8 万维网是如何工作的</section>
-            <p>
-                前言:当你访问你最喜欢的网站时，你可能不知道正有很多复杂的事情在后台发生。这篇文章概述了当你在电脑上浏览网页时发生的事情。
-            </p>
+            <section id="1.6"><p class="section">1.6 JavaScript基础</p>
+                <p>
+                    前言:JavaScript 是一种编程语言，你用它来给你的网站添加交互功能。例如游戏、当按钮被按下或数据被输入表格时发生的事情、动态造型效果、动画等。这篇文章将让你了解这种令人兴奋的语言的潜力，以及如何开始使用。
+                </p>
+            </section>
+            
+            <section id="1.7"><p class="section">1.7 发布网站</p>
+                <p>
+                    前言:一旦你完成了编写代码并组织构成你的网站的文件时，你需要把它们全部放在网上，以便人们能够找到它。这篇文章描述了如何以最简便的方式将你的简单示例上线至网络。
+                </p>
+            </section>
+            
+            <section id="1.8"><p class="section">1.8 万维网是如何工作的</p>
+                <p>
+                    前言:当你访问你最喜欢的网站时，你可能不知道正有很多复杂的事情在后台发生。这篇文章概述了当你在电脑上浏览网页时发生的事情。
+                </p>
+            </section>
+            
         </article>
         <article id="2"><h2>2 HTML-构建Web</h2>
             <section>2.1 XXXXXX</section>

@@ -78,6 +78,9 @@
             <a href="#20240510"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240510-提高充能效率的手段-光照贴图:<br>
             补充光能的升级方式是通过提高<strong>烘焙</strong>光照效率来实现的,每次击败怪物升级之后,就会提供烘焙当中使用的<strong>路径追踪</strong>算法的计算速率,
             在一定的等级还能够直接更换更加强大的算法,例如在6级可以学到第一个大招,为路径追踪算法提供<strong>Meta</strong>通道,提高渲染效果.<br>
+            <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513-伪装的植物<br>
+            在游戏的过程当中有很多伪装植物,它们通过<strong>法线贴图</strong>伪装自己是正常的植物,待主角过去就发起攻击进入偷袭战,它们有一种本领叫做<strong>镜面折射</strong>
+            可以让玩家攻击有一定概率直接丢失<br>
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -327,10 +330,64 @@
                     </p>
                 </p>
             </p>
-            <section id="5.3">5.3 法线贴图</section>
-            <p></p>
-            <section id="5.4">5.4 类玻璃物体的渲染</section>
-            <p></p>
+
+            <p class="timeStamp" id="20240513">202405013学习</p>
+            <section id="5.3"><p class="section">5.3 法线贴图</p>
+                <div>
+                    <p class="paragraph">5.3.1 提高模型细节的"障眼法"</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/5-3-1-对比.png" alt="对比">
+                            <p>
+                                如何让4200面(右侧)看起来尽可能的像42万面(左侧)<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/5-3-2-高低模结果.png" alt="高低模结果">
+                            <p>
+                                思路是使用高模的法线来替换低模的法线,这张记录表面法线信息的贴图就是法线贴图NormalMap<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">5.3.2 翻译法线贴图</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/5-3-3-切线空间.png" alt="切线空间">
+                            <p>
+                                法线贴图的参考系是切线空间-这样就和模型无关了;<br>
+                                法线分量记录的取值范围是[-1,1],而转换到RGB的值需要非负,所以需要转换colorx2-1=normal<br>
+                                还有一个特殊的是Unity使用的OpenGL和UE使用的DirectX法线贴图在G通道上相反.<br>
+                                还有一个小技巧是因为法线是归一化的,所以只要有两个分量加上确定的手系就可以确定另外一个分量了,所以可以只存两个通道<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">5.3.3 unity中的法线贴图</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/5-3-4-代码.png" alt="代码">
+                        </figure>
+                    </p>
+                </div>
+            </section>
+            <section id="5.4">5.4 类玻璃物体的渲染
+                <div>
+                    <p class="paragraph">5.4.1 折射效果与Grabpass</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/5-4-1-目标样式.png" alt="目标样式">
+                            <p>
+                                通常目标的玻璃都有这些特征:折射,模糊,高反射<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/5-4-2-折射计算.png" alt="折射计算">
+                            <p>
+                                我们需要得到的是offset这个值,即在摄像机看到的平面的偏移值,得到这个折射之后的偏移值<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
         </article>
         <article id="6"><h2>6 在模型上雕塑:Shader与几何</h2>
             <section id="6.1">1.1 安装基础软件</section>

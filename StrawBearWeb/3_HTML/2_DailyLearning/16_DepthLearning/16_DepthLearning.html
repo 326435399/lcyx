@@ -359,8 +359,23 @@
                         <li><a href="#48.2">48.2 用于训练的代码</a></li>
                     </ul>
                 </li>
-                <li><a href="#49">49 Dataset类和预处理</a></li>
-                <li><a href="#50">50 用于取出小批量数据的DataLoader</a></li>
+                <li><a href="#49">49 Dataset类和预处理</a>
+                    <ul>
+                        <li><a href="#49.1">49.1 Dataset类的实现</a></li>
+                        <li><a href="#49.2">49.2 大型数据集的情况</a></li>
+                        <li><a href="#49.3">49.3 数据的连接</a></li>
+                        <li><a href="#49.4">49.4 用于训练的代码</a></li>
+                        <li><a href="#49.5">49.5 数据集的预处理</a></li>
+                    </ul>
+                </li>
+                <li><a href="#50">50 用于取出小批量数据的DataLoader</a>
+                    <ul>
+                        <li><a href="#50.1">50.1 什么是迭代器</a></li>
+                        <li><a href="#50.2">50.2 使用DataLoader</a></li>
+                        <li><a href="#50.3">50.3 accuracy函数的实现</a></li>
+                        <li><a href="#50.4">50.4 螺旋数据集的训练代码</a></li>
+                    </ul>
+                </li>
                 <li><a href="#51">51 MINST的训练</a></li>
                 <li><a href="#52">52 支持GPU</a></li>
                 <li><a href="#53">53 模型的保存和加载</a></li>
@@ -385,6 +400,10 @@
             树木的苹果品质结果,针对性的对品质较差的树木进行重点改善提高品质<br>  
             <a href="#20240510"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240510-螺旋小批量<br>
             因为苹果数量比较多,一次性质检太过工作量非常巨大,小熊采用了<strong>螺旋</strong>选择方式,对范围内的苹果随机采样,然后对部分采样<strong>小批量</strong>质量检验,得到一个近似准确的统计结果<br>
+            <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513-苹果采样器<br>
+            苹果的数量越来越多,为了更好的质检,设计了一个叫做<strong>Dataset</strong>的工具来处理所有的苹果,实现小批量的加载,
+            由于控制界面复杂,又设计了<strong>DataLoader</strong>来更加容易使用<br>,现在只需要加载符合Dataset格式的数据,然后调用DataLoader来读取,
+            最后看返回的<strong>accuracy</strong>就知道准确度了<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -944,13 +963,109 @@
                 </div>
             </section>
         </article>
+
+        <p class="timeStamp" id="20240513">20240513开始</p>
         <article id="49"><h2 class="chapter">49 Dataset类和预处理</h2>
-            <section id="49.1">1.1 安装基础软件</section>
-            <p></p>
+            <section id="49.1">49.1 Dataset类的实现<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/49-1-Dataset基类.png" alt="Dataset基类">
+                        <p>
+                            问题引出:上一节我们导入了一个300条数据的小数据集,所以我们可以当一个ndarray实例全部加载到内存,那么如果是100万个元素呢,那显然不太行,为了解决这种问题,创建一个专门用来做数据导入处理的Dataset类<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/49-2-玩具螺旋数据集.png" alt="玩具螺旋数据集">
+                        <p>
+                            把螺旋数据集给封装起来<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="49.2">49.2 大型数据集的情况<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/49-3-大数据集的加载.png" alt="大数据集的加载">
+                        <p>
+                            不在初始化的时候加载,而是在访问数据的时候加载,这里就是[]的时候加载.<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="49.3">49.3 数据的连接<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/49-4-数据的连接.png" alt="数据的连接">
+                        <p>
+                            把数据转换成我们想要的格式<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="49.4">49.4 用于训练的代码<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/49-5-修改部分.png" alt="修改部分">
+                        <p>
+                            和上一步相比,我们修改了数据集的导入方式,然后采用小批量取出的方式进行数据加载<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="49.5">49.5 数据集的预处理<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/49-6-数据预处理.png" alt="数据预处理">
+                        <p>
+                            添加了对于数据的预处理<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="50"><h2 class="chapter">50 用于取出小批量数据的DataLoader</h2>
-            <section id="50.1">1.1 安装基础软件</section>
-            <p></p>
+            <section id="50.1">50.1 什么是迭代器<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/50-1-DataLoader.png" alt="DataLoader">
+                        <p>
+                            能够重复提取容器中元素的对象<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="50.2">50.2 使用DataLoader<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/50-2-使用方式.png" alt="使用方式">
+                        <p>很方便就能使用DataLaoader加载数据资源<br></p>
+                    </figure>
+                </div>
+            </section>
+            <section id="50.3">50.3 accuracy函数的实现<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/50-3-accuracy.png" alt="accuracy">
+                        <p>准备了accuracy函数用来评估计算准确度<br></p>
+                    </figure>
+                </div>
+            </section>
+            <section id="50.4">50.4 螺旋数据集的训练代码<p class="section"></p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/50-4-针对测试集和非测试区分处理.png" alt="针对测试集和非测试区分处理">
+                        <p>
+                            针对不同数据集分开处理<br>
+                            <figure>
+                                <img src="Resources/img/50-5-处理结果.png" alt="处理结果">
+                                <p>
+                                    并没有出现过拟合现象(反过来不准确的现象)<br>
+                                </p>
+                            </figure>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="51"><h2 class="chapter">51 MINST的训练</h2>
             <section id="51.1">1.1 安装基础软件</section>

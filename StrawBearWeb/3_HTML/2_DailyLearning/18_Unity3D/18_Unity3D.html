@@ -140,7 +140,17 @@
                         <li><a href="#13.7">13.7 渲染</a></li>
                     </ul>
                 </li>
-                <li><a href="#14">14 扩展编辑器</a></li>
+                <li><a href="#14">14 扩展编辑器</a>
+                    <ul>
+                        <li><a href="#14.1">14.1 扩展Project视图</a></li>
+                        <li><a href="#14.2">14.2 扩展Hierarchy视图</a></li>
+                        <li><a href="#14.3">14.3 扩展Inspector视图</a></li>
+                        <li><a href="#14.4">14.4 扩展Scene视图</a></li>
+                        <li><a href="#14.5">14.5 扩展Game视图</a></li>
+                        <li><a href="#14.6">14.6 导航栏扩展</a></li>
+                        <li><a href="#14.7">14.7 查看源代码</a></li>
+                    </ul>
+                </li>
                 <li><a href="#15">15 资源管理</a></li>
                 <li><a href="#16">16 自动化与打包</a></li>
                 <li><a href="#17">17 代码优化</a></li>
@@ -155,7 +165,9 @@
             <a href="#20240507"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240507:ECS的实现1<br>
             我们首先使用<strong>创作模式</strong>生产所有的武器,然后准备<strong>实体组件结构体</strong>仓库规划来对这些武器分门别类,
             按照不同的<strong>Archetype原型 </strong>武器种类作为分类依据,每个武器种类由一个一个的<strong>Chunk簇</strong>(一套这个类型武器)组成,
-            最后统一交由武器管理部<strong>System系统</strong>控制来控制存储和支取武器,支取的方式是先找对应原型,然后遍历每个簇来获得想要的指定武器<br>         
+            最后统一交由武器管理部<strong>System系统</strong>控制来控制存储和支取武器,支取的方式是先找对应原型,然后遍历每个簇来获得想要的指定武器<br>
+            <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513:扩展视口<br>
+            为了方便我们系统的使用,我们对<strong>View视口</strong>进行扩展,根据原本的视口元素位置关系来创建新的Rect按钮元素<br>
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -418,25 +430,126 @@
             <section id="13.6">13.6 Burst</section><p></p>
             <section id="13.7">13.7 渲染</section><p></p>
         </article>
+        <p class="timeStamp" id="20240513">20240513学习</p>
         <article id="14"><p class="chapter">14 扩展编辑器</p>
-            <section id="14.1"></section>
-            <p></p>
+            <section id="14.1"><p class="section">14.1 扩展Project视图</p>
+                <div>
+                    <p class="paragraph">14.1.1 扩展右键菜单</p>
+                    <p>
+                        Unity编辑器由五大基本视图组成,Project,Hierarchy,Inspector,Scene,Game<br>
+                        有两种方式来扩展:一种是扩展内置视图中的元素,一种是扩展我们自己写的脚本和自定义Windows窗口面板<br>
+                        <figure>
+                            <img src="Resources/img/14-1-1-菜单创建.png" alt="菜单创建">
+                            <p>
+                                Unity将位于Editor文件夹内的代码仅限制在编辑模式使用,正式打包是不包含的.代码创建了一个菜单<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">14.1.2 创建脚本模板</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-2-操作逻辑1.png" alt="操作逻辑1">
+                            <p>
+                                创建菜单,获取路径<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/14-1-3-操作逻辑2.png" alt="操作逻辑2">
+                            <p>
+                                在这个路径写用我们新模板创建的脚本<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">14.1.3 扩展布局</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-4-扩展按钮.png" alt="扩展按钮">
+                            <p>
+                                扩展按钮<br>
+                                <figure>
+                                    <img src="Resources/img/14-1-5-扩展按钮结果样式.png" alt="扩展按钮结果样式">
+                                </figure>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">14.1.4 监听资源导入</p>
+                    <p></p>
+                    <p class="paragraph">14.1.5 监听资源修改事件</p>
+                    <p></p>
+                    <p class="paragraph">14.1.6 自定义资源导入类型</p>
+                    <p></p>
+                </div>
+            </section>
+            <section id="14.2"><p class="section">14.2 扩展Hierarchy视图</p>
+                <div>
+                    <p class="paragraph">14.2.1 扩展菜单</p>
+                    <p></p>
+                    <p class="paragraph">14.2.2 扩展布局</p>
+                    <p></p>
+                    <p class="paragraph">14.2.3 自动选择游戏对象</p>
+                    <p></p>
+                </div>
+            </section>
+            <section id="14.3"><p class="section">14.3 扩展Inspector视图</p>
+                <div>
+                    <p class="paragraph">14.3.1 扩展原生组件</p>
+                    <p></p>
+                    <p class="paragraph">14.3.2 扩展继承组件</p>
+                    <p></p>
+                    <p class="paragraph">14.3.3 限制组件编辑</p>
+                    <p></p>
+                    <p class="paragraph">14.3.4 Context菜单</p>
+                    <p></p>
+                </div>
+            </section>
+            <section id="14.4"><p class="section">14.4 扩展Scene视图</p>
+                <div>
+                    <p class="paragraph">14.4.1 工具栏扩展</p>
+                    <p></p>
+                    <p class="paragraph">14.4.2 辅助元素</p>
+                    <p></p>
+                    <p class="paragraph">14.4.3 辅助UI</p>
+                    <p></p>
+                    <p class="paragraph">14.4.4 常驻辅助UI</p>
+                    <p></p>
+                </div>
+            </section>
+            <section id="14.5"><p class="section">14.5 扩展Game视图</p>
+                <div>
+
+                </div>
+            </section>
+            <section id="14.6"><p class="section">14.6 导航栏扩展</p>
+                <div>
+                    <p class="paragraph">14.6.1 自定义菜单</p>
+                    <p></p>
+                    <p class="paragraph">14.6.2 菜单项自动执行</p>
+                    <p></p>
+                    <p class="paragraph">14.6.3 导航条</p>
+                    <p></p>
+                    <p class="paragraph">14.6.4 标题栏扩展</p>
+                    <p></p>
+                    <p class="paragraph">14.6.5 默认面板</p>
+                    <p></p>
+                </div>
+            </section>
+            <section id="14.7"><p class="section">14.7 查看源代码</p>
+                <div>
+
+                </div>
+            </section>
         </article>
         <article id="15"><p class="chapter">15 资源管理</p>
             <section id="15.1"></section>
-            <p></p>
         </article>
         <article id="16"><p class="chapter">16 自动化与打包</p>
             <section id="16.1"></section>
-            <p></p>
         </article>
         <article id="17"><p class="chapter">17 代码优化</p>
             <section id="17.1"></section>
-            <p></p>
         </article>
         <article id="18"><p class="chapter">18 通用案例与优化</p>
             <section id="18.1"></section>
-            <p></p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
