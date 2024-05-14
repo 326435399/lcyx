@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>DesignPatternGOF4</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1 引言</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 什么是设计模式</a></li>
+                        <li><a href="#1.2">1.2 Smalltalk MVC中的设计模式</a></li>
+                        <li><a href="#1.3">1.3 描述设计模式</a></li>
+                        <li><a href="#1.4">1.4 设计模式的编目</a></li>
+                        <li><a href="#1.5">1.5 组织编目</a></li>
+                        <li><a href="#1.6">1.6 设计模式怎样解决设计问题</a></li>
+                        <li><a href="#1.7">1.7 怎样选择设计模式</a></li>
+                        <li><a href="#1.8">1.8 怎样使用设计模式</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2 实例研究:设计一个文档编辑器</a></li>
+                <li><a href="#3">3 创建型模式</a></li>
+                <li><a href="#4">4 结构型模式</a></li>
+                <li><a href="#5">5 行为型模式</a></li>
+                <li><a href="#6">6 结论</a></li>
+            </ul>
+        </aside>
+        <nav>
+            <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:抽象世界-设计模式世界<br>
+            设计模式的世界是老师的世界,老师需要用抽象的语言来描述某些场景的解决方案<br>
+        </nav>
+        <header><p class="header">DesignPatternGOF4</p><figure><img src="设计模式.jpg" alt="书籍封面"></figure></header>
+        <article id="1"><p class="chapter">1.引言</p>
+            <p class="timeStamp" id="20240514">20240514学习</p>
+            <section id="1.1"><p class="section">1.1 什么是设计模式</p>
+                <div>
+                    目标:找到相关的对象,以适当的粒度将它们归类,再定义类的接口和继承层次,建立对象之间的基本关系,应该对手头的问题有针对性,对将来的问题和需求有足够的通用性.<br>
+                    定义:设计模式即时把面向对象软件的设计经验(解决方案)按照一定格式记录下来.<br>
+                    <br>
+                    一个模式包含四个基本要素<br>
+                    1.模式名(pattern name):一个助记名,用一两个次来描述模式的问题.解决方案和效果.<br>
+                    允许我们在更高的抽象层次来思考,便于和其他人交流设计思想.<br>
+                    <br>
+                    2.问题(problem):描述了应该在何时使用模式.<br>
+                    解释了问题的由来,也可能包含一定的问题前置条件<br>
+                    <br>
+                    3.解决方案(solution):描述了设计的组成成分.它们之间的相互关系以及格子的职责和协助方式.<br>
+                    不描述一个具体的设计或实现,而是抽象层次的描述用什么方式解决<br>
+                    <br>
+                    4.效果(consequence):描述了模式应用功能的效果及使用模式应权衡的问题.<br>
+                    大多关注时间,空间,性能,扩展性.<br>
+                    <br>
+                    本书的设计模式是:对用来在特定场景下解决一般设计问题的类和相互通信的对象的描述.<br>
+                </div>
+            </section>
+            <section id="1.2"><p class="section">1.2 Smalltalk MVC中的设计模式</p></section>
+            <section id="1.3"><p class="section">1.3 描述设计模式</p></section>
+            <section id="1.4"><p class="section">1.4 设计模式的编目</p></section>
+            <section id="1.5"><p class="section">1.5 组织编目</p></section>
+            <section id="1.6"><p class="section">1.6 设计模式怎样解决设计问题</p></section>
+            <section id="1.7"><p class="section">1.7 怎样选择设计模式</p></section>
+            <section id="1.8"><p class="section">1.8 怎样使用设计模式</p></section>
+        </article>
+        <article id="2"><p class="chapter">2 实例研究:设计一个文档编辑器</p></article>
+        <article id="3"><p class="chapter">3 创建型模式</p></article>
+        <article id="4"><p class="chapter">4 结构型模式</p></article>
+        <article id="5"><p class="chapter">5 行为型模式</p></article>
+        <article id="6"><p class="chapter">6 结论</p></article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>

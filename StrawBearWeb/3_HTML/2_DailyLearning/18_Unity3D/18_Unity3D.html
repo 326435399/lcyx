@@ -168,6 +168,10 @@
             最后统一交由武器管理部<strong>System系统</strong>控制来控制存储和支取武器,支取的方式是先找对应原型,然后遍历每个簇来获得想要的指定武器<br>
             <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513:扩展视口<br>
             为了方便我们系统的使用,我们对<strong>View视口</strong>进行扩展,根据原本的视口元素位置关系来创建新的Rect按钮元素<br>
+            <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:武器库监视器<br>
+            武器管理部会<strong>监听</strong>所有武器的出入库情况,他有三个监控界面<strong>Hierarchy,Scene,Inspector</strong>这三个界面都可以通过
+            不同的方法来设置显示方式,方便进行可视化管理<br>
+
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -472,46 +476,143 @@
                             </p>
                         </figure>
                     </p>
+                    <p class="timeStamp" id="20240514">20240514学习</p>
                     <p class="paragraph">14.1.4 监听资源导入</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-6-资源导入.png" alt="资源导入">
+                            <p>
+                                继承AssetPostprocessor类,OnPreXXX方法是导入前事件,OnPostXXX是导入后事件,然后通过assetImporter属性获取导入资产的引用转换成想要修改的对应XXXXImporter对象,进行修改资产设置<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.1.5 监听资源修改事件</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-7-资源监听.png" alt="资源监听">
+                            <p>
+                                InitializeOnLoadMethod 全局监听方法<br>
+                                IsOpenForEdit 监听“双击鼠标左键，打开资源”事件<br>
+                                OnWillCreateAsset 监听“资源即将被创建”事件<br>
+                                OnWillSaveAssets 监听“资源即将被保存”事件<br>
+                                OnWillMoveAsset 监听“资源即将被移动”事件<br>
+                                OnWillDeleteAsset 监听“资源即将被删除”事件<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.1.6 自定义资源导入类型</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-8-自定义资源导入.png" alt="自定义资源导入">
+                            <p>
+                                Unity允许添加自定义资源导入类型来识别自定义格式的资源,逻辑很简单<br>
+                                1.通过ScriptedImporter注册监听<br>
+                                2.扩展ScriptedImporter抽象类,覆盖OnImportAsset方法<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
             <section id="14.2"><p class="section">14.2 扩展Hierarchy视图</p>
                 <div>
                     <p class="paragraph">14.2.1 扩展菜单</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-9-创建菜单.png" alt="创建菜单">
+                            <p>
+                                GameObject路径下面定义的菜单会创建在Hierarchy的右键菜单里面<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.2.2 扩展布局</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-10-修改布局.png" alt="修改布局">
+                            <p>
+                                和Project窗口的修改方式一样,都是通过渲染回调来设置的,比较特殊的是这个Button直接传递了一张图片来作为Button而不是文字<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.2.3 自动选择游戏对象</p>
-                    <p></p>
+                    <p>
+                        可以通过Selection.activeGameObject选择指定的激活的游戏对象<br>
+                        也可以通过Selection.objects选择某个资源或游戏对象<br>
+                    </p>
                 </div>
             </section>
             <section id="14.3"><p class="section">14.3 扩展Inspector视图</p>
                 <div>
                     <p class="paragraph">14.3.1 扩展原生组件</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-11-扩展按钮.png" alt="扩展按钮">
+                            <p>
+                                扩展组件只能在原生组件的最上面或者最下面,比较遗憾的是不是所有组件都公开,都能继承覆盖<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.3.2 扩展继承组件</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-12-不能继承的扩展.png" alt="不能继承的扩展">
+                            <p>
+                                针对没有公开的编辑器,通过反射的方式拿到对象创建并修改<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.3.3 限制组件编辑</p>
-                    <p></p>
+                    <p>
+                        在GUI当中使用GUI.enabled = false;限制下面的GUI处于不可使用状态直到GUI.enabled=true;代码块<br>
+                    </p>
                     <p class="paragraph">14.3.4 Context菜单</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-13-扩展弹出菜单.png" alt="扩展弹出菜单">
+                            <p>
+                                可以通过CONTEXT/unity组件名 来给指定组件添加右键菜单,这样是全局的,可以写在任何类当中,另外一种写在当前脚本组件中的则是通过[ContextMenu("菜单内容")]指定<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
             <section id="14.4"><p class="section">14.4 扩展Scene视图</p>
                 <div>
                     <p class="paragraph">14.4.1 工具栏扩展</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-14-工具栏扩展.png" alt="工具栏扩展">
+                            <p>
+                                EditorTool用来生成工具栏按钮<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.4.2 辅助元素</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-15-辅助元素.png" alt="辅助元素">
+                            <p>
+                                通过OnDrawGizmos系列来绘制<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.4.3 辅助UI</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-16-辅助UI.png" alt="辅助UI">
+                            <p>
+                                OnSceneGUI修改即可<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.4.4 常驻辅助UI</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-17-常驻UI.png" alt="常驻UI">
+                            <p>
+                                常驻UI需要覆盖SceneView.duringSceneGui这个委托<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
             <section id="14.5"><p class="section">14.5 扩展Game视图</p>

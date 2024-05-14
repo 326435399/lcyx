@@ -133,6 +133,10 @@
             <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513:笛卡尔的仿真工具<br>
             数学模型的介绍,空间之神<strong>笛卡尔</strong>坐标系,在当中系数为1的组合称为<strong>仿射组合</strong>,具有空间稳固性,在不同空间之间结果不变<br>
             利用这个特性创造的第一个有用的工具就是<strong>线性插值</strong><br>
+            <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:向量的世界<br>
+            笛卡尔空间当中,<strong>向量</strong>是漂浮在天空中的红色箭头,它有长度和方向,可以出现在空间中的任意点,任何向量可以由<strong>基向量</strong>线性组成,
+            我们把长度为1的向量称之为<strong>单位向量</strong>,向量之间总是通过<strong>点积</strong>转换成标量脱离空间,通过<strong>叉乘</strong>跳出当前维度<br>
+
 
         </nav>
         <header><p class="header">计算机图形学原理与实践-XAML</p></header>
@@ -323,7 +327,53 @@
                             思考:当我们改变坐标系的时候,长度,角度和面积是否不变?如果会变的话要如何限制才能不变?<br>
                         </p>
                     </figure>
-                    <p class="paragraph"></p>
+                    <p class="timeStamp" id="20240514">20240514学习</p>
+                    <p class="paragraph">7.6.1 向量</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/07-06-03-基向量.png" alt="基向量">
+                            <p>
+                                坐标向量:由一组实数组成,n维向量是n个数的序列.<br>
+                                矩阵:双下标两个维度的实数阵列Mij,下标ij表示对应i行j列的元素.<br>
+                                转置矩阵:交换矩阵的行和列,记作A<sup>T</sup><br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">7.6.2 如何理解向量</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/07-06-04-向量.png" alt="向量">
+                            <p>
+                                向量的说法:空间中的有向线段,位移<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">7.6.3 向量长度</p>
+                    <p>
+                        我们把长度为1的向量称为<strong>单位向量.</strong><br>
+                        向量的<strong>长度</strong>是其所有分量平方和的平方根.<br>
+                        通过向量除以长度使得向量转换为单位向量的过程叫做<strong>归一化</strong>.<br>
+                    </p>
+                    <p class="paragraph">7.6.4 向量运算</p>
+                    <p>
+                        线性组合:仅仅加法和标量乘法的组合<br>
+                        一个非零向量的线性组合是包含他的直线<br>
+                        两个不在一条线上非零向量的线性组合是包含这两个向量的平面<br>
+                        <figure>
+                            <img src="Resources/img/07-06-05-叉积.png" alt="叉积">
+                            <p>
+                                叉积:计算垂直与当前向量的另外一个向量<br>
+                                物理:两个向量形成的面积大小的长度在垂直方向上,符合右手定则<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/07-06-06-点积.png" alt="点积">
+                            <p>
+                                点积:判断两个向量之间的相似程度<br>
+                                物理:投影长度乘以投影目标长度<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
             <section id="7.7"><p class="section">7.7 直线求交</p></section>

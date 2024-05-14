@@ -181,4 +181,5 @@ a:focus,a:active
 p.timeStamp
 {
     border-bottom: 1pt solid red;
+    width:90%;
 }

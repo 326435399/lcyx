@@ -81,6 +81,9 @@
             <a href="#20240513"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240513-伪装的植物<br>
             在游戏的过程当中有很多伪装植物,它们通过<strong>法线贴图</strong>伪装自己是正常的植物,待主角过去就发起攻击进入偷袭战,它们有一种本领叫做<strong>镜面折射</strong>
             可以让玩家攻击有一定概率直接丢失<br>
+            <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514-伪装原理<br>
+            伪装的原理是通过背部的摄像头,对穿透当前物体之后的图像<strong>Grab</strong>进行采集,计算出根据厚度得到的偏移值<strong>offset</strong>,通过反向作用
+            直接消除折射带来的偏差值,这样就显得没有穿透任何对象一样的玻璃效果,就实现了伪装,也可以通过加大这个偏移值,形成虚假的分身为进行视差伪装<br>
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -383,6 +386,26 @@
                             <img src="Resources/img/5-4-2-折射计算.png" alt="折射计算">
                             <p>
                                 我们需要得到的是offset这个值,即在摄像机看到的平面的偏移值,得到这个折射之后的偏移值<br>
+                            </p>
+                        </figure>
+                        <p class="timeStamp" id="20240514">202405014学习</p>
+                        <figure>
+                            <img src="Resources/img/5-4-3-获取屏幕纹理.png" alt="获取屏幕纹理">
+                            <p>
+                                通过GrabPass{}函数来指定下一个通道抓取屏幕空间内容到_GrabTexture纹理<br>
+                                通过ComputerGrabScreenPos(o.pos)函数来获取屏幕空间纹理UV坐标<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/5-4-4-计算折射方向.png" alt="计算折射方向">
+                            <p>
+                                refract函数计算折射方向<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/5-4-5-折射计算原理.png" alt="折射计算原理">
+                            <p>
+                                具体实现并不重要,我们先来考究原理.<br>
                             </p>
                         </figure>
                     </p>

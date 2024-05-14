@@ -376,7 +376,13 @@
                         <li><a href="#50.4">50.4 螺旋数据集的训练代码</a></li>
                     </ul>
                 </li>
-                <li><a href="#51">51 MINST的训练</a></li>
+                <li><a href="#51">51 MINST的训练</a>
+                    <ul>
+                        <li><a href="#51.1">51.1 MNIST数据集</a></li>
+                        <li><a href="#51.2">51.2 训练MNIST</a></li>
+                        <li><a href="#51.3">51.3 改进模型</a></li>
+                    </ul>
+                </li>
                 <li><a href="#52">52 支持GPU</a></li>
                 <li><a href="#53">53 模型的保存和加载</a></li>
                 <li><a href="#54">54 Dropout和测试模式</a></li>
@@ -404,6 +410,9 @@
             苹果的数量越来越多,为了更好的质检,设计了一个叫做<strong>Dataset</strong>的工具来处理所有的苹果,实现小批量的加载,
             由于控制界面复杂,又设计了<strong>DataLoader</strong>来更加容易使用<br>,现在只需要加载符合Dataset格式的数据,然后调用DataLoader来读取,
             最后看返回的<strong>accuracy</strong>就知道准确度了<br>
+            <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514-MNIST<br>
+            图像识别数据集<strong>MNIST</strong>,采用了新的<strong>ReLU</strong>激活函数来进行识别图像<br>
+
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -1067,45 +1076,60 @@
                 </div>
             </section>
         </article>
-        <article id="51"><h2 class="chapter">51 MINST的训练</h2>
-            <section id="51.1">1.1 安装基础软件</section>
-            <p></p>
+        <p class="timeStamp" id="20240514">20240514开始</p>
+        <article id="51"><p class="chapter">51 MINST的训练</p>
+            <section id="51.1">51.1 MNIST数据集<p class="section"></p>
+                <figure>
+                    <img src="Resources/img/51-1-MNIST数据集.png" alt="MNIST数据集">
+                    <p>
+                        图像数据集,但是网络异常下不下来<br>
+                    </p>
+                </figure>
+            </section>
+            <section id="51.2">51.2 训练MNIST<p class="section"></p>
+                <figure>
+                    <img src="Resources/img/51-2-训练.png" alt="训练">
+                    <p>
+                        训练还是老样子,设置多层神经网络,优化参数.模型设定...<br>
+                    </p>
+                </figure>
+            </section>
+            <section id="51.3">51.3 改进模型<p class="section"></p>
+                <figure>
+                    <img src="Resources/img/51-3-新的激活函数.png" alt="新的激活函数">
+                    <p>
+                        新的激活函数ReLU<br>
+                    </p>
+                </figure>
+            </section>
+
         </article>
         <article id="52"><h2 class="chapter">52 支持GPU</h2>
             <section id="52.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="53"><h2 class="chapter">53 模型的保存和加载</h2>
             <section id="53.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="54"><h2 class="chapter">54 Dropout和测试模式</h2>
             <section id="54.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="55"><h2 class="chapter">55 CNN的机制(1)</h2>
             <section id="55.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="56"><h2 class="chapter">56 CNN的机制(2)</h2>
             <section id="56.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="57"><h2 class="chapter">57 conv2d函数和pooling函数</h2>
             <section id="57.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="58"><h2 class="chapter">58 具有代表性的CNN(VGG16)</h2>
             <section id="58.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="59"><h2 class="chapter">59 使用RNN处理时间序列数据</h2>
             <section id="59.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <article id="60"><h2 class="chapter">60 LSTM与数据加载器</h2>
             <section id="60.1">1.1 安装基础软件</section>
-            <p></p>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
