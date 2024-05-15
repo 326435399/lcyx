@@ -383,7 +383,15 @@
                         <li><a href="#51.3">51.3 改进模型</a></li>
                     </ul>
                 </li>
-                <li><a href="#52">52 支持GPU</a></li>
+                <li><a href="#52">52 支持GPU</a>
+                    <ul>
+                        <li><a href="#52.1">52.1 CuPy的安装和使用方法</a></li>
+                        <li><a href="#52.2">52.2 cuda模块</a></li>
+                        <li><a href="#52.3">52.3 向Variable/Layer/DataLoader类添加代码</a></li>
+                        <li><a href="#52.4">52.4 函数的相应修改</a></li>
+                        <li><a href="#52.5">52.5 在GPU上训练MNIST</a></li>
+                    </ul>
+                </li>
                 <li><a href="#53">53 模型的保存和加载</a></li>
                 <li><a href="#54">54 Dropout和测试模式</a></li>
                 <li><a href="#55">55 CNN的机制(1)</a></li>
@@ -412,7 +420,9 @@
             最后看返回的<strong>accuracy</strong>就知道准确度了<br>
             <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514-MNIST<br>
             图像识别数据集<strong>MNIST</strong>,采用了新的<strong>ReLU</strong>激活函数来进行识别图像<br>
-
+            <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515-Cupy<br>
+            拥有了最新RTX4090Ti的小熊想要使用<strong>GPU</strong>来训练,首先需要下载Python的<strong>Cupy库</strong>,然后准备一系列的自动判断是否支持GPU的函数,
+            所有的处理代码都增加自动切换功能就实现了GPU训练<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -1104,8 +1114,107 @@
             </section>
 
         </article>
-        <article id="52"><h2 class="chapter">52 支持GPU</h2>
-            <section id="52.1">1.1 安装基础软件</section>
+        <p class="timeStamp" id="20240515">20240515开始</p>
+        <article id="52"><p class="chapter">52 支持GPU</p>
+            <section id="52.1"><p calss="section">52.1 CuPy的安装和使用方法</p>
+                <div>
+                    <p>
+                        原因:深度学习进行的计算大多为矩阵的乘积,矩阵的乘积由加法和乘法组成,这些计算可以并行计算,GPU比CPU更加高效,更擅长.<br>
+                        环境支持:从硬件上来说需要Nvida的RTX系列GPU,从软件上来说,Python需要Cupy库<br>
+                        <br>
+                        Cupy和Numpy的很多API相同,所以我们只要导入cupy然后使用cupy来替换numpy就行了<br>
+                        <br>
+                        我们需要创建二者的转换机制.<br>
+                        Numpy转Cupy需要使用asarray函数<br>
+                        Cupy转Numpy需要使用asnumpy函数<br>
+                        当调用这两个函数的时候数据会从CPU->GPU或相反,往往这个数据传递过程是深度学习计算的瓶颈,所以理想上要尽可能的减少数据传输.<br>
+                        <br>
+                        另外一个封装是使用get_array_module函数,根据不同的数据,返回相对应的模块.利用它可以编写同时支持CuPy和NumPy的代码<br>
+                    </p>
+                </div>
+            </section>
+            <section id="52.2"><p calss="section">52.2 cuda模块</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/52-1-导入Cupy.png" alt="导入Cupy">
+                        <p>
+                            尝试导入Cupy库,如果不行就设置不支持GPU<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-2-同时支持.png" alt="同时支持">
+                        <p>
+                            添加能够根据是Numpy和Cupy返回对应模块的函数<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-3-互相转换.png" alt="互相转换">
+                        <p>
+                            Numpy和Cupy的互相转换函数<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="52.3"><p calss="section">52.3 向Variable/Layer/DataLoader类添加代码</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/52-4-尝试导入Cupy.png" alt="尝试导入Cupy">
+                        <p>
+                            尝试导入Cupy,这样Variable检查数据的类型是Cupy还是Numpy<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-5-自动识别创建.png" alt="自动识别创建">
+                        <p>
+                            反向传播也会根据类型创建不同的导数结果<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-6-数据传递.png" alt="数据传递">
+                        <p>
+                            Variable提供cpu和gpu的数据传递函数<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-7-数据传递.png" alt="数据传递">
+                        <p>
+                            Layer当中调用Varaibale提供的数据传递功能<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-8-数据传递.png" alt="数据传递">
+                        <p>
+                            DataLoader当中也要根据数据的不同执行传递<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="52.4"><p calss="section">52.4 函数的相应修改</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/52-9-函数修改.png" alt="函数修改">
+                        <p>
+                            所有的函数原本np.xxx的都要修改成这种自动判断类型的<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/52-10-函数修改.png" alt="函数修改">
+                        <p>
+                            所有的计算函数也需要都添加模块判断<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="52.5"><p calss="section">52.5 在GPU上训练MNIST</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/52-11-GPU模式.png" alt="GPU模式">
+                        <p>
+                            最终支持了GPU训练<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="53"><h2 class="chapter">53 模型的保存和加载</h2>
             <section id="53.1">1.1 安装基础软件</section>

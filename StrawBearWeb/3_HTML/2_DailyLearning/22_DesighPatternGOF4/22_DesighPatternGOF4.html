@@ -31,6 +31,9 @@
         <nav>
             <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:抽象世界-设计模式世界<br>
             设计模式的世界是老师的世界,老师需要用抽象的语言来描述某些场景的解决方案<br>
+            <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:Smalltalk的MVC<br>
+            <strong>Smalltalk-80</strong>机器人采用了全新的<strong>MVC</strong>模型视口控制系统,模型M控制机器人的功能,视口V控制机器人窗口显示,控制器C控制具体功能的执行<br>
+
         </nav>
         <header><p class="header">DesignPatternGOF4</p><figure><img src="设计模式.jpg" alt="书籍封面"></figure></header>
         <article id="1"><p class="chapter">1.引言</p>
@@ -56,8 +59,60 @@
                     本书的设计模式是:对用来在特定场景下解决一般设计问题的类和相互通信的对象的描述.<br>
                 </div>
             </section>
-            <section id="1.2"><p class="section">1.2 Smalltalk MVC中的设计模式</p></section>
-            <section id="1.3"><p class="section">1.3 描述设计模式</p></section>
+
+            <p class="timeStamp" id="20240515">20240515学习</p>
+            <section id="1.2"><p class="section">1.2 Smalltalk MVC中的设计模式</p>
+                <div>
+                    <p class="paragraph">Smalltalk-80简介</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/01-01-MVC.png" alt="MVC">
+                            <p>
+                                Smalltalk-80是一门设计语言,带有开发环境,集成了MVC模式.<br>
+                                类的模型/视图/控制器(Model/View/Controller)被用来构建用户界面.<br>
+                                模型是应用对象,视图是它在屏幕上的表示,控制器定义用户界面对用户输入的响应方式.<br>
+                            </p>
+                        </figure>
+                    </p>
+
+                    <p class="paragraph">MVC中用到的模式</p>
+                    <p>
+                        <strong>Observer观察者模式:</strong><br>
+                        MVC通过订购/通知协议来分离视图和模型.视图必须保证它的显示正确地反映了模型的状态.一旦模型变化,会通知视图更新自己.<br>
+                        归纳:这种将对象分离,使得一个对象的改变能够影响另一些对象,而这个对象不需要知道那些被影响对象的细节,知道是谁就可以了.这个设计模式叫做Observer观察者模式<br>
+                        <br>
+                        <strong>Composite组合模式:</strong><br>
+                        MVC的另一个特征是视图可以嵌套.<br>
+                        用View类的子类CompositeView类来支持嵌套视图,CompositeView类对象行为类似View类的行为,这当中提取出的一般性问题.<br>
+                        归纳:将一组对象划为一组,并将该组对象当作一个对象来使用,这个设计模式叫做Composite组合模式<br>
+                        <br>
+                        <strong>Strategy策略模式</strong><br>
+                        MVC允许在不改变视图外观的情况下改变视图对用户输入的响应方式,响应机制通过Controller策略接口封装,只需要更换不同的Controller实例类就可以实现不同的响应方式.<br>
+                        归纳:这种一个策略是一个表述算法的对象的设计模式叫做Strategy策略模式<br>
+
+                        <strong>其他模式</strong><br>
+                        MVC视图默认控制器创建类使用了FactoryMethod工厂方法,增加视图滚动功能的Decorator装饰者模式.等等<br>
+                    </p>                    
+                </div>
+            </section>
+            <section id="1.3"><p class="section">1.3 描述设计模式</p>
+                <p class="paragraph">编目的学习顺序</p>
+                <p>
+                    1.已知应用:现实中使用它的例子<br>
+                    2.动机:解决什么问题?<br>
+                    3.意图:做到什么?<br>
+                    4.适用性:什么时候可以用<br>
+                    5.结构:解决问题的结构描述UML图<br>
+                    6.参与者:模式中的类或对象以及各自的职责<br>
+                    7.协作:参与者之间怎么协作<br>
+                    8.效果:结果是怎样的,优缺点<br>
+                    9.实现:技术要点提示<br>
+                    10.代码示例:实例说明<br>
+                    11.相关模式:和其他模式之间的关系<br>
+                    12.模式名和分类:模式名简洁的描述了模式的本质,分类则帮助形成不同用途的划分.<br>
+                    13.别名:模式的其他名称.<br>
+                </p>
+            </section>
             <section id="1.4"><p class="section">1.4 设计模式的编目</p></section>
             <section id="1.5"><p class="section">1.5 组织编目</p></section>
             <section id="1.6"><p class="section">1.6 设计模式怎样解决设计问题</p></section>

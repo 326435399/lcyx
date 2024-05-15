@@ -73,6 +73,9 @@
             还有一个特殊本领是它的宠物ln,(ln?)'=?'/?,这个独特的能力可以把任意数的导数转换成他的指数导数来求<br>
             <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:滑索近似<br>
             在我们学习导数的过程当中我们使用了<strong>线性近似</strong>,现在用来解决滑索问题,先通过对(1+x)<sup>r</sup>近似成1+xr,后面通过这个来进行近似计算<br>
+            <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:基础线性近似工具<br>
+            我们使用基础的线性近似工具来帮助给复杂问题求解,sin(x)和ln(1+x)近似为x,cos(x)近似为1,e<sup>x</sup>近似为1+x,(1+x)<sup>r</sup>近似为1+rx,利用这些基础工具
+            配合代入,一层一层的近似,快速得到复杂函数的近似值,如果采用传统的f(0)+f'(0)*x则会非常的复杂难解.<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -535,6 +538,34 @@
                             <img src="Resources/img/4-1-9-求解手稿2.png" alt="求解手稿2">
                         </figure>
                     </p>
+
+                    <p class="timeStamp" id="20240515">20240515线性近似</p>
+                    <p class="paragraph">5. Linear approximations near zero在0附近的线性近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-10-线性近似.png" alt="线性近似">
+                            <p>
+                                三个基础函数的线性近似,sinx的近似是x,cosx的近似1,e的x次方的近似1+x,ln(1+x)近似x<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">6. Combining approximations复合近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-11-线性近似计算.png" alt="线性近似计算">
+                            <p>
+                                核心思路就是我们知道在0附近的线性近似,那么通过各种代入,只要依然是在0附近,那么线性近似依然有效,这样一层一层利用基础线性近似求近似值<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-12-线性近似计算2.png" alt="线性近似计算2">
+                            <p>
+                                我们用线性近似的方法,最后得到了一个不是线性近似的结果,因为我们始终是趋近于0而不是等于0<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph"></p>
+
                 </div>
             </section>
             <section id="4.2"><p class="section">4.1 Linear approximations 线性近似</p></section>

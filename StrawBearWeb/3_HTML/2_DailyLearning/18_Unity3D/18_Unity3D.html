@@ -171,7 +171,8 @@
             <a href="#20240514"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240514:武器库监视器<br>
             武器管理部会<strong>监听</strong>所有武器的出入库情况,他有三个监控界面<strong>Hierarchy,Scene,Inspector</strong>这三个界面都可以通过
             不同的方法来设置显示方式,方便进行可视化管理<br>
-
+            <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:武器库监视器<br>
+            <strong>Game和导航栏</strong>也是可以自定义修改的,Unity的C#源代码可以在Git上面获取,这样我们就拥有了自定义一切的能力了<br>
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -615,28 +616,75 @@
                     </p>
                 </div>
             </section>
+
+            <p class="timeStamp" id="20240515">20240515学习</p>
             <section id="14.5"><p class="section">14.5 扩展Game视图</p>
                 <div>
-
+                    <figure>
+                        <img src="Resources/img/14-1-18-Game视口GUI.png" alt="Game视口GUI">
+                        <p>
+                            比较需要注意的是ExecuteInEditMode是一个常用的标识.<br>
+                        </p>
+                    </figure>
                 </div>
             </section>
             <section id="14.6"><p class="section">14.6 导航栏扩展</p>
                 <div>
                     <p class="paragraph">14.6.1 自定义菜单</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-19-菜单.png" alt="菜单">
+                            <p>
+                                自定义菜单和其他事一样的,比较特殊的是优先级超过10会减10然后在上方增加一个下划线<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.6.2 菜单项自动执行</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-20-脚本执行.png" alt="脚本执行">
+                            <p>
+                                可以通过EditorApplication类来执行一些特殊的菜单操作<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.6.3 导航条</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-21-导航条修改.png" alt="导航条修改">
+                            <p>
+                                也是通过反射的方式拿到的,通过OnGUI修改绘制<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.6.4 标题栏扩展</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-22-标题栏.png" alt="标题栏">
+                            <p>
+                                通过finishedDefaultHeaderGUI委托,修改实现<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">14.6.5 默认面板</p>
-                    <p></p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/14-1-23-其他资源.png" alt="其他资源">
+                            <p>
+                                对默认面板的修改,OnInspectorGUI<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
             <section id="14.7"><p class="section">14.7 查看源代码</p>
                 <div>
-
+                    <figure>
+                        <img src="Resources/img/14-1-24-Unity源码.png" alt="Unity源码">
+                        <p>
+                            在官网可以看到Unity的C#代码的源码,C++的引擎源码估计是不给看了<br>
+                        </p>
+                    </figure>
                 </div>
             </section>
         </article>
