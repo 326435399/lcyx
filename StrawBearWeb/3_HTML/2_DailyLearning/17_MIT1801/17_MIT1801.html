@@ -76,6 +76,9 @@
             <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:基础线性近似工具<br>
             我们使用基础的线性近似工具来帮助给复杂问题求解,sin(x)和ln(1+x)近似为x,cos(x)近似为1,e<sup>x</sup>近似为1+x,(1+x)<sup>r</sup>近似为1+rx,利用这些基础工具
             配合代入,一层一层的近似,快速得到复杂函数的近似值,如果采用传统的f(0)+f'(0)*x则会非常的复杂难解.<br>
+            <a href="#20240516"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240516:tan线性近似<br>
+            地球上和卫星存在<strong>时间膨胀</strong>现象,公式可以通过线性近似快速找到大致结果区间,多个数相乘之间的线性近似,需要<strong>分别线性近似然后忽略高次项</strong>
+            ,使用<strong>tan</strong>函数来通过邻边计算大楼的高度,发现主要的误差都来源于角度的误差(很合理)<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -564,8 +567,55 @@
                             </p>
                         </figure>
                     </p>
-                    <p class="paragraph"></p>
 
+                    <p class="timeStamp" id="20240516">20240516线性近似</p>
+                    <p class="paragraph">7. Linear to nonlinear approximations线性到非线性近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-13-情境.png" alt="情境">
+                            <p>
+                                在地球上的我,手表时间是T',在星空中的卫星有一个速度v,它的GPS时间是T,这两个T不同,他们有一个公式,这叫做时间碰撞.c是光速<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-14-卫星使用.png" alt="卫星使用">
+                            <p>
+                                近似之后的结果非常非常的小,这种误差往往是能够接受的.这带来了大量的性能节约.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">8. Products of functions乘积函数</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-15-线性近似.png" alt="线性近似">
+                            <p>
+                                代入和近似简化,比较特殊的是去掉了平方项,因为他们的影响太小了<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-16-乘积近似.png" alt="乘积近似">
+                            <p>
+                                两个函数乘积的近似,我们分别近似然后相乘,去掉高于一次的项<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">9. Measurement error测量误差</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-17-测量大楼高度.png" alt="测量大楼高度">
+                            <p>
+                                使用三角函数的方式计算大楼的高度,考虑误差的来源<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-18-误差估计.png" alt="误差估计">
+                            <p>
+                                对误差的估计,主要来源于本身高度误差△h和tan(θ+△θ)带来,通过线性近似的定义来求结果<br>
+                            </p>
+                        </figure>
+                    </p>
+
+                    <p class="paragraph"></p>
                 </div>
             </section>
             <section id="4.2"><p class="section">4.1 Linear approximations 线性近似</p></section>

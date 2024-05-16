@@ -151,7 +151,16 @@
                         <li><a href="#14.7">14.7 查看源代码</a></li>
                     </ul>
                 </li>
-                <li><a href="#15">15 资源管理</a></li>
+                <li><a href="#15">15 资源管理</a>
+                    <ul>
+                        <li><a href="#15.1">15.1 编辑器模式</a></li>
+                        <li><a href="#15.2">15.2 运行模式</a></li>
+                        <li><a href="#15.3">15.3 AssetBundle</a></li>
+                        <li><a href="#15.4">15.4 代码编译</a></li>
+                        <li><a href="#15.5">15.5 Shader编译</a></li>
+                        <li><a href="#15.6">15.6 美术资源管理</a></li>
+                    </ul>
+                </li>
                 <li><a href="#16">16 自动化与打包</a></li>
                 <li><a href="#17">17 代码优化</a></li>
                 <li><a href="#18">18 通用案例与优化</a></li>
@@ -173,6 +182,9 @@
             不同的方法来设置显示方式,方便进行可视化管理<br>
             <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:武器库监视器<br>
             <strong>Game和导航栏</strong>也是可以自定义修改的,Unity的C#源代码可以在Git上面获取,这样我们就拥有了自定义一切的能力了<br>
+            <a href="#20240516"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240516:资源控制<br>
+            针对不同类型的武器资源,需要有不同的出入库处理情况,这就是资源控制<br>
+
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -688,8 +700,107 @@
                 </div>
             </section>
         </article>
+        <p class="timeStamp" id="20240516">20240516学习</p>
         <article id="15"><p class="chapter">15 资源管理</p>
-            <section id="15.1"></section>
+            <section id="15.1"><p class="section">15.1 编辑器模式</p>
+                <p class="paragraph">15.1.1 游戏资源</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-1-游戏资源.png" alt="游戏资源">
+                        <p>
+                            Unity只会对Asset目录下的资源进行二次生成,使用的是生成的资源而不是原始资产,配套生成的Meta文件里面记录了生成资产的设置参数和GUID(记录和其他资源的关联关系)<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.1.2 加载资源</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-2-自动生成.png" alt="自动生成">
+                        <p>
+                            编辑模式下的资源有两类,一种是Unity可以识别的,会根据Meta文件自动转换到资产数据库里面引用,一种是无法识别的,需要自己解析成可以识别的数据或者使用其他工具来使用这些数据<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/15-3-实际引用.png" alt="实际引用">
+                        <p>
+                            在Windows_Analysis_ImportActivity可以查看导入的资产最终生成到什么地方,大小多少,依赖多少<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.1.3 卸载资源</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-4-资产卸载.png" alt="资产卸载">
+                        <p>
+                            因为实际对象是C++创建的,然后C#再持有,所以使用Destroy或者设置null只能释放C#持有的,需要使用Resources.xxx来卸载C++上的内存.<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.1.4 创建与修改资源</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-5-资产创建.png" alt="资产创建">
+                        <p>
+                            资产的创建分两大类,一类是原始资产,通常使用File读取创建,一类是Unity引擎资产,使用AssetDatabase来创建<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.1.5 创建与修改游戏对象</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-6-游戏对象.png" alt="游戏对象">
+                        <p>
+                            游戏对象GameObject是Object实例化创建之后出现在Hierarchy的对象,而Object对象又是由Prefab或者Scene引用AssetDatabase里面的引擎资源创建的.<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/15-7-创建和修改游戏对象.png" alt="创建和修改游戏对象">
+                        <p>
+                            通过脚本创建和修改游戏对象,注意实例化和创建的区别<br>
+                        </p>
+                    </figure>
+                </p>
+
+            </section>
+            <section id="15.2"><p class="section">15.2 运行模式</p>
+                <p class="paragraph">15.2.1 参与打包的资源</p>
+                <p>
+                    Unity打包的时候会自动删除没有引用的资源,只有Resources和StreamingAssets目录下不管有没有引用都会保留.<br>
+                    Resources里面的资源以UnityEngine.Object形式打包,StreamingAssets下的资源以原始文件打包,unity提供的Assetbundle下载包也是原始文件<br>
+                </p>
+                <p class="paragraph">15.2.2 Resources</p>
+                <p>
+                    通过Resources.Load和Resources.LoadAsync进行同步和异步资源加载,参数是相对路径,不需要扩展名.<br>
+                    如果又多个同名的则要使用LoadAll,Load默认加载第一个符合的<br>
+                    shader文件除了Load还可以用Find来加载资源<br>
+                </p>
+                <p class="paragraph">15.2.3 通过脚本计算依赖</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-8-依赖查询.png" alt="依赖查询">
+                        <p>
+                            也可以通过右键选择寻找依赖项<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.2.4 StreamingAssets</p>
+                <p>
+                    StreamingAssets目录下的文件是原始文件打包,所以只能通过File类或者UnityWebRequest来加载,所以Unity提供了AssetBundle的资源打包方式.<br>
+                </p>
+                <p class="paragraph">15.2.5 场景资源</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-9-场景依赖.png" alt="场景依赖">
+                        <p>
+                            为了避免误打包,最后将不需要的场景移除,而不是取消勾选<br>
+                        </p>
+                    </figure>
+                </p>
+            </section>
+            <section id="15.3"><p class="section">15.3 AssetBundle</p></section>
+            <section id="15.4"><p class="section">15.4 代码编译</p></section>
+            <section id="15.5"><p class="section">15.5 Shader编译</p></section>
+            <section id="15.6"><p class="section">15.6 美术资源管理</p></section>
         </article>
         <article id="16"><p class="chapter">16 自动化与打包</p>
             <section id="16.1"></section>

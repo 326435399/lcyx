@@ -392,7 +392,13 @@
                         <li><a href="#52.5">52.5 在GPU上训练MNIST</a></li>
                     </ul>
                 </li>
-                <li><a href="#53">53 模型的保存和加载</a></li>
+                <li><a href="#53">53 模型的保存和加载</a>
+                    <ul>
+                        <li><a href="#53.1">53.1 NumPy的save函数和load函数</a></li>
+                        <li><a href="#53.2">53.2 Layer类参数的扁平化</a></li>
+                        <li><a href="#53.3">53.3 Layer类的save函数和load函数</a></li>
+                    </ul>
+                </li>
                 <li><a href="#54">54 Dropout和测试模式</a></li>
                 <li><a href="#55">55 CNN的机制(1)</a></li>
                 <li><a href="#56">56 CNN的机制(2)</a></li>
@@ -423,6 +429,8 @@
             <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515-Cupy<br>
             拥有了最新RTX4090Ti的小熊想要使用<strong>GPU</strong>来训练,首先需要下载Python的<strong>Cupy库</strong>,然后准备一系列的自动判断是否支持GPU的函数,
             所有的处理代码都增加自动切换功能就实现了GPU训练<br>
+            <a href="#20240516"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240516-模型保存和加载<br>
+            我们可以通过Layer的load_weights和save_weights调用Numpy的load和save函数来实现模型的加载和保存给以后使用<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -1216,8 +1224,43 @@
                 </div>
             </section>
         </article>
-        <article id="53"><h2 class="chapter">53 模型的保存和加载</h2>
-            <section id="53.1">1.1 安装基础软件</section>
+        <p class="timeStamp" id="20240516">20240516开始</p>
+        <article id="53"><p class="chapter">53 模型的保存和加载</p>
+            <section id="53.1"><p calss="section">53.1 NumPy的save函数和load函数</p>
+                <div>
+                    将训练过程中的模型保存为"快照",也可以加载训练好的参数,只进行推理.<br>
+                    实现:将记录参数的ndarray实例保存到外部文件.<br>
+                    <br>
+                    因为始终要存到外部,所以不用考虑GPU,GPU数据也要存到CPU然后保存,所以只需要考虑Numpy,然后使用自带的save和load可以保存和读取数据,扩展名是npy,如果使用saves存储多个则扩展名是.npz<br>
+                </div>
+
+            </section>
+            <section id="53.2"><p calss="section">53.2 Layer类参数的扁平化</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/53-1-Layer类的扁平化.png" alt="Layer类的扁平化">
+                        <p>
+                            在layer当中通过字典递归把参数都取出来存到字典里面<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="53.3"><p calss="section">53.3 Layer类的save函数和load函数</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/53-2-权重存储.png" alt="权重存储">
+                        <p>
+                            加载和保存函数save_weights和load_wights函数<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/53-3-使用.png" alt="使用">
+                        <p>
+                            使用很简单,就是调用Layer提供的save_weights和load_wights函数<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="54"><h2 class="chapter">54 Dropout和测试模式</h2>
             <section id="54.1">1.1 安装基础软件</section>
