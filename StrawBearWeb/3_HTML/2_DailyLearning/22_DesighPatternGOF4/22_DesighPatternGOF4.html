@@ -33,6 +33,8 @@
             设计模式的世界是老师的世界,老师需要用抽象的语言来描述某些场景的解决方案<br>
             <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515:Smalltalk的MVC<br>
             <strong>Smalltalk-80</strong>机器人采用了全新的<strong>MVC</strong>模型视口控制系统,模型M控制机器人的功能,视口V控制机器人窗口显示,控制器C控制具体功能的执行<br>
+            <a href="#20240517"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240517:设计模式大分类<br>
+            设计模式被分成了<strong>创建型,结构型,行为型</strong>,然后有几个重要概念<strong>型构,接口,类型,对象</strong>,不同对象之间的关系有<strong>继承,组合,委托</strong><br>
 
         </nav>
         <header><p class="header">DesignPatternGOF4</p><figure><img src="设计模式.jpg" alt="书籍封面"></figure></header>
@@ -113,11 +115,330 @@
                     13.别名:模式的其他名称.<br>
                 </p>
             </section>
-            <section id="1.4"><p class="section">1.4 设计模式的编目</p></section>
-            <section id="1.5"><p class="section">1.5 组织编目</p></section>
-            <section id="1.6"><p class="section">1.6 设计模式怎样解决设计问题</p></section>
-            <section id="1.7"><p class="section">1.7 怎样选择设计模式</p></section>
-            <section id="1.8"><p class="section">1.8 怎样使用设计模式</p></section>
+            <section id="1.4"><p class="section">1.4 设计模式的编目</p>
+                <div>
+                    <p class="paragraph">1.4.1 创建型(5个)</p>
+                    <p>
+                        Factory Method(工厂方法模式)<br>
+                        Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to subclasses.<br>
+                        定义一个用于创建对象的接口,但是让子类来决定哪个类实例化.工厂方法让类的实例化延迟到其子类.<br>
+                        <br>
+                        Abstract Factory(抽象工厂模式)<br>
+                        Provide an interface for creating families of related or dependent objects without specifying their concrete classes.<br>
+                        为创建一组相关或互相依赖的对象提供一个接口,而且无须指定他们的具体类.<br>
+                        <br>
+                        Builder(建造者模式)<br>
+                        Separate the construction of a complex object from its representation so that the same construction process can create different representations.<br>
+                        将一个复杂对象的构建与它的表示分离,使得同样的构建过程可以创建不同的表示.<br>
+                        <br>
+                        Prototype(原型模式)<br>
+                        Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.<br>
+                        用原型实例指定创建对象的种类,并且通过拷贝这些原型创建新的对象<br>
+                        <br>
+                        Singleton(单例模式)<br>
+                        Ensure a class has only one instance,and provide a global point of access to it.<br>
+                        确保一个类只有一个实例对象,并且提供一个全局点来访问他.<br>
+                    </p>
+                    <p class="paragraph">1.4.2 结构型(7个)</p>
+                    <p>
+                        Adapter(适配器模式)<br>
+                        Convert the interface of a class into another interface clients expece.Adapter lets classes work togethere that couldn;t otherwise because of incompatible interfaces.<br>
+                        将一个类的接口变换成客户端所期待的另一种接口,从而使原本因接口不匹配而无法再一起工作的两个类能够在一起工作<br>
+                        <br>
+                        Bridge(桥梁模式)<br>
+                        Decouple an abstraction from its implementation so that the  two can vary independently<br>
+                        将抽象和实现解耦.使得两者可以独立地变化.<br>
+                        <br>
+                        Composite(组合模式)<br>
+                        Compose objects into tree structures to represent part-shole hierarchies.Composite lets clients treat individual objects and compositions of objects niformly<br>
+                        将对象组合成树形结构以表示"部分-整体"的层次结构,使得用户对单个对象和组合对象的使用具有一致性.<br>
+                        <br>
+                        Decorator(装饰者模式)<br>
+                        Attach additional responsibilities to an object dynamically keeping the same interface.Decorators provide a flexible alternative to subclassing for extending functionality.<br>
+                        动态的给一个对象添加一些额外的职责.就增加功能来说,装饰模式相比生成子类更为灵活.<br>
+                        <br>
+                        Facade(门面模式)<br>
+                        Provide a unified interface to a set of interfaces in a subsystem.Facade defines a higher-level interface that makes the subsystem easier to use.<br>
+                        要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行.<br>
+                        <br>
+                        Flyweight(享元模式)<br>
+                        Use sharing to support large numbers of fine-grained objects efficiently.<br>
+                        使用共享对象可以有效地支持大量的细粒度的对象.<br>
+                        <br>
+                        Proxy(代理模式)<br>
+                        代理模式(Proxy Pattern)<br>
+                        Provide a surrogate or placeholder for another object to control access to it.<br>
+                        为其他对象提供一种代理以控制对这个对象的访问.<br>
+                    </p>
+                    <p class="paragraph">1.4.3 行为型(11个)</p>
+                    <p>
+                        Interpreter(解释器模式)<br>
+                        Given a language,define a representation for its grammar along with an interpreter that uses the representation to interpret sentences in the language.<br>
+                        给定一门语言,定义它的文法的一种表示,并定义一个解释器,该解释器使用该表示来解释语言中的句子.<br>
+                        <br>
+                        Template Method(模板方法模式)<br>
+                        Define the skeleton of an algorithm in an operation,deferring some steps to subclasses.Template Method lets subclasses redefine certain seteps of an algorithm without changing the algorithm's structure.<br>
+                        定义一个操作中的算法框架,将一些步骤延迟到子类中,使得子类可以不改变一个算法的结构既可以重定义该算法的某些特定步骤.<br>
+                        <br>
+                        Chain of Responsibility(责任链模式)<br>
+                        Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.Chain the receiving objects and pass the request along the chain until an object handles it.<br>
+                        使多个对象都有机会处理请求,从而避免了请求的发送者和接收者之间的耦合关系.将这些对象连成一条链,并沿着这条链传递该请求,只掉有对象处理它为止.<br>
+                        <br>
+                        Command(命令模式)<br>
+                        Encapsulate a request as an object,thereby letting you parameterize clients with different requests,queue or log requests,and support undoable operations.<br>
+                        将一个请求封装成一个对象,从而让你使用不同的请求把客户端参数化,对请求排队或者记录请求日志,可以提供命令的撤销和恢复功能.<br>
+                        <br>
+                        Iterator(迭代器模式)<br>
+                        Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.<br>
+                        提供一种方法访问一个容器对象中各个元素,而又不需要暴露该对象的内部细节.<br>
+                        <br>
+                        Mediator(中介者模式)<br>
+                        Define an object that encapsulates how a set of objects interact.Mediator promotes loose coupling by keeping objects from referring to each other explicitly,and it lets you vary their interaction independently.<br>
+                        用一个中介者对象封装一系列的对象交互,中介者使各对象不需要显示地相互作用,从而使其松耦合,可以独立的改变它们之间的交互.<br>
+                        <br>
+                        Memento(备忘录模式)<br>
+                        Without violating encapsulation,capture adn externalize an object's internal state so that the object can be restored to this state later.<br>
+                        在不破坏封装的前提下,捕获一个对象的内部状态,并在该对象之外保存这个状态.这样之后就可以将该对象恢复到原先保存的状态.<br>
+                        <br>
+                        Observer(观察者模式)<br>
+                        Define a one-to-many dependency between objects so that when one object changes, all its dependents are notified and updated automatically.<br>
+                        定义对象间一种一对多的依赖关系,使得每当一个对象改变状态,则所有依赖于它的对象都会得到通知并被自动更新.<br>
+                        <br>
+                        State(状态模式)<br>
+                        Allow an objet to alter its behavior when its internal state changes.The object will appear to change its class.<br>
+                        当一个对象内在状态改变时允许其改变行为,这个对象看起来像改变了其类<br>
+                        <br>
+                        Strategy(策略模式)<br>
+                        Define a family of algorithms,encapsulate each one,and make them interchangeable.<br>
+                        定义一组算法,将每个算法都封装起来,并且使它们之间可以互换.<br>
+                        <br>
+                        Visitor(访问者模式)<br>
+                        Represent an operation to be performed on the elements of an object structure.Vistor lets you define a new operation without changing the classes of the elements on which it operates.<br>
+                        封装一些作用域某种数据结构中的各元素的操作,它可以在不改变数据结构的前提下定义作用域这些元素的新的操作.<br>
+                    </p>
+
+                </div>
+            </section>
+            <p class="timeStamp" id="20240517">20240517学习</p>
+            <section id="1.5"><p class="section">1.5 组织编目</p>
+                <div>
+                    <p class="paragraph">1.5.1 根据目的</p>
+                    <p>
+                        创建型:对象创建相关<br>
+                        结构型:处理类或对象的组合<br>
+                        行为型:类和对象的交互<br>
+                    </p>
+                    <p class="paragraph">1.5.2 根据范围</p>
+                    <p>
+                        类:处理类和子类之间的关系,这些关系通过继承建立,编译时便确定下来了<br>
+                        对象:对象之间的关系,这些关系在运行时可以变化,更具有动态性.<br>
+                    </p>
+                    <p class="paragraph">1.5.3 对比</p>
+                    <p>
+                        创建型类模式把对象的部分创建工作延迟到子类,创建型对象模式则延迟到另一个对象中.<br>
+                        结构型类模式使用继承机制来组合类,结构型对象模式则描述了对象的组装方式.<br>
+                        行为型类模式使用继承描述算法和控制流,行为型对象模式则描述了一组对象怎样协作完成单个对象无法完成的任务.<br>
+                    </p>
+                </div>
+            </section>
+            <section id="1.6"><p class="section">1.6 设计模式怎样解决设计问题</p>
+                <div>
+                    <p class="paragraph">1.6.1 寻找合适的对象</p>
+                    <p>
+                        面向对象程序由<strong>对象</strong>组成,对象包括<strong>数据</strong>和对数据进行操作的<strong>过程</strong>,过程通常称为<strong>方法或操作</strong>.对象在收到客户的<strong>请求或消息</strong>后执行对应的操作.
+                        客户请求是使对象执行操作的唯一方法,操作又是对象改变内部数据的唯一方法.由于这些限制,对象的内部状态是被封装的,他不能被直接访问,它的表示对于对象外部都是不可见的.<br>
+                        <br>
+                        面向对象的设计方法有很多:有根据问题描述选出名词和动词来区分的,有根据系统的协作和职责关系来区分的,有根据现实世界建模再分析的,并没有绝对的准则.<br>
+                    </p>
+                    <p class="paragraph">1.6.2 决定对象的粒度</p>
+                    <p>
+                        对象在大小和数目上变化极大.设计模式里面很好的讲述了这个问题,各种对象分解或组成的模式.<br>
+                    </p>
+                    <p class="paragraph">1.6.3 指定对象接口</p>
+                    <p>
+                        型构(signature):对象声明的每个操作指定操作名.作为参数的对象和返回值,这就是操作的型构(方法/操作的形态结构)<br>
+                        <br>
+                        接口(interface):对象操作所定义的所有操作型构的集合称为该对象的接口.(所有方法的集合)<br>
+                        接口描述了对象能接受的全部请求的集合,任何匹配对象接口中型构的请求都可以发送给该对象.<br>
+                        <br>
+                        类型(type):用来标识特定接口的名词.如果一个对象接受接口定义的所有操作请求,那么我们就说该对象具有这个类型.(满足这个类型对应的接口定义的所有操作/方法的型构)<br>
+                        一个对象可以有许多类型,并且不同的对象可以共享同一个类型.<br>
+                        对象也可以接口的某部分用一个类型,另外一个部分用其他类型.(多个接口组合成新的接口)<br>
+                        两个类型相同的对象只需要共享它们的部分接口(这个相同类型的部分)<br>
+                        接口可以包含其他接口作为子集(可以组合),当一个类型的接口包含另一个类型的接口时,我们就说它是另一个类型的子类型(subtype),称另一个类型为它的超类型(supertype),我们常说子类型继承了它的超类型的接口.(子类比超类要多一些东西)<br>
+                        对象只能通过接口与外部交流,接口和功能实现是分离的,不同对象可以对请求做不同的实现,两个相同接口的对象可以有完全不同的实现(同一个接口,就是同一个方法型构,但是不同类可能有完全不同的实现)<br>
+                        <br>
+                        动态绑定(dynamic binding):发送给对象的请求和它的相应操作在运行时的连接就称为动态绑定.发送的请求直到运行时才受到具体实现的约束,所以允许你在运行时替换具有相同接口的对象,这种可替换性就是多态(polymorphism)<br>
+                        <br>
+                        设计模式通过确定接口的主要组成成分及经接口发送的数据类型来帮助你定义接口.<br>
+                    </p>
+                    <p class="paragraph">1.6.4 描述对象的实现</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/01-02-OMT表示法.png" alt="OMT表示法">
+                            <p>
+                                对象的实现由他的类决定,类指定了对象的内部数据和表示,也定义了对象所能完成的操作.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/01-03-实例化.png" alt="实例化">
+                            <p>
+                                对象通过<strong>实例化</strong>类累创建,此对象被称为该类的<strong>实例</strong>.<br>
+                                当实例化发生的时候,要给对象的内部数据(<strong>实例变量</strong>组成)分配存储空间,并将操作与这些数据联系起来.<br>
+                                图示:虚线指向实例化的类,得到实例对象.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/01-04-继承.png" alt="继承">
+                            <p>
+                                新的类可以由已存在的类通过<strong>类继承</strong>(class inheritance)来定义.当<strong>子类</strong>(subclass)继承<strong>父类</strong>(parent class)时,子类包含了父类定义的所有数据和操作.<br>
+                                图示:空心实现箭头子类指向父类<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/01-05-抽象类.png" alt="抽象类">
+                            <p>
+                                <strong>抽象类</strong>(abstract class)主要目的是为它的子类定义公共接口,把他的部分操作的实现延迟到子类中,因此,抽象类不能被实例化.<br>
+                                抽象操作(abstract operation):在抽象类中定义却没有实现的操作称为抽象操作.<br>
+                                非抽象类称为<strong>具体类</strong>(concrete class)<br>
+                                作用:子类能够改进和重新定义它们父类的操作.类能够重定义/覆盖(override)父类定义的操作,使得子类能够接管父类对请求的处理操作.<br>
+                                图示:抽象类的类名斜体表示,抽象操作也是斜体表示,可以用虚线连接带折角的伪代码实现描述框.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/01-06-混合类.png" alt="混合类">
+                            <p>
+                                <strong>混入类</strong>(mixin class):是给其他类提供可选择的接口或功能的类.这就是多继承.<br>
+                            </p>
+                        </figure>
+                        1.类和类型的区别<br>
+                        理解对象的<strong>类</strong>(class)与对象的<strong>类型</strong>(type)之间的差别非常重要.<br>
+                        对象的类定义了对象是怎样实现的,同时也定义了对象的内部状态和操作的实现.<br>
+                        对象的类型只和它的接口有关,接口即对象能响应的请求的集合.<br>
+                        <br>
+                        2.类继承和接口继承的区别<br>
+                        类继承根据一个对象的实现定义了另一个对象的实现(是代码共享机制)<br>
+                        接口继承则描述的是一个对象什么时候能用被用来替代另一个对象(接口相同意味着操作方法型构相同,意味着有一些可以同样的操作可以执行)<br>
+
+                        第一原则:对接口编程,而不是对实现编程<br>
+                        不将变量声明为某个特定的具体类的实例对象,而是让他遵从抽象类所定义的接口(这意味着所有实现接口的对象都可以互换)<br>
+                    </p>
+                    <p class="paragraph">1.6.5 运用复用机制</p>
+                    <p>
+                        1.继承和组合的比较<br>
+                        <br>
+                        类继承通过对父类的完整复制来定义一个新的类,这种复用通常被称为<strong>白箱复用</strong>(white-box reuse),表示在这种复用方式中,父类的所有细节对子类可见.<br>
+                        类继承是在编译时静态定义的,且可直接使用.<br>
+                        第一个问题:因为是在编译时定下来了,所以不能在运行时改变.<br>
+                        第二个问题:因为复制了父类的实现细节,所以破坏了父类的封装.<br>
+                        第三个问题:因为子类父类的依赖关系(内存中的复制关系),父类的改变必然会影响到子类.<br>
+                        <br>
+                        对象组合要求被组合的对象具有良好定义的接口.(通过实现接口)来组合,这种复用风格被称为<strong>黑箱复用</strong>(black-box reuse),因为我们只知道对象的接口,而不知道内部的细节.<br>
+                        对象组合通过对其他对象的引用在运行时动态定义,只要组合的对象遵守彼此的约定,就可以安全的运行.<br>
+                        优点1:只能通过接口访问,所以不知道细节,不会破坏封装性<br>
+                        优点2:只要类型一致(接口一致),可以用一个对象来替换另一个对象,实现相同的操作不同的结果<br>
+                        优点3:因为是基于接口写的,存在较少的依赖关系.<br>
+                        <br>
+                        2.委托(像继承一样的组合)<br>
+                        <figure>
+                            <img src="Resources/img/01-07-委托.png" alt="委托">
+                            <p>
+                                委托(delegation)是一种组合方法,它使得组合具有与集成同样的复用能力.<br>
+                                实现:两个对象参与处理一个请求,接受请求的对象将操作委托给它的代理者(delegate)<br>
+                                图示:实线实箭头指向委托对象.<br>
+                            </p>
+                        </figure>
+                        3.继承和参数化类型(泛型)的比较<br>
+                        参数化类型(parameterized type),也叫作<strong>类属/泛型</strong>(generic),<strong>模板</strong>(template);<br>
+                        它允许你定义一个类型的时候不用指定该类型用到的所有类型,这个未经指定的类型在使用时以参数形式提供.<br>
+                    </p>
+                    <p class="paragraph">1.6.6 关联运行时和编译时的结构</p>
+                    <p>
+                        一个面向对象程序运行时的结构通常与它的代码结构相差较大.代码结构编译时就确定了,由继承关系固定的类组成.而运行时结构则是由快速变化的通信对象网络组成.两个结构彼此独立.<br>
+                        <figure>
+                            <img src="Resources/img/01-08-聚合.png" alt="聚合">
+                            <p>
+                                考虑对象<strong>聚合</strong>(aggregation)和<strong>相识</strong>(acquaintance)的差别以及它们在编译时和运行时的表示差异很重要.
+                                <strong>聚合(现在叫组合)</strong>意味着一个对象拥有另一个对象,或者对另一个对象负责.一般我们称一个对象<strong>包含</strong>另一个对象,或者是另一个对象的一部分.它们具有相同的生命周期.聚合是真正的持有实例变量.(在这里实例化)<br>
+                                <strong>相识(现在叫聚合/关联)</strong>意味着一个对象仅仅知道另一个对象.也称之为<strong>关联</strong>或<strong>引用</strong>.不为彼此负责,是一种相对松散的关系(相识则是指针或引用实现)<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">1.6.7 设计应该支持变化</p>
+                    <p>
+                        一些导致重新设计的一般原因,以及解决这些问题的设计模式;<br>
+                        1.通过显示的制定一个类来创建对象:<br>
+                        问题:这意味着会受到特定实现的约束.如果以后这实现发生了任何改变都会导致对象的改变.<br>
+                        解决方案:间接地创建对象,<br>
+                        设计模式:抽象工厂,工厂方法,原型<br>
+                        <br>
+                        2.对特殊操作的依赖:<br>
+                        问题:当为请求指定了一个特殊的操作时,完成该请求的方式就固定下来了.不支持变化<br>
+                        解决方案:为了避免请求代码写死,在编译时或运行时可以方便的改变响应请求的方法.<br>
+                        设计模式:责任链模式,命令模式<br>
+                        <br>
+                        3.对硬件和软件平台的依赖<br>
+                        问题:操作系统和应用API在不同软硬件平台上是不同的.依赖于特定平台导致难以移植到其他平台<br>
+                        解决方案:设计系统的时候需要限制平台相关性<br>
+                        设计模式:抽象工厂,桥梁<br>
+                        <br>
+                        4.对对象表示或实现的依赖<br>
+                        问题:知道对象怎样表示.保存,定位或实现的客户在对象发生变化时也需要变化.<br>
+                        解决方案:对客户隐藏这些信息,防止连锁反应<br>
+                        设计模式:抽象工厂,桥梁,备忘录,代理<br>
+                        <br>
+                        5.算法依赖:<br>
+                        问题:算法在开发和复用时常常被扩展,优化和替换.如果有依赖这就导致不得不修改依赖对象<br>
+                        解决方案:通过将算法孤立,统一接口支持替换<br>
+                        设计模式:建造者,迭代器,策略,模板方法,观察者<br>
+                        <br>
+                        6.紧耦合:<br>
+                        问题:互相依赖的类任意改动一个都容易导致连锁反应<br>
+                        解决方案:使用松耦合的方法来提高复用性<br>
+                        设计模式:抽象工厂,命令,门面,中介者,观察者,责任链<br>
+                        <br>
+                        7.通过生成子类来扩充功能<br>
+                        问题:父类的修改会连锁反应,并且子类的数量会爆炸<br>
+                        解决方案:通过组合或继承的方式来处理,缺点是会导致代码比较复杂难以理解.<br>
+                        设计模式:桥梁,责任链,组合,装饰者,观察者,策略<br>
+                        <br>
+                        8.不能方便地对类进行修改<br>
+                        问题:当你不得不修改一个难以修改的类,然而又没有源代码,这极有可能导致连锁反应<br>
+                        解决方案:不会影响原本代码的修改<br>
+                        设计模式:适配器,装饰,观察者<br>
+                        <br>
+                        针对不同的程序重点不同<br>
+                        应用程序:内部复用性,可维护性和可扩充性是要优先考虑的<br>
+                        工具箱:工具箱强调的事代码复用,他们是面向对象环境下的子程序库<br>
+                        框架:框架(framework)是构成一类特定软件的可复用设计的一组相互协作的类.<br>
+                        设计模式比框架更加抽象<br>
+                        设计模式是比框架更小的体系结构元素<br>
+                        框架比设计模式更加特例化--针对指定的应用领域<br>
+                    </p>
+                </div>
+            </section>
+            <section id="1.7"><p class="section">1.7 怎样选择设计模式</p>
+                <figure>
+                    <img src="Resources/img/01-09-封装变化.png" alt="封装变化">
+                    <p>
+                        1.考虑设计模式是怎样解决问题的--1.6节<br>
+                        2.浏览模式的意图部分--1.4节<br>
+                        3.研究模式之间的相互关联--1-1图<br>
+                        4.研究目的相似的模式--创建,结构,行为<br>
+                        5.检查重新设计的原因--1.6.7<br>
+                        6.考虑你的设计中哪些是可变的--封装变化<br>
+                    </p>
+                </figure>
+            </section>
+            <section id="1.8"><p class="section">1.8 怎样使用设计模式</p>
+                1.大致浏览一遍模式<br>
+                2.研究结构,参与者,协作部分<br>
+                3.看代码示例部分,再看实例部分<br>
+                4.选择模式参与者的名字<br>
+                5.定义类<br>
+                6.定义模式中专用于应用的操作名称<br>
+                7.实现责任和协作的操作<br>
+            </section>
         </article>
         <article id="2"><p class="chapter">2 实例研究:设计一个文档编辑器</p></article>
         <article id="3"><p class="chapter">3 创建型模式</p></article>

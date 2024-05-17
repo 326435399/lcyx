@@ -15,7 +15,7 @@
 {
     font-size: 12pt;
     font-family: 思源臻宋,Arial,Verdana,sans-serif;
-    line-height: 14pt;   
+    line-height: 15pt;   
 }
 
 /* 四个特殊的类,header对应书本名,chapter对应章,section对应节,paragraph对应段 */
@@ -182,4 +182,9 @@ p.timeStamp
 {
     border-bottom: 1pt solid red;
     width:90%;
+}
+
+strong
+{
+    color: rgb(50, 80, 130);
 }
