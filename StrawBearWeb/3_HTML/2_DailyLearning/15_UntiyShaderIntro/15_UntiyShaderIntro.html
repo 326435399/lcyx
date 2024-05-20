@@ -87,7 +87,8 @@
             <a href="#20240515"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240515-模糊与描边<br>
             伪装技术还可以通过<strong>模糊</strong>的方式让一片区域失真,从而减少被敌人攻击的可能性,也可以使用<strong>反射</strong>技术来反射强烈的光照并进行增益放大
             实现照明弹效果.为了解决这样的敌人,小熊研发了一套<strong>描边</strong>系统,让隐藏的单位无所遁形,从而很好的处理这种类型的敌人<br>
-
+            <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520-曲面细分<br>
+            山脉通过曲面细分的方式,在移动的过程当中逐渐变的细致,从而显示出影藏的敌人
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -510,6 +511,72 @@
                     </p>
                 </div>
             </section>
+            <p class="timeStamp" id="20240520">202405020学习</p>
+            <section><p class="section">6.2 无中生有的顶点:曲面细分着色器</p>
+                <div>
+                    <p class="paragraph">6.2.0 目标</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-2-01-波浪.png" alt="波浪">
+                            <p>
+                                想要做一个波浪,很自然想到就是使用正弦函数,对想要的轴进行修改<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">6.2.1 曲面细分的流程及数据传递</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-2-02-曲面细分.png" alt="曲面细分">
+                            <p>
+                                整个曲面细分的流程分为三个着色器阶段<br>
+                                Hull Shader(细分控制着色器)<br>
+                                Tessellator(自动细分着色器)<br>
+                                Domain Shader(细分计算着色器)<br>
+                            </p>
+                        </figure>
+                        1.Hull Shader(细分控制着色器)<br>
+                        将顶点着色器处理传来的顶点数据进行打包处理,告知下一个阶段的曲面细分器用什么样的"方式"将顶点变多.<br>
+                        <figure>
+                            <img src="Resources/img/6-2-03-HullShader.png" alt="HullShader">
+                            <p>
+                                HullShader把一些顶点信息的集合打成一个Patch(区块).<br>
+                                通过Hull funciont函数选择并返回一个点.<br>
+                                通过Patch constant funciont来传递细分参数(怎么细分-通常是一条边拆几段,区块内部拆成多少块这种)<br>
+                                这个点就是Tessellator使用的控制点,通常都是把顶点的位置,UV,法线相关的信息打包到一个结构体中传递,<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-04-结构体准备.png" alt="结构体准备">
+                            <p>
+                                a2v:应用程序传递到顶点着色器<br>
+                                v2h:顶点着色器传递到细分控制着色器Hull Shader<br>
+                                h2t:细分控制着色器传递到曲面细分着色器Tesselator,细分参数用tessFactor结构体来传递<br>
+                                t2d:这个部分被固定了,不可控制<br>
+                                d2f:细分计算着色器Domain到片段着色器Fragment<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-05-完成了h2t部分.png" alt="完成了h2t部分">
+                            <p>
+                                PatchFunc区块函数,生成曲面细分参数存到tessFactor结构体当中(传递曲面细分参数)<br>
+                                通过UNITY_XXXX系列,设置绘制状态(类似OpenGL的参数状态,只要不修改,后面都是这样),设置读取的网格是什么样的,咋么绘制,怎么分割,用哪个函数设置细分参数<br>
+                                hull函数,根据传入的区块中的顶点id值来传递h2t结构体顶点参数.(传递控制点顶点参数)<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">6.2.2 Gerstner波</p>
+                    <p class="paragraph">6.2.3 计算法线</p>
+                    <p class="paragraph">6.2.4 基于视距的曲面细分</p>
+                    <p class="paragraph">6.2.5 完整代码</p>
+                </div>
+            </section>
+            <section><p class="section">6.3 改变网格:几何着色器</p>
+                <div>
+                    <p class="paragraph">6.3.1 几何着色器的流程与数据传递</p>
+                    <p class="paragraph">6.3.2 生成随机草地</p>
+                </div>
+            </section>
+            <section><p class="section">6.4 习题</p></section>
         </article>
         <article id="7"><h2>7 中转站:RenderTexture</h2>
             <section id="7.1">1.1 安装基础软件</section>

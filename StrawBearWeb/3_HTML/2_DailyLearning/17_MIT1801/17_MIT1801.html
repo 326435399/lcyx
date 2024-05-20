@@ -79,6 +79,11 @@
             <a href="#20240516"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240516:tan线性近似<br>
             地球上和卫星存在<strong>时间膨胀</strong>现象,公式可以通过线性近似快速找到大致结果区间,多个数相乘之间的线性近似,需要<strong>分别线性近似然后忽略高次项</strong>
             ,使用<strong>tan</strong>函数来通过邻边计算大楼的高度,发现主要的误差都来源于角度的误差(很合理)<br>
+            <a href="#20240517"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240517:大楼测量<br>
+            误差的计算核心在于先把误差假设为一个<strong>△值</strong>,然后代入公式中计算,通过线性近似来快速找到结果<br>
+            <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520:二次近似<br>
+            为了更精确的计算一个函数的近似值,我们用二次近似的方式计算在x=a的近似值<strong>f(x)=f(a)+f'(a)*(x-a)+f''(a)*x<sup>2</sup>/2</strong>,
+            当这个a=0的时候就简化成了<strong>f(x)=f(0)+f'(0)*(x)+f''(0)*x<sup>2</sup>/2</strong>.<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -599,6 +604,7 @@
                             </p>
                         </figure>
                     </p>
+                    <p class="timeStamp" id="20240517">20240517大楼测量</p>
                     <p class="paragraph">9. Measurement error测量误差</p>
                     <p>
                         <figure>
@@ -615,10 +621,153 @@
                         </figure>
                     </p>
 
-                    <p class="paragraph"></p>
+                    <p class="paragraph">10. Continuing the error estimate评促测量误差</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-19-误差计算.png" alt="误差计算">
+                            <p>
+                                我们计算之后发现实际结果就在我们估计的误差范围内<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">11. Project 项目</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-20-自制小工具.png" alt="自制小工具">
+                            <p>
+                                自制一个测量任意高度的小工具<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">12. Error approximation practice近似误差练习</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-21-误差计算.png" alt="误差计算">
+                            <p>
+                                核心是要明白误差究竟是由哪些部分组成,然后使用线性近似来找<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-22-误差计算2.png" alt="误差计算2">
+                            <p>
+                                难点同样是要先明白误差组成<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">13. Practice 练习</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-23-误差计算3.png" alt="误差计算3">
+                            <p>
+                                如果能有在0处的线性误差自然好,如果没有那就要使用标准线性公式来求<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">14. Summary 总结</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-1-24-线性近似.png" alt="线性近似">
+                            <p>
+                                注意是在x=0的线性近似才是这样的,如果不是0那后面就是(x-?)<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-1-25-乘积线性近似.png" alt="乘积线性近似">
+                            <p>
+                                乘积线性近似<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
-            <section id="4.2"><p class="section">4.1 Linear approximations 线性近似</p></section>
+
+            <p class="timeStamp" id="20240520">20240520学习</p>
+            <section id="4.2"><p class="section">4.2 Quadratic approximations 二次近似</p>
+                <div>
+                    <p class="paragraph">1.Motivation动机</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-1-二次近似.png" alt="二次近似">
+                            <p>二次函数是抛物线,还有大O记号法<br></p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">2.Objects目标</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-2-目标.png" alt="目标">
+                            <p>
+                                1.理解为什么函数给定点的最好近似抛物线是二次函数<br>
+                                2.给定点附近的近似函数来自这个点的一次和二次导数的值<br>
+                                3.使用大O记号来描述线性和二次近似函数误差的规模<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">3.Review 回顾</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-3-近似.png" alt="近似">
+                            <p>
+                                在x=a这个点Y值和切线斜率都是相等的.其余点就不一定的<br>
+                            </p>
+                        </figure>            
+                    </p>
+                    <p class="paragraph">4.Geometric intuition几何直觉</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-4-近似.png" alt="近似">
+                            <p>
+                                线性近似意味着0和1阶导相同<br>
+                                二次近似意味着0,1,2阶导相同,给出了更多信息<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">5.Best fit quadratic最佳二次近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-5-正式定义.png" alt="正式定义">
+                            <p>
+                                一个函数在x=0的最佳二次近似是在x=0处和原函数0,1,2阶导都相同的函数<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-6-二次近似计算.png" alt="二次近似计算">
+                            <p>
+                                利用最好近似的点0,1,2阶导数都相同<br>
+                                我们求出来抛物线的a,b,c三个值的表达式: c=f(0),b=f'(0),a=f''(0)/2<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-7-二次近似结论.png" alt="二次近似结论">
+                            <p>
+                                代入回去我们就得到了q(x)=f(x)=...<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">6.Quadratic approximations near 0在0附近的二次近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-8-二次近似公式.png" alt="二次近似公式">
+                            <p>
+                                在x=0和x=a处的二次近似<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-9-基础函数二次近似公式.png" alt="基础函数二次近似公式">
+                            <p>
+                                基础函数的二次近似<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-10-其他基础函数.png" alt="其他基础函数">
+                            <p>
+                                计算逻辑很简单<br>
+                                首先计算函数的一阶和二阶导,然后把x=0代入得到对应的导数值,最后带回来二次近似公式当中即可<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+
+            </section>
             <section id="4.3"><p class="section">4.1 Linear approximations 线性近似</p></section>
         </article>
         <article id="5"><h2  class="chapter">5 Applications 应用</h2>

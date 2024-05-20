@@ -184,7 +184,8 @@
             <strong>Game和导航栏</strong>也是可以自定义修改的,Unity的C#源代码可以在Git上面获取,这样我们就拥有了自定义一切的能力了<br>
             <a href="#20240516"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240516:资源控制<br>
             针对不同类型的武器资源,需要有不同的出入库处理情况,这就是资源控制<br>
-
+            <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520:AB<br>
+            为了减轻一次性处理大量资源的压力,可以通过<strong>AB包</strong>(就是一个容器),把武器划分,然后再统一存放<br>
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -799,7 +800,81 @@
                     </figure>
                 </p>
             </section>
-            <section id="15.3"><p class="section">15.3 AssetBundle</p></section>
+
+             <p class="timeStamp" id="20240520">20240520学习</p>
+            <section id="15.3"><p class="section">15.3 AssetBundle</p>
+                <div>
+                    <p class="paragraph">15.3.1 设置AB</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-10-资产设置.png" alt="资产设置">
+                            <p>
+                                给对象设置好资产名和扩展名<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-11-打包.png" alt="打包">
+                            <p>
+                                使用代码执行打包(如果没有对应的平台支持会打包失败的,有冲突也会打包失败的)<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-12-打包结果.png" alt="打包结果">
+                            <p>
+                                最终打包得到的结果,manifest尾缀的都是记录信息用的(最终可以不需要的),unity3d则是我们打包的对象.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">15.3.2 设置依赖</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-13-设置依赖.png" alt="设置依赖">
+                            <p>
+                                我们创建另外一个立方体,然后引用了相同的材质球CubeMat,打包之后我们分别得到了两个AB包,但是都有重复的CubeMat,有两种处理方式解决这个浪费<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-14-方法1.png" alt="方法1">
+                            <p>
+                                方式1:把两个Cube对象都打包在一起(一样的资源名),这样会自动检测到材质球是重复的,就不会打包两份了.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-15-方法2.png" alt="方法2">
+                            <p>
+                                方式2:给材质球打成一个AB包,这样也会检测了,依赖另外一个AB包也是不会重复的.<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">15.3.3 纯脚本打包</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-16-脚本打包.png" alt="脚本打包">
+                            <p>
+                                使用脚本来打包,这样更加直观,但是如果打包的很多也很夸张<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-17-打包结果.png" alt="打包结果">
+                        </figure>
+                    </p>
+                    <p class="paragraph">15.3.4 差异打包</p>
+                    <p>
+                        Unity现在支持增量打包和差异打包,前提是不能删除上一次打包的AB文件.<br>
+                    </p>
+                    <p class="paragraph">15.3.5 AB压缩格式</p>
+                    <p>
+                        BuildAssetBundleOptions可以设置AB的压缩格式,推荐是使用LZ4格式ChunkBasedCompressionAssetBundle,压缩效率稍微低但是解压和加载快.<br>
+                    </p>
+                    <p class="paragraph">15.3.6 加载AB</p>
+                    <p class="paragraph">15.3.7 内存与卸载</p>
+                    <p class="paragraph">15.3.8 场景AB</p>
+                    <p class="paragraph">15.3.9 CDN下载流程</p>
+                    <p class="paragraph">15.3.10 加载流程</p>
+                    <p class="paragraph">15.3.11 多进程AB构建</p>
+
+                </div>
+            </section>
             <section id="15.4"><p class="section">15.4 代码编译</p></section>
             <section id="15.5"><p class="section">15.5 Shader编译</p></section>
             <section id="15.6"><p class="section">15.6 美术资源管理</p></section>
