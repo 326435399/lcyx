@@ -84,6 +84,9 @@
             <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520:二次近似<br>
             为了更精确的计算一个函数的近似值,我们用二次近似的方式计算在x=a的近似值<strong>f(x)=f(a)+f'(a)*(x-a)+f''(a)*x<sup>2</sup>/2</strong>,
             当这个a=0的时候就简化成了<strong>f(x)=f(0)+f'(0)*(x)+f''(0)*x<sup>2</sup>/2</strong>.<br>
+            <a href="#20240521"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240521:乘积二次近似<br>
+            对相乘的两个函数的近似可以对这个乘积求一二阶导,然后取0-2次方的系数即可<br>
+
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -762,6 +765,55 @@
                             <p>
                                 计算逻辑很简单<br>
                                 首先计算函数的一阶和二阶导,然后把x=0代入得到对应的导数值,最后带回来二次近似公式当中即可<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="timeStamp" id="20240521">20240521学习</p>
+                    <p class="paragraph">7. Quadratic approximation二次近似</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-11-正式定义.png" alt="正式定义">
+                            <p>
+                                在x=a的最佳抛物线近似<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-12-练习1.png" alt="练习1">
+                            <p>
+                                核心考量的是在x=a的近似抛物线和对一二阶导数的计算<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-13-练习2.png" alt="练习2">
+                            <p>
+                                注意符号,粗心错误<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">8. Quadratic approximations of products二次近似的乘积</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-14-乘积的二次近似.png" alt="乘积的二次近似">
+                            <p>
+                                对两个函数fg乘积的近似,等于他们分别的近似Q(f),Q(g)相乘之后的近似Q(Q(f),Q(g))多项式的二次近似就是取前面两项<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-15-乘积的二次近似2.png" alt="乘积的二次近似2">
+                            <p>
+                                二次近似之后就把超过的都丢掉了,这种计算太复杂了,虽然最后也可以得到正确的结果<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-16-乘积的二次近似3.png" alt="乘积的二次近似3">
+                            <p>
+                                采用对里面的乘积求导相对会简单很多..<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-17-计算.png" alt="计算">
+                            <p>
+                                核心重点就是利用上面推导的乘积求导<br>
                             </p>
                         </figure>
                     </p>
