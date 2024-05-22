@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>23-Unity游戏设计与实现-加藤政树</title>
+        <link rel="stylesheet" href="../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1 Web入门</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 安装基础软件</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2 HTML-构建Web</a></li>
+            </ul>
+        </aside>
+        <nav>
+            <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:E先生<br>
+            XXXXXXXXXX
+        </nav>
+        <header><p class="header">大标题</p></header>
+        <article id="1"><p class="chapter">1.章名</p>
+            <p class="timeStamp" id="20240505">跳转标记对象</p>
+            <section id="1.1"><p class="section">1.1 小节名</p>               
+                <div>
+                    <p class="paragraph">1.1.1 段落小节名</p>
+                    <p>
+                        <strong>1.1.1.1 重点标记</strong><br>
+                        普通文字.......<br>
+                        <figure>
+                            <img src="" alt="">
+                            <p></p>
+                        </figure>
+                    </p> 
+                </div>                                                               
+            </section>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>

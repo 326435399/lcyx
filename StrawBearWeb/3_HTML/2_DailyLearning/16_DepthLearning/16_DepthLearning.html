@@ -432,9 +432,28 @@
                         <li><a href="#57.4">57.4 pooling函数的实现</a></li>
                     </ul>
                 </li>
-                <li><a href="#58">58 具有代表性的CNN(VGG16)</a></li>
-                <li><a href="#59">59 使用RNN处理时间序列数据</a></li>
-                <li><a href="#60">60 LSTM与数据加载器</a></li>
+                <li><a href="#58">58 具有代表性的CNN(VGG16)</a>
+                    <ul>
+                        <li><a href="#58.1">58.1 VGG16的实现</a></li>
+                        <li><a href="#58.2">58.2 已训练的权重数据</a></li>
+                        <li><a href="#58.3">58.3 使用已训练的VGG16</a></li>
+                    </ul>
+                </li>
+                <li><a href="#59">59 使用RNN处理时间序列数据</a>
+                    <ul>
+                        <li><a href="#59.1">59.1 RNN层的实现</a></li>
+                        <li><a href="#59.2">59.2 RNN模型的实现</a></li>
+                        <li><a href="#59.3">59.3 切断连接的方式</a></li>
+                        <li><a href="#59.4">59.4 正弦波的预测</a></li>
+                    </ul>
+                </li>
+                <li><a href="#60">60 LSTM与数据加载器</a>
+                    <ul>
+                        <li><a href="#60.1">60.1 用于时间序列数据的数据加载器</a></li>
+                        <li><a href="#60.2">60.2 LSTM层的实现</a></li>
+
+                    </ul>
+                </li>
             </ul>
         </aside>
         <nav>
@@ -465,6 +484,8 @@
             <strong>CNN卷积神经网络</strong>新增了<strong>卷积层</strong>和<strong>池化层</strong>,卷积层的一些重要概念是<strong>卷积核,偏置</strong>.<br>
             <a href="#20240521"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240521-池化层和im2col<br>
             我们使用<strong>池化层</strong>来对一批苹果当中选出最大的或者平均大小,通过<strong>im2col</strong>函数把苹果根据池化层的大小来分开打包,方便管理<br>
+            <a href="#20240522"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240522-VGG16和RNN<br>
+            <strong>VGG16和RNN</strong>分别对应两种算法,VGG16通过多个卷积层来实现图像识别,RNN通过循环利用上次计算的输出来建立数据之间的联系<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -1571,14 +1592,120 @@
                 </div>
             </section>
         </article>
+
         <article id="58"><p class="chapter">58 具有代表性的CNN(VGG16)</p>
-            <section id="58.1"><p class="sectino">1.1 安装基础软件</p></section>
+            <p class="timeStamp" id="20240522">20240522开始</p>
+            <section id="58.1"><p class="sectino">58.1 VGG16的实现</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/58-1-VGG16.png" alt="VGG16">
+                        <p>
+                            3*3 Conv 64 表示3*3的卷积核,输出通道数为64(那就意味着有64个核)<br>
+                            pool/2 表示2*2的池化层<br>
+                            linear 4096表示输出大小为4096的全连接层<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/58-2-代码1.png" alt="代码1">
+                        <p>
+                            特点:<br>
+                            使用3*3的卷积层(填充为1*1)<br>
+                            卷积层的通道数量基本上每次池化之后都翻倍<br>
+                            在全连接层使用Dropout来减少过拟合<br>
+                            使用ReLU作为激活函数.<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="58.2"><p class="sectino">58.2 已训练的权重数据</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/58-3-使用权重.png" alt="使用权重">
+                        <p>
+                            下载了别人训练好的识别权重,作者转换成了Dezero可以使用的加载<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="58.3"><p class="sectino">58.3 使用已训练的VGG16</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/58-4-使用VGG16.png" alt="使用VGG16">
+                        <p>
+                            使用的PIL库的Image类来读取图像<br>
+                            preprocess吹图像,调整到224高224宽转换为ndarray实例<br>
+                            np.newaxis是增加一个批量的轴<br>
+                            最后的plot是绘制一个计算图.<br>
+                            最终识别出来结果是zebra斑马<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="59"><p class="chapter">59 使用RNN处理时间序列数据</p>
-            <section id="59.1"><p class="sectino">1.1 安装基础软件</p></section>
+            <section id="59.1"><p class="sectino">59.1 RNN层的实现</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/59-1-RNN.png" alt="RNN">
+                        <p>
+                            RNN具有循环神经网络结构,会利用上一次计算的结果来辅助下一次的计算(这和图形抗锯齿当中的TAA想法差不多)<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/59-2-代码逻辑.png" alt="代码逻辑">
+                        <p>
+                            有两个权重,一个是上一次的结果用,一个是这次计算结果用,最后加上偏置b.最后用tanh映射到(-1,1)范围内<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/59-3-实现逻辑.png" alt="实现逻辑">
+                        <p>
+                            第二次计算通过h2h用到了第一次计算的结果h作为参数<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="59.2"><p class="sectino">59.2 RNN模型的实现</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/59-4-RNN的实现.png" alt="RNN的实现">
+                        <p>
+                            这种由一系列的输入数据组成的计算图上进行反向传播叫做基于时间的反向传播BPTT<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="59.3"><p class="sectino">59.3 切断连接的方式</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/59-5-需要切断.png" alt="需要切断">
+                        <p>
+                            这个传递过程中需要切断,当使用了上一次计算的结果,上上次及之前的隐藏状态就需要切断舍弃了<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/59-6-切断实现.png" alt="切断实现">
+                        <p>
+                            切断的实现通过断开对创建函数的指针<br>
+                            在unchain_backward代码中遍历所有的函数执行切断<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="59.4"><p class="sectino">59.4 正弦波的预测</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/59-7-使用.png" alt="使用">
+                        <p>
+                            也是一种算法,能用于和上一次的数据建立联系.<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="60"><p class="chapter">60 LSTM与数据加载器</p>
-            <section id="60.1"><p class="sectino">1.1 安装基础软件</p></section>
+            <section id="60.1"><p class="sectino">60.1 用于时间序列数据的数据加载器</p></section>
+            <section id="60.2"><p class="sectino">60.2 LSTM层的实现</p></section>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
