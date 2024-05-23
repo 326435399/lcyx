@@ -88,6 +88,9 @@
             对相乘的两个函数的近似可以对这个乘积求一二阶导,然后取0-2次方的系数即可<br>
             <a href="#20240522"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240522:二项式系数<br>
             二项式定理对二项式系数的展开非常重要,让我们可以<strong>处理任何次幂的展开</strong><br>
+            <a href="#20240523"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240523:复杂乘积二次近似<br>
+            我们使用O(x³)直接来表示了超过二次以上的误差的规模,从而直接忽略所有超过两次的多项式乘积结果<br>
+
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -852,9 +855,33 @@
                             <img src="Resources/img/4-2-22-利率计算.png" alt="利率计算">
                             <p>
                                 核心重点是二项式的展开形式,我们直接通过取前几项来近似.<br>
+                                误差规模是x³,所以是(1/400)³大约10的-8次方,用计算器计算真实值和我们的二次近视值相减得到4.71,
+                                所以误差的规模等级是1,那么我们知道误差项是kx³,为了结果误差等级是1,
+                                所以k必然就是10的8次方了,这样kx³结果才会规模等级是1<br>
                             </p>
                         </figure>
                     </p>
+                    <p class="timeStamp" id="20240523">20240523学习</p>
+                    <p class="paragraph">11. Complicated functions(复杂函数)</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-23-示例1.png" alt="示例1">
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-24-示例2.png" alt="示例2">
+                            <p>
+                                示例2,相较于下面的正式计算,使用O(x³)符号,把后面的误差部分也考虑进去.计算的时候也直接把超过这个次数的全部简化到O(x³)里面<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-25计算.png" alt="25计算">
+                            <p>
+                                正式求解,这个简写害死人,还不如不简写,直接写好了<br>
+                            </p>
+                        </figure>
+                    </p>
+
+
                 </div>
 
             </section>

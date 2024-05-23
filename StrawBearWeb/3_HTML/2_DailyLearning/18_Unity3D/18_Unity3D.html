@@ -186,6 +186,9 @@
             针对不同类型的武器资源,需要有不同的出入库处理情况,这就是资源控制<br>
             <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520:AB<br>
             为了减轻一次性处理大量资源的压力,可以通过<strong>AB包</strong>(就是一个容器),把武器划分,然后再统一存放<br>
+            <a href="#20240523"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240523:AB加载和打包<br>
+            AB的加载过程中会有AB本体文件,AssertBundle文件,GameAssert游戏资源文件,GameObject游戏对象文件,需要注意手动卸载不需要的文件,
+            最后也是利用设计模式封装成一个方便调用的方式,脚本都会编译到dll文件来运行.<br>
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -866,16 +869,106 @@
                     <p>
                         BuildAssetBundleOptions可以设置AB的压缩格式,推荐是使用LZ4格式ChunkBasedCompressionAssetBundle,压缩效率稍微低但是解压和加载快.<br>
                     </p>
+                        <p class="timeStamp" id="20240523">20240523学习</p>
                     <p class="paragraph">15.3.6 加载AB</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-18-加载AB.png" alt="加载AB">
+                            <p>
+                                1.加载指定文件夹AB和对应的mainfest<br>
+                                2.从mainfest当中加载对应的AB需要的依赖再加载对应AB<br>
+                                3.从加载出来的AB当中拿各种资源出来使用就可以了<br>
+                                Tips:这种一次性加载的方式占内存,最好是异步+流加载<br>
+                            </p>
+                        </figure>
+                    </p>
+
                     <p class="paragraph">15.3.7 内存与卸载</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-19-内存结构.png" alt="内存结构">
+                            <p>
+                                AB的内存结构是一层一层加载的.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/15-20-内存与卸载.png" alt="内存与卸载">
+                            <p>
+                                始终是有C++和C#两份资源的,通过不同的方式来卸载.<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">15.3.8 场景AB</p>
+                    <p>
+                        场景AB文件也可以打包到AB当中,但是不能关联<br>
+                    </p>
                     <p class="paragraph">15.3.9 CDN下载流程</p>
+                    <p>
+                        通常需要把AB文件转成MD5命名(确保不重复)<br>
+                        然后需要维护一个AB包的依赖关系,还有是什么资产的表-资源列表文件<br>
+                        主流做法是上传到CDN,同名文件不会刷新,然后保证至少有一个URL可以用,下载之后要不断检查AB是否下载完整,完整才解压.<br>
+                        然后如果要热更新就上传一份新的下载列表就可以了.<br>
+                    </p>
                     <p class="paragraph">15.3.10 加载流程</p>
+                    <p>
+                        需要简化逻辑,对外仅暴露简单接口返回对应的资源,销毁也同样需要简化,这样使用人员就不会觉得很难处理了.<br>
+                    </p>
                     <p class="paragraph">15.3.11 多进程AB构建</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/15-21-多进程构建AB.png" alt="多进程构建AB">
+                            <p>
+                                也可以在代码中通过EditorBuildSettings.UseParallelAssetBundleBuilding=ture;来开启<br>
+                            </p>
+                        </figure>
+                    </p>
 
                 </div>
             </section>
-            <section id="15.4"><p class="section">15.4 代码编译</p></section>
+            <section id="15.4"><p class="section">15.4 代码编译</p>
+                <p class="paragraph">15.4.1 Plugins</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-22-脚本编译.png" alt="脚本编译">
+                        <p>
+                            Assets任意目录和子目录下的CS代码都会被编译到同一个DLL当中-Assembly-CSharp.dll当中(所以每次改动都要重新编译-右下角会转圈)
+                            放在Assets/Plugins/文件夹下面的脚本会优先编译到Assembly-Csharp-firstpass.dll当中,所以就不用每次重新编译那么久了.(开发的时候这样挺好的),Assembly-CSharp.dll可以调取firstpass.dll,但是反过来不行.
+                            每个脚本右上角都会有装配信息,显示脚本被编译到哪个文件里面去了.<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.4.2 Assembly</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-23-自定义装配.png" alt="自定义装配">
+                        <p>
+                            支持自己创建Assembly的,这样可以把某个文件夹下面的代码单独编译到一个DLL当中,还可以让Assembly依赖另外一个Assembly
+                            在这个Assembly的当前文件夹和下面的文件夹都会打包到这个Assembly名字的dll当中<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.4.3 Editor</p>
+                <p>
+                    Editor是一个特殊文件夹,脚本都会单独编译到Assembly-Csharp-Editor.dll,它可以访问运行时DLL中的代码,但是反过来不行.<br>
+                </p>
+                <p class="paragraph">15.4.4 IL2CPP</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-24-修改脚本编译方式.png" alt="修改脚本编译方式">
+                        <p>
+                            可以在Player当中指定脚本编译方式,理论上C++加载更快.但是不支持热更新<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.4.5 AB中的脚本</p>
+                <p>
+                    脚本是有GUID的,所以Prefab中的脚本是GUID引用,所以是不能热更新的.<br>
+                </p>
+                <p class="paragraph">15.4.6 热更新代码</p>
+                <p>
+                    热更新指的是在不更新完整客户端的情况下更新代码逻辑,即时编译JIT,提前编译AOT,为了热更新就需要支持JIT,在Unity官方现在只支持使用Mono进行热更新,苹果系统则是完整封闭了JIT不支持.<br>
+                </p>
+            </section>
             <section id="15.5"><p class="section">15.5 Shader编译</p></section>
             <section id="15.6"><p class="section">15.6 美术资源管理</p></section>
         </article>

@@ -451,7 +451,6 @@
                     <ul>
                         <li><a href="#60.1">60.1 用于时间序列数据的数据加载器</a></li>
                         <li><a href="#60.2">60.2 LSTM层的实现</a></li>
-
                     </ul>
                 </li>
             </ul>
@@ -486,6 +485,8 @@
             我们使用<strong>池化层</strong>来对一批苹果当中选出最大的或者平均大小,通过<strong>im2col</strong>函数把苹果根据池化层的大小来分开打包,方便管理<br>
             <a href="#20240522"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240522-VGG16和RNN<br>
             <strong>VGG16和RNN</strong>分别对应两种算法,VGG16通过多个卷积层来实现图像识别,RNN通过循环利用上次计算的输出来建立数据之间的联系<br>
+            <a href="#20240523"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240523-LSTM<br>
+            使用LSTM来替代RNN,新增了批量的方式,让运算速度批量处理而不是单独处理<br>
         </nav>
         <header><h1 class="header">深度学习入门-自制框架</h1></header>
         <article id="1"><h2 class="chapter">1 作为"箱子"的变量</h2>
@@ -1704,8 +1705,32 @@
             </section>
         </article>
         <article id="60"><p class="chapter">60 LSTM与数据加载器</p>
-            <section id="60.1"><p class="sectino">60.1 用于时间序列数据的数据加载器</p></section>
-            <section id="60.2"><p class="sectino">60.2 LSTM层的实现</p></section>
+            <section id="60.1"><p class="sectino">60.1 用于时间序列数据的数据加载器</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/60-1-数据分批加载.png" alt="数据分批加载">
+                        <p>
+                            就是对数据按照批量来分组<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="60.2"><p class="sectino">60.2 LSTM层的实现</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/60-2-LSTM.png" alt="LSTM">
+                        <p>
+                            和RNN相比,增加了一个记忆单元c<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/60-3-LSTM计算图.png" alt="LSTM计算图">
+                        <p>
+                            最后的计算图好像一个楼梯<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
