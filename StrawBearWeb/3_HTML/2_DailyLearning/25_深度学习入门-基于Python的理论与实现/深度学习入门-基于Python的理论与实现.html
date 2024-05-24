@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
+        <title>深度学习入门-基于Python的理论与实现</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
+    </head>   
+    <body>
+        <aside>
+            <ul>
+                <li><a href="#1">1.Python入门</a>
+                    <ul>
+                        <li><a href="#1.1">1.1 Python是什么</a></li>
+                        <li><a href="#1.2">1.2 Python安装</a></li>
+                        <li><a href="#1.3">1.3 Python解释器</a></li>
+                        <li><a href="#1.4">1.4 Python脚本文件</a></li>
+                        <li><a href="#1.5">1.5 NumPy</a></li>
+                        <li><a href="#1.6">1.6 Matplotlib</a></li>
+                        <li><a href="#1.7">1.7 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#2">2.感知机</a>
+                    <ul>
+                        <li><a href="#2.1">2.1 感知机是什么</a></li>
+                        <li><a href="#2.2">2.2 简单逻辑电路</a></li>
+                        <li><a href="#2.3">2.3 感知机的实现</a></li>
+                        <li><a href="#2.4">2.4 感知机的局限性</a></li>
+                        <li><a href="#2.5">2.5 多层感知机</a></li>
+                        <li><a href="#2.6">2.6 从与非门到计算机</a></li>
+                        <li><a href="#2.7">2.7 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#3">3.神经网络</a>
+                    <ul>
+                        <li><a href="#3.1">3.1 从感知机到神经网络</a></li>
+                        <li><a href="#3.2">3.2 激活函数</a></li>
+                        <li><a href="#3.3">3.3 多维数组的运算</a></li>
+                        <li><a href="#3.4">3.4 3层神经网络的实现</a></li>
+                        <li><a href="#3.5">3.5 输出层的设计</a></li>
+                        <li><a href="#3.6">3.6 手写数字识别</a></li>
+                        <li><a href="#3.7">3.7 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#4">4.神经网络的学习</a>
+                    <ul>
+                        <li><a href="#4.1">4.1 从数据中学习</a></li>
+                        <li><a href="#4.2">4.2 损失函数</a></li>
+                        <li><a href="#4.3">4.3 数值微分</a></li>
+                        <li><a href="#4.4">4.4 梯度</a></li>
+                        <li><a href="#4.5">4.5 学习算法的实现</a></li>
+                        <li><a href="#4.6">4.6 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#5">5.误差反向传播法</a>
+                    <ul>
+                        <li><a href="#5.1">5.1 计算图</a></li>
+                        <li><a href="#5.2">5.2 链式法则</a></li>
+                        <li><a href="#5.3">5.3 反向传播</a></li>
+                        <li><a href="#5.4">5.4 简单层的实现</a></li>
+                        <li><a href="#5.5">5.5 激活函数层的实现</a></li>
+                        <li><a href="#5.6">5.6 Affine/Softmax层的实现</a></li>
+                        <li><a href="#5.7">5.7 误差反向传播法的实现</a></li>
+                        <li><a href="#5.8">5.8 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#6">6.与学习相关的技巧</a>
+                    <ul>
+                        <li><a href="#6.1">6.1 参数的更新</a></li>
+                        <li><a href="#6.2">6.2 权重的初始值</a></li>
+                        <li><a href="#6.3">6.3 Batch Normalization</a></li>
+                        <li><a href="#6.4">6.4 正则化</a></li>
+                        <li><a href="#6.5">6.5 超参数的验证</a></li>
+                        <li><a href="#6.6">6.6 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#7">7.卷积神经网络</a>
+                    <ul>
+                        <li><a href="#7.1">7.1 整体结构</a></li>
+                        <li><a href="#7.2">7.2 卷积层</a></li>
+                        <li><a href="#7.3">7.3 池化层</a></li>
+                        <li><a href="#7.4">7.4 卷积层和池化层的实现</a></li>
+                        <li><a href="#7.5">7.5 CNN的实现</a></li>
+                        <li><a href="#7.6">7.6 CNN的可视化</a></li>
+                        <li><a href="#7.7">7.7 具有代表性的CNN</a></li>
+                        <li><a href="#7.8">7.8 小结</a></li>
+                    </ul>
+                </li>
+                <li><a href="#8">8.深度学习</a>
+                    <ul>
+                        <li><a href="#8.1">8.1 加深网络</a></li>
+                        <li><a href="#8.2">8.2 深度学习的小历史</a></li>
+                        <li><a href="#8.3">8.3 深度学习的高速化</a></li>
+                        <li><a href="#8.4">8.4 深度学习的应用案例</a></li>
+                        <li><a href="#8.5">8.5 深度学习的未来</a></li>
+                    </ul>
+                </li>
+                <li><a href="#9">9.附录和其他</a>
+                    <ul>
+                        <li><a href="#9.1">9.1特殊的学习思路</a></li>
+                        <li><a href="#9.2">9.2附录</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </aside>
+        <nav>
+            <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:万物初开<br>
+            故事背景:鱼叔的深度学习之旅--(PS:鱼叔也指代鱼书学习,鱼叔是一个理工男,厚厚的黑框眼镜,完全不了解深度学习的概念,数学基础一般,代码基础一般)<br>
+        </nav>
+        <header>
+            <p class="header">深度学习入门-基于Python的理论与实现</p>
+            <figure>
+                <img src="深度学习入门-基于Python的理论与实现.jpg" alt="封面">
+            </figure>
+        </header>
+        <article id="1"><p class="chapter">1.Python入门</p>
+            <section id="1.1"><p class="section">1.1 Python是什么</p></section>
+            <section id="1.2"><p class="section">1.2 Python安装</p></section>
+            <section id="1.3"><p class="section">1.3 Python解释器</p></section>
+            <section id="1.4"><p class="section">1.4 Python脚本文件</p></section>
+            <section id="1.5"><p class="section">1.5 NumPy</p></section>
+            <section id="1.6"><p class="section">1.6 Matplotlib</p></section>
+            <section id="1.7"><p class="section">1.7 小结</p></section>
+        </article>
+        <article id="2"><p class="chapter">2.感知机</p>
+            <section id="2.1"><p class="section">2.1 感知机是什么</p></section>
+            <section id="2.2"><p class="section">2.2 简单逻辑电路</p></section>
+            <section id="2.3"><p class="section">2.3 感知机的实现</p></section>
+            <section id="2.4"><p class="section">2.4 感知机的局限性</p></section>
+            <section id="2.5"><p class="section">2.5 多层感知机</p></section>
+            <section id="2.6"><p class="section">2.6 从与非门到计算机</p></section>
+            <section id="2.7"><p class="section">2.7 小结</p></section>
+        </article>
+        <article id="3"><p class="chapter">3.神经网络</p>
+            <section id="3.1"><p class="section">3.1 从感知机到神经网络</p></section>
+            <section id="3.2"><p class="section">3.2 激活函数</p></section>
+            <section id="3.3"><p class="section">3.3 多维数组的运算</p></section>
+            <section id="3.4"><p class="section">3.4 3层神经网络的实现</p></section>
+            <section id="3.5"><p class="section">3.5 输出层的设计</p></section>
+            <section id="3.6"><p class="section">3.6 手写数字识别</p></section>
+            <section id="3.7"><p class="section">3.7 小结</p></section>
+        </article>
+        <article id="4"><p class="chapter">4.神经网络的学习</p>
+            <section id="4.1"><p class="section">4.1 从数据中学习</p></section>
+            <section id="4.2"><p class="section">4.2 损失函数</p></section>
+            <section id="4.3"><p class="section">4.3 数值微分</p></section>
+            <section id="4.4"><p class="section">4.4 梯度</p></section>
+            <section id="4.5"><p class="section">4.5 学习算法的实现</p></section>
+            <section id="4.6"><p class="section">4.6 小结</p></section>
+        </article>
+        <article id="5"><p class="chapter">5.误差反向传播法</p>
+            <section id="5.1"><p class="section">5.1 计算图</p></section>
+            <section id="5.2"><p class="section">5.2 链式法则</p></section>
+            <section id="5.3"><p class="section">5.3 反向传播</p></section>
+            <section id="5.4"><p class="section">5.4 简单层的实现</p></section>
+            <section id="5.5"><p class="section">5.5 激活函数层的实现</p></section>
+            <section id="5.6"><p class="section">5.6 Affine/Softmax层的实现</p></section>
+            <section id="5.7"><p class="section">5.7 误差反向传播法的实现</p></section>
+            <section id="5.8"><p class="section">5.8 小结</p></section>
+        </article>
+        <article id="6"><p class="chapter">6.与学习相关的技巧</p>
+            <section id="6.1"><p class="section">6.1 参数的更新</p></section>
+            <section id="6.2"><p class="section">6.2 权重的初始值</p></section>
+            <section id="6.3"><p class="section">6.3 Batch Normalization</p></section>
+            <section id="6.4"><p class="section">6.4 正则化</p></section>
+            <section id="6.5"><p class="section">6.5 超参数的验证</p></section>
+            <section id="6.6"><p class="section">6.6 小结</p></section>
+        </article>
+        <article id="7"><p class="chapter">7.卷积神经网络</p>
+            <section id="7.1"><p class="section">7.1 整体结构</p></section>
+            <section id="7.2"><p class="section">7.2 卷积层</p></section>
+            <section id="7.3"><p class="section">7.3 池化层</p></section>
+            <section id="7.4"><p class="section">7.4 卷积层和池化层的实现</p></section>
+            <section id="7.5"><p class="section">7.5 CNN的实现</p></section>
+            <section id="7.6"><p class="section">7.6 CNN的可视化</p></section>
+            <section id="7.7"><p class="section">7.7 具有代表性的CNN</p></section>
+            <section id="7.8"><p class="section">7.8 小结</p></section>
+        </article>
+        <article id="8"><p class="chapter">8.深度学习</p>
+            <section id="8.1"><p class="section">8.1 加深网络</p></section>
+            <section id="8.2"><p class="section">8.2 深度学习的小历史</p></section>
+            <section id="8.3"><p class="section">8.3 深度学习的高速化</p></section>
+            <section id="8.4"><p class="section">8.4 深度学习的应用案例</p></section>
+            <section id="8.5"><p class="section">8.5 深度学习的未来</p></section>
+        </article>
+        <article id="9"><p calss="chapter">9.附录和其他</p>
+            <section id="9.1"><p class="section">9.1 特殊的学习思路</p>
+                <p>
+                 <p class="timeStamp" id="20240524">20240524-万物初开</p>
+                    计划这一本书籍采用独特的树状学习法<br>
+                    1.所有一级二级目录确认整体结构,同时构建XML的结构(20240524-20240524完成)<br>
+                    2.对每一大章的小结细看<br>
+                    3.对每一个二级目录速度然后一句话概括<br>
+                    4.对每个章节进行精读<br>
+                    5.建立第二个压缩总结的Xmind,归纳(写到这个章节)<br>
+                    6.构建一个故事来描述整本书(写到这个章节)<br>
+                </p>
+            </section>  
+            <section id="9.2"><p class="section">9.2 Softmax-with-Loss层的计算图</p></section>
+        </article>
+        <footer><a href="../../../../index.html">首页</a></footer>
+        <script>
+                // 读取存储的滚动位置并滚动到该位置  
+            const scrollPositionKey = 'scrollPosition';  // 定义滚动位置变量
+            const storedScrollPosition = localStorage.getItem(scrollPositionKey); // localStorage是存在用户设备上
+            
+            window.onload = function()  // 读取窗口的时候就回滚到上次位置
+            {
+                if (storedScrollPosition)  // 如果滚动位置存在 
+                {  
+                    window.scrollTo(0, parseInt(storedScrollPosition)); // 滚动到这个位置 
+                } 
+            } 
+            
+            // 监听滚动事件并存储位置  
+            window.addEventListener('scroll', () => 
+            {  
+                const scrollPosition = window.scrollY || window.pageYOffset || document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);  
+                localStorage.setItem(scrollPositionKey, scrollPosition);  
+            });
+        </script>
+    </body>
+</html>

@@ -93,6 +93,8 @@
             <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520:文档编辑器<br>
             小熊一直写Web很苦恼,无法方便的编辑,就想要做一个自动转换成Web的文档编辑器,首先需要考虑文档的组成,我们把<strong>字符,图标,图像等都看做是对象</strong>,
             然后对象可以互相组合形成新的子结构,子结构又可以嵌套子接口,我们能够把<strong>单独对象和子结构一样的对待和使用</strong><br>
+            <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:Glyph类和组合模式<br>
+            Glyph类作为统一的接口,让所有的子类直接可以通过增删改组合形成大的图元,组合模式的意图是<strong>局部-整体</strong>关系的描述.<br>
         </nav>
         <header><p class="header">DesignPatternGOF4</p><figure><img src="设计模式.jpg" alt="书籍封面"></figure></header>
         <article id="1"><p class="chapter">1.引言</p>
@@ -503,7 +505,7 @@
                 <img src="Resources/img/02-01-目标Lexi.png" alt="目标Lexi文档编辑器">
                 <p>目标:设计一个所见即所得的文档编辑器Lexi<br></p>
             </figure>
-            <section><p class="section">2.1 设计问题</p>
+            <section><p class="section" id="2.1">2.1 设计问题</p>
                 <div>
                     <p class="paragraph">1.文档结构</p>
                     <p>
@@ -535,7 +537,7 @@
                     </p>
                 </div>
             </section>
-            <section><p class="section">2.2 文档结构</p>
+            <section><p class="section" id="2.2">2.2 文档结构</p>
                 <div>
                     <p class="paragraph">2.2.0 分析</p>
                     <p>
@@ -565,20 +567,70 @@
                             </p>
                         </figure>
                     </p>
+                    <p class="timeStamp" id="20240524">20240524学习</p>
                     <p class="paragraph">2.2.2 图元</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/02-04-Glyph类.png" alt="Glyph类">
+                            <p>
+                                图元的三个基本职责<br>
+                                1.怎样画出自己<br>
+                                2.占用多大的空间(影响其他图元)<br>
+                                3.父图元和子图元是什么(父子关系)<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">2.2.3 组合模式</p>
+                    <p>
+                        组合模式被用来表示复杂的,层次式的结构.<br>
+                        Composite(组合模式)描述了面向对的递归组合的本质<br>
+                        <a href="#4.3">跳转到4.3组合模式学习</a>
+                    </p>
                 </div>
             </section>
-            <section><p class="section">2.3 格式化</p></section>
-            <section><p class="section">2.4 修饰用户界面</p></section>
-            <section><p class="section">2.5 支持多种视感标准</p></section>
-            <section><p class="section">2.6 支持多种窗口系统</p></section>
-            <section><p class="section">2.7 用户操作</p></section>
-            <section><p class="section">2.8 拼写检查和断字处理</p></section>
-            <section><p class="section">2.9 小结</p></section>
+            <section><p class="section" id="2.3">2.3 格式化</p></section>
+            <section><p class="section" id="2.4">2.4 修饰用户界面</p></section>
+            <section><p class="section" id="2.5">2.5 支持多种视感标准</p></section>
+            <section><p class="section" id="2.6">2.6 支持多种窗口系统</p></section>
+            <section><p class="section" id="2.7">2.7 用户操作</p></section>
+            <section><p class="section" id="2.8">2.8 拼写检查和断字处理</p></section>
+            <section><p class="section" id="2.9">2.9 小结</p></section>
         </article>
         <article id="3"><p class="chapter">3 创建型模式</p></article>
-        <article id="4"><p class="chapter">4 结构型模式</p></article>
+        <article id="4"><p class="chapter">4 结构型模式</p>
+            <section><p class="section" id="4.1">4.1 Adapter(适配器)</p></section>
+            <section><p class="section" id="4.2">4.2 Bridge(桥接)</p></section>
+            <section><p class="section" id="4.3">4.3 Composiite(组合)</p></section>
+                <div>
+                    <p class="paragraph">1.意图</p>
+                    <p>
+                        将对象组合成树形结构以表示"部分-整体"的层次结构.Composite用户对单个对象和组合对象的使用具有一致性.<br>
+                    </p>
+                    <p class="paragraph">2.动机</p>
+                    <p>
+                        Composite模式描述了如何使用递归组合,让用户实现组合多个简单组件形成大的组件,而又<strong>不必区别对待</strong>.
+                        核心是有一个共同的抽象类,既可以表示图元,又可以表示容器.<br>
+                    </p>
+                    <p class="paragraph">3.适用性</p>
+                    <p>
+                        1.希望表示对象的部分-整体层次结构.<br>
+                        2.希望用户忽略组合对象与单个对象的不同,用户将统一地使用组合结构中的所有对象.<br>
+                    </p>
+                    <p class="paragraph">4.结构</p>
+                    <p class="paragraph">5.参与者</p>
+                    <p class="paragraph">6.协作</p>
+                    <p class="paragraph">7.效果</p>
+                    <p class="paragraph">8.实现</p>
+                    <p class="paragraph">9.代码示例</p>
+                    <p class="paragraph">10.已知应用</p>
+                    <p class="paragraph">11.相关模式</p>
+                </div>
+            <section><p class="section" id="4.4">4.4 Decorator(装饰)</p></section>
+            <section><p class="section" id="4.5">4.5 Facade(外观)</p></section>
+            <section><p class="section" id="4.6">4.6 Flyweight(享元)</p></section>
+            <section><p class="section" id="4.7">4.7 Proxy(代理)</p></section>
+            <section><p class="section" id="4.8">4.8 结构型模型的讨论</p></section>
+        </article>
         <article id="5"><p class="chapter">5 行为型模式</p></article>
         <article id="6"><p class="chapter">6 结论</p></article>
         <footer><a href="../../../../index.html">首页</a></footer>

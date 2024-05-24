@@ -189,6 +189,9 @@
             <a href="#20240523"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240523:AB加载和打包<br>
             AB的加载过程中会有AB本体文件,AssertBundle文件,GameAssert游戏资源文件,GameObject游戏对象文件,需要注意手动卸载不需要的文件,
             最后也是利用设计模式封装成一个方便调用的方式,脚本都会编译到dll文件来运行.<br>
+            <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:Shader变体<br>
+            针对Shader大量变体编译的问题,通过Shader代码本身多使用<strong>shader_feature_local</strong>减少变体量来处理,也可以通过脚本后期剥离掉一些不需要的,
+            资源的管理则是尝试能否通过自动化工具来辅助管理<br>
         </nav>
         <header><p class="header">Untiy3D游戏开发</p></header>
         <article id="1"><p class="chapter">1 基础知识</p>
@@ -969,8 +972,86 @@
                     热更新指的是在不更新完整客户端的情况下更新代码逻辑,即时编译JIT,提前编译AOT,为了热更新就需要支持JIT,在Unity官方现在只支持使用Mono进行热更新,苹果系统则是完整封闭了JIT不支持.<br>
                 </p>
             </section>
-            <section id="15.5"><p class="section">15.5 Shader编译</p></section>
-            <section id="15.6"><p class="section">15.6 美术资源管理</p></section>
+            <section id="15.5"><p class="section">15.5 Shader编译</p>
+                <p class="timeStamp" id="20240524">20240524-Shader变体</p>
+                <div>
+                <p class="paragraph">15.5.1 打包与运行</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-25-Shader编译.png" alt="Shader编译">
+                        <p>
+                            Shader是GPU的执行程序.Unity提供的是HLSL代码(CG是Nvida推出的,但是后来都不支持了),HLSL是高级着色器语言,需要编译成底层的PC平台的DX,IOS平台的Metal,Android平台的GLSL这些代码,然后转换成机械码给GPU执行.<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.5.2 Shader重复打包</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-26-Shader重复打包.png" alt="Shader重复打包">
+                        <p>
+                            在我们打AB包的时候,一定要注意,相同的Shader文件要做成依赖包,不然会重复,这会造成大量浪费,现在有SRP Batch,会对Shader的执行进行一定程度的合批处理加速.<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.5.3 Shader宏</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-27-Shader变体数量.png" alt="Shader变体数量">
+                        <p>
+                            注意<br>
+                            Shader可以通过multi_compile 编译多个变体(可以认为是多份稍微有一些区别的代码)<br>
+                            通过shader_feature则可以有使用的才打包(可以极大的减少变体的数量)<br>
+                            可以在尾缀增加_local从而声明局部关键字,这样就不会在任意Shader激活这个关键字就产生变体,有利于控制变体数量不会爆炸.<br>
+                            每个Shader可以在属性面板看到有多少个变体<br>
+                        </p>
+                    </figure>
+                    <figure>
+                        <img src="Resources/img/15-28-强制全局.png" alt="强制全局">
+                        <p>
+                            一定要注意这个地方的设置,这里面的Shader被认为是重要Shader,强制使用multi_compile<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.5.4 Shader与AB包</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-29-AB包剥离.png" alt="AB包剥离">
+                        <p>
+                            为了防止AB打很多份,比价好的做法是让shader单独一个AB包,其余游戏对象通过依赖shader的AB包来读取shader,这样我们就可以热更新shader了<br>
+                        </p>
+                    </figure>
+                </p>
+                <p class="paragraph">15.5.5 Shader打包剥离</p>
+                <p>
+                    <figure>
+                        <img src="Resources/img/15-30-打包剥离.png" alt="打包剥离">
+                        <p>
+                            可以通过IPreprocessShaders接口里面执行一些特殊的shader剥离操作<br>
+                        </p>
+                    </figure>
+                </p>
+                </div>
+            </section>
+            <section id="15.6"><p class="section">15.6 美术资源管理</p>
+                <div>
+                    <p class="paragraph">15.6.1 版本管理</p>
+                    <p>
+                        有个叫做UnityAccelerator的工具,可以让Library当中已经转换的资源不用重新转换.<br>
+                    </p>
+                    <p class="paragraph">15.6.2 材质丢失</p>
+                    <p>
+                        材质丢失的原因是GUID本地和远程不符,只能勤快更新,没有办法<br>
+                    </p>
+                    <p class="paragraph">15.6.3 协作开发与多工程</p>
+                    <p>
+                        采用SVN美术人员仓库文件夹<br>
+                    </p>
+                    <p class="paragraph">15.6.4 美术资源生成</p>
+                    <p>
+                        尽可能看能不能自动化的创建Prefab或者场景,从而减少人为错误<br>
+                    </p>
+                </div>
+            </section>
         </article>
         <article id="16"><p class="chapter">16 自动化与打包</p>
             <section id="16.1"></section>

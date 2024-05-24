@@ -88,7 +88,9 @@
             伪装技术还可以通过<strong>模糊</strong>的方式让一片区域失真,从而减少被敌人攻击的可能性,也可以使用<strong>反射</strong>技术来反射强烈的光照并进行增益放大
             实现照明弹效果.为了解决这样的敌人,小熊研发了一套<strong>描边</strong>系统,让隐藏的单位无所遁形,从而很好的处理这种类型的敌人<br>
             <a href="#20240520"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240520-曲面细分<br>
-            山脉通过曲面细分的方式,在移动的过程当中逐渐变的细致,从而显示出影藏的敌人
+            山脉通过曲面细分的方式,在移动的过程当中逐渐变的细致,从而显示出影藏的敌人<br>
+            <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524-曲面细分Domain<br>
+            在Domain当中进行了空间转换,将我们新算出来的顶点<strong>传递到Fragment着色器</strong>当中进行处理,敌人的这种处理方式是实时出现的,所以没有办法进行预防<br>
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -562,6 +564,36 @@
                                 通过UNITY_XXXX系列,设置绘制状态(类似OpenGL的参数状态,只要不修改,后面都是这样),设置读取的网格是什么样的,咋么绘制,怎么分割,用哪个函数设置细分参数<br>
                                 hull函数,根据传入的区块中的顶点id值来传递h2t结构体顶点参数.(传递控制点顶点参数)<br>
                             </p>
+                        </figure>
+                        <p class="timeStamp" id="20240524">202405024学习</p>
+                        2.Tessellator(自动细分着色器)<br>
+                        经过Hull Shader准备好信息之后传递到Tessellator进行处理.这部分是不可控的,GOU进行处理分割,最后把新的顶点信息传递到Domain Shader,Domain最后传递到Fragment着色器完成<br>
+                        <figure>
+                            <img src="Resources/img/6-2-06-Domain着色器.png" alt="Domain着色器">
+                            <p>
+                                Domain里面就负责执行空间变换给Fragment准备数据了<br>    
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-07-繁复的结构体传递.png" alt="繁复的结构体传递">
+                            <p>
+                                现在我们的结构体就太多了,从v2h 到h2t,还有一个隐藏的t2d,再到d2f,并且这些结构体中传递的一些信息数据类型是相同的,具有通用性,所以可以进行简化.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-08-优化结构体.png" alt="优化结构体">
+                            <p>
+                                把a2v,v2h,h2t全部给合并成一个相同的结构体pdata,然后d2f,这样就只有两个结构体了.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-09-宏定义函数.png" alt="宏定义函数">
+                            <p>
+                                还可以通过函数宏定义来简化写计算重心点的操作.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-10-实现结果.gif" alt="实现结果">
                         </figure>
                     </p>
                     <p class="paragraph">6.2.2 Gerstner波</p>
