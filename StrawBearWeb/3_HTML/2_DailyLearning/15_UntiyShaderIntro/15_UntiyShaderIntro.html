@@ -91,6 +91,9 @@
             山脉通过曲面细分的方式,在移动的过程当中逐渐变的细致,从而显示出影藏的敌人<br>
             <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524-曲面细分Domain<br>
             在Domain当中进行了空间转换,将我们新算出来的顶点<strong>传递到Fragment着色器</strong>当中进行处理,敌人的这种处理方式是实时出现的,所以没有办法进行预防<br>
+            <a href="#20240527"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240527-几何着色器<br>
+            所有着色器的逻辑都是差不多的,1.声明着色器;2.准备结构体;3.Unity的一些状态设置;4.数据流转<br>
+
         </nav>
         <header><h1>UnityShader入门与实践</h1></header>
         <article id="1"><h2>1 数学基础</h2>
@@ -602,9 +605,44 @@
                     <p class="paragraph">6.2.5 完整代码</p>
                 </div>
             </section>
+
+            <p class="timeStamp" id="20240527">202405027-几何着色器</p>
             <section><p class="section">6.3 改变网格:几何着色器</p>
                 <div>
                     <p class="paragraph">6.3.1 几何着色器的流程与数据传递</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/6-2-11-声明着色器.png" alt="声明着色器">
+                            <p>
+                                首先需要声明几何着色器<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-12-准备结构体.png" alt="准备结构体">
+                            <p>
+                                不同着色器之间数据传递结构体<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-13-数据传递.png" alt="数据传递">
+                            <p>
+                                不同着色器之间通过不同结构体传递数据<br>
+                                特别注意[maxvertexcount(9)]标记了几何着色器最多返回多少个顶点<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-14-计算顶点着色器.png" alt="计算顶点着色器">
+                            <p>
+                                具体计算,需要注意结构体当中的输入输出参数的设置,然后就是RestartStrip这个函数是绘制三角面的刷新功能.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/6-2-15-绘制结果.png" alt="绘制结果">
+                            <p>
+                                因为新的三角面和顶点是计算出来的,这就保证了绝对的准确性<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">6.3.2 生成随机草地</p>
                 </div>
             </section>

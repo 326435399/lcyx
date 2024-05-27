@@ -95,6 +95,8 @@
             然后对象可以互相组合形成新的子结构,子结构又可以嵌套子接口,我们能够把<strong>单独对象和子结构一样的对待和使用</strong><br>
             <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:Glyph类和组合模式<br>
             Glyph类作为统一的接口,让所有的子类直接可以通过增删改组合形成大的图元,组合模式的意图是<strong>局部-整体</strong>关系的描述.<br>
+            <a href="#20240527"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240527:Composite结构<br>
+            Composite组合模式被用来设计可以<strong>一致性的使用整体和部分结构</strong>,实现递归组合从而实现更多的变化和组合.<br>
         </nav>
         <header><p class="header">DesignPatternGOF4</p><figure><img src="设计模式.jpg" alt="书籍封面"></figure></header>
         <article id="1"><p class="chapter">1.引言</p>
@@ -616,11 +618,70 @@
                         1.希望表示对象的部分-整体层次结构.<br>
                         2.希望用户忽略组合对象与单个对象的不同,用户将统一地使用组合结构中的所有对象.<br>
                     </p>
+                    <p class="timeStamp" id="20240527">20240527-结构</p>
                     <p class="paragraph">4.结构</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/02-05-Composite结构.png" alt="Composite结构">
+                            <p>
+                                相识:表示引用的关系<br>
+                            </p>
+                        </figure>
+                    </p>
                     <p class="paragraph">5.参与者</p>
+                    <p>
+                        Component(Graphic)<br>
+                        为组合中的对象声明接口(所有对象都有共同的接口)<br>
+                        在适当的情况下,实现所有类共有接口的省缺行为(就是把拥有相同实现的部分直接由父类实现了)<br>
+                        声明一个接口用于访问和管理Component的子组件.(也就是遍历子组件的能力)<br>
+                        (可选)在递归结构中定义一个接口,用于访问一个父部件,并在合适的情况下实现它.(方便快速的回到父层级做一些操作?)<br>
+                        <br>
+                        Leaf(Rectangel,Line,Text等)<br>
+                        在租这种表示叶节点对象,叶节点没有子节点.(最低元素层级了)<br>
+                        在组合中定义图元对象的行为.(同样要实现基本的图元属性)<br>
+                        <br>
+                        Composite(Picture)<br>
+                        定义有子部件的那些部件的行为.(这些是父对象没有定义的)<br>
+                        存储子部件(需要用子部件组合,所以需要持有)<br>
+                        在Component接口中实现与子部件有关的操作(父对象定义的对子部件的处理的具体实现)<br>
+                    </p>
                     <p class="paragraph">6.协作</p>
+                    <p>
+                        用户使用Component类接口与组合结构中的对象进行交互.<br>
+                        如果接收者是一个叶节点,直接处理请求.<br>
+                        如果接收者实第一个Composite,通常会把请求发送给它的子部件,在转发请求之前/或之后可以做一些辅助操作.<br>
+                    </p>
                     <p class="paragraph">7.效果</p>
+                    <p>
+                        1.<strong>定义了包含基本对象和组合对象的类层次结构</strong>,基本对象可以被组合成更复杂的组合对象,然后组合对象又可以组合递归下去,从而实现在任何使用基本对象的地方都可以使用组合对象.<br>
+                        2.<strong>简化客户代码</strong>,客户可以一致地使用组合结构和单个对象.<br>
+                        3.<strong>使得更容易增加新类型的组件</strong>,新定义的Composite或Leaf子类自动地与已有的结构和客户代码一起工作,而不需要新增.(有接口的约束)<br>
+                        4.<strong>使你的设计变得更加一般化</strong>,容易增加新组件也会产生一些问题,那就是很难限制组合中的组件.(每增加一个都会带来更多组合方式),所以当使用Composite时,需要的运行时检查,不能依赖类型系统来约束哪些类型不允许组合.<br>
+                    </p>
                     <p class="paragraph">8.实现</p>
+                    <p>
+                        1.<strong>显示的父部件引用</strong>,保持从子部件到父部件的引用能简化组合结构的遍历和管理.父部件引用可以简化结构的上移和组件的删除,同时父部件引用也支持Chain of Responsibility模式.<br>
+                        通常在Component类中定义父部件的引用.Leaf和Composite类可以继承这个引用以及管理这个引用的那些操作.<br>
+                        对于父部件引用,必须确保所有子节点的父节点就是这些子节点的组合,一种做法是只有当组合中的子节点有删除或增加(子节点变化)的时候才重新改变这个组件的父部件,所以也就是写在Composite类的Add和Remove操作中实现.<br>
+
+                        2.<strong>共享组件</strong>,共享组件是很有用的,比如它可以减少对存储的需求.但是当一个组件只有一个父部件时,很难共享组件.一个可行的解决办法是为子部件存储多个父部件引用,但是这种方法会导致多义性,所以需要Flyweight模式来避免将父部件存储在一起的方法.<br>
+
+                        3.<strong>最大化Component接口</strong>,Composite模式的目的之一就是使得客户不知道正在使用具体的Leaf还是Composite类,为了达到这个目的,Component类需要定义尽可能多的共操作,并为这些操作提供默认的实现,具体的子类可以覆写这些操作<br>
+
+                        4.<strong>声明管理子部件的操作</strong>,虽然Composite类实现了Add和Remove操作来管理子部件,但是有一个问题,应该在什么地方来声明这些操作?应该在Component中声明,还是Composite?<br>
+                        在根部定义子节点管理接口的方法具有良好的透明性,但是代价是损失一定安全性,客户可以做一些没有意义的事(例如对Leaf接口增加删除)<br>
+                        在Composite类定义管理子部件的方法具有良好的安全性,但是又损失了透明性,因为Leaf和Composite具有不同的接口,不能当一个对象用.<br>
+
+                        5.<strong>Component是否应该实现一个Component列表</strong>,你可能希望在Component类当中将子节点集合定义为一个实例变量,声明一些对子节点进行访问和管理的操作,但这会导致没有子节点的Leaf节点的空间浪费(空的实例也会占用空间),所以只有当基本没有什么叶节点的时候才值得.<br>
+
+                        6.<strong>子部件排序</strong>,许多设计指定了Composite的子部件排序,如果需要考虑子节点的顺序,考虑引入Iterator模式<br>
+
+                        7.<strong>使用高速缓存改善性能</strong>,如果需要对组合进行频繁的遍历或查找,Composite类可以缓冲存储对它的子节点进行遍历或查找的相关信息(提前存储)<br>
+
+                        8.<strong>应该由谁来删除Component</strong>,在没有垃圾回收机制的语言中,当一个Composite被销毁时,最好由它先复杂删除子节点.(叶节点除外)<br>
+
+                        9.<strong>存储组件最好用哪种数据结构</strong>,Composite可以使用多种数据结构存储,列表,树,数组,hash表,事实上没有必要使用通用数据结构,因为有时候每个子节点都有不同的变量类型.这就要求子节点要实现自己的管理接口.<br>
+                    </p>
                     <p class="paragraph">9.代码示例</p>
                     <p class="paragraph">10.已知应用</p>
                     <p class="paragraph">11.相关模式</p>

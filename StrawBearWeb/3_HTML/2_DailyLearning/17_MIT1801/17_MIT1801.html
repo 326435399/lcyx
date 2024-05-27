@@ -42,6 +42,8 @@
                 <li><a href="#4">4 Approximations 近似</a>
                     <ul>
                         <li><a href="#4.1">4.1 Linear approximations 线性近似</a></li>
+                        <li><a href="#4.2">4.2 Quadratic approximations 二次近似</a></li>
+                        <li><a href="#4.3">4.2 Quadratic approximations 二次近似</a></li>
                     </ul>
                 </li>
                 <li><a href="#5">5 Applications 应用</a></li>
@@ -92,8 +94,9 @@
             我们使用O(x³)直接来表示了超过二次以上的误差的规模,从而直接忽略所有超过两次的多项式乘积结果<br>
             <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:近似的好坏<br>
             出现疑问:如何评估一个近似的好坏?<br>
-
-
+            <a href="#20240527"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240527:x³的近似要怎么办?<br>
+            如何近似一个函数?当另外一个函数在各阶导(一阶导是斜率,二阶导是凹性,三阶导等等不知道)都相等,那就意味着有更多相同的变化,那么结果值自然越接近,
+            这种就是近似的核心逻辑,然后用大O表示法来表示误差大致在哪个等级,超过这个等级的就不需要考虑了,例如通常二次近似的误差是x³,超过2次幂可以忽略.<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -900,9 +903,35 @@
                             </p>
                         </figure>
                     </p>
+
+                    <p class="timeStamp" id="20240527">20240527-x³的近似</p>
+                    <p class="paragraph">13.Cubic(立方的近似)</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-30-示例.png" alt="示例">
+                            <p>
+                                当面对立方的时候,我们在一次和二次近似都没有任何信息,直到使用泰勒算到三次才有,所以针对高次幂的值也需要对应的提高<br>
+                            </p>
+                        </figure>
+                    </p>
+                    <p class="paragraph">14.Summary总结</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/4-2-28-最佳近似.png" alt="最佳近似">
+                            <p>
+                                近似的目标就是找到一个式子,它尽可能多阶的导数值和原函数相同,那也就意味着有更多相同的信息.<br>
+                            </p>
+                        </figure>
+                        <figure>
+                            <img src="Resources/img/4-2-29-误差表示法.png" alt="误差表示法">
+                            <p>
+                                通过大O表示法,确定近似误差的级数.<br>
+                            </p>
+                        </figure>
+                    </p>
                 </div>
             </section>
-            <section id="4.3"><p class="section">4.1 Linear approximations 线性近似</p></section>
+            <section id="4.3"><p class="section">4.3 Linear approximations 线性近似</p></section>
         </article>
         <article id="5"><h2  class="chapter">5 Applications 应用</h2>
             <section id="5.1"></section>

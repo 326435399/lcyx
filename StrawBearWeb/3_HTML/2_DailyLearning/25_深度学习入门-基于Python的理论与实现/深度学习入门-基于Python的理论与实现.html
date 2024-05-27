@@ -93,6 +93,7 @@
                         <li><a href="#8.3">8.3 深度学习的高速化</a></li>
                         <li><a href="#8.4">8.4 深度学习的应用案例</a></li>
                         <li><a href="#8.5">8.5 深度学习的未来</a></li>
+                        <li><a href="#8.6">8.6 小结</a></li>
                     </ul>
                 </li>
                 <li><a href="#9">9.附录和其他</a>
@@ -107,6 +108,10 @@
         <nav>
             <a href="#20240524"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240524:万物初开<br>
             故事背景:鱼叔的深度学习之旅--(PS:鱼叔也指代鱼书学习,鱼叔是一个理工男,厚厚的黑框眼镜,完全不了解深度学习的概念,数学基础一般,代码基础一般)<br>
+            <a href="#20240527"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240527:脉络梳理<br>
+            图书对全书的整体脉络进行了梳理,书籍先介绍基础的<strong>编程知识</strong>,通过<strong>感知机</strong>引出<strong>神经网络</strong>,
+            先学习简单的<strong>前向传播,激活函数</strong>,再进一步学习复杂的<strong>反向传播</strong>,了解使用<strong>数值微分</strong>的方式来衡量学习是否正确,
+            最后通过学习计算图<strong>可视化,批量数据,合批</strong>等等方式优化性能,最终引入了进一步的复杂的<strong>卷积神经网络CNN</strong>.
         </nav>
         <header>
             <p class="header">深度学习入门-基于Python的理论与实现</p>
@@ -121,7 +126,12 @@
             <section id="1.4"><p class="section">1.4 Python脚本文件</p></section>
             <section id="1.5"><p class="section">1.5 NumPy</p></section>
             <section id="1.6"><p class="section">1.6 Matplotlib</p></section>
-            <section id="1.7"><p class="section">1.7 小结</p></section>
+            <section id="1.7"><p class="section">1.7 小结</p>
+                <div>
+                    <p class="timeStamp" id="20240527">20240527-脉络梳理</p>
+                    介绍了实现<strong>深度学习(神经网络)</strong>所需要的编程知识,为后面的学习做好准备<br>
+                </div>
+            </section>
         </article>
         <article id="2"><p class="chapter">2.感知机</p>
             <section id="2.1"><p class="section">2.1 感知机是什么</p></section>
@@ -130,7 +140,14 @@
             <section id="2.4"><p class="section">2.4 感知机的局限性</p></section>
             <section id="2.5"><p class="section">2.5 多层感知机</p></section>
             <section id="2.6"><p class="section">2.6 从与非门到计算机</p></section>
-            <section id="2.7"><p class="section">2.7 小结</p></section>
+            <section id="2.7"><p class="section">2.7 小结</p>
+                <div>
+                    学习了<strong>感知机</strong>-一种非常简单的算法.<br>
+                    感知机是具有输入和输出的算法.(感觉这个描述像函数)<br>
+                    感知机将权重和偏置设定为参数<br>
+                    感知机可以表示与门和或门等逻辑电路,通过两层感知机可以表示异或门,通过多层感知机可以表示非线性空间.<br>
+                </div>
+            </section>
         </article>
         <article id="3"><p class="chapter">3.神经网络</p>
             <section id="3.1"><p class="section">3.1 从感知机到神经网络</p></section>
@@ -139,7 +156,15 @@
             <section id="3.4"><p class="section">3.4 3层神经网络的实现</p></section>
             <section id="3.5"><p class="section">3.5 输出层的设计</p></section>
             <section id="3.6"><p class="section">3.6 手写数字识别</p></section>
-            <section id="3.7"><p class="section">3.7 小结</p></section>
+            <section id="3.7"><p class="section">3.7 小结</p>
+                <div>
+                    介绍了神经网络的<strong>前向传播</strong>,感知机使用阶跃函数作为激活函数,神经网络使用sigmoid或ReLU函数.<br>
+                    使用Numpy多维数组可以提高运算效率<br>
+                    机器学习问题大体分为回归问题和分类问题,回归问题的激活函数使用恒等函数,分类问题使用softmax函数.<br>
+                    分类问题中输出神经元的数量等于分类数.<br>
+                    输入数据的集合称为合批.<br>
+                </div>
+            </section>
         </article>
         <article id="4"><p class="chapter">4.神经网络的学习</p>
             <section id="4.1"><p class="section">4.1 从数据中学习</p></section>
@@ -147,7 +172,14 @@
             <section id="4.3"><p class="section">4.3 数值微分</p></section>
             <section id="4.4"><p class="section">4.4 梯度</p></section>
             <section id="4.5"><p class="section">4.5 学习算法的实现</p></section>
-            <section id="4.6"><p class="section">4.6 小结</p></section>
+            <section id="4.6"><p class="section">4.6 小结</p>
+                <div>
+                    介绍了<strong>神经网络的学习</strong><br>
+                    通过损失函数尽可能小的权重来达到目标.<br>
+                    机器学习中的数据分为训练数据和测试数据,训练数据用来学习,测试数据用来评价.<br>
+                    数值微分:给定微小值的擦还分求导的过程称为数值微分.利用数值微分可以计算权重参数的梯度.<br>
+                </div>
+            </section>
         </article>
         <article id="5"><p class="chapter">5.误差反向传播法</p>
             <section id="5.1"><p class="section">5.1 计算图</p></section>
@@ -157,7 +189,12 @@
             <section id="5.5"><p class="section">5.5 激活函数层的实现</p></section>
             <section id="5.6"><p class="section">5.6 Affine/Softmax层的实现</p></section>
             <section id="5.7"><p class="section">5.7 误差反向传播法的实现</p></section>
-            <section id="5.8"><p class="section">5.8 小结</p></section>
+            <section id="5.8"><p class="section">5.8 小结</p>
+                <div>
+                    介绍了将计算过程<strong>可视化的计算图</strong>,介绍了神经网络中的<strong>误差反向传播法</strong>,
+                    通过将神经网络实现为层高效计算反向传播,通过比较数值微分和误差反向传播结果来判断是否构建正确.<br>
+                </div>
+            </section>
         </article>
         <article id="6"><p class="chapter">6.与学习相关的技巧</p>
             <section id="6.1"><p class="section">6.1 参数的更新</p></section>
@@ -165,7 +202,11 @@
             <section id="6.3"><p class="section">6.3 Batch Normalization</p></section>
             <section id="6.4"><p class="section">6.4 正则化</p></section>
             <section id="6.5"><p class="section">6.5 超参数的验证</p></section>
-            <section id="6.6"><p class="section">6.6 小结</p></section>
+            <section id="6.6"><p class="section">6.6 小结</p>
+                <div>
+                    学习神经网络中的一些重要技巧<strong>参数更新方法,权重初始化方法,批量正则化</strong><br>
+                </div>
+            </section>
         </article>
         <article id="7"><p class="chapter">7.卷积神经网络</p>
             <section id="7.1"><p class="section">7.1 整体结构</p></section>
@@ -175,7 +216,11 @@
             <section id="7.5"><p class="section">7.5 CNN的实现</p></section>
             <section id="7.6"><p class="section">7.6 CNN的可视化</p></section>
             <section id="7.7"><p class="section">7.7 具有代表性的CNN</p></section>
-            <section id="7.8"><p class="section">7.8 小结</p></section>
+            <section id="7.8"><p class="section">7.8 小结</p>
+                <div>
+                    介绍了<strong>CNN,增加了全基层和池化层</strong><br>
+                </div>
+            </section>
         </article>
         <article id="8"><p class="chapter">8.深度学习</p>
             <section id="8.1"><p class="section">8.1 加深网络</p></section>
@@ -183,6 +228,11 @@
             <section id="8.3"><p class="section">8.3 深度学习的高速化</p></section>
             <section id="8.4"><p class="section">8.4 深度学习的应用案例</p></section>
             <section id="8.5"><p class="section">8.5 深度学习的未来</p></section>
+            <section id="8.6"><p class="section">8.6 小结</p>
+                <div>
+                    实现了一个高级的CNN,手写数字识别精度提升.<br>
+                </div>
+            </section>
         </article>
         <article id="9"><p calss="chapter">9.附录和其他</p>
             <section id="9.1"><p class="section">9.1 特殊的学习思路</p>
