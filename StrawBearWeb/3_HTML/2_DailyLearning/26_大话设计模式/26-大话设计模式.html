@@ -3,41 +3,138 @@
     <head>
         <meta charset="UTF-8">
         <meta name="StrawBear" content="width=device-width,initial-scale=1.0">
-        <title>11-MDN-Learning</title>
-        <link rel="stylesheet" href="../../1_CSS/basicStyle.css">
+        <title>26-大话设计模式</title>
+        <link rel="stylesheet" href="../../../1_CSS/basicStyle.css">
     </head>   
     <body>
         <aside>
             <ul>
-                <li><a href="#1">1 Web入门</a>
+                <li><a href="#0">0.契子 培训实习生-面向对象基础</a>
                     <ul>
                         <li><a href="#1.1">1.1 安装基础软件</a></li>
                     </ul>
                 </li>
-                <li><a href="#2">2 HTML-构建Web</a></li>
+                <li><a href="#1">1.代码无措就是优?-简单工厂模式</a></li>
+                <li><a href="#2">2.商场促销-策略模式</a></li>
+                <li><a href="#3">3.电子阅读器vs手机-单一职责原则</a></li>
+                <li><a href="#4">4.考研求职两不误-开放封闭原则</a></li>
+                <li><a href="#5">5.会修电脑不会修收音机?-依赖倒置原则</a></li>
+                <li><a href="#6">6.穿什么有这么重要?-装饰模式</a></li>
+                <li><a href="#7">7.为别人做嫁衣-代理模式</a></li>
+                <li><a href="#8">8.工厂制造细节无须知-工厂方法模式</a></li>
+                <li><a href="#9">9.简历复印-原型模式</a></li>
+                <li><a href="#10">10.考题抄错会做也白搭-模板方法模式</a></li>
+                <li><a href="#11">11.无熟人难办事?-迪米特法则</a></li>
+                <li><a href="#12">12.牛市股票还会亏钱?-外观模式</a></li>
+                <li><a href="#13">13.好菜每回味不同-建造者模式</a></li>
+                <li><a href="#14">14.老板回来,我不知道-观察者模式</a></li>
+                <li><a href="#15">15.就不能不换DB吗?-抽象工厂模式</a></li>
+                <li><a href="#16">16.无尽加班何时休-状态模式</a></li>
+                <li><a href="#17">17.在NBA我需要翻译-适配器模式</a></li>
+                <li><a href="#18">18.如果再回到从前-备忘录模式</a></li>
+                <li><a href="#19">19.分公司=-部分-组合模式</a></li>
+                <li><a href="#20">20.想走?可以!先买票-迭代器模式</a></li>
+                <li><a href="#21">21.有些类也需要计划生育-单例模式</a></li>
+                <li><a href="#22">22.手机软件何时统一-桥接模式</a></li>
+                <li><a href="#23">23.烤羊肉串引来的思考-命令模式</a></li>
+                <li><a href="#24">24.加薪非要老总批?-责任链模式</a></li>
+                <li><a href="#25">25.世界需要和平-中介者模式</a></li>
+                <li><a href="#26">26.项目多也别傻做-享元模式</a></li>
+                <li><a href="#27">27.其实你不懂老板的心-解释器模式</a></li>
+                <li><a href="#28">28.男人和女人-访问者模式</a></li>
+                <li><a href="#29">29.OOTV杯超级模式大赛-模式总结</a></li>
             </ul>
         </aside>
         <nav>
-            <a href="#20240505"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240505:E先生<br>
-            XXXXXXXXXX
+            <a href="#20240603"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240603:冒险岛的僵尸蘑菇和刺蘑菇<br>
+            在冒险岛世界当中,每个蘑菇怪都是一个<strong>对象</strong>有独特的属性和行为,具有<strong>相同属性和特性</strong>的蘑菇被分成了一个<strong>类</strong>,
+            例如刺蘑菇<img class="icon" src="Resources/img/chapter0/刺蘑菇.png">都有刺头属性,他们的行为都是走,僵尸蘑菇<img class="icon" src="Resources/img/chapter0/僵尸蘑菇.png">都有额头的符箓,行为是跳动.<br>
         </nav>
-        <header><p class="header">大标题</p></header>
-        <article id="1"><p class="chapter">1.章名</p>
-            <p class="timeStamp" id="20240505">跳转标记对象</p>
-            <section id="1.1"><p class="section">1.1 小节名</p>               
+        <header><p class="header">26-大话设计模式</p></header>
+        <article id="0"><p class="chapter">0.契子 培训实习生-面向对象基础</p>
+            <p class="timeStamp" id="20240603">20240603学习-对象和类</p>
+            <section id="0.1"><p class="section">0.1 培训实习生</p> 
                 <div>
-                    <p class="paragraph">1.1.1 段落小节名</p>
                     <p>
-                        <strong>1.1.1.1 重点标记</strong><br>
-                        普通文字.......<br>
-                        <figure>
-                            <img src="" alt="">
-                            <p></p>
-                        </figure>
-                    </p> 
-                </div>                                                               
+                        情景设定是小菜教新入职的大学生史熙<br>
+                    </p>
+                </div>  
             </section>
+            <section id="0.2"><p class="section">0.2 类与实例</p>
+                <div>
+                    <p class="paragraph">示例</p>
+                    <p>
+                        问题1:实现猫叫<br>
+                        解决1:直接使用print打印<br>
+                        <br>
+                        问题2:如果想要叫很多声,总不能复制多几行print吧<br>
+                        解决2:为了方便复用,把喊叫封装到一个方法,调用方法就可以了<br>
+                        <br>
+                        问题3:如果其他地方也需要猫叫怎么办<br>
+                        解决3:使用了public进行公开,这样其他地方也可以调用了<br>
+                        <br>
+                        问题4:在我们当前的test类当中调用猫叫不太合适,也不方便理解<br>
+                        解决4:给当前的类换个名字,叫做Cat,这样在Cat猫类找到猫叫方法就很合适了.<br>
+                    </p>
+                    <p class="paragraph">概念</p>
+                    <p>
+                        对象是一个自包含的实体,用一组可识别的特性和行为来标识<br>
+                        <br>
+                        类就是具有相同的属性和功能的对象的抽象的集合.<br>
+                    </p>
+                    <p class="paragraph">代码</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/001Cat.png" alt="001Cat">
+                            <p>
+                                几个核心概念,声明,定义<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>              
+            <section id="0.3"><p class="section">0.3 构造方法</p> </section>              
+            <section id="0.4"><p class="section">0.4 方法重载</p> </section>              
+            <section id="0.5"><p class="section">0.5 属性与修饰符</p> </section>              
+            <section id="0.6"><p class="section">0.6 封装</p> </section>              
+            <section id="0.7"><p class="section">0.7 继承</p> </section>              
+            <section id="0.8"><p class="section">0.8 多态</p> </section>              
+            <section id="0.9"><p class="section">0.9 重构</p> </section>              
+            <section id="0.10"><p class="section">0.10 抽象类</p> </section>              
+            <section id="0.11"><p class="section">0.11 接口</p> </section>              
+            <section id="0.12"><p class="section">0.12 集合</p> </section>              
+            <section id="0.13"><p class="section">0.13 泛型</p> </section>              
+            <section id="0.14"><p class="section">0.14 客套</p> </section>              
         </article>
+        <article id="1"><p class="chapter">1.代码无措就是优?-简单工厂模式</p></article>
+        <article id="2"><p class="chapter">2.商场促销-策略模式</p></article>
+        <article id="3"><p class="chapter">3.电子阅读器vs手机-单一职责原则</p></article>
+        <article id="4"><p class="chapter">4.考研求职两不误-开放封闭原则</p></article>
+        <article id="5"><p class="chapter">5.会修电脑不会修收音机?-依赖倒置原则</p></article>
+        <article id="6"><p class="chapter">6.穿什么有这么重要?-装饰模式</p></article>
+        <article id="7"><p class="chapter">7.为别人做嫁衣-代理模式</p></article>
+        <article id="8"><p class="chapter">8.工厂制造细节无须知-工厂方法模式</p></article>
+        <article id="9"><p class="chapter">9.简历复印-原型模式</p></article>
+        <article id="10"><p class="chapter">10.考题抄错会做也白搭-模板方法模式</p></article>
+        <article id="11"><p class="chapter">11.无熟人难办事?-迪米特法则</p></article>
+        <article id="12"><p class="chapter">12.牛市股票还会亏钱?-外观模式</p></article>
+        <article id="13"><p class="chapter">13.好菜每回味不同-建造者模式</p></article>
+        <article id="14"><p class="chapter">14.老板回来,我不知道-观察者模式</p></article>
+        <article id="15"><p class="chapter">15.就不能不换DB吗?-抽象工厂模式</p></article>
+        <article id="16"><p class="chapter">16.无尽加班何时休-状态模式</p></article>
+        <article id="17"><p class="chapter">17.在NBA我需要翻译-适配器模式</p></article>
+        <article id="18"><p class="chapter">18.如果再回到从前-备忘录模式</p></article>
+        <article id="19"><p class="chapter">19.分公司=-部分-组合模式</p></article>
+        <article id="20"><p class="chapter">20.想走?可以!先买票-迭代器模式</p></article>
+        <article id="21"><p class="chapter">21.有些类也需要计划生育-单例模式</p></article>
+        <article id="22"><p class="chapter">22.手机软件何时统一-桥接模式</p></article>
+        <article id="23"><p class="chapter">23.烤羊肉串引来的思考-命令模式</p></article>
+        <article id="24"><p class="chapter">24.加薪非要老总批?-责任链模式</p></article>
+        <article id="25"><p class="chapter">25.世界需要和平-中介者模式</p></article>
+        <article id="26"><p class="chapter">26.项目多也别傻做-享元模式</p></article>
+        <article id="27"><p class="chapter">27.其实你不懂老板的心-解释器模式</p></article>
+        <article id="28"><p class="chapter">28.男人和女人-访问者模式</p></article>
+        <article id="29"><p class="chapter">29.OOTV杯超级模式大赛-模式总结</p></article>
         <footer><a href="../../../../index.html">首页</a></footer>
         <script>
                 // 读取存储的滚动位置并滚动到该位置  

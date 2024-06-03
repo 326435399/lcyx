@@ -114,6 +114,12 @@ img
     height: auto;
 }
 
+.icon
+{
+    width: 40px;
+    height:auto;
+}
+
 figure 
 {
     text-align: center;
