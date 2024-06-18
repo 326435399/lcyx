@@ -131,7 +131,8 @@
             <a href="#20240611"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240611-基础概念理解<br>
             游戏由<strong>游戏对象</strong>构成,对象的外观和能力则由<strong>组件</strong>构成,
             多个游戏对象构成的<strong>场景是段落的一部分</strong>,多个<strong>段落构成流程</strong>,多个<strong>流程合成最终的游戏</strong>.<br>
-
+            <a href="#20240617"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240617-预设和无限背景<br>
+            游戏对象武士被设计成使用多个哥布林怪物<strong>预设</strong>,通过让背景在<strong>摄像机范围外移动实现无限背景.</strong><br>
         </nav>
         <header>
             <p class="header">Unity游戏设计与实现-加藤政树</p>
@@ -253,14 +254,89 @@
             <section id="0.2"><p class="section">0.2 先来复习一下Unity的基础知识吧 Concept</p></section>
             <section id="0.3"><p class="section">0.3 入门教程(上)---创建项目 Tips</p></section>
             <section id="0.4"><p class="section">0.4 入门教程(下)---让游戏更有趣 Tips</p></section>
-            <section id="0.5"><p class="section">0.5 关于预设  Tips</p></section>
+            <section id="0.5"><p class="section">0.5 关于预设  Tips</p>
+                 <p class="timeStamp" id="20240617">20240617-预设和无限背景</p>
+                <div>
+                    <p class="paragraph">0.5.1 预设</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/014.png" alt="预设和实例的关系">
+                            <p>
+                                预设和实例化的关系,预设实例化之后变成游戏对象出现在场景当中<br>
+                            </p>
+                            <img src="Resources/img/chapter0/015.png" alt="图案和印章的比喻">
+                            <p>
+                                预设就相当于印章,印出来的图案相当于实例<br>
+                                当印章修改了,印出来的图案是自然会更改的<br>
+                                当图案修改,点击Apply就表示按照现在这个图案来修预设,这样就把实例的修改反馈到了预设印章修改<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
             <section id="0.6"><p class="section">0.6 C#和JavaScript的对比(JS已被放弃)</p></section>
         </article>
         <article id="1"><p class="chapter">1.点击动作游戏-怪物</p>
-            <section id="1.1"><p class="section">1.1 玩法介绍 How to Play</p></section>
-            <section id="1.2"><p class="section">1.2 简单的操作和爽快感 Concept</p></section>
-            <section id="1.3"><p class="section">1.3 无限滚动的背景 Tips</p></section>
-            <section id="1.4"><p class="section">1.4 无限滚动的背景的改良 Tips</p></section>
+            <section id="1.1"><p class="section">1.1 玩法介绍 How to Play</p>
+                <div>
+                    <p class="paragraph">1.1.1 玩法</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/016.gif" alt="游戏玩法">
+                            <p>
+                                武士在怪物群中斩杀,点击按键攻击怪物<br>
+                                越靠近分数越高,怪物会被砍飞,碰到怪物之后失败<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
+            <section id="1.2"><p class="section">1.2 简单的操作和爽快感 Concept</p>
+                <div>
+                    <p class="paragraph">1.2.1 游戏核心</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/017.png" alt="简单和反馈">
+                            <p>
+                                简单的操作(减少学习成本)<br>
+                                即时反馈的爽快感(快速正反馈)<br>
+                            </p>
+                        </figure>
+                    </p>
+                </div>
+            </section>
+            <section id="1.3"><p class="section">1.3 无限滚动的背景 Tips</p>
+                <div>
+                    <p class="paragraph">1.3.1 无限背景</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/018.png" alt="背景循环">
+                            <p>
+                                通过让背景循环滚动,减少内存的同时实现无限延伸<br>
+                            </p>
+                            <img src="Resources/img/chapter0/019.gif" alt="效果">
+                            <p>
+                                实现的效果,只需要确保在摄像机之外进行替换就可以不被识破了<br>
+                            </p>
+                        </figure>
+                    </p>
+
+                </div>
+            </section>
+            <section id="1.4"><p class="section">1.4 无限滚动的背景的改良 Tips</p>
+                <div>
+                    <p class="paragraph">1.4.1 代码实现</p>
+                    <p>
+                        <figure>
+                            <img src="Resources/img/chapter0/020.png" alt="代码逻辑">
+                            <p>
+                                逻辑是当武士超过背景的一半位置,就更新(如果出现超快的情况,就需要增加新的判断)<br>
+                            </p>
+                        </figure>
+                    </p>
+
+                </div>
+            </section>
             <section id="1.5"><p class="section">1.5 怪物出现模式的管理 Tips</p></section>
             <section id="1.6"><p class="section">1.6 武士和怪物的碰撞检测 Tips</p></section>
             <section id="1.7"><p class="section">1.7 得分高低的判定 Tips</p></section>
