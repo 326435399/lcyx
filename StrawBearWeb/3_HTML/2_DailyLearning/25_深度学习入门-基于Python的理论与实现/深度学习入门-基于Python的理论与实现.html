@@ -114,6 +114,8 @@
             最后通过学习计算图<strong>可视化,批量数据,合批</strong>等等方式优化性能,最终引入了进一步的复杂的<strong>卷积神经网络CNN</strong>.
             <a href="#20240603"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240603:python认知<br>
             我们为Python提供了两个库,Numpy用来数值计算,MatPlotlib用来可视化结果,Python可以用解释器模式和脚本文件模式<br>
+            <a href="#20240625"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240625:感知机和逻辑电路<br>
+            了解<strong>感知机是什么</strong>,并用感知机来实现<strong>逻辑电路</strong>.<br>
 
         </nav>
         <header>
@@ -185,9 +187,35 @@
                 </div>
             </section>
         </article>
+        <p class="timeStamp" id="20240625">20240625-感知机实现简单逻辑电路</p>
+
         <article id="2"><p class="chapter">2.感知机</p>
-            <section id="2.1"><p class="section">2.1 感知机是什么</p></section>
-            <section id="2.2"><p class="section">2.2 简单逻辑电路</p></section>
+            <section id="2.1"><p class="section">2.1 感知机是什么</p>
+                <div>
+                    <strong>感知机</strong>是一种算法,由美国学者Frank Rosenblatt在1957年提出来的,是深度学习<strong>起源</strong>的算法<br>
+                    <figure>
+                        <img src="Resources/img/chapter2/001感知机.png" alt="感知机">
+                        <p>
+                            感知机接收多个信号,输出一个信号,只有两种值,传递信号(1),不传递信号(0)<br>
+                            x1和x2是<strong>输入信号</strong><br>
+                            w1和w2是<strong>权重</strong><br>
+                            y是<strong>输出</strong>信号<br>
+                            当x1w1+x2w2的总和<strong>超过</strong>某个<strong>阀值</strong>θ然后y才会<strong>输出1</strong><br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="2.2"><p class="section">2.2 简单逻辑电路</p>
+                <figure>
+                    <img src="Resources/img/chapter2/002真值表.png" alt="真值表">
+                    <p>
+                        目标:用感知机(w1,w2,θ)实现简单逻辑电路<br>
+                        <strong>与门(And)</strong>:使用(0.5,0.5,0.8),只要w1,w2分别小于θ,之和大于θ即可<br>
+                        <strong>或门(Or)</strong>:使用(0.5,0.5,0.4),只要w1,w2分别都大于θ即可<br>
+                        <strong>非与门(No And)</strong>:使用(-0.5,-0.5,-0.8),w1,w2分别大于θ,加起来小于θ.<br>
+                    </p>
+                </figure>               
+            </section>
             <section id="2.3"><p class="section">2.3 感知机的实现</p></section>
             <section id="2.4"><p class="section">2.4 感知机的局限性</p></section>
             <section id="2.5"><p class="section">2.5 多层感知机</p></section>

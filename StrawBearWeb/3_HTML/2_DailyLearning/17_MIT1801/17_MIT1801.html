@@ -43,7 +43,7 @@
                     <ul>
                         <li><a href="#4.1">4.1 Linear approximations 线性近似</a></li>
                         <li><a href="#4.2">4.2 Quadratic approximations 二次近似</a></li>
-                        <li><a href="#4.3">4.2 Quadratic approximations 二次近似</a></li>
+                        <li><a href="#4.3">4.3 Newton's Method 牛顿法</a></li>
                     </ul>
                 </li>
                 <li><a href="#5">5 Applications 应用</a></li>
@@ -97,6 +97,8 @@
             <a href="#20240527"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240527:x³的近似要怎么办?<br>
             如何近似一个函数?当另外一个函数在各阶导(一阶导是斜率,二阶导是凹性,三阶导等等不知道)都相等,那就意味着有更多相同的变化,那么结果值自然越接近,
             这种就是近似的核心逻辑,然后用大O表示法来表示误差大致在哪个等级,超过这个等级的就不需要考虑了,例如通常二次近似的误差是x³,超过2次幂可以忽略.<br>
+            <a href="#20240625"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240625:牛顿法引入<br>
+            面对<strong>二次多项式</strong>要如何求根,如何近似<strong>求精确值</strong>,采用的方法是利用找到<strong>切线的x截距</strong>作为更近一步的解继续迭代<br>
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -931,7 +933,51 @@
                     </p>
                 </div>
             </section>
-            <section id="4.3"><p class="section">4.3 Linear approximations 线性近似</p></section>
+            <p class="timeStamp" id="20240625">20240625牛顿法</p>
+            <section id="4.3"><p class="section">4.3 Newton's Method 牛顿法</p>
+                <div>
+                    <p class="paragraph">1. Motivation:动机</p>
+                    <figure>
+                        <img src="Resources/img/4-3/001牛顿法.gif" alt="牛顿法">
+                        <p>
+                            我们已经学习过线性近似和二次近似,并且能够得到相当接近的结果,这些都非常有用.<br>
+                            但当两个点不够接近的时候就会出现误差.<br>
+                            这个时候我们引入了一个强有力的方法-牛顿法<br>
+                            牛顿法在线性的基础上通过多个点进一步逼近最终结果.<br>
+                            牛顿法通过5次迭代就把精度提高到了百万级别<br>
+                        </p>
+                    </figure>
+                    <p class="paragraph">2. Objective:目标</p>
+                    <figure>
+                        <img src="Resources/img/4-3/002目标.png" alt="目标">
+                        <p>
+                            使用牛顿法来求函数的解<br>
+                            描述牛顿法的几何意义<br>
+                            确定在哪些条件下牛顿法找不到解<br>
+                        </p>
+                    </figure>
+                    <p class="paragraph">3. Review:回顾二次多项式</p>
+                    <figure>
+                        <img src="Resources/img/4-3/003二次多项式回忆.png" alt="二次多项式">
+                        <p>
+                            二次多项式的解的描述<br>
+                            使得y=0的x的值<br>
+                            在x轴的结局<br>
+                            求根公式<br>
+                        </p>
+                        <img src="Resources/img/4-3/004猜测方式.png" alt="猜测方式">
+                        <p>
+                            求一个二次多项式f(x)=2-x²的根<br>
+                            我们得到一个无理数,那么我们要如何求无理数的准确值?<br>
+                            首先通过一个不太好的猜测x0=1,接下来我们求这个位置的切线,近一步的逼近结果<br>
+                        </p>
+                        <img src="Resources/img/4-3/005线性近似.png" alt="线性近似">
+                        <p>
+                            通过利用近似点的切线再次近似,近似的结果更准确了<br>
+                        </p>
+                    </figure>
+                </div>               
+            </section>
         </article>
         <article id="5"><h2  class="chapter">5 Applications 应用</h2>
             <section id="5.1"></section>

@@ -49,6 +49,10 @@
             <a href="#20240603"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240603:冒险岛的僵尸蘑菇和刺蘑菇<br>
             在冒险岛世界当中,每个蘑菇怪都是一个<strong>对象</strong>有独特的属性和行为,具有<strong>相同属性和特性</strong>的蘑菇被分成了一个<strong>类</strong>,
             例如刺蘑菇<img class="icon" src="Resources/img/chapter0/刺蘑菇.png">都有刺头属性,他们的行为都是走,僵尸蘑菇<img class="icon" src="Resources/img/chapter0/僵尸蘑菇.png">都有额头的符箓,行为是跳动.<br>
+            <a href="#20240625"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240625:构造函数,属性<br>
+            冒险岛当中不同的地图有不同的<strong>怪物构造器</strong>,通过不同构造器初始化不同的怪物,僵尸蘑菇携带的金钱镖,符篆等等可以掉落装备以
+            <strong>属性</strong>的方式存储,玩家可以看到,但是不能设置,所以是<strong>只读属性</strong>,还有一些隐藏的根据玩家氪金多少来提高爆率的
+            设置则通过<strong>字段</strong>存储,字段是不公开的变量<br>
         </nav>
         <header><p class="header">26-大话设计模式</p></header>
         <article id="0"><p class="chapter">0.契子 培训实习生-面向对象基础</p>
@@ -92,19 +96,70 @@
                         </figure>
                     </p>
                 </div>
+            </section>   
+            <p class="timeStamp" id="202406025">202406025学习</p>
+            <section id="0.3"><p class="section">0.3 构造方法</p>
+                <div>
+                    <p class="paragraph">构造方法的定义</p>
+                    <figure>
+                        <img src="Resources/img/chapter0/002.png" alt="构造方法的定义">
+                        <p>
+                            构造方法:构造方法又叫做构造函数,其实就是对类进行初始化.<br>
+                        </p>
+                    </figure>
+                    <p class="paragraph">语法</p>
+                    <figure>
+                        <img src="Resources/img/chapter0/003.png" alt="语法特点">
+                        <p>
+                            1.构造方法与类同名,无返回值,在new的时候调用.<br>
+                            2.所有的类都有默认的构造方法,系统会默认生成<br>
+                            3.当我们自定义构造方法,原来的默认构造方法就不会生成了.<br>
+                        </p>
+                    </figure>
+                </div>
             </section>              
-            <section id="0.3"><p class="section">0.3 构造方法</p> </section>              
-            <section id="0.4"><p class="section">0.4 方法重载</p> </section>              
-            <section id="0.5"><p class="section">0.5 属性与修饰符</p> </section>              
-            <section id="0.6"><p class="section">0.6 封装</p> </section>              
-            <section id="0.7"><p class="section">0.7 继承</p> </section>              
-            <section id="0.8"><p class="section">0.8 多态</p> </section>              
-            <section id="0.9"><p class="section">0.9 重构</p> </section>              
-            <section id="0.10"><p class="section">0.10 抽象类</p> </section>              
-            <section id="0.11"><p class="section">0.11 接口</p> </section>              
-            <section id="0.12"><p class="section">0.12 集合</p> </section>              
-            <section id="0.13"><p class="section">0.13 泛型</p> </section>              
-            <section id="0.14"><p class="section">0.14 客套</p> </section>              
+            <section id="0.4"><p class="section">0.4 方法重载</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/chapter0/004方法重载.png" alt="方法重载">
+                        <p>
+                            方法重载提供了创建同名的多个方法的能力,但这些方法需要使用不同的参数类型.<br>
+                            方法名必须相同,参数必须不同(同名异参),这样就可以在不改变原有方法的基础上,适应其他的参数.<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>              
+            <section id="0.5"><p class="section">0.5 属性与修饰符</p>
+                <div>
+                    <figure>
+                        <img src="Resources/img/chapter0/005属性.png" alt="属性">
+                        <p>
+                            属性是一个方法或一对方法,即属性适合于以字段的方式使用方法调用的场合.<br>
+                            字段是存储类要满足其设计所需要的数据,字段是与类相关的变量.<br>
+                            属性是<strong>公有</strong>的(不公开)变量,字段是<strong>私有</strong>的变量<br>
+                        </p>
+                    </figure>                                                  
+                </div>
+            </section>              
+            <section id="0.6"><p class="section">0.6 封装</p>
+                <div>
+                    <p>
+                        封装:每个对象都包含它能进行操作所需要的<strong>所有信息</strong>,这个特性称为封装,因此对象<strong>不必依赖其他对象</strong>来完成自己的操作.<br>
+                        封装的好处<br>
+                        1.良好的封装减少耦合(依赖其他对象就是耦合)<br>
+                        2.类内部的实现可以自由地修改(不会引起连锁反应)<br>
+                        3.类具有清晰的对外接口.<br>
+                    </p>
+                </div>
+            </section>              
+            <section id="0.7"><p class="section">0.7 继承</p></section>              
+            <section id="0.8"><p class="section">0.8 多态</p></section>              
+            <section id="0.9"><p class="section">0.9 重构</p></section>              
+            <section id="0.10"><p class="section">0.10 抽象类</p></section>              
+            <section id="0.11"><p class="section">0.11 接口</p></section>              
+            <section id="0.12"><p class="section">0.12 集合</p></section>              
+            <section id="0.13"><p class="section">0.13 泛型</p></section>              
+            <section id="0.14"><p class="section">0.14 客套</p></section>              
         </article>
         <article id="1"><p class="chapter">1.代码无措就是优?-简单工厂模式</p></article>
         <article id="2"><p class="chapter">2.商场促销-策略模式</p></article>
