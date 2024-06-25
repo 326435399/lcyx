@@ -43,17 +43,120 @@
             5.当做教学笔记,教以助学,可以帮助更好的学习<br>
             6.也能为以后其余看这本书的人提供一个参考和帮助(毕竟自己就是这么学的)<br>
             7.HTML比笔记更方便查找(虽然现在数据库啥的都还不会,以后总会慢慢自己弄的)<br>
-            对自己有帮助,对别人有帮助,这件事必然是很值得去做的<br>          
+            对自己有帮助,对别人有帮助,这件事必然是很值得去做的<br>
+            基础的了解了UE的<strong>项目创建</strong>,<strong>资产</strong>如何<strong>导入</strong>,<strong>材质球赋予</strong>,<strong>项目保存</strong><br>
         </nav>
         <header><p class="header">UE5完全自学教程-崔润(同步Src)<br>ISBN:9787115613011<br><img src="UE5完全自学教程.jpg" alt="书籍封面"></p>
             
         </header>
         <article id="1"><p class="chapter">1.打开新世界的大门</p>
             <p class="timeStamp" id="20240625">学习的第一天-计划晚上直到9.30都是学习这本书(浮动时间).</p>
-            <section id="1.1"><p class="section">1.1 UE5的应用领域</p></section>
-            <section id="1.2"><p class="section">1.2 如何快速,有效的学习UE5</p></section>
-            <section id="1.3"><p class="section">1.3 UE5的安装与资源的添加</p></section>
-            <section id="1.4"><p class="section">1.4 UE5首选行与运行优化设置</p></section>
+            <section id="1.1"><p class="section">1.1 UE5的应用领域</p>
+                游戏,影视,建筑领域<br>
+            </section>
+            <section id="1.2"><p class="section">1.2 如何快速,有效的学习UE5</p>
+                <div>
+                <figure>
+                    <img src="Resources/img/chapter1/001术语表.png" alt="术语表">
+                    <p>
+                        从跟随案例,到临摹优秀作品,到思考改进<br>
+                    </p>
+                </figure>
+                </div>
+            </section>
+            <section id="1.3"><p class="section">1.3 UE5的安装与资源的添加</p>
+                <div>
+                    <div><p class="paragraph">1.引擎安装</p>
+                        <figure>
+                            <img src="Resources/img/chapter1/002安装引擎.png" alt="安装引擎">
+                            <p>
+                                通过Epic Games客户端下载安装引擎<br>
+                            </p>
+                        </figure>
+                    </div>
+                    <div><p class="paragraph">2.新建项目与添加内容</p>
+                        <figure>
+                            <img src="Resources/img/chapter1/003Unity的项目创建.png" alt="Unity的项目创建">
+                            <p>
+                                类比于Unity,Unity创建项目也有多种类型<br>
+                                针对不同类型有不同的必要功能准备<br>
+                            </p>
+                            <img src="Resources/img/chapter1/004UE的项目创建.png" alt="UE的项目创建">
+                            <p>
+                                UE的项目创建也类似,不需要像unity还有很多不同的版本,built-in,URP,HDRP<br>
+                            </p>
+                            <img src="Resources/img/chapter1/005创建设置.png" alt="创建设置">
+                            <p>
+                                蓝图/C++:项目的编程方式<br>
+                                目标平台:快捷的质量预设<br>
+                                质量预设:图像质量等级<br>
+                                初学者内容包:初学者使用的一些基础素材<br>
+                                光线追踪:是否开启光线追踪,根据计算机性能而定<br>
+                            </p>
+                            <img src="Resources/img/chapter1/006内容浏览器添加内容.png" alt="内容浏览器添加内容">
+                            <p>
+                                ctrl+space打开内容浏览器,添加初学者内容包<br>
+                            </p>
+                        </figure>
+                   </div>
+                    <div><p class="paragraph">3.资产获取的方式</p>
+                        <figure>
+                            1.从商场获取添加<br>
+                            <img src="Resources/img/chapter1/007商场购买资源.png" alt="商场购买资源">
+                            <p>
+                                在商场当中获取资产<br>
+                            </p>
+                            <img src="Resources/img/chapter1/008保管库添加资源.png" alt="保管库添加资源">
+                            <p>
+                                保管库当中可以使用<br>
+                                资产显示添加到工程<br>
+                                完整项目显示创建工程<br>
+                                代码插件则是安装到引擎选项<br>
+                            </p>
+                            2.拖拽可识别文件FBX,Uasset等等<br>
+                            <img src="Resources/img/chapter1/009拖拽导入资源.png" alt="拖拽导入资源">
+                            <p>
+                                UE可以识别的资产能够通过拖拽的方式直接放入内容浏览器.<br>
+                                这里的示例是拖入了一个FBX模型<br>
+                            </p>
+                            <img src="Resources/img/chapter1/010颜色标识资产.png" alt="颜色标识资产">
+                            <p>
+                                导入一个人物模型,UE自动生成了一系列资产,颜色下标和文字方便快速识别<br>
+                            </p>
+                        </figure>
+                    </div>
+                    <div><p class="paragraph">4.创建和赋予材质球到人物模型</p>
+                        <figure>
+                            <img src="Resources/img/chapter1/011创建材质球.png" alt=""创建材质球>
+                            <p>
+                                在资产面板右键创建材质球,双击打开后连线<br>
+                            </p>
+                            <img src="Resources/img/chapter1/012赋予材质球.png" alt="赋予材质球">
+                            <p>
+                                将材质球赋予对应模型<br>
+                            </p>
+                        </figure>
+                    </div>   
+                    <div><p class="paragraph">5.场景保存</p>
+                        <figure>
+                            <img src="Resources/img/chapter1/013保存场景.png" alt="保存场景">
+                            <p>
+                                在资产面板保存,类似于unity的保存Scene一样<br>
+                            </p>
+                        </figure>
+                    </div>                 
+                </div>
+            </section>
+            <section id="1.4"><p class="section">1.4 UE5首选行与运行优化设置</p>
+                <div><p class="paragraph">设置面板</p>
+                    <figure>
+                        <img src="Resources/img/chapter1/014设置面板.png" alt="设置面板">
+                        <p>
+                            这个设置面板等同于unity的设置面板,所有的设置相关大多都在这个和项目设置两个面板中<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
         <article id="2"><p class="chapter">2.打造游戏世界</p></article>
         <article id="3"><p class="chapter">3.蓝图可视化脚本系统</p></article>
