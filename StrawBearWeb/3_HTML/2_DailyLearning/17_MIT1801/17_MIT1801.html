@@ -99,6 +99,9 @@
             这种就是近似的核心逻辑,然后用大O表示法来表示误差大致在哪个等级,超过这个等级的就不需要考虑了,例如通常二次近似的误差是x³,超过2次幂可以忽略.<br>
             <a href="#20240625"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240625:牛顿法引入<br>
             面对<strong>二次多项式</strong>要如何求根,如何近似<strong>求精确值</strong>,采用的方法是利用找到<strong>切线的x截距</strong>作为更近一步的解继续迭代<br>
+            <a href="#20240626"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240626:牛顿法为什么有效?<br>
+            通过引入<strong>误差项</strong>,我们联立<strong>牛顿法方程和泰勒展开方程</strong>得到误差规模是<strong>²级别</strong>的,也就是说只要误差小于1,这个误差就会极速收敛<br>
+
         </nav>
         <header><h1 class="header">MIT1801微积分</h1></header>
         <article id="1"><h2 class="chapter">1 Limits极限</h2>
@@ -976,6 +979,50 @@
                             通过利用近似点的切线再次近似,近似的结果更准确了<br>
                         </p>
                     </figure>
+                     <p class="timeStamp" id="20240626">20240626牛顿法和收敛速度</p>
+                    <div><p class="paragraph">4.牛顿法</p>
+                        <figure>
+                            <img src="Resources/img/4-3/006牛顿法.png" alt="牛顿法">
+                            <p>
+                                操作步骤<br>
+                                1.猜测一个尽可能接近的值<br>
+                                2.找这个值在函数上点的切线方程<br>
+                                3.通过令结果为0求的切线在X轴的截距作为新的猜测值<br>
+                                4.重复这个过程,直到达到精度要求<br>
+                            </p>
+                            <img src="Resources/img/4-3/007原理.png" alt="原理">
+                            <p>
+                                导数值就是斜率也就是对边比邻边,所以f(x)/f'(x)意味着就是X轴变化的值<br>
+                            </p>
+                            <img src="Resources/img/4-3/008示例.png" alt="示例">
+                            <p>
+                                仅仅通过5次迭代就得到了足够精确的值<br>
+                            </p>
+                            <img src="Resources/img/4-3/009正式定义.png" alt="正式定义">
+                            <p>
+                                正式定义,核心是通过<strong>水平方向的位移</strong>来逼近结果<br>
+                            </p>
+                        </figure>
+                    </div>
+                    <div><p class="paragraph">5.收敛速度</p>
+                        <figure>
+                            <img src="Resources/img/4-3/010泰勒展开的余项.png" alt="正式定义">
+                            <p>
+                                泰勒展开的大O表示法余项,大O表示误差的等级,忽略常数项<br>
+                            </p>
+                            <img src="Resources/img/4-3/011证明过程.png" alt="证明过程">
+                            <p>
+                                要多少次迭代我们才能够得到足够精确的值?<br>
+                            </p>
+                            <img src="Resources/img/4-3/012收敛速度.png" alt="收敛速度">
+                            <p>
+                                1.通过泰勒方程写出线性近似的完整表达式(包含误差)<br>
+                                2.通过设x=目标值x星得到f(x0)和<strong>误差的关系表达式</strong><br>
+                                3.通过牛顿法得到<strong>误差值和猜测表达式</strong>的关系<br>
+                                4.联立正确表达式误差的规模和牛顿法猜测的表示,整理得出误差的规模是<strong>平方</strong>的.<br>
+                            </p>
+                        </figure>
+                    </div>
                 </div>               
             </section>
         </article>
