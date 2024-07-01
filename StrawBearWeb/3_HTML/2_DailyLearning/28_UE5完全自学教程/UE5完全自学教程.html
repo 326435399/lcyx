@@ -17,7 +17,14 @@
                         <li><a href="#1.4">1.4 UE5首选行与运行优化设置</a></li>
                     </ul>
                 </li>
-                <li><a href="#2">2.打造游戏世界</a></li>
+                <li><a href="#2">2.打造游戏世界</a>
+                    <ul>
+                        <li><a href="#2.1">2.1 UE5编辑器</a></li>
+                        <li><a href="#2.2">2.2 三维物体的移动</a></li>
+                        <li><a href="#2.3">2.3 初识蓝图</a></li>
+                        <li><a href="#2.4">2.4 提高工作效率的方法</a></li>
+                    </ul>
+                </li>
                 <li><a href="#3">3.蓝图可视化脚本系统</a></li>
                 <li><a href="#4">4.了解计算逻辑</a></li>
                 <li><a href="#5">5.常用组件</a></li>
@@ -45,6 +52,12 @@
             7.HTML比笔记更方便查找(虽然现在数据库啥的都还不会,以后总会慢慢自己弄的)<br>
             对自己有帮助,对别人有帮助,这件事必然是很值得去做的<br>
             基础的了解了UE的<strong>项目创建</strong>,<strong>资产</strong>如何<strong>导入</strong>,<strong>材质球赋予</strong>,<strong>项目保存</strong><br>
+            <a href="#20240627"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240627:基础操作<br>
+            游戏运行模式,移动方式,关卡概念,大纲面板,设置初始出生位置,放置面板等等基础概念的了解<br>
+            <a href="#20240701"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240701:蓝图初步了解<br>
+            初步了解基本的操作逻辑,<strong>轴点设置</strong>,<strong>顶点对齐</strong>,蓝图<strong>创建和使用</strong>,<strong>书签添加</strong>,<strong>引用查询</strong><br>
+
+
         </nav>
         <header><p class="header">UE5完全自学教程-崔润(同步Src)<br>ISBN:9787115613011<br><img src="UE5完全自学教程.jpg" alt="书籍封面"></p>
             
@@ -158,7 +171,213 @@
                 </div>
             </section>
         </article>
-        <article id="2"><p class="chapter">2.打造游戏世界</p></article>
+        <p class="timeStamp" id="20240627">20240627学习基础操作逻辑</p>
+        <article id="2"><p class="chapter">2.打造游戏世界</p>
+            <section id="2.1"><p class="section">2.1 UE5编辑器</p>
+                <div><p class="paragraph">2.1.1 修改引擎语言</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/001编辑器语言修改.png" alt="图片">
+                        <p>
+                            可以在Editor_EditorPreferences_Region&Language里面设置语言<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.1.2 新建关卡</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/002新建关卡.png" alt="图片">
+                        <p>
+                            可以在File_NewLevel创建新的关卡,然后保存(和unity的scene是一个意思)<br>
+                        </p>
+                    </figure>
+                </div>   
+                <div><p class="paragraph">2.1.3 视口的移动方法</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/003视口控制.gif" alt="图片">
+                        <p>
+                            控制<br>
+                            按住鼠标右键之后,wasdqe前后左右上下移动视角zc拉远推进<br>
+                        </p>
+                    </figure>
+                </div>   
+                <div><p class="paragraph">2.1.4 大纲面板与聚焦</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/004大纲面板选择.png" alt="图片">
+                        <p>
+                            大纲截面类似untiy的hierarchy界面<br>
+                            视口当中的物体点击就会在大纲视口选择对应对象<br>
+                            大纲视口中的对象点击也可以快速在视口中显示对应对象,双击则是选择并居中=<strong>点击+F居中</strong><br>
+                        </p>
+                        <img src="Resources/img/chapter2/005大纲显示控制.png" alt="图片">
+                        <p>
+                            有齿轮标识的都还可以进行一定的显示方式配置<br>
+                        </p>
+                    </figure>
+                </div>   
+                <div><p class="paragraph">2.1.5 运行游戏</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/006视口模式.png" alt="图片">
+                        <p>
+                            Selected Vieport当前选择的视口(游戏玩家模式,无法修改内容,自动生成飞行摄像头)<br>
+                            New Editor Window(<strong>PIE</strong>)新的编辑视口,Player模式可以通过<strong>F8快捷键切换</strong>到SIE模拟器模式(游戏玩家模式,无法修改内容)<br>
+                            StandaloneGameMobile(独立移动游戏,另外一个程序来运行,无法修改,也无法切换)<br>
+                            StandaloneGame(独立PC游戏,独立程序,无法修改切换)<br>
+                            Simulate模拟器模式<strong>SIE</strong>(类似于unity的Editor窗口,可以<strong>F8切换</strong>到游戏模式,可以右键保存修改,不保存默认放弃)<br>
+                        </p>
+                        <img src="Resources/img/chapter2/007放置初始位置.png" alt="图片">
+                        <p>
+                            可以在场景中放置一个初始点位<br>
+                        </p>
+                        <img src="Resources/img/chapter2/008选择初始出生位置.png" alt="图片">
+                        <p>
+                            设置初始出生位置<br>
+                        </p>
+                    </figure>
+                </div>   
+                <div><p class="paragraph">2.1.6 显示信息</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/009信息模式.png" alt="图片">
+                        <p>
+                            在PIE模式下可以按<strong>';'</strong>显示信息<br>
+                        </p>
+                    </figure>
+                </div>   
+                <div><p class="paragraph">2.1.7 保存自己的资源</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/010全部保存.png" alt="图片">
+                        <p>
+                            ctrl+s可以保存当前操作,如果操作很多,使用内容浏览器的保存所有按钮一起保存所有对象<br>
+                        </p>
+                    </figure>
+                </div>                  
+            </section>
+            <section id="2.2"><p class="section">2.2 三维物体的移动</p>
+                <div><p class="paragraph">2.2.1 添加物体与过滤资产</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/011放置对象面板.png" alt="图片">
+                        <p>
+                            放置对象面板里面有所有常用的对象,类似unity的右键菜单<br>
+                        </p>
+                        <img src="Resources/img/chapter2/012过滤资产选择.png" alt="图片">
+                        <p>
+                            内容浏览器/项目面板的资产过滤选项,unity也有类似的过滤器<br>
+                        </p>
+                    </figure>
+                </div>
+                <p class="timeStamp" id="20240701">20240701蓝图初步了解</p>
+                <div><p class="paragraph">2.2.2 控制物体</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/013视口界面.png" alt="视口界面">
+                        <p>
+                            1.QWER选择,移动,旋转,缩放<br>
+                            2.世界和局部坐标轴心切换<br>
+                            3.表面吸附方式,右边是吸附的值<br>
+                            4.摄像机移动速度<br>
+                            5.窗口布局<br>
+                            6.场景对象的图标<br>
+                            7.材质显示模式,类似unity的DrawMode<br>
+                            8.视角,切换透视,垂直,正交视图<br>
+                            9.附加显示信息,例如FPS等等其他<br>
+                        </p>
+                    </figure>
+                </div>  
+                <div><p class="paragraph">2.2.3 小训练</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/014修改轴点的方式.png" alt="修改轴点的方式">
+                        <p>
+                            修改轴点的方式<br>
+                            右键设置为新的轴点<br>
+                        </p>
+                        <img src="Resources/img/chapter2/015轴移动顶点捕捉.png" alt="轴移动顶点捕捉">
+                        <p>
+                            知识点:<br>
+                            Alt+V+鼠标中键 开启移动轴的顶点捕捉<br>
+                            Alt+鼠标中键 自由移动轴点<br>
+                        </p>
+                        <img src="Resources/img/chapter2/016顶点对齐模式.png" alt="">
+                        <p>
+                            知识点:<br>
+                            按住V+鼠标左键拖动,顶点对齐<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="2.3"><p class="section">2.3 初识蓝图</p>
+                <div><p class="paragraph">2.3.1 创建Actor</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/017修改内容浏览器文件夹颜色.png" alt="修改内容浏览器文件夹颜色">
+                        <p>
+                            修改内容面板文件夹的颜色(方便快速查找)<br>
+                            需要自己定义一套确定的资产和文件夹颜色关系,例如植被资产-绿色<br>
+                        </p>
+                        <img src="Resources/img/chapter2/018创建蓝图类对象和保存标识.png" alt="创建蓝图类对象和保存标识">
+                        <p>
+                            创建自定义蓝图类对象,和注意未保存标识<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.2 打开蓝图编辑器窗口</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/019打开蓝图编辑器的方法.png" alt="打开蓝图编辑器的方法">
+                        <p>
+                            打开蓝图编辑器的方式<br>
+                        </p>
+                        <img src="Resources/img/chapter2/020蓝图面板基本组成.png" alt="蓝图面板基本组成">
+                        <p>
+                            蓝图编辑器的基本构成<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.3 使用打印字符串节点输出字符串</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/021视口面板.png" alt="视口面板">
+                        <p>
+                            如果不小心关闭了视口,可以在这里打开<br>
+                        </p>
+                        <img src="Resources/img/chapter2/022蓝图简单使用.png" alt="视口面板">
+                        <p>
+                            简单的蓝图使用(蓝图就相当于可以自定义的一个小模块,脚本的可视化版本)<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.4 蓝图书签</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/023添加蓝图书签.png" alt="蓝图简单使用">
+                        <p>
+                            为了当蓝图数量多的时候可以方便的找到,使用书签进行位置标记<br>
+                        </p>
+                        <img src="Resources/img/chapter2/024打开书签面板.png" alt="添加蓝图书签">
+                        <p>
+                            就可以通过书签面板来快速找到相关位置了<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.5 关卡蓝图</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/025官卡蓝图.png" alt="打开书签面板">
+                        <p>
+                            关卡蓝图是特殊的蓝图,全局事件蓝图<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.6 查看引用</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/26引用窗口.png" alt="官卡蓝图">
+                        <p>
+                            可以在内容浏览器右键查看资产的引用关系<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.3.7 打印关卡中的资产名称</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/27简单蓝图使用.png" alt="引用窗口">
+                        <p>
+                            打印官卡中资产的名字,这意味着可以在作为一个触发可视化标识<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="2.4"><p class="section">2.4 提高工作效率的方法</p></section>
+        </article>
         <article id="3"><p class="chapter">3.蓝图可视化脚本系统</p></article>
         <article id="4"><p class="chapter">4.了解计算逻辑</p></article>
         <article id="5"><p class="chapter">5.常用组件</p></article>
