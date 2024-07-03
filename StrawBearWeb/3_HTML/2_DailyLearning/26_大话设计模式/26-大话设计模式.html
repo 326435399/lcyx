@@ -53,6 +53,10 @@
             冒险岛当中不同的地图有不同的<strong>怪物构造器</strong>,通过不同构造器初始化不同的怪物,僵尸蘑菇携带的金钱镖,符篆等等可以掉落装备以
             <strong>属性</strong>的方式存储,玩家可以看到,但是不能设置,所以是<strong>只读属性</strong>,还有一些隐藏的根据玩家氪金多少来提高爆率的
             设置则通过<strong>字段</strong>存储,字段是不公开的变量<br>
+            <a href="#20240703"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240703:继承,多态,抽象类,重构<br>
+            <strong>继承描述的是共享</strong>的关系,例如刺蘑菇Boss在继承刺蘑菇基类的情况下多了自己独有的掉落,多态则是所有蘑菇基类的移动方式,刺蘑菇,绿蘑菇,僵尸蘑菇都有不同的表现方式,
+            抽象类指的是没有具体实例的对象,例如蘑菇,只是一大堆<strong>具体实例的抽象集合</strong>,是一个<strong>概念</strong>,所以蘑菇是抽象类,重构则是发现不变的部分提炼概念,发现变化的部分多态实现的过程<br>
+
         </nav>
         <header><p class="header">26-大话设计模式</p></header>
         <article id="0"><p class="chapter">0.契子 培训实习生-面向对象基础</p>
@@ -152,10 +156,80 @@
                     </p>
                 </div>
             </section>              
-            <section id="0.7"><p class="section">0.7 继承</p></section>              
-            <section id="0.8"><p class="section">0.8 多态</p></section>              
-            <section id="0.9"><p class="section">0.9 重构</p></section>              
-            <section id="0.10"><p class="section">0.10 抽象类</p></section>              
+            <p class="timeStamp" id="20240703">20240703学习</p>
+            <section id="0.7"><p class="section">0.7 继承</p>
+                <div><p class="paragraph">什么是继承?</p>
+                    对象的继承表明了一种"<strong>is a</strong>"关系,如果两个对象可以描述为B是A,那么B就可以继承A.<br>
+                    继承者B可以认为是A的<strong>特殊化</strong>,不但具备A的全部功能,还有其他的<strong>特性</strong><br>
+                    这是一种<strong>共享</strong>部分的定义<br>
+                </div>
+                <div><p class="paragraph">继承的特性</p>
+                    三个特性<br>
+                    1.子类拥有父类<strong>非private</strong>的属性和功能(public,protected,internal,file)<br>
+                    2.子类具有自己<strong>独特</strong>的属性和功能(父类没有)<br>
+                    3.子类还可以以自己的方式实现父类的功能(<strong>覆盖重写</strong>)<br>
+                </div>
+                <div><p class="paragraph">如何调用父类</p>
+                    java当中子类通过<strong>base关键字</strong>来调用从父类继承的方法属性,构造函数则<strong>不能继承</strong>,只能调用(因为初始化是针对的父类的,在子类这里不能通用)<br>
+                </div>
+                <div><p class="paragraph">继承的优缺点</p>
+                    优点:<br>
+                    继承使得所有子类公共的部分都放在了父类,代码得到了<strong>共享</strong>,<strong>避免了重复</strong>,这也使得修改或扩展继承都相对变得容易了<br>
+                    缺点:<br>
+                    继承的缺点是当父类变化,子类不得不跟着一起变,继承会<strong>破坏封装</strong>,父类实现的细节会暴露给子类,是一种类之间的<strong>强耦合</strong>关系,子类依赖于父类<br>
+                </div>
+            </section>              
+            <section id="0.8"><p class="section">0.8 多态</p>
+                <div><p class="paragraph">段落</p>
+                    <figure>
+                        <img src="Resources/img/chapter0/006多态.png" alt="多态">
+                        <p>
+                            多态表示不同的对象可以执行<strong>相同的动作</strong>,但是他们有<strong>自己的实现</strong>代码来执行.<br>
+                            示例是鸟类共同的方法移动Move<br>
+                            但是不同的鸟类采用了完全不一样的方法来实现移动,这就是覆写Override<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">多态的特性</p>
+                    1.子类以父类的方式出现(上面的例子来说,都是实现移动这个父类的方法)<br>
+                    2.子类在工作时以自己的方式来实现(不同的移动方式)<br>
+                    3.子类以父类的身份出现的时候,就不能使用自己特有的这些父类没有的方法和属性了(不然就穿帮了)<br>
+                </div>
+                <div><p class="paragraph">多态的实现</p>
+                    <figure>
+                        <img src="Resources/img/chapter0/007覆写.png" alt="覆写">
+                        <p>
+                            子类通过@override关键字,覆写父类的实现.<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>              
+            <section id="0.9"><p class="section">0.9 重构</p>
+                <div><p class="paragraph">段落</p>
+                    <figure>
+                        <img src="Resources/img/chapter0/008重构.png" alt="重构">
+                        <p>
+                            重构就是这种发现<strong>重复</strong>代码->提炼到父对象->发现<strong>变化</strong>代码->提炼成方法通过多态让子类实现<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>              
+            <section id="0.10"><p class="section">0.10 抽象类</p>
+                <div><p class="paragraph">抽象类的概念</p>
+                    抽象类是实例化没有任何意义的父类<br>
+                </div>
+                <div><p class="paragraph">抽象类的实现</p>
+                    通过在class关键字前面增加abstract关键字类声明为抽象类或抽象方法<br>
+                </div>
+                <div><p class="paragraph">抽象类的特性</p>
+                    1.抽象类<strong>不能实例化</strong>(因为没有实际的对象)<br>
+                    2.抽象方法是子类<strong>必须重写</strong>的方法(没有默认实现)<br>
+                    3.如果类中包含抽象方法,就必须定义为抽象类.<br>
+                </div>
+                <div><p class="paragraph">抽象类的作用</p>
+                    抽象类通常代表一个抽象概念,提供一个继承的出发点,通常树叶节点应该是<strong>具体类</strong>,树枝节点则均是<strong>抽象类</strong>.<br>
+                </div>
+            </section>              
             <section id="0.11"><p class="section">0.11 接口</p></section>              
             <section id="0.12"><p class="section">0.12 集合</p></section>              
             <section id="0.13"><p class="section">0.13 泛型</p></section>              

@@ -25,7 +25,18 @@
                         <li><a href="#2.4">2.4 提高工作效率的方法</a></li>
                     </ul>
                 </li>
-                <li><a href="#3">3.蓝图可视化脚本系统</a></li>
+                <li><a href="#3">3.蓝图可视化脚本系统</a>
+                    <ul>
+                        <li><a href="#3.1">3.1 控制简单变量</a></li>
+                        <li><a href="#3.2">3.2 简单的流程控制</a></li>
+                        <li><a href="#3.3">3.3 按键映射</a></li>
+                        <li><a href="#3.4">3.4 其他有关流程控制的节点</a></li>
+                        <li><a href="#3.5">3.5 手柄控制</a></li>
+                        <li><a href="#3.6">3.6 蓝图中快捷操作与快捷键</a></li>
+                        <li><a href="#3.7">3.7 简单的随机功能</a></li>
+                        <li><a href="#3.8">3.8 综合训练:实现技能冷却</a></li>
+                    </ul>
+                </li>
                 <li><a href="#4">4.了解计算逻辑</a></li>
                 <li><a href="#5">5.常用组件</a></li>
                 <li><a href="#6">6.添加物理碰撞</a></li>
@@ -56,8 +67,8 @@
             游戏运行模式,移动方式,关卡概念,大纲面板,设置初始出生位置,放置面板等等基础概念的了解<br>
             <a href="#20240701"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240701:蓝图初步了解<br>
             初步了解基本的操作逻辑,<strong>轴点设置</strong>,<strong>顶点对齐</strong>,蓝图<strong>创建和使用</strong>,<strong>书签添加</strong>,<strong>引用查询</strong><br>
-
-
+            <a href="#20240703"><img style="width:18pt" src="Resources/other/跳转.jpg" alt="跳转"></a>20240703:蓝图系统<br>
+            了解常见的事件,如何设置事件,添加注释<br>
         </nav>
         <header><p class="header">UE5完全自学教程-崔润(同步Src)<br>ISBN:9787115613011<br><img src="UE5完全自学教程.jpg" alt="书籍封面"></p>
             
@@ -376,9 +387,112 @@
                     </figure>
                 </div>
             </section>
-            <section id="2.4"><p class="section">2.4 提高工作效率的方法</p></section>
+            <section id="2.4"><p class="section">2.4 提高工作效率的方法</p>
+                <div><p class="paragraph">段落</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/28保存页面布局.png" alt="保存页面布局">
+                        <p>
+                            可以保存自己习惯的页面布局,然后就可以在LoadLayout里面读取了<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">2.4.2 快捷操作与快捷键</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/29快速窗口切换.png" alt="快速窗口切换">
+                        <p>
+                            ctrl+Tab可以快速切换窗口(没啥用的功能)<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">小练习</p>
+                    <figure>
+                        <img src="Resources/img/chapter2/30添加资产到工程.png" alt="添加资产到工程">
+                        <p>
+                            将下载好的资产添加到项目当中,这个过程类似于unity的package安装过程<br>
+                        </p>
+                        <img src="Resources/img/chapter2/31小场景布置.png" alt="小场景布置">
+                        <p>
+                            知识点:<br>
+                            1.按住alt移动=复制对象<br>
+                            2.按住v移动是顶点吸附,和unity当中按c一样,方便准确拼接<br>
+                            3.通过alt+鼠标中建移动轴点,按v来吸附顶点,调整坐标轴<br>
+                        </p>
+                        <img src="Resources/img/chapter2/32植被引入.png" alt="植被引入">
+                        <p>
+                            知识点<br>
+                            1.通过切换到Landscape地形面板来修改地形<br>
+                            2.切换到Foliage植物面板来绘制植物<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
         </article>
-        <article id="3"><p class="chapter">3.蓝图可视化脚本系统</p></article>
+        <p class="timeStamp" id="20240703">20240703蓝图进阶</p>
+        <article id="3"><p class="chapter">3.蓝图可视化脚本系统</p>
+            <section id="3.1"><p class="section">3.1 控制简单变量</p>
+                <div><p class="paragraph">3.1.1 "细节"面板</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/001细节面板.png" alt="细节面板">
+                        <p>
+                            细节面板是对应对象的参数设置部分<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">3.1.2 事件</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/002简单事件.png" alt="简单事件">
+                        <p>
+                            常用的三个事件,开始,每帧,碰撞<br>
+                        </p>
+                        <img src="Resources/img/chapter03/003自定义事件.png" alt="自定义事件">
+                        <p>
+                            自定义事件可以用于将一大批的事件整合在一起,梳理结构,类似于代码里面的重构创造父类的概念<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">3.1.3 用蓝图控制默认值</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/004设置和读取对象显示影藏状态.png" alt="设置和读取对象显示影藏状态">
+                        <p>
+                            可以通过函数Set Actor Hidden in Game动态设置对象的显示影藏状态(unity的setactive函数一样)<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">3.1.4 构造脚本</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/005构造函数.png" alt="构造函数">
+                        <p>
+                            构造函数,对象的初始化执行逻辑,(unity的Awake)<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">3.1.5 注释</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/006添加注释.png" alt="添加注释">
+                        <p>
+                            三种添加注释的方式,添加后可以在书签面板看到方便快速跳转<br>
+                        </p>
+                    </figure>
+                </div>
+                <div><p class="paragraph">3.1.6 变量</p>
+                    <figure>
+                        <img src="Resources/img/chapter03/007添加变量.png" alt="添加变量">
+                        <p>
+                            可以在我的蓝图面板添加变量类型,拖拽到事件图形面板就可以得到设置和获取函数<br>
+                        </p>
+                    </figure>
+                </div>
+            </section>
+            <section id="3.2"><p class="section">3.2 简单的流程控制</p></section>
+            <section id="3.3"><p class="section">3.3 按键映射</p></section>
+            <section id="3.4"><p class="section">3.4 其他有关流程控制的节点</p></section>
+            <section id="3.5"><p class="section">3.5 手柄控制</p></section>
+            <section id="3.6"><p class="section">3.6 蓝图中快捷操作与快捷键</p></section>
+            <section id="3.7"><p class="section">3.7 简单的随机功能</p></section>
+            <section id="3.8"><p class="section">3.8 综合训练:实现技能冷却</p></section>
+
+            
+        </article>
         <article id="4"><p class="chapter">4.了解计算逻辑</p></article>
         <article id="5"><p class="chapter">5.常用组件</p></article>
         <article id="6"><p class="chapter">6.添加物理碰撞</p></article>
