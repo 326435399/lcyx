@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>英语语法笔记目录</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fefefe;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .directory {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .entry {
+      background: #fff;
+      border-left: 6px solid #4a90e2;
+      padding: 15px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
+    }
+
+    .entry:hover {
+      background: #f0f8ff;
+      transform: translateX(4px);
+    }
+
+    .entry a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .pagination button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      margin: 0 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📘 英语语法笔记目录</h1>
+
+<div class="directory" id="directory"></div>
+
+<div class="pagination">
+  <button id="prevPage">上一页</button>
+  <span id="pageIndicator">1 / 1</span>
+  <button id="nextPage">下一页</button>
+</div>
+
+<script>
+  // 模拟 HTML 文件夹中的 HTML 文件名（手动维护列表）
+  const files = [
+    "20250603-01.html",
+    "20250603-02.html",
+    "20250603-03.html",
+  ];
+
+  const itemsPerPage = 6;
+  let currentPage = 1;
+
+  function renderPage() {
+    const directory = document.getElementById('directory');
+    const pageIndicator = document.getElementById('pageIndicator');
+    directory.innerHTML = '';
+
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = Math.min(start + itemsPerPage, files.length);
+
+    for (let i = start; i < end; i++) {
+      const file = files[i];
+      const displayName = decodeURIComponent(file.replace(/[-_]/g, ' ').replace(/\.html$/, ''));
+      const entry = document.createElement('div');
+      entry.className = 'entry';
+      entry.innerHTML = `<a href="./HTML/${file}">📄 ${displayName}</a>`;
+      directory.appendChild(entry);
+    }
+
+    pageIndicator.textContent = `${currentPage} / ${Math.ceil(files.length / itemsPerPage)}`;
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = end >= files.length;
+  }
+
+  document.getElementById('prevPage').addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage();
+    }
+  });
+
+  document.getElementById('nextPage').addEventListener('click', () => {
+    if (currentPage * itemsPerPage < files.length) {
+      currentPage++;
+      renderPage();
+    }
+  });
+
+  renderPage();
+</script>
+
+</body>
+</html>
