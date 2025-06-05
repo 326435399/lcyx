@@ -84,9 +84,16 @@
     "20250603-01.html",
     "20250603-02.html",
     "20250603-03.html",
+    "20250605_01.html",
+    "20250605_02.html",
+    "20250605_03.html",
+    "20250605_04.html",
+    "20250605_05.html",
+    "20250605_06.html",
+    "20250605_07.html",
   ];
 
-  const itemsPerPage = 6;
+  const itemsPerPage = 24;
   let currentPage = 1;
 
   function renderPage() {
@@ -102,7 +109,7 @@
       const displayName = decodeURIComponent(file.replace(/[-_]/g, ' ').replace(/\.html$/, ''));
       const entry = document.createElement('div');
       entry.className = 'entry';
-      entry.innerHTML = `<a href="./HTML/${file}">📄 ${displayName}</a>`;
+      entry.innerHTML = `<a href="./HTML/${file}">🍔 ${displayName}</a>`;
       directory.appendChild(entry);
     }
 
